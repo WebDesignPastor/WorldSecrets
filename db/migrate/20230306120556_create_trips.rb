@@ -7,7 +7,6 @@ class CreateTrips < ActiveRecord::Migration[7.0]
       t.string :status
       t.integer :progress
       t.references :user, null: false, foreign_key: true
-      t.references :itinerary, null: false, foreign_key: true
 
       t.timestamps
     end
