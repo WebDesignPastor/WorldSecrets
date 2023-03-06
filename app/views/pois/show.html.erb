@@ -2,5 +2,5 @@
 <h2><%= @poi.mystery_name %></h2>
 <p><%= @poi.mystery_content %></p>
 
-<%= link_to "Continuez l'aventure", trip_path(id =1), class:'btn btn-warning' %>
-<%= link_to "Go to the quizz", trip_questions_path(id = 1), class:'btn btn-success' %>
+<%= link_to "Continuez l'aventure", trip_path(Trip.first.id), class:'btn btn-warning' %>
+<%= link_to "Go to the quizz", trip_questions_path(Trip.first.id), class:'btn btn-success' %>
