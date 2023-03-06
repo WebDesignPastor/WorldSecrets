@@ -10,9 +10,82 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_06_113952) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_06_124710) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "itineraries", force: :cascade do |t|
+    t.string "name"
+    t.float "distance"
+    t.float "rating"
+    t.integer "duration"
+    t.integer "number_of_poi"
+    t.string "departure"
+    t.bigint "city_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_itineraries_on_city_id"
+  end
+
+  create_table "itinerary_pois", force: :cascade do |t|
+    t.string "poi_order"
+    t.bigint "itinerary_id", null: false
+    t.bigint "poi_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["itinerary_id"], name: "index_itinerary_pois_on_itinerary_id"
+    t.index ["poi_id"], name: "index_itinerary_pois_on_poi_id"
+  end
+
+  create_table "pois", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "mystery_name"
+    t.text "mystery_content"
+    t.string "mystery_image"
+    t.string "clue_image"
+    t.string "clue_sentence"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string "question_statement"
+    t.bigint "itinerary_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["itinerary_id"], name: "index_questions_on_itinerary_id"
+  end
+
+  create_table "trip_answers", force: :cascade do |t|
+    t.string "answer"
+    t.bigint "question_id", null: false
+    t.bigint "trip_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_trip_answers_on_question_id"
+    t.index ["trip_id"], name: "index_trip_answers_on_trip_id"
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.integer "proximity_level"
+    t.string "image"
+    t.text "content"
+    t.string "status"
+    t.integer "progress"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "itinerary_id"
+    t.index ["itinerary_id"], name: "index_trips_on_itinerary_id"
+    t.index ["user_id"], name: "index_trips_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +95,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_113952) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nickname"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "itineraries", "cities"
+  add_foreign_key "itinerary_pois", "itineraries"
+  add_foreign_key "itinerary_pois", "pois"
+  add_foreign_key "questions", "itineraries"
+  add_foreign_key "trip_answers", "questions"
+  add_foreign_key "trip_answers", "trips"
+  add_foreign_key "trips", "itineraries"
+  add_foreign_key "trips", "users"
 end
