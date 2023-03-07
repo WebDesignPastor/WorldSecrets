@@ -4,4 +4,4 @@
 <%= render 'pop_up_cold' %>
 <%= render 'pop_up_on_spot' %>
 
-  <%= link_to "Reveal the secret", poi_path(id = 5), class:'btn btn-primary' %>
+  <%= link_to "Reveal the secret", poi_path(Poi.last.id), class:'btn btn-primary' %>
