@@ -1,15 +1,10 @@
 <ul>
-  <li><%= @itinerary.name %></li>
-  <li><%= @itinerary.distance %></li>
-  <li><%= @itinerary.rating %></li>
-  <li><%= @itinerary.duration %></li>
-  <li><%= @itinerary.number_of_poi %></li>
+  <li>Nom :<%= @itinerary.name %></li>
+  <li>Distance :<%= @itinerary.distance %>km</li>
+  <li>Note :<%= @itinerary.rating %>/5</li>
+  <li>Durée :<%= @itinerary.duration.fdiv(60) %>h</li>
+  <li>Nombre d'étapes :<%= @itinerary.number_of_poi %></li>
 </ul>
-<%= link_to trip_path(@trip) do %>
-  <%= simple_for_form [@itinerary, @trip] do |f| %>
-    <%= f.input :proximity_level, as: :hidden, input_html: { value: 0 } %>
-    <%= f.input :progress, as: :hidden, input_html: { value: 0 } %>
-    <%= f.input :status, as: :hidden, input_html: { value: "running" } %>
-    <%= f.submit %>
-  <% end %>
-<% end %>
+
+
+  <%= link_to "C'est parti !", trip_path, class:'btn btn-primary' %>

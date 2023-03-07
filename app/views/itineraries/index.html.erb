@@ -1,3 +1,3 @@
 <% @itineraries.each do |itinerary| %>
-  <%= itinerary.name  %>
+  <%= link_to itinerary.name, itinerary_path(itinerary), class:'btn btn-primary' %>
 <% end %>
