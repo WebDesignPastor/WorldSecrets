@@ -5,6 +5,5 @@ class ItinerariesController < ApplicationController
 
   def show
     @itinerary = Itinerary.find(params[:id])
-    # @trip = Trip.find(params[:id])
   end
 end

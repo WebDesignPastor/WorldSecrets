@@ -1,0 +1,7 @@
+<ul>
+  <% @questions.each do |question| %>
+    <li><%= question.question_statement %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Discover other itineraries', itineraries_path, class:'btn btn-warning' %>
