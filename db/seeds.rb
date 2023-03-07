@@ -41,8 +41,7 @@ Poi.create!(name: 'La rue du chat qui danse', address: '1 rue du chat qui danse,
             mystery_name: 'rue du chat qui danse', mystery_content: "Les vils Anglois ont tenté de rayer Saint-malo de la carte avec un bateau rempli d'explosifs",
             mystery_image: 'wlecjbcirukxgdhv67wk', clue_image: '?', clue_sentence: 'Je suis un animal domestique, Qui aime les souris et les balles élastiques,
             Mon nom est court et doux à prononcer, Et quand il y a de la musique, je me mets à bouger, Qui suis-je ?')
-Poi.create!(name: )
-puts "created #{Poi.count} pois"
+puts "created #{Poi.count} pois !"
 
 puts '####### Creating Trips #############'
 
