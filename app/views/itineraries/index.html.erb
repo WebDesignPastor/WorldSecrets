@@ -1,3 +1,4 @@
 <% @itineraries.each do |itinerary| %>
   <%= link_to itinerary.name, itinerary_path(itinerary), class:'btn btn-primary' %>
+    <%= cl_image_tag itinerary.photos.first.key, height: 300, width: 400, crop: :fill %>
 <% end %>
