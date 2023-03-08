@@ -10,3 +10,12 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.phone-navbar {
+  background-color: white;
+  border-top: solid 2px $black-500;
+  width: 100vw;
+  height: 85px;
+  position: absolute;
+  bottom: 0;
+}

@@ -1,0 +1,22 @@
+.card {
+  width: 285px;
+  height: 245px;
+  border: solid 2px $black-700;
+  border-radius: 8px;
+  background-color: transparent;
+
+  .card-img {
+    width: 100vw;
+    height: 160;
+    overflow: hidden;
+  }
+
+  .card-infos {
+    width: 100vw;
+    height: 85px;
+
+    .black-700 {
+      color: $black-700;
+    }
+  }
+}
