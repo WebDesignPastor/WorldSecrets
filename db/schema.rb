@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_08_133712) do
+
+ActiveRecord::Schema[7.0].define(version: 2023_03_08_094234) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -81,6 +83,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_133712) do
     t.string "clue_sentence"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "questions", force: :cascade do |t|
