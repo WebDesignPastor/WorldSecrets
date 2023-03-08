@@ -1,7 +1,9 @@
 class Poi < ApplicationRecord
-  has_many :itinerary_pois
+
+  has_many :itinerary_pois, dependent: :destroy
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  
   # Validates :name, presence: true, uniqueness: true
   # Validates :address, presence: true, uniqueness: true
   # Validates :mystery_name, presence: true, uniqueness: true
