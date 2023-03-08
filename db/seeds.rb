@@ -34,43 +34,45 @@ City.create!(name: 'Sarzeau')
 
 puts "created #{City.count} cities"
 
+puts '####### Creating Pois #############'
+# Pois uniquement pour st malo (demo-day)
+chat_qui_danse = Poi.create!(name: 'La rue du chat qui danse', address: '1 rue du chat qui danse, 35400 Saint-Malo',
+            mystery_name: 'rue du chat qui danse', mystery_content: "Les vils Anglois ont tenté de rayer Saint-malo de la carte avec un bateau rempli d'explosifs",
+            mystery_image: 'wlecjbcirukxgdhv67wk', clue_image: '?', clue_sentence: 'Je suis un animal domestique, Qui aime les souris et les balles élastiques,
+            Mon nom est court et doux à prononcer, Et quand il y a de la musique, je me mets à bouger, Qui suis-je ?')
+puts "created #{Poi.count} pois !"
+
 puts '####### Creating Itineraries #############'
 
 st_malo_pictures = File.open("db/fixtures/saint-malo1.jpg"), File.open("db/fixtures/saint-malo2.jpg"), File.open("db/fixtures/saint-malo3.jpg")
 st_malo = Itinerary.new(name: 'Saint-Malo, la cité corsaire', distance: 5, rating: 5, duration: 120, number_of_poi: 3, departure: 'Porte Saint-vincent 35400 Saint-Malo', city_id: City.last.id)
 st_malo_pictures.each { |file| st_malo.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 st_malo.save!
+
 st_michel_pictures = File.open("db/fixtures/stmichel1.jpg"), File.open("db/fixtures/stmichel2.jpg"), File.open("db/fixtures/stmichel3.jpg")
 st_michel = Itinerary.new(name: 'Les secrets du Mont-Saint-Michel', distance: 7, rating: 5, duration: 160, number_of_poi: 4, departure: 'Pont Passerelle du Mont Saint-Michel, 50170 le Mont Saint Michel', city_id: City.last.id)
 st_michel_pictures.each { |file| st_michel.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 st_michel.save!
+
 dinan_pictures = File.open("db/fixtures/dinan1.jpg"), File.open("db/fixtures/dinan2.jpg"), File.open("db/fixtures/dinan3.jpg")
 dinan = Itinerary.new(name: 'Dinan et ses remparts', distance: 10, rating: 5, duration: 180, number_of_poi: 6, departure: 'Le Vieux Pont 22100 Dinan', city_id: City.last.id)
 dinan_pictures.each { |file| dinan.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 dinan.save!
+
 pont_croix_pictures = [File.open("db/fixtures/pontcroix1.jpg")]
 pont_croix = Itinerary.new(name: 'Pont-Croix, à la croisée des chemins', distance: 4, rating: 4, duration: 60, number_of_poi: 3, departure: 'Pont de la Rue Voltaire', city_id: City.last.id)
 pont_croix_pictures.each { |file| pont_croix.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 pont_croix.save!
+
 vannes_pictures = [File.open("db/fixtures/vannes1.jpg")]
 vannes = Itinerary.new(name: 'Les remparts de Vannes', distance: 6, rating: 3, duration: 90, number_of_poi: 4, departure: 'Rue de la Porte Prison, 56000 Vannes', city_id: City.last.id)
 vannes_pictures.each { |file| vannes.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 vannes.save!
-
 puts "created #{Itinerary.count} itineraries"
-
-puts '####### Creating Pois #############'
-
-# Pois uniquement pour st malo (demo-day)
-Poi.create!(name: 'La rue du chat qui danse', address: '1 rue du chat qui danse, 35400 Saint-Malo',
-            mystery_name: 'rue du chat qui danse', mystery_content: "Les vils Anglois ont tenté de rayer Saint-malo de la carte avec un bateau rempli d'explosifs",
-            mystery_image: 'wlecjbcirukxgdhv67wk', clue_image: '?', clue_sentence: 'Je suis un animal domestique, Qui aime les souris et les balles élastiques,
-            Mon nom est court et doux à prononcer, Et quand il y a de la musique, je me mets à bouger, Qui suis-je ?')
-puts "created #{Poi.count} pois !"
 
 puts '####### Creating Itinerary_pois #############'
 
-ItineraryPoi.create!(poi_order: 1, itinerary_id: Itinerary.last.id, poi_id: Poi.last.id)
+ItineraryPoi.create!(poi_order: 1, itinerary: st_malo, poi: chat_qui_danse)
 puts "created #{ItineraryPoi.count} ItineraryPois"
 
 puts '####### Creating Trips #############'
