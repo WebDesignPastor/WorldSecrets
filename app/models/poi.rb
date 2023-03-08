@@ -1,5 +1,5 @@
 class Poi < ApplicationRecord
-  has_many :itinerary_pois
+  has_many :itinerary_pois, dependent: :destroy
 
   # Validates :name, presence: true, uniqueness: true
   # Validates :address, presence: true, uniqueness: true
