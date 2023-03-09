@@ -1,5 +1,46 @@
 .mapboxgl-marker {
-  background-color: #f40808;
-  border: 30px solid rgba(225,131,16,0.5);
-  border-radius: 205px;
+  background-color: $primary;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  position: relative;
+  opacity: 0.4 !important;
+
+  svg {
+    display:none;
+  }
+}
+
+.mapboxgl-marker:first-of-type {
+  background-color: red !important;
+  width: 20px;
+  height: 20px;
+}
+
+.mapboxgl-marker:after {
+  background-color: $primary;
+  opacity: 0.4;
+  content: '';
+  width:200px;
+  height:200px;
+  position:absolute;
+  top: -75px;
+  left: -75px;
+  transform: scale(0);
+  border-radius:50%;
+  animation: pulse 5s infinite;
+}
+
+.mapboxgl-marker:first-of-type:after {
+  display:none;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
