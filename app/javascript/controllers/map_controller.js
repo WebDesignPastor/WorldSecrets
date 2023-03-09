@@ -4,7 +4,8 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static values = {
     apiKey: String,
-    markers: Array
+    markers: Array,
+    departureMarkers: Array
   }
 
   connect() {
@@ -15,13 +16,14 @@ export default class extends Controller {
       style: "mapbox://styles/fanchpastor/cleztoc72003801o3sccvya6t"
     })
 
-    this.#addMarkersToMap()
+    this.#addMarkersToMap(this.markersValue)
+    this.#addMarkersToMap(this.departureMarkersValue)
     this.#fitMapToMarkers()
 
   }
 
-  #addMarkersToMap() {
-    this.markersValue.forEach((marker) => {
+  #addMarkersToMap(markers) {
+    markers.forEach((marker) => {
       new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(this.map)

@@ -3,12 +3,19 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
     @itinerary = @trip.itinerary
     @pois = @itinerary.pois
+    @departure = @itinerary.departure
     @markers = @pois.geocoded.map do |poi|
       {
         lat: poi.latitude,
         lng: poi.longitude
       }
     end
+    @departure_marker = [
+      {
+        lat: @itinerary.latitude,
+        lng: @itinerary.longitude
+      }
+    ]
   end
 
   def create
@@ -26,6 +33,6 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    # params.require(:trip).permit(:proximity_level, :image, :content, :status, :progress)
+    params.require(:trip).permit(:proximity_level, :image, :content, :status, :progress, :departure)
   end
 end
