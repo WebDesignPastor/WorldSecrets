@@ -1,7 +1,13 @@
+.cards-wrapper {
+  width:100vw;
+  overflow:hidden;
+  overflow-x: scroll;
+}
+
 .cards {
   margin: 0 20px 0 0;
-  width: 100em;
-  overflow-x: auto;
+  width:fit-content;
+  gap:20px;
 }
 
 .card {
@@ -10,11 +16,7 @@
   border: solid 1px white;
   border-radius: 8px;
   background-color: transparent;
-
-  .card-img {
-    overflow: hidden;
-    border-radius: 8px 8px 0 0;
-  }
+  overflow: hidden;
 
   .card-infos {
     border-radius: 0 0 8px 8px;
