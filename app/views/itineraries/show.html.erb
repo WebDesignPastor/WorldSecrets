@@ -1,13 +1,15 @@
-<div>
-<%= cl_image_tag @itinerary.photos.first.key, class: "show_image", crop: :fill %>
+<div class= "main_show_div">
+  <div class= "card_show_itinerary">
+    <%= cl_image_tag @itinerary.photos.first.key, class: "show_image", crop: :fill %>
+    <div class="button-return"><i class="fa-solid fa-chevron-left"></i> RETOUR</div>
+    <div class="button-favorite"><i class="fa-regular fa-heart"></i></div>
+  </div>
+  <p><strong><%= @itinerary.distance %>km · <%= @itinerary.duration.fdiv(60) %> h · <%= @itinerary.rating %>/5</strong></p>
+  <h2><strong><%= @itinerary.name %></strong></h2>
+  <p><%= @itinerary.description %></p>
+  <div>
+    <%= simple_form_for [@itinerary, @trip] do |f| %>
+      <%= f.submit "Allons-y", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
-  <p>Nom :<%= @itinerary.name %></p>
-  <p>Distance :<%= @itinerary.distance %>km</p>
-  <p>Note :<%= @itinerary.rating %>/5</p>
-  <p>Durée :<%= @itinerary.duration.fdiv(60) %>h</p>
-  <p>Nombre d'étapes :<%= @itinerary.number_of_poi %></p>
-  <p>Description :<%= @itinerary.description %></p>
-
-<%= simple_form_for [@itinerary, @trip] do |f| %>
-        <%= f.submit "Allons-y", class: "btn btn-primary" %>
-<% end %>
