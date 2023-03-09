@@ -6,5 +6,6 @@
   <li>Nombre d'étapes :<%= @itinerary.number_of_poi %></li>
 </ul>
 
-
-  <%= link_to "C'est parti !", trip_path(Trip.first.id), class:'btn btn-primary' %>
+<%= simple_form_for [@itinerary, @trip] do |f| %>
+        <%= f.submit "Allons-y", class: "btn btn-primary" %>
+<% end %>
