@@ -5,8 +5,20 @@
       <h2>Itinéraires</h2>
       <%# Insérer le symbol des filtres qui fait apparaître la modal %>
     </div>
-    <div>
-      <%# Insérer les 5 checkbox qui filtres les catégories (scroll horizontal possible) %>
+    <div class="d-flex justify-content-between checkbox-wrapper">
+      <label class="label">
+        <input type="checkbox" name="checkbox" value="text"> Nature
+      </label>
+      <%# <input type="checkbox" name="checkbox" id="checkbox_id" value="value">
+      <label for="checkbox_id">Nature</label>
+      <input type="checkbox" name="checkbox" id="checkbox_id" value="value">
+      <label for="checkbox_id">Urbain</label>
+      <input type="checkbox" name="checkbox" id="checkbox_id" value="value">
+      <label for="checkbox_id">Médiéval</label>
+      <input type="checkbox" name="checkbox" id="checkbox_id" value="value">
+      <label for="checkbox_id">Préhistoire</label>
+      <input type="checkbox" name="checkbox" id="checkbox_id" value="value">
+      <label for="checkbox_id">Nouveau</label> %>
     </div>
     <div>
       <div>
@@ -21,7 +33,7 @@
                   <%= cl_image_tag itinerary.photos.first.key, height: 160, width: 285, crop: :fill %>
                 </div>
                 <div class="card-infos">
-                  <p><%= itinerary.distance %>km | <%= itinerary.duration %></p>
+                  <p class="text-x-small black-700"><%= itinerary.distance %>km | <%= itinerary.duration %></p>
                   <h4><%= itinerary.name %></h4>
                 </div>
               <% end %>
