@@ -1,0 +1,72 @@
+.wrapper-map {
+  width: 100vw;
+  height: 100vh;
+
+  .custom-modal-text {
+    bottom: 0;
+    z-index: 1;
+    background-color: white;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 25px;
+    width: 285px;
+    height: 80px;
+    text-align: center;
+    transform: translateY(120%);
+  }
+
+  .custom-modal-img {
+    bottom: 0;
+    z-index: 1;
+    background-color: white;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 25px;
+    width: 285px;
+    height: 205px;
+    text-align: center;
+    transform: translateY(120%);
+  }
+
+  .custom-modal-finish {
+    bottom: 0;
+    z-index: 1;
+    background-color: white;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 25px;
+    width: 340px;
+    height: 135px;
+    text-align: center;
+    transform: translateY(120%);
+  }
+}
+
+.plus-btn {
+  z-index: 1;
+  bottom: 0;
+  right: 0;
+  margin: 0 12px 12px 0;
+}
+
+.mapboxgl-ctrl-logo {
+  display: none !important;
+}
+
+.mapboxgl-ctrl {
+  display: none !important;
+}
+
+
+.modal-seen {
+  animation: modalSlideIn .5s ease-in-out forwards;
+}
+
+@keyframes modalSlideIn {
+  from {
+    transform: translateY(120%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}

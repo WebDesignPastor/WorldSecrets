@@ -1,13 +1,23 @@
-<h1>Suis la carte</h1>
-<div style="width: 100vw; height: 100vh;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+<div class="position-relative wrapper-map" data-controller="modal">
+  <div class="position-absolute" style="width: 100vw; height: 100vh;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-
-<h2>Cherche le mystère</h2>
-<%= render 'pop_up_warm' %>
-<%= render 'pop_up_cold' %>
-<%= render 'pop_up_on_spot' %>
-
-  <%= link_to "Reveal the secret", poi_path(Poi.last.id), class:'btn btn-primary' %>
+  <div class="d-flex justify-content-center">
+    <div class="position-absolute custom-modal-text d-none" data-modal-target="modalCold">
+      <p>Le mystère se rapproche</p>
+      <p>Regarde vers la lumière</p>
+    </div>
+    <div class="position-absolute custom-modal-img d-none" data-modal-target="modalWarm">
+      <p>image ici</p>
+    </div>
+    <div class="position-absolute custom-modal-finish d-none" data-modal-target="modalWarmer">
+      <p>C'est la fin bravo !</p>
+      <%= link_to "Reveal the secret", poi_path(Poi.last.id), class:'btn btn-primary' %>
+    </div>
+  </div>
+  <div class="position-absolute plus-btn">
+    <%= image_tag('plus.svg') %>
+  </div>
+</div>
