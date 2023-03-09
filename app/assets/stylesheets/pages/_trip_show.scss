@@ -8,7 +8,7 @@
     background-color: white;
     border-radius: 16px;
     overflow: hidden;
-    margin-bottom: 40px;
+    margin-bottom: 25px;
     width: 285px;
     height: 80px;
     text-align: center;
@@ -21,7 +21,7 @@
     background-color: white;
     border-radius: 16px;
     overflow: hidden;
-    margin-bottom: 40px;
+    margin-bottom: 25px;
     width: 285px;
     height: 205px;
     text-align: center;
@@ -34,12 +34,27 @@
     background-color: white;
     border-radius: 16px;
     overflow: hidden;
-    margin-bottom: 40px;
+    margin-bottom: 25px;
     width: 340px;
     height: 135px;
     text-align: center;
     transform: translateY(120%);
   }
+}
+
+.plus-btn {
+  z-index: 1;
+  bottom: 0;
+  right: 0;
+  margin: 0 12px 12px 0;
+}
+
+.mapboxgl-ctrl-logo {
+  display: none !important;
+}
+
+.mapboxgl-ctrl {
+  display: none !important;
 }
 
 
