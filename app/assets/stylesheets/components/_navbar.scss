@@ -16,7 +16,8 @@
   border-top: solid 2px $black-500;
   width: 100vw;
   height: 85px;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   padding: 0 34px;
+  z-index: 1;
 }

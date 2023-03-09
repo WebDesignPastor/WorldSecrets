@@ -1,4 +1,31 @@
-<% @itineraries.each do |itinerary| %>
-  <%= link_to itinerary.name, itinerary_path(itinerary), class:'btn btn-primary' %>
-    <%= cl_image_tag itinerary.photos.first.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+<%= render "shared/navbar" %>
+
+<div class="d-flex flex-column container-index">
+  <div class="d-flex justify-content-between">
+    <h2>Itinéraires</h2>
+    <%# Insérer le symbol des filtres qui fait apparaître la modal %>
+  </div>
+  <div>
+    <%# Insérer les 5 checkbox qui filtres les catégories (scroll horizontal possible) %>
+  </div>
+  <div>
+    <div>
+      <h3>Les plus courtes</h3>
+    </div>
+    <div class="d-flex cards">
+      <% @itineraries.each do |itinerary| %>
+        <div class="card">
+          <%= link_to itinerary_path(itinerary) do %>
+            <div class="card-img">
+              <%= cl_image_tag itinerary.photos.first.key, height: 160, width: 285, crop: :fill %>
+            </div>
+            <div class="card-infos">
+              <p><%= itinerary.distance %>km | <%= itinerary.duration %></p>
+              <h4><%= itinerary.name %></h4>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
