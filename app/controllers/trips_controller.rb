@@ -35,7 +35,7 @@ class TripsController < ApplicationController
 
   private
 
-  # def trip_params
-  #   params.require(:trip).permit(:proximity_level, :image, :content, :status, :progress)
-  # end
+  def trip_params
+    params.require(:trip).permit(:proximity_level, :image, :content, :status, :progress, :departure)
+  end
 end

@@ -11,6 +11,12 @@
   }
 }
 
+.mapboxgl-marker:first-of-type {
+  background-color: red !important;
+  width: 20px;
+  height: 20px;
+}
+
 .mapboxgl-marker:after {
   background-color: $primary;
   opacity: 0.4;
@@ -23,6 +29,10 @@
   transform: scale(0);
   border-radius:50%;
   animation: pulse 5s infinite;
+}
+
+.mapboxgl-marker:first-of-type:after {
+  display:none;
 }
 
 @keyframes pulse {
