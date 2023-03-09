@@ -12,4 +12,14 @@
   width: 100vw;
   overflow: hidden;
   overflow-x: scroll;
+  gap: 20px;
+
+  .btn-outline-primary:hover {
+    color: $primary !important;
+    background-color: transparent !important;
+  }
+}
+
+.svg-colorized {
+  filter: invert(5%) sepia(100%) saturate(4359%) hue-rotate(351deg) brightness(116%) contrast(89%);
 }
