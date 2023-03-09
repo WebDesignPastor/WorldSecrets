@@ -1,10 +1,12 @@
-<ul>
-  <li>Nom :<%= @itinerary.name %></li>
-  <li>Distance :<%= @itinerary.distance %>km</li>
-  <li>Note :<%= @itinerary.rating %>/5</li>
-  <li>Durée :<%= @itinerary.duration.fdiv(60) %>h</li>
-  <li>Nombre d'étapes :<%= @itinerary.number_of_poi %></li>
-</ul>
+<div>
+<%= cl_image_tag @itinerary.photos.first.key, class: "show_image", crop: :fill %>
+</div>
+  <p>Nom :<%= @itinerary.name %></p>
+  <p>Distance :<%= @itinerary.distance %>km</p>
+  <p>Note :<%= @itinerary.rating %>/5</p>
+  <p>Durée :<%= @itinerary.duration.fdiv(60) %>h</p>
+  <p>Nombre d'étapes :<%= @itinerary.number_of_poi %></p>
+  <p>Description :<%= @itinerary.description %></p>
 
 <%= simple_form_for [@itinerary, @trip] do |f| %>
         <%= f.submit "Allons-y", class: "btn btn-primary" %>

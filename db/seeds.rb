@@ -45,7 +45,13 @@ puts "created #{Poi.count} pois !"
 puts '####### Creating Itineraries #############'
 
 st_malo_pictures = File.open("db/fixtures/saint-malo1.jpg"), File.open("db/fixtures/saint-malo2.jpg"), File.open("db/fixtures/saint-malo3.jpg")
-st_malo = Itinerary.new(name: 'Saint-Malo, la cité corsaire', distance: 5, rating: 5, duration: 120, number_of_poi: 3, departure: 'Porte Saint-vincent 35400 Saint-Malo', city_id: City.last.id)
+st_malo = Itinerary.new(name: 'Saint-Malo, la cité corsaire', distance: 5, rating: 5, duration: 120, number_of_poi: 3, departure: 'Porte Saint-vincent 35400 Saint-Malo', city_id: City.last.id, category: "Médiéval", description: "Entendez-moi, noble compagnie, car je vais vous raconter l'histoire d'une cité corsaire bâtie sur les flots tumultueux de l'océan, la ville imprenable de Saint-Malo.
+  Enveloppée par les vagues impitoyables de l'Atlantique, cette ville est un joyau resplendissant dans l'histoire de la Bretagne. Avec ses fortifications massives, ses édifices majestueux et ses rues pavées envoûtantes, elle a connu des siècles de guerres, de commerce et d'aventures épiques.
+  Ses remparts s'élèvent fièrement dans le ciel, défiant l'océan et protégeant la ville des ennemis. Les clochers de ses églises imposantes atteignent les nuages, témoins de la foi et de la détermination des habitants de la ville.
+  Mais c'est surtout l'histoire des corsaires de Saint-Malo qui a marqué les esprits de toutes les générations. Ces guerriers intrépides naviguaient sur des navires rapides et puissants, bravant les tempêtes les plus violentes et les flots les plus déchaînés pour protéger leur ville et leur liberté.
+  Leurs batailles légendaires contre les ennemis, qu'ils soient Anglais, Espagnols ou autres, sont restées gravées dans l'histoire. Les canons tonnent, les sabres s'entrechoquent, les flammes embrasent les navires ennemis, mais les corsaires de Saint-Malo tiennent bon, animés par un courage inébranlable et une ferveur indomptable.
+  Aujourd'hui encore, la ville de Saint-Malo continue de fasciner et d'inspirer tous ceux qui la visitent. Les rues pavées résonnent de l'histoire de ses ancêtres valeureux, les remparts gardent jalousement leurs secrets et l'océan murmure à l'oreille de ceux qui sont prêts à écouter.
+  Que la légende de Saint-Malo perdure dans les siècles à venir, comme un symbole de la bravoure et de la liberté de ceux qui ont osé affronter les flots les plus impitoyables et les ennemis les plus redoutables.")
 st_malo_pictures.each { |file| st_malo.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 st_malo.save!
 
