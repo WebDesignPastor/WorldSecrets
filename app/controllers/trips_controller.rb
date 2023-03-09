@@ -3,12 +3,19 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
     @itinerary = @trip.itinerary
     @pois = @itinerary.pois
+    @departure = @itinerary.departure
     @markers = @pois.geocoded.map do |poi|
       {
         lat: poi.latitude,
         lng: poi.longitude
       }
     end
+    @departure_marker = [
+      {
+        lat: @itinerary.latitude,
+        lng: @itinerary.longitude
+      }
+    ]
   end
 
   def create
