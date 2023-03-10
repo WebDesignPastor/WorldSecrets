@@ -27,8 +27,13 @@ mt_st_michel = City.create!(name: 'Le Mont-Saint-Michel')
 dinan = City.create!(name: 'Dinan')
 pont_croix = City.create!(name: 'Pont-Croix')
 vannes = City.create!(name: 'Vannes')
+carnac = City.create!(name: 'Carnac')
+nantes = City.create!(name: 'Nantes')
+guerledan = City.create!(name: 'Guerlédan')
+plogoff = City.create!(name: 'Plogoff')
+vitre = City.create!(name: 'Vitré')
+dinard = City.create!(name: 'Dinard')
 City.create!(name: 'Fougères')
-City.create!(name: 'Vitré')
 City.create!(name: 'Sarzeau')
 City.create!(name: 'Josselin')
 
@@ -58,13 +63,13 @@ st_malo_itinerary_pictures.each { |file| st_malo_itinerary.photos.attach(io: fil
 st_malo_itinerary.save!
 
 st_michel_itinerary_pictures = File.open("db/fixtures/stmichel1.jpg"), File.open("db/fixtures/stmichel2.jpg"), File.open("db/fixtures/stmichel3.jpg")
-st_michel_itinerary = Itinerary.new(name: 'Les secrets du Mont-Saint-Michel', distance: 7, rating: 5, duration: 160, number_of_poi: 4, departure: 'Pont Passerelle du Mont Saint-Michel, 50170 le Mont Saint Michel',
+st_michel_itinerary = Itinerary.new(name: 'Les secrets du Mont-Saint-Michel', distance: 7, rating: 5, duration: 160, number_of_poi: 4, departure: 'Pont Passerelle, Le Mont-Saint-Michel',
                       city: mt_st_michel, category: "Médieval")
 st_michel_itinerary_pictures.each { |file| st_michel_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 st_michel_itinerary.save!
 
 dinan_itinerary_pictures = File.open("db/fixtures/dinan1.jpg"), File.open("db/fixtures/dinan2.jpg"), File.open("db/fixtures/dinan3.jpg")
-dinan_itinerary = Itinerary.new(name: 'Dinan et ses remparts', distance: 10, rating: 5, duration: 180, number_of_poi: 6, departure: 'Le Vieux Pont 22100 Dinan', city: dinan)
+dinan_itinerary = Itinerary.new(name: 'Dinan et ses remparts', distance: 10, rating: 5, duration: 180, number_of_poi: 6, departure: 'Le Vieux Pont Dinan', city: dinan)
 dinan_itinerary_pictures.each { |file| dinan_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 dinan_itinerary.save!
 
@@ -74,9 +79,39 @@ pont_croix_itinerary_pictures.each { |file| pont_croix_itinerary.photos.attach(i
 pont_croix_itinerary.save!
 
 vannes_itinerary_pictures = [File.open("db/fixtures/vannes1.jpg")]
-vannes_itinerary = Itinerary.new(name: 'Les remparts de Vannes', distance: 6, rating: 3, duration: 90, number_of_poi: 4, departure: 'Rue de la Prte Prison, 56000 Vannes', city: vannes)
+vannes_itinerary = Itinerary.new(name: 'Les remparts de Vannes', distance: 6, rating: 3, duration: 90, number_of_poi: 4, departure: 'Remparts de Vannes', city: vannes)
 vannes_itinerary_pictures.each { |file| vannes_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 vannes_itinerary.save!
+
+carnac_itinerary_pictures = File.open("db/fixtures/carnac1.jpg"), File.open("db/fixtures/carnac2.jpg")
+carnac_itinerary = Itinerary.new(name: 'Secrets des pierres de Carnac', distance: 8, category: "Préhistoire", rating: 2, duration: 150, number_of_poi: 4, departure: 'Le Menec, Carnac', city: carnac)
+carnac_itinerary_pictures.each { |file| carnac_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+carnac_itinerary.save!
+
+nantes_itinerary_pictures = File.open("db/fixtures/nantes1.jpg"), File.open("db/fixtures/nantes2.jpg")
+nantes_itinerary = Itinerary.new(name: 'La ballade de la Duchesse Anne', distance: 4, category: "Médiéval", rating: 4.5, duration: 90, number_of_poi: 4, departure: 'Château des ducs de Bretagne, Nantes', city: nantes)
+nantes_itinerary_pictures.each { |file| nantes_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+nantes_itinerary.save!
+
+guerledan_itinerary_pictures = [File.open("db/fixtures/guerledan1.jpg")]
+guerledan_itinerary = Itinerary.new(name: 'Sur les traces de la bête du lac de Guerlédan', distance: 4, category: "Nature", rating: 4.5, duration: 90, number_of_poi: 4, departure: 'Lac de Guerlédan', city: guerledan)
+guerledan_itinerary_pictures.each { |file| guerledan_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+guerledan_itinerary.save!
+
+plogoff_itinerary_pictures = [File.open("db/fixtures/plogoff1.jpg")]
+plogoff_itinerary = Itinerary.new(name: 'Rencontre avec les trépassés de la Baie', distance: 4, category: "Nature", rating: 4.5, duration: 90, number_of_poi: 4, departure: 'Baie des trépassés', city: plogoff)
+plogoff_itinerary_pictures.each { |file| plogoff_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+plogoff_itinerary.save!
+
+vitre_itinerary_pictures = [File.open("db/fixtures/vitre1.jpg")]
+vitre_itinerary = Itinerary.new(name: 'Entre château et rues anciennes à Vitré', distance: 4, category: "Médiéval", rating: 4.5, duration: 90, number_of_poi: 4, departure: 'Château de Vitré', city: vitre)
+vitre_itinerary_pictures.each { |file| vitre_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+vitre_itinerary.save!
+
+dinard_itinerary_pictures = [File.open("db/fixtures/dinard1.jpg")]
+dinard_itinerary = Itinerary.new(name: 'Promenade avec Picasso à Dinard', distance: 4, category: "Urbain", rating: 4.5, duration: 90, number_of_poi: 4, departure: 'Mairie de Dinard', city: dinard)
+dinard_itinerary_pictures.each { |file| dinard_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+dinard_itinerary.save!
 puts "created #{Itinerary.count} itineraries"
 
 puts '####### Creating Itinerary_pois #############'

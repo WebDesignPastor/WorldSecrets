@@ -24,7 +24,7 @@ class TripsController < ApplicationController
     @trip.user = current_user
     @trip.itinerary = @itinerary
     @trip.proximity_level = 0
-    @trip.status = "Pending"
+    @trip.status = "running"
     @trip.progress = 0
     if @trip.save!
       redirect_to trip_path(@trip)
