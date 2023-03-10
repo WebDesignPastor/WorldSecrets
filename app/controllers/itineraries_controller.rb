@@ -5,6 +5,14 @@ class ItinerariesController < ApplicationController
     else
       @itineraries = Itinerary.all
     end
+
+    @itineraries_markers = @itineraries.geocoded.map do |itinerary|
+      {
+        lat: itinerary.latitude,
+        lng: itinerary.longitude
+      }
+    end
+
   end
 
   def show
