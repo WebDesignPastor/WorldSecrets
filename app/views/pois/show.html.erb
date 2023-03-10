@@ -1,6 +1,14 @@
-<h1><%= @poi.name %></h1>
-<h2><%= @poi.mystery_name %></h2>
-<p><%= @poi.mystery_content %></p>
-
-<%= link_to "Continuez l'aventure", trip_path(Trip.first.id), class:'btn btn-warning' %>
-<%= link_to "Go to the quizz", trip_questions_path(Trip.first.id), class:'btn btn-success' %>
+<div class= "main_show_div">
+  <div class= "card_show_itinerary">
+    <%= image_tag "rue_du_chat_qui_danse", class: "show_image", crop: :fill %>
+  </div>
+  <div class="card_show_itinerary_content">
+    <h2><strong><%= @poi.mystery_name %></strong></h2>
+    <h3>Laissez-moi vous présenter cette histoire</h3>
+    <p><%= @poi.mystery_content %></p>
+  </div>
+  <div class="card_show_bottom">
+    <%= link_to "Continuez l'aventure", trip_path(Trip.first.id), class:'btn btn-warning' %>
+    <%= link_to "Go to the quizz", trip_questions_path(Trip.first.id), class:'btn btn-success' %>
+  </div>
+</div>
