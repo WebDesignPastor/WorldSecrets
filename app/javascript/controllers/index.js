@@ -13,6 +13,9 @@ application.register("map", MapController)
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
 
+import QuestionsController from "./questions_controller"
+application.register("questions", QuestionsController)
+
 import SwitchController from "./switch_controller"
 application.register("switch", SwitchController)
 

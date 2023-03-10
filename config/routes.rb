@@ -12,8 +12,6 @@ Rails.application.routes.draw do
   end
 
   resources "pois", only: :show
-
-
-    # Defines the root path route ("/")
+  # Defines the root path route ("/")
   # root "articles#index"
 end
