@@ -9,9 +9,9 @@
   </div>
   <div class="card_show_itinerary_content">
     <h2><strong><%= @itinerary.name %></strong></h2>
-    <p><strong><%= image_tag "steps" %> <%= @itinerary.distance %> km ·
-      <%= image_tag "hourglass" %> <%= @itinerary.duration.fdiv(60) %> h ·
-      <%= image_tag "star" %> <%= @itinerary.rating %> /5</strong>
+    <p><strong><%= image_tag "steps.svg" %> <%= @itinerary.distance %> km ·
+      <%= image_tag "hourglass.svg" %> <%= @itinerary.duration.fdiv(60) %> h ·
+      <%= image_tag "star.svg" %> <%= @itinerary.rating %> /5</strong>
     </p>
     <h3>Laissez-moi vous présenter cette histoire</h3>
     <p><%= @itinerary.description %></p>
