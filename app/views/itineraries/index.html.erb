@@ -1,12 +1,66 @@
-<%= render "shared/navbar" %>
-<div class="back-color">
-  <div class="d-flex flex-column container-index">
+<div data-controller="switch">
+  <div class="d-flex justify-content-between phone-navbar align-items-center">
+    <%= link_to root_path do %>
+      <%= image_tag('navbar/home.svg') %>
+    <% end %>
+    <%= image_tag('navbar/list.svg', data: { action: "click->switch#displayList", target: "my-anchor svglist" }) %>
+    <%= image_tag('navbar/map.svg', data: { action: "click->switch#displayMap", target: "my-anchor svgmap" }) %>
+    <%= image_tag('navbar/profil.svg') %>
+    <div class="dropdown-menu doprdown-menu-end" aria-labelledby="navbarDropdown">
+      <%= link_to "Historiques", class: "dropdown-item" %>
+      <%= link_to "Favoris", class: "dropdown-item" %>
+      <%= link_to "Parcours Sauvegardé", class: "dropdown-item" %>
+      <%= link_to "Déconnexion", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+    </div>
+    <div id="my-anchor">
+    </div>
+  </div>
+  <div data-switch-target="list" class="d-flex flex-column container-index">
     <div class="d-flex justify-content-between">
       <h2>Itinéraires</h2>
       <%# Insérer le symbol des filtres qui fait apparaître la modal %>
     </div>
     <div class="d-flex justify-content-between checkbox-wrapper">
-      <%# f.input :field_name, as: :boolean %>
+      <%= form_with url: itineraries_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "d-none",
+          value: "%"
+        %>
+        <%= submit_tag "Aucun", class: "btn btn-primary" %>
+      <% end %>
+      <%= form_with url: itineraries_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "d-none",
+          value: "Nature"
+        %>
+        <%= submit_tag "Nature", class: "btn btn-outline-primary" %>
+      <% end %>
+      <%= form_with url: itineraries_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "d-none",
+          value: "Urbain"
+        %>
+        <%= submit_tag "Urbain", class: "btn btn-outline-primary" %>
+      <% end %>
+      <%= form_with url: itineraries_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "d-none",
+          value: "Médiéval"
+        %>
+        <%= submit_tag "Médiéval", class: "btn btn-outline-primary" %>
+      <% end %>
+      <%= form_with url: itineraries_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "d-none",
+          value: "Préhistorique"
+        %>
+        <%= submit_tag "Préhistorique", class: "btn btn-outline-primary" %>
+      <% end %>
     </div>
     <div>
       <div>
@@ -30,5 +84,8 @@
         </div>
       </div>
     </div>
+  </div>
+  <div data-switch-target="map" class="d-none">
+    Carte ici
   </div>
 </div>

@@ -12,3 +12,6 @@ application.register("map", MapController)
 
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
+
+import SwitchController from "./switch_controller"
+application.register("switch", SwitchController)
