@@ -7,13 +7,17 @@
   </div>
   <div class="d-flex justify-content-center">
     <div class="position-absolute custom-modal-text d-none" data-modal-target="modalCold">
+      <%= image_tag "trumpet.svg" %>
       <p>Le mystère se rapproche</p>
       <p>Regarde vers la lumière</p>
     </div>
     <div class="position-absolute custom-modal-img d-none" data-modal-target="modalWarm">
-      <p>image ici</p>
+      <%= image_tag "trumpet.svg" %>
+      <p>Petit indice :</p>
+      <%= image_tag "cat_dance.gif" %>
     </div>
     <div class="position-absolute custom-modal-finish d-none" data-modal-target="modalWarmer">
+      <%= image_tag "trumpet.svg" %>
       <p>C'est la fin bravo !</p>
       <%= link_to "Reveal the secret", poi_path(Poi.last.id), class:'btn btn-primary' %>
     </div>
