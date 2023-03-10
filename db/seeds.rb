@@ -91,18 +91,18 @@ puts "created #{Trip.count} trips"
 
 puts '####### Creating Questions #############'
 
-Question.create!(question_statement: 'Dans quel département se situe Saint-Malo ?', itinerary: st_malo_itinerary)
-Question.create!(question_statement: 'Quel etait le surnom de la ville de Saint-Malo ? la cité ... :', itinerary: st_malo_itinerary)
-Question.create!(question_statement: "Saint-Malo fut pendant 4 années une republique independante. C'était au : ", itinerary: st_malo_itinerary)
-Question.create!(question_statement: "Lequel de ces marins n'est pas né à Saint-malo ?", itinerary: st_malo_itinerary)
-Question.create!(question_statement: "Quel peuple, autrefois ennemi de la France, a attaqué plusieurs fois le port de Saint-Malo ?", itinerary: st_malo_itinerary)
+Question.create!(question_statement: 'Dans quel département se situe Saint-Malo ?', itinerary: st_malo_itinerary, answer_statement: ["22", "44", "35", "56"], good_answer: "35")
+Question.create!(question_statement: 'Quel etait le surnom de la ville de Saint-Malo ? la cité ... :', itinerary: st_malo_itinerary, answer_statement: ["Corsaire", "Pirate", "des vieux loups d'mer", "engloutie"], good_answer: "Corsaire")
+Question.create!(question_statement: "Saint-Malo fut pendant 4 années une republique independante. C'était au : ", itinerary: st_malo_itinerary, answer_statement: ["Xeme siècle", "XIIeme siècle", "XIVeme siècle", "XVIeme siècle"], good_answer: "XVIeme siècle")
+Question.create!(question_statement: "Lequel de ces marins n'est pas né à Saint-malo ?", itinerary: st_malo_itinerary, answer_statement: ["Jean Bart", "Robert Surcouf", "Duguay-Troui", "Jacques Cartier"], good_answer: "Jean Bart")
+Question.create!(question_statement: "Quel peuple, autrefois ennemi de la France, a attaqué plusieurs fois le port de Saint-Malo ?", itinerary: st_malo_itinerary, answer_statement: ["Les Portuguais", "Les Espagnols", "Les Anglais", "Les Russes"], good_answer: "Les Anglais")
 puts "created #{Question.count} questions"
 
 puts '####### Creating trip_answers #############'
 
-TripAnswer.create!(answer: "A/ 22 B/ 44 C/ 35 D/ 56", question_id: Question.last.id, trip_id: Trip.last.id)
-TripAnswer.create!(answer: "A/ Corsaire  B/ Pirate C/ des vieux loups d'mer  D/ engloutie", question_id: Question.last.id, trip_id: Trip.last.id)
-TripAnswer.create!(answer: "A/ Xeme siècle B/ XIIeme siècle C/ XIVeme siècle D/ XVIeme siècle", question_id: Question.last.id, trip_id: Trip.last.id)
-TripAnswer.create!(answer: "A/ Jean Bart B/ Robert Surcouf C/ Duguay-Trouin D/ Cousteau", question_id: Question.last.id, trip_id: Trip.last.id)
-TripAnswer.create!(answer: "A/ Les Portuguais B/ Les Espagnols C/ Les Anglais D/ Les Russes", question_id: Question.last.id, trip_id: Trip.last.id)
-puts "created #{TripAnswer.count} trip_answers"
+# TripAnswer.create!(answer: "A/ 22 B/ 44 C/ 35 D/ 56", question_id: Question.last.id, trip_id: Trip.last.id)
+# TripAnswer.create!(answer: "A/ Corsaire  B/ Pirate C/ des vieux loups d'mer  D/ engloutie", question_id: Question.last.id, trip_id: Trip.last.id)
+# TripAnswer.create!(answer: "A/ Xeme siècle B/ XIIeme siècle C/ XIVeme siècle D/ XVIeme siècle", question_id: Question.last.id, trip_id: Trip.last.id)
+# TripAnswer.create!(answer: "A/ Jean Bart B/ Robert Surcouf C/ Duguay-Trouin D/ Cousteau", question_id: Question.last.id, trip_id: Trip.last.id)
+# TripAnswer.create!(answer: "A/ Les Portuguais B/ Les Espagnols C/ Les Anglais D/ Les Russes", question_id: Question.last.id, trip_id: Trip.last.id)
+# puts "created #{TripAnswer.count} trip_answers"

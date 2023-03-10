@@ -1,3 +1,39 @@
+<div class="d-flex flex-column">
+  <div>
+    <%# barre de progression %>
+  </div>
+  <div>
+    <%# image %>
+  </div>
+  <div>
+    <%# Question #{1} %>
+  </div>
+  <div>
+    <%# intitulé question %>
+  </div>
+  <div>
+    <%# propositions %>
+    <div>
+      <%= form_with method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "d-none",
+          value: @itinerary.questions[0].answer_statement[0]
+        %>
+        <%= submit_tag @itinerary.questions[0].answer_statement[0], class: "btn btn-primary" %>
+      <% end %>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+  </div>
+</div>
+
+
+
 <ul>
   <% @questions.each do |question| %>
     <li><%= question.question_statement %></li>
