@@ -4,6 +4,17 @@
   overflow-x: scroll;
 }
 
+.cards-fixed {
+  position:absolute;
+  z-index: 999;
+  bottom:120px;
+  left:0;
+
+  .cards {
+    padding:0 20px;
+  }
+}
+
 .cards {
   width:fit-content;
   gap:20px;

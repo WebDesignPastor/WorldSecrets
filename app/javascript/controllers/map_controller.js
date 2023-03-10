@@ -13,13 +13,15 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
+      zoom:1,
       style: "mapbox://styles/fanchpastor/cleztoc72003801o3sccvya6t"
     })
 
 
     this.#addMarkersToMap(this.departureMarkersValue)
     this.#addMarkersToMap(this.markersValue)
-    this.#fitMapToMarkers()
+    this.#fitMapToMarkers(this.departureMarkersValue)
+    this.#fitMapToMarkers(this.markersValue)
 
   }
 

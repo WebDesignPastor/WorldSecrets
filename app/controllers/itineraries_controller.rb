@@ -10,5 +10,10 @@ class ItinerariesController < ApplicationController
   def show
     @itinerary = Itinerary.find(params[:id])
     @trip = Trip.new
+
+    @markers = {
+      lat: @itinerary.latitude,
+      lng: @itinerary.longitude
+    }
   end
 end
