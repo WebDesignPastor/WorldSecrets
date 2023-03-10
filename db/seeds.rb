@@ -69,12 +69,12 @@ dinan_itinerary_pictures.each { |file| dinan_itinerary.photos.attach(io: file, f
 dinan_itinerary.save!
 
 pont_croix_itinerary_pictures = [File.open("db/fixtures/pontcroix1.jpg")]
-pont_croix_itinerary = Itinerary.new(name: 'Pont-Croix, à la croisée des chemins', distance: 4, rating: 4, duration: 60, number_of_poi: 3, departure: 'Pont de la Rue Voltaire', city: pont_croix)
+pont_croix_itinerary = Itinerary.new(name: 'Pont-Croix, à la croisée des chemins', distance: 4, rating: 4, duration: 60, number_of_poi: 3, departure: 'pont-croix Rue Voltaire', city: pont_croix)
 pont_croix_itinerary_pictures.each { |file| pont_croix_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 pont_croix_itinerary.save!
 
 vannes_itinerary_pictures = [File.open("db/fixtures/vannes1.jpg")]
-vannes_itinerary = Itinerary.new(name: 'Les remparts de Vannes', distance: 6, rating: 3, duration: 90, number_of_poi: 4, departure: 'Rue de la Porte Prison, 56000 Vannes', city: vannes)
+vannes_itinerary = Itinerary.new(name: 'Les remparts de Vannes', distance: 6, rating: 3, duration: 90, number_of_poi: 4, departure: 'Rue de la Prte Prison, 56000 Vannes', city: vannes)
 vannes_itinerary_pictures.each { |file| vannes_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 vannes_itinerary.save!
 puts "created #{Itinerary.count} itineraries"

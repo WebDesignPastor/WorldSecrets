@@ -12,7 +12,6 @@ class ItinerariesController < ApplicationController
         lng: itinerary.longitude
       }
     end
-
   end
 
   def show

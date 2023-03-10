@@ -9,7 +9,6 @@ export default class extends Controller {
 
   connect() {
 
-    console.log("hey");
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
@@ -18,18 +17,20 @@ export default class extends Controller {
       style: "mapbox://styles/fanchpastor/cleztoc72003801o3sccvya6t"
     })
 
-
-    console.log(this.markersValue);
     this.#addMarkersToMap(this.markersValue)
     this.#fitMapToMarkers(this.markersValue)
 
   }
 
   #addMarkersToMap(markers) {
+
     markers.forEach((marker) => {
-      new mapboxgl.Marker()
+      let itineraryMarker = document.createElement('div');
+      itineraryMarker.className = 'itinerary-marker';
+      new mapboxgl.Marker(itineraryMarker)
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(this.map)
+
     })
   }
 
