@@ -3,8 +3,8 @@
     <%= link_to root_path do %>
       <%= image_tag('navbar/home.svg') %>
     <% end %>
-    <%= image_tag('navbar/list.svg', data: { action: "click->switch#displayList", target: "my-anchor svglist" }) %>
-    <%= image_tag('navbar/map.svg', data: { action: "click->switch#displayMap", target: "my-anchor svgmap" }) %>
+    <%= image_tag('navbar/list.svg', data: { action: "click->switch#displayList", switch_target: "my-anchor svglist" }) %>
+    <%= image_tag('navbar/map.svg', data: { action: "click->switch#displayMap", switch_target: "my-anchor svgmap" }) %>
     <%= image_tag('navbar/profil.svg') %>
     <div class="dropdown-menu doprdown-menu-end" aria-labelledby="navbarDropdown">
       <%= link_to "Historiques", class: "dropdown-item" %>
@@ -12,10 +12,8 @@
       <%= link_to "Parcours Sauvegardé", class: "dropdown-item" %>
       <%= link_to "Déconnexion", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
     </div>
-    <div id="my-anchor">
-    </div>
   </div>
-  <div data-switch-target="list" class="d-flex flex-column container-index">
+  <div data-switch-target="list" class="d-flex flex-column container-index overflow-hidden">
     <div class="d-flex justify-content-between">
       <h2>Itinéraires</h2>
       <%# Insérer le symbol des filtres qui fait apparaître la modal %>
@@ -62,10 +60,12 @@
         <%= submit_tag "Préhistorique", class: "btn btn-outline-primary" %>
       <% end %>
     </div>
+
     <div>
       <div>
         <h3>Les plus courtes</h3>
       </div>
+
       <div class="cards-wrapper">
         <div class="d-flex cards">
           <% @itineraries.each do |itinerary| %>
@@ -85,7 +85,29 @@
       </div>
     </div>
   </div>
-  <div data-switch-target="map" class="d-none">
-    Carte ici
+  <div class="cards-wrapper cards-fixed d-none" data-switch-target="cardsForMap">
+    <div class="d-flex cards">
+      <% @itineraries.each do |itinerary| %>
+        <div class="card">
+          <%= link_to itinerary_path(itinerary) do %>
+            <div class="card-img">
+              <%= cl_image_tag itinerary.photos.first.key, height: 160, width: 285, crop: :fill %>
+            </div>
+            <div class="card-infos">
+              <p class="text-x-small black-700"><%= itinerary.distance %>km | <%= itinerary.duration %></p>
+              <h4><%= @itinerarymarkers %></h4>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div data-switch-target="map" class="test d-none  position-absolute" style="width: 100vw; height: 100vh;">
+    <div style="top: 0; width: 100%; height: 100%;"
+      data-controller="itineraries"
+      data-itineraries-markers-value="<%= @itineraries_markers.to_json %>"
+      data-itineraries-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
 </div>

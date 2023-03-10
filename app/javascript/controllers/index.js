@@ -15,3 +15,6 @@ application.register("modal", ModalController)
 
 import SwitchController from "./switch_controller"
 application.register("switch", SwitchController)
+
+import itinerariesController from "./itineraries_controller"
+application.register("itineraries", itinerariesController)
