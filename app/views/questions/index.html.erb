@@ -3,11 +3,11 @@
     <div data-questions-target="progress" class="progress-bar">
     </div>
   </div>
-  <div class='my-5' data-questions-target="one"> <%# 1ère question %>
-    <div class='question-img'>
-      <%# image %>
-    </div>
+  <div class='d-flex flex-column question-index' data-questions-target="one"> <%# 1ère question %>
     <div>
+      <%= cl_image_tag @trip.itinerary.photos.first.key, class: 'question-img', crop: :fill %>
+    </div>
+    <div class="d-flex justify-content-center">
       <h2>Question 1</h2>
     </div>
     <div>
@@ -28,11 +28,11 @@
       <% end %>
     </div>
   </div>
-  <div data-questions-target="two" class='d-none my-5'> <%# 2ème question %>
+  <div data-questions-target="two" class='d-none d-flex flex-column question-index'> <%# 2ème question %>
     <div class="question-img">
-      <%# image %>
+      <%= cl_image_tag @trip.itinerary.photos.first.key, class: 'question-img', crop: :fill %>
     </div>
-    <div>
+    <div class="d-flex justify-content-center">
       <h2>Question 2</h2>
     </div>
     <div>
@@ -53,11 +53,11 @@
       <% end %>
     </div>
   </div>
-  <div data-questions-target="three" class='d-none my-5'> <%# 3ème question %>
+  <div data-questions-target="three" class='d-none d-flex flex-column question-index'> <%# 3ème question %>
     <div class="question-img">
-      <%# image %>
+      <%= cl_image_tag @trip.itinerary.photos.first.key, class: 'question-img', crop: :fill %>
     </div>
-    <div>
+    <div class="d-flex justify-content-center">
       <h2>Question 3</h2>
     </div>
     <div>
@@ -78,11 +78,11 @@
       <% end %>
     </div>
   </div>
-  <div data-questions-target="four" class='d-none my-5'> <%# 4ème question %>
+  <div data-questions-target="four" class='d-none d-flex flex-column question-index'> <%# 4ème question %>
     <div class="question-img">
-      <%# image %>
+      <%= cl_image_tag @trip.itinerary.photos.first.key, class: 'question-img', crop: :fill %>
     </div>
-    <div>
+    <div class="d-flex justify-content-center">
       <h2>Question 4</h2>
     </div>
     <div>
@@ -103,11 +103,11 @@
       <% end %>
     </div>
   </div>
-  <div data-questions-target="five" class='d-none my-5'> <%# 5ème question %>
+  <div data-questions-target="five" class='d-none d-flex flex-column question-index'> <%# 5ème question %>
     <div class="question-img">
-      <%# image %>
+      <%= cl_image_tag @trip.itinerary.photos.first.key, class: 'question-img', crop: :fill %>
     </div>
-    <div>
+    <div class="d-flex justify-content-center">
       <h2>Question 5</h2>
     </div>
     <div>
@@ -117,7 +117,7 @@
       <%# propositions %>
       <% @trip.itinerary.questions[4].answer_statement.each do |answer|  %>
         <% if answer == @trip.itinerary.questions[4].good_answer %>
-          <div class='btn btn-outline-primary question-btn m-1' data-questions-target='goodone' data-action='click->questions#goodanswer5'>
+          <div id="run" class='btn btn-outline-primary question-btn m-1' data-questions-target='goodone' data-action='click->questions#goodanswer5'>
             <%= answer %>
           </div>
         <% else %>
@@ -128,7 +128,7 @@
       <% end %>
     </div>
   </div>
-  <div data-questions-target="six" class="d-none my-5">
+  <div data-questions-target="six" class="d-none">
     <h2>Bravo ! A très vite pour une prochaine aventure</h2>
     <%= link_to 'Retourner aux itinéraires', itineraries_path, class: 'btn btn-primary' %>
   </div>
