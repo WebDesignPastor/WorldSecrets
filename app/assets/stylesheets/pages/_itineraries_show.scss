@@ -2,11 +2,24 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  height:100vh;
 }
 
 .card_show_itinerary {
   position: relative;
+}
+
+.card_show_itinerary_content {
+  padding:20px 20px 80px 20px;
+}
+
+.card_show_bottom {
+  width:100%;
+  position: fixed;
+  bottom:0;
+  padding:80px 20px 20px 20px;
+  background: linear-gradient(3.1deg, #E9E6DF 10.18%, rgba(233, 230, 223, 0) 96.08%);
 }
 
 .show_image {
@@ -15,15 +28,26 @@
 
 .button-return {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 10px;
+  left: 10px;
+  text-decoration: none;
+  font-family: inter;
+  color: #dddddd;
+  backdrop-filter: blur(1px) saturate(100%);
 }
 
 .button-favorite {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  top: 8px;
+  right: 8px;
   border-radius: 50%;
-  background-color: rgb(165, 165, 165);
-  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  padding: 12px 10px 10px 10px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  color: #E9E6DF;
 }
