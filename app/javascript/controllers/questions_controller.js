@@ -44,6 +44,10 @@ export default class extends Controller {
   }
 
   badanswer(event) {
-    event.currentTarget.classList.add('btn-shake')
+    const element = event.currentTarget;
+    element.classList.add('btn-shake');
+    setTimeout(() => {
+      element.classList.remove('btn-shake');
+    }, 5000);
   }
 }
