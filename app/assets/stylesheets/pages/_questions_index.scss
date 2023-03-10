@@ -1,0 +1,127 @@
+.background-progress {
+  border: solid 2px $primary;
+  background-color: transparent;
+  border-radius: 50px;
+  width: 330px;
+  height: 30px;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  .progress-bar {
+    width: 0%;
+    height: 80%;
+  }
+
+  .progress20 {
+    animation: fill20 0.5s ease-in-out forwards;
+    height: 80%;
+    background-color: $primary;
+    border-radius: 50px 0 0 50px;
+    margin: 2px;
+  }
+
+  .progress40 {
+    animation: fill40 0.5s ease-in-out forwards;
+    width: 20%;
+    height: 80%;
+    background-color: $primary;
+    border-radius: 50px 0 0 50px;
+    margin: 2px;
+  }
+
+  .progress60 {
+    animation: fill60 0.5s ease-in-out forwards;
+    width: 40%;
+    height: 80%;
+    background-color: $primary;
+    border-radius: 50px 0 0 50px;
+    margin: 2px;
+  }
+
+  .progress80 {
+    animation: fill80 0.5s ease-in-out forwards;
+    width: 60%;
+    height: 80%;
+    background-color: $primary;
+    border-radius: 50px 0 0 50px;
+    margin: 2px;
+  }
+
+  .progress100 {
+    animation: fill100 0.5s ease-in-out forwards;
+    width: 80%;
+    height: 80%;
+    background-color: $primary;
+    border-radius: 50px 0 0 50px;
+    margin: 2px;
+  }
+}
+
+@keyframes fill20 {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 20%;
+  }
+}
+
+@keyframes fill40 {
+  0% {
+    width: 20%;
+  }
+  100% {
+    width: 40%;
+  }
+}
+
+@keyframes fill60 {
+  0% {
+    width: 40%;
+  }
+  100% {
+    width: 60%;
+  }
+}
+
+@keyframes fill80 {
+  0% {
+    width: 60%;
+  }
+  100% {
+    width: 80%;
+  }
+}
+
+@keyframes fill100 {
+  0% {
+    width: 80%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.btn-shake {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}

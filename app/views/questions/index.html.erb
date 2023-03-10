@@ -1,6 +1,6 @@
 <div class="d-flex flex-column" data-controller="questions">
-  <div>
-    <div>
+  <div class='background-progress'>
+    <div data-questions-target="progress" class="progress-bar">
     </div>
   </div>
   <div data-questions-target="one"> <%# 1ère question %>
@@ -15,15 +15,121 @@
     </div>
     <div>
       <%# propositions %>
-      <%= form_with method: :get do %>
-        <% @trip.itinerary.questions[0].answer_statement.each do |answer|  %>
-          <% if answer == @trip.itinerary.questions[0].good_answer %>
-            <%= submit_tag answer, class: "btn btn-outline-primary", data: { action: "click->questions#displayList", target: "my-anchor svglist" } %>
-          <% else %>
-            <%= submit_tag answer, class: "btn btn-outline-primary", data: { action: "click->questions#displayList", target: "my-anchor svglist" } %>
-          <% end %>
+      <% @trip.itinerary.questions[0].answer_statement.each do |answer|  %>
+        <% if answer == @trip.itinerary.questions[0].good_answer %>
+          <div class='btn btn-outline-primary' data-questions-target='goodone' data-action='click->questions#goodanswer1'>
+            <%= answer %>
+          </div>
+        <% else %>
+          <div class='btn btn-outline-primary' data-questions-target='badone' data-action='click->questions#badanswer'>
+            <%= answer %>
+          </div>
         <% end %>
       <% end %>
     </div>
+  </div>
+  <div data-questions-target="two" class='d-none'> <%# 2ème question %>
+    <div>
+      <%# image %>
+    </div>
+    <div>
+      <h2>Question 2</h2>
+    </div>
+    <div>
+      <p><%= @trip.itinerary.questions[1].question_statement %></p>
+    </div>
+    <div>
+      <%# propositions %>
+      <% @trip.itinerary.questions[1].answer_statement.each do |answer|  %>
+        <% if answer == @trip.itinerary.questions[1].good_answer %>
+          <div class='btn btn-outline-primary' data-questions-target='goodone' data-action='click->questions#goodanswer2'>
+            <%= answer %>
+          </div>
+        <% else %>
+          <div class='btn btn-outline-primary' data-questions-target='badone' data-action='click->questions#badanswer'>
+            <%= answer %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div data-questions-target="three" class='d-none'> <%# 1ère question %>
+    <div>
+      <%# image %>
+    </div>
+    <div>
+      <h2>Question 3</h2>
+    </div>
+    <div>
+      <p><%= @trip.itinerary.questions[2].question_statement %></p>
+    </div>
+    <div>
+      <%# propositions %>
+      <% @trip.itinerary.questions[2].answer_statement.each do |answer|  %>
+        <% if answer == @trip.itinerary.questions[2].good_answer %>
+          <div class='btn btn-outline-primary' data-questions-target='goodone' data-action='click->questions#goodanswer3'>
+            <%= answer %>
+          </div>
+        <% else %>
+          <div class='btn btn-outline-primary' data-questions-target='badone' data-action='click->questions#badanswer'>
+            <%= answer %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div data-questions-target="four" class='d-none'> <%# 1ère question %>
+    <div>
+      <%# image %>
+    </div>
+    <div>
+      <h2>Question 4</h2>
+    </div>
+    <div>
+      <p><%= @trip.itinerary.questions[3].question_statement %></p>
+    </div>
+    <div>
+      <%# propositions %>
+      <% @trip.itinerary.questions[3].answer_statement.each do |answer|  %>
+        <% if answer == @trip.itinerary.questions[3].good_answer %>
+          <div class='btn btn-outline-primary' data-questions-target='goodone' data-action='click->questions#goodanswer4'>
+            <%= answer %>
+          </div>
+        <% else %>
+          <div class='btn btn-outline-primary' data-questions-target='badone' data-action='click->questions#badanswer'>
+            <%= answer %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div data-questions-target="five" class='d-none'> <%# 1ère question %>
+    <div>
+      <%# image %>
+    </div>
+    <div>
+      <h2>Question 5</h2>
+    </div>
+    <div>
+      <p><%= @trip.itinerary.questions[4].question_statement %></p>
+    </div>
+    <div>
+      <%# propositions %>
+      <% @trip.itinerary.questions[4].answer_statement.each do |answer|  %>
+        <% if answer == @trip.itinerary.questions[4].good_answer %>
+          <div class='btn btn-outline-primary' data-questions-target='goodone' data-action='click->questions#goodanswer5'>
+            <%= answer %>
+          </div>
+        <% else %>
+          <div class='btn btn-outline-primary' data-questions-target='badone' data-action='click->questions#badanswer'>
+            <%= answer %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div data-questions-target="six" class="d-none">
+    <h2>Bravo ! A très vite pour une prochaine aventure</h2>
+    <%= link_to 'Retourner aux itinéraires', itineraries_path, class: 'btn btn-primary' %>
   </div>
 </div>
