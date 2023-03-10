@@ -1,43 +1,29 @@
-<div class="d-flex flex-column">
+<div class="d-flex flex-column" data-controller="questions">
   <div>
-    <%# barre de progression %>
-  </div>
-  <div>
-    <%# image %>
-  </div>
-  <div>
-    <%# Question #{1} %>
-  </div>
-  <div>
-    <%# intitulé question %>
-  </div>
-  <div>
-    <%# propositions %>
     <div>
-      <%= form_with method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "d-none",
-          value: @itinerary.questions[0].answer_statement[0]
-        %>
-        <%= submit_tag @itinerary.questions[0].answer_statement[0], class: "btn btn-primary" %>
+    </div>
+  </div>
+  <div data-questions-target="one"> <%# 1ère question %>
+    <div>
+      <%# image %>
+    </div>
+    <div>
+      <h2>Question 1</h2>
+    </div>
+    <div>
+      <p><%= @trip.itinerary.questions[0].question_statement %></p>
+    </div>
+    <div>
+      <%# propositions %>
+      <%= form_with method: :get do %>
+        <% @trip.itinerary.questions[0].answer_statement.each do |answer|  %>
+          <% if answer == @trip.itinerary.questions[0].good_answer %>
+            <%= submit_tag answer, class: "btn btn-outline-primary", data: { action: "click->questions#displayList", target: "my-anchor svglist" } %>
+          <% else %>
+            <%= submit_tag answer, class: "btn btn-outline-primary", data: { action: "click->questions#displayList", target: "my-anchor svglist" } %>
+          <% end %>
+        <% end %>
       <% end %>
-    </div>
-    <div>
-    </div>
-    <div>
-    </div>
-    <div>
     </div>
   </div>
 </div>
-
-
-
-<ul>
-  <% @questions.each do |question| %>
-    <li><%= question.question_statement %></li>
-  <% end %>
-</ul>
-
-<%= link_to 'Discover other itineraries', itineraries_path, class:'btn btn-warning' %>
