@@ -131,6 +131,16 @@ toursolidor_itinerary = Itinerary.new(name: 'La vigie sur la Rance', distance: 6
 toursolidor_itinerary_pictures.each { |file| toursolidor_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 toursolidor_itinerary.save!
 
+memorial_itinerary_pictures = [File.open("db/fixtures/memorial1.jpg")]
+memorial_itinerary = Itinerary.new(name: 'Terrés dans le Bunker', distance: 6, category: "Nature", rating: 4, duration: 90, number_of_poi: 2, departure: 'Memorial 1939-1945, Saint-Malo', city: st_malo)
+memorial_itinerary_pictures.each { |file| memorial_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+memorial_itinerary.save!
+
+cathedrale_itinerary_pictures = [File.open("db/fixtures/cathedrale1.jpg")]
+cathedrale_itinerary = Itinerary.new(name: 'Autour de St-Vincent', distance: 6, category: "Urbain", rating: 4, duration: 90, number_of_poi: 2, departure: 'Cathédrale Saint-Vincent de Saint-Malo', city: st_malo)
+cathedrale_itinerary_pictures.each { |file| cathedrale_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+cathedrale_itinerary.save!
+
 puts "created #{Itinerary.count} itineraries"
 
 puts '####### Creating Itinerary_pois #############'
