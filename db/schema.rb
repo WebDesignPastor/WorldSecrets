@@ -63,10 +63,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_101002) do
     t.bigint "city_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "category"
-    t.text "description"
     t.float "latitude"
     t.float "longitude"
+    t.string "category"
+    t.text "description"
     t.index ["city_id"], name: "index_itineraries_on_city_id"
   end
 
