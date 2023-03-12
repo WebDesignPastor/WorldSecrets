@@ -90,29 +90,29 @@ vannes_itinerary_pictures.each { |file| vannes_itinerary.photos.attach(io: file,
 vannes_itinerary.save!
 
 carnac_itinerary_pictures = File.open("db/fixtures/carnac1.jpg"), File.open("db/fixtures/carnac2.jpg")
-carnac_itinerary = Itinerary.new(name: 'Secrets des pierres de Carnac', distance: 8, category: "Préhistoire", rating: 2,
-                  duration: 150, number_of_poi: 4, departure: 'Le Menec, Carnac', city: carnac, category: 'préhistorique')
+carnac_itinerary = Itinerary.new(name: 'Secrets des pierres de Carnac', distance: 8, category: "Préhistorique", rating: 2,
+                  duration: 150, number_of_poi: 4, departure: 'Le Menec, Carnac', city: carnac)
 carnac_itinerary_pictures.each { |file| carnac_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 carnac_itinerary.save!
 
 nantes_itinerary_pictures = File.open("db/fixtures/nantes1.jpg"), File.open("db/fixtures/nantes2.jpg")
 nantes_itinerary = Itinerary.new(name: 'La ballade de la Duchesse Anne', distance: 4, category: "Médiéval", rating: 4.5,
-                  duration: 90, number_of_poi: 4, departure: 'Château des ducs de Bretagne, Nantes', city: nantes, category: 'Médieval')
+                  duration: 90, number_of_poi: 4, departure: 'Château des ducs de Bretagne, Nantes', city: nantes)
 nantes_itinerary_pictures.each { |file| nantes_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 nantes_itinerary.save!
 
 guerledan_itinerary_pictures = [File.open("db/fixtures/guerledan1.jpg")]
-guerledan_itinerary = Itinerary.new(name: 'Sur les traces de la bête du lac de Guerlédan', distance: 4, category: "Nature", rating: 4.5, duration: 90, number_of_poi: 4, departure: 'Lac de Guerlédan', city: guerledan, category: 'Nature')
+guerledan_itinerary = Itinerary.new(name: 'Sur les traces de la bête du lac de Guerlédan', distance: 4, category: "Nature", rating: 4.5, duration: 90, number_of_poi: 4, departure: 'Lac de Guerlédan', city: guerledan)
 guerledan_itinerary_pictures.each { |file| guerledan_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 guerledan_itinerary.save!
 
 plogoff_itinerary_pictures = [File.open("db/fixtures/plogoff1.jpg")]
-plogoff_itinerary = Itinerary.new(name: 'Rencontre avec les trépassés de la Baie', distance: 4, category: "Nature", rating: 4.5, duration: 90, number_of_poi: 4, departure: 'Baie des trépassés', city: plogoff, category: 'Nature')
+plogoff_itinerary = Itinerary.new(name: 'Rencontre avec les trépassés de la Baie', distance: 4, category: "Nature", rating: 4.5, duration: 90, number_of_poi: 4, departure: 'Baie des trépassés, Plogoff', city: plogoff)
 plogoff_itinerary_pictures.each { |file| plogoff_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 plogoff_itinerary.save!
 
 vitre_itinerary_pictures = [File.open("db/fixtures/vitre1.jpg")]
-vitre_itinerary = Itinerary.new(name: 'Entre château et rues anciennes à Vitré', distance: 4, category: "Médiéval", rating: 4.5, duration: 90, number_of_poi: 4, departure: 'Château de Vitré', city: vitre, category: 'Médieval')
+vitre_itinerary = Itinerary.new(name: 'Entre château et rues anciennes à Vitré', distance: 4, category: "Médiéval", rating: 4.5, duration: 90, number_of_poi: 4, departure: 'Château de Vitré', city: vitre)
 vitre_itinerary_pictures.each { |file| vitre_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 vitre_itinerary.save!
 
@@ -120,6 +120,17 @@ dinard_itinerary_pictures = [File.open("db/fixtures/dinard1.jpg")]
 dinard_itinerary = Itinerary.new(name: 'Promenade avec Picasso à Dinard', distance: 4, category: "Urbain", rating: 4.5, duration: 90, number_of_poi: 4, departure: 'Mairie de Dinard', city: dinard)
 dinard_itinerary_pictures.each { |file| dinard_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 dinard_itinerary.save!
+
+grandbe_itinerary_pictures = [File.open("db/fixtures/GrandBe1.jpg")]
+grandbe_itinerary = Itinerary.new(name: 'La tombe de Chateaubriand', distance: 4, category: "Nature", rating: 3.5, duration: 70, number_of_poi: 2, departure: 'Grand-Bé, Saint-Malo', city: st_malo)
+grandbe_itinerary_pictures.each { |file| grandbe_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+grandbe_itinerary.save!
+
+toursolidor_itinerary_pictures = [File.open("db/fixtures/toursolidor1.jpg")]
+toursolidor_itinerary = Itinerary.new(name: 'La vigie sur la Rance', distance: 6, category: "Médiéval", rating: 4, duration: 70, number_of_poi: 2, departure: 'Tour Solidor', city: st_malo)
+toursolidor_itinerary_pictures.each { |file| toursolidor_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+toursolidor_itinerary.save!
+
 puts "created #{Itinerary.count} itineraries"
 
 puts '####### Creating Itinerary_pois #############'
