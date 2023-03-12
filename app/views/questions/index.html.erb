@@ -117,7 +117,7 @@
       <%# propositions %>
       <% @trip.itinerary.questions[4].answer_statement.each do |answer|  %>
         <% if answer == @trip.itinerary.questions[4].good_answer %>
-          <div id="run" class='btn btn-outline-primary question-btn m-1' data-questions-target='goodone' data-action='click->questions#goodanswer5'>
+          <div class='btn btn-outline-primary question-btn m-1' data-questions-target='goodone' data-action='click->questions#goodanswer5'>
             <%= answer %>
           </div>
         <% else %>
