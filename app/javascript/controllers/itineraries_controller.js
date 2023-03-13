@@ -7,6 +7,7 @@ export default class extends Controller {
     markers: Array,
   }
 
+
   connect() {
 
     mapboxgl.accessToken = this.apiKeyValue
@@ -26,10 +27,21 @@ export default class extends Controller {
     this.map.resize();
   }
 
+  activeMarkers(event) {
+    // Verifier si un a élément a la classe itineray-marker-active
+    // console.log(event.currentTarget)
+    console.log(this.markerTarget)
+    // Si oui l'enlever.
+    // Appliquer la classe a l'element cliqué
+    event.currentTarget.classList.toggle('itinerary-marker-active')
+  }
+  
   #addMarkersToMap(markers) {
     markers.forEach((marker) => {
       let itineraryMarker = document.createElement('div');
       itineraryMarker.className = 'itinerary-marker';
+      itineraryMarker.dataset.target ="marker"
+      itineraryMarker.dataset.action ="click->itineraries#activeMarkers"
       new mapboxgl.Marker(itineraryMarker)
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(this.map)
