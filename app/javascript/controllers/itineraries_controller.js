@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import { computeStyles } from "@popperjs/core"
 
 // Connects to data-controller="map"
 export default class extends Controller {
@@ -7,6 +8,7 @@ export default class extends Controller {
     markers: Array,
   }
 
+  static targets = ["itinerariesMarker"]
 
   connect() {
 
@@ -17,36 +19,55 @@ export default class extends Controller {
       zoom:1,
       style: "mapbox://styles/fanchpastor/cleztoc72003801o3sccvya6t"
     })
-    
+
     this.#addMarkersToMap(this.markersValue)
     this.#fitMapToMarkers(this.markersValue)
 
     this.element.querySelector('canvas').style.height = '100vh'
-    console.log(this.element.querySelector('canvas').style)
 
     this.map.resize();
   }
 
   activeMarkers(event) {
+
+  if (document.querySelector('.order-first')) {
+    document.querySelector('.order-first').classList.remove('order-first')
+  }
     // Verifier si un a élément a la classe itineray-marker-active
-    // console.log(event.currentTarget)
-    console.log(this.markerTarget)
-    // Si oui l'enlever.
-    // Appliquer la classe a l'element cliqué
+    let cards = event.currentTarget.parentNode.parentNode.parentNode.parentNode.querySelector('.cards-fixed')
+    let currentTargetPos = event.currentTarget.dataset.lat
+
+    cards.querySelectorAll('.card').forEach((card) => {
+
+      let targetCard = card.querySelector('.itinerary-infos').innerText
+      if(targetCard.includes(currentTargetPos)) {
+        card.classList.toggle('order-first')
+      }
+    })
+    this.itinerariesMarkerTargets.forEach((marker) => {
+
+      if (marker.classList.contains('itinerary-marker-active')) {
+        marker.classList.remove("itinerary-marker-active")
+      }
+      else {
+        console.log()
+      }
+    })
     event.currentTarget.classList.toggle('itinerary-marker-active')
   }
-  
+
   #addMarkersToMap(markers) {
+
     markers.forEach((marker) => {
       let itineraryMarker = document.createElement('div');
       itineraryMarker.className = 'itinerary-marker';
-      itineraryMarker.dataset.target ="marker"
       itineraryMarker.dataset.action ="click->itineraries#activeMarkers"
+      itineraryMarker.dataset.itinerariesTarget = "itinerariesMarker"
+      itineraryMarker.dataset.lat = marker.lat
       new mapboxgl.Marker(itineraryMarker)
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(this.map)
     })
-    
   }
 
   #fitMapToMarkers() {

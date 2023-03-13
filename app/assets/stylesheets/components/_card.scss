@@ -45,3 +45,17 @@
     }
   }
 }
+
+.card-reduce {
+  height: 100px !important;
+  width: 285px !important;
+  background-color: white;
+
+  h4 {
+    font-size: 17px;
+  }
+}
+
+.order-first {
+  order:-1;
+}

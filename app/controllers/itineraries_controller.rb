@@ -6,6 +6,10 @@ class ItinerariesController < ApplicationController
       @itineraries = Itinerary.all
     end
 
+    @short_itineraries = Itinerary.where("duration < 90")
+
+    @long_itineraries = Itinerary.where("duration > 90")
+
     @itineraries_markers = @itineraries.geocoded.map do |itinerary|
       {
         lat: itinerary.latitude,
