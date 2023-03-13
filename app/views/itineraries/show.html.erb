@@ -5,17 +5,34 @@
       <i class="fa-solid fa-chevron-left"></i>
       <span>RETOUR</span>
     <% end %>
-    <div class="button-favorite"><i class="fa-regular fa-heart"></i></div>
+      <div class="button-favorite">
+        <i class="fa-regular fa-heart"></i>
+      </div>
   </div>
+  <div class="banner-show">
+    <h2><%= @itinerary.name %></h2>
+  </div>
+
   <div class="card_show_itinerary_content">
-    <h2><strong><%= @itinerary.name %></strong></h2>
-    <p><strong><%= image_tag "steps.svg" %> <%= @itinerary.distance %> km ·
-      <%= image_tag "hourglass.svg" %> <%= @itinerary.duration.fdiv(60) %> h ·
-      <%= image_tag "star.svg" %> <%= @itinerary.rating %> /5</strong>
-    </p>
-    <h3>Laissez-moi vous présenter cette histoire</h3>
+    <div class="rating-stars">
+      <%= image_tag "star.svg" %>
+      <%= image_tag "star.svg" %>
+      <%= image_tag "star.svg" %>
+      <%= image_tag "star.svg" %>
+      <%= image_tag "star.svg" %>
+      <p class="text-small"><%= @itinerary.rating.to_i %><strong> /5</strong></p>
+    </div>
+    <div class="card_show_itinerary_infos text-small">
+      <%= image_tag "steps.svg" %> <%= @itinerary.distance %> km
+      <%= image_tag "hourglass.svg" %> <%= @itinerary.duration.fdiv(60) %> h
+    </div>
+  </div>
+
+  <div class="card_show_description">
+    <h3><i> <%= @itinerary.subtitle %></i></h3>
     <p><%= @itinerary.description %></p>
   </div>
+
   <div class="card_show_bottom">
     <%= simple_form_for [@itinerary, @trip] do |f| %>
       <%= f.submit "Allons-y", class: "btn btn-primary w-100" %>
