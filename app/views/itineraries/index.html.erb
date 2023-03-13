@@ -96,6 +96,7 @@
             <div class="card-infos">
               <p class="text-x-small black-700"><%= itinerary.distance %>km | <%= itinerary.duration %></p>
               <h4><%= itinerary.name %></h4>
+              <span class="itinerary-infos d-none"><%= itinerary.latitude %></span>
             </div>
           <% end %>
         </div>
@@ -108,9 +109,10 @@
       data-itineraries-markers-value="<%= @itineraries_markers.to_json %>"
       data-itineraries-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div> -->
-    <div  id="itinerary-map" 
+    <div class="map-overlay"></div>
+    <div  id="itinerary-map"
           class="opacity-0"
-          data-switch-target="map" 
+          data-switch-target="map"
           data-controller="itineraries"
           data-itineraries-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
           data-itineraries-markers-value="<%= @itineraries_markers.to_json %>">

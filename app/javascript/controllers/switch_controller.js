@@ -5,7 +5,6 @@ export default class extends Controller {
   static targets = ["list", "map", "svglist", "svgmap", "cardsForMap"]
 
   connect() {
-    console.log(this.cardsForMapTarget)
   }
 
   displayList() {
