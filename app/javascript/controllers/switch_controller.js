@@ -11,13 +11,13 @@ export default class extends Controller {
   displayList() {
     this.cardsForMapTarget.classList.add('d-none')
     this.listTarget.classList.remove("d-none")
-    this.mapTarget.classList.add("d-none")
+    this.mapTarget.classList.add("opacity-0")
     this.svglistTarget.classList.add("svg-colorized")
   }
 
   displayMap() {
     this.cardsForMapTarget.classList.remove('d-none')
-    this.mapTarget.classList.remove("d-none")
+    this.mapTarget.classList.remove("opacity-0")
     this.listTarget.classList.add("d-none")
     this.svgmapTarget.classList.add("svg-colorized")
   }
