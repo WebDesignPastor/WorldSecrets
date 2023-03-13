@@ -103,10 +103,17 @@
     </div>
   </div>
   <div class="position-relative wrapper-map">
-    <div data-switch-target="map" class="d-none position-absolute" style="width: 100vw; height: 100vh;"
+    <!-- <div data-switch-target="map" class="d-none position-absolute" style="height:100vh;" id="itinerary-map"
       data-controller="itineraries"
       data-itineraries-markers-value="<%= @itineraries_markers.to_json %>"
       data-itineraries-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div> -->
+    <div  id="itinerary-map" 
+          class="opacity-0"
+          data-switch-target="map" 
+          data-controller="itineraries"
+          data-itineraries-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+          data-itineraries-markers-value="<%= @itineraries_markers.to_json %>">
     </div>
   </div>
 </div>
