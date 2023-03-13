@@ -75,7 +75,7 @@
                   <%= cl_image_tag itinerary.photos.first.key, height: 160, width: 285, crop: :fill %>
                 </div>
                 <div class="card-infos">
-                  <p class="text-x-small black-700"><%= itinerary.distance %>km | <%= itinerary.duration %></p>
+                  <p class="text-x-small black-700"><%= itinerary.distance %>km | <%= itinerary.duration / 60 %> h <%= itinerary.duration % 60 %></p>
                   <h4><%= itinerary.name %></h4>
                 </div>
               <% end %>
@@ -88,13 +88,11 @@
   <div class="cards-wrapper cards-fixed d-none" data-switch-target="cardsForMap">
     <div class="d-flex cards">
       <% @itineraries.each do |itinerary| %>
-        <div class="card">
-          <%= link_to itinerary_path(itinerary) do %>
-            <div class="card-img">
-              <%= cl_image_tag itinerary.photos.first.key, height: 160, width: 285, crop: :fill %>
-            </div>
+        <div class="card card-reduce">
+          <%= link_to itinerary_path(itinerary), class:'d-flex align-items-center' do %>
+            <%= cl_image_tag itinerary.photos.first.key, height: 100, width: 100, crop: :fill %>
             <div class="card-infos">
-              <p class="text-x-small black-700"><%= itinerary.distance %>km | <%= itinerary.duration %></p>
+              <p class="text-x-small black-700"><%= itinerary.distance %>km | <%= itinerary.duration / 60 %> h <%= itinerary.duration % 60 %> min</p>
               <h4><%= itinerary.name %></h4>
               <span class="itinerary-infos d-none"><%= itinerary.latitude %></span>
             </div>
