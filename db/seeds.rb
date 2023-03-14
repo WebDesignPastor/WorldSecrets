@@ -148,7 +148,7 @@ cathedrale_itinerary = Itinerary.new(name: 'Autour de St-Vincent', subtitle: "à
 cathedrale_itinerary_pictures.each { |file| cathedrale_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 cathedrale_itinerary.save!
 
-kerouzere_itinerary_pictures = [File.open("db/fixtures/kerouzere1.jpg")]
+kerouzere_itinerary_pictures = [File.open("db/fixtures/kerouzere1.png")]
 kerouzere_itinerary = Itinerary.new(name: "un chateau figé dans le temps", subtitle: "un beau chateau ma foi", distance: 12, category: "Nature", rating: 3, duration: 180, number_of_poi: 4, departure: "Chateau de Kerouzéré, 29250 Sibiril", city: sibiril)
 kerouzere_itinerary_pictures.each { |file| kerouzere_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 kerouzere_itinerary.save!

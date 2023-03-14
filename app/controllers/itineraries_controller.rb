@@ -9,7 +9,6 @@ class ItinerariesController < ApplicationController
       @itineraries = Itinerary.all
     end
 
-
     if params[:query].present?
       @short_itineraries = Itinerary.where(category: params[:query])
       city = City.where(name: params[:query])
@@ -23,7 +22,7 @@ class ItinerariesController < ApplicationController
       city = City.where(name: params[:query])
       @long_itineraries = Itinerary.where(city_id: city.ids[0].to_i).where("duration > 90")
     else
-      @long_itineraries = Itinerary.where
+      @long_itineraries = Itinerary.where("duration > 90")
     end
 
     @itineraries_markers = @itineraries.geocoded.map do |itinerary|
