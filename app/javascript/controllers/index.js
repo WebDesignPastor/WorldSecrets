@@ -4,8 +4,14 @@
 
 import { application } from "./application"
 
+import FiltersController from "./filters_controller"
+application.register("filters", FiltersController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import ItinerariesController from "./itineraries_controller"
+application.register("itineraries", ItinerariesController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
@@ -18,6 +24,3 @@ application.register("questions", QuestionsController)
 
 import SwitchController from "./switch_controller"
 application.register("switch", SwitchController)
-
-import itinerariesController from "./itineraries_controller"
-application.register("itineraries", itinerariesController)
