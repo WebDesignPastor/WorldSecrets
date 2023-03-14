@@ -33,6 +33,8 @@ guerledan = City.create!(name: 'Guerlédan')
 plogoff = City.create!(name: 'Plogoff')
 vitre = City.create!(name: 'Vitré')
 dinard = City.create!(name: 'Dinard')
+sibiril = City.create!(name: 'Sibiril')
+porspoder = City.create!(name: 'Porspoder')
 City.create!(name: 'Fougères')
 City.create!(name: 'Sarzeau')
 City.create!(name: 'Josselin')
@@ -145,6 +147,16 @@ cathedrale_itinerary_pictures = [File.open("db/fixtures/cathedrale1.jpg")]
 cathedrale_itinerary = Itinerary.new(name: 'Autour de St-Vincent', subtitle: "à travers l'histoire et l'architecture de l'un des joyaux religieux de la ville corsaire", distance: 6, category: "Urbain", rating: 4, duration: 90, number_of_poi: 2, departure: 'Cathédrale Saint-Vincent de Saint-Malo', city: st_malo)
 cathedrale_itinerary_pictures.each { |file| cathedrale_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 cathedrale_itinerary.save!
+
+kerouzere_itinerary_pictures = [File.open("db/fixtures/kerouzere1.png")]
+kerouzere_itinerary = Itinerary.new(name: "un chateau figé dans le temps", subtitle: "un beau chateau ma foi", distance: 12, category: "Nature", rating: 3, duration: 180, number_of_poi: 4, departure: "Chateau de Kerouzéré, 29250 Sibiril", city: sibiril)
+kerouzere_itinerary_pictures.each { |file| kerouzere_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+kerouzere_itinerary.save!
+
+dolmen_itinerary_pictures = [File.open("db/fixtures/dolmen.jpg")]
+dolmen_itinerary = Itinerary.new(name: "Dolmen et Menhir de Kerivoret", subtitle: "un beau menhir madame", distance: 3, category: "Préhistorique", rating: 4, duration: 60, number_of_poi: 2, departure: "7 Rte de Prat Joulou, 29840 Porspoder", city: porspoder)
+dolmen_itinerary_pictures.each { |file| dolmen_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+dolmen_itinerary.save!
 
 puts "created #{Itinerary.count} itineraries"
 

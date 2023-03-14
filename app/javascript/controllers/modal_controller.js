@@ -4,7 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["firstModalCold", "firstModalWarm", "firstModalWarmer",
   "secondModalCold", "secondModalWarm", "secondModalWarmer",
-  "firstPoi", "secondPoi"]
+  "firstPoi", "secondPoi", "poiMarker0", "poiMarker1", "poiMarker2"]
 
   connect() {
   }
@@ -38,6 +38,9 @@ export default class extends Controller {
   }
 
   continue() {
+    this.poiMarker1Target.classList.remove("poi-marker")
+    this.poiMarker1Target.classList.add("completed-poi")
+    this.poiMarker2Target.classList.add('visible')
     this.firstPoiTarget.classList.add("d-none")
   }
 

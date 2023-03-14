@@ -1,3 +1,48 @@
+.poi-marker:first-of-type {
+  width: 47px !important;
+  height: 50px !important;
+  background: image-url('navbar/home.svg') !important;
+  border: none !important;
+  opacity: 1 !important;
+}
+
+.visible {
+  visibility: visible !important;
+}
+
+.poi-marker {
+  position:relative;
+
+  &:nth-of-type(2) {
+    background-color: $primary;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: pulse 5s infinite;
+    visibility: visible;
+  }
+
+  &:last-of-type {
+    background-color: $primary;
+    width: 100px;
+    height: 100px;
+    border-radius:50%;
+    opacity: 0.2;
+    animation: pulse 5s infinite;
+    visibility: hidden;
+  }
+}
+
+.completed-poi {
+  width: 47px;
+  height: 54px;
+  background: image-url('banner.svg');
+  border: none;
+  opacity: 1;
+  animation: bounce 2s ease infinite;
+}
+
 .itinerary-marker, .itinerary-marker:first-of-type {
   width: 47px !important;
   height: 54px !important;
@@ -16,10 +61,18 @@
 
 @keyframes pulse {
   0% {
-    transform: scale(0);
+    width:0px;
+    height:0px;
   }
 
   100% {
-    transform: scale(1);
+    width:100px;
+    height:100px;
   }
+}
+
+@keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {top : 0px;}
+	40% {top :-30px;}
+	60% {top: -15px;}
 }
