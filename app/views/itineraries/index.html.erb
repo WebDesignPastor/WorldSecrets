@@ -90,14 +90,15 @@
         <h3>Balade rapide</h3>
       </div>
 
-      <div class="cards-wrapper">
-        <div class="d-flex cards">
-          <% @short_itineraries.each do |itinerary| %>
-            <div class="card">
-              <%= link_to itinerary_path(itinerary) do %>
-                <div class="card-img">
-                  <%= cl_image_tag itinerary.photos.first.key, height: 160, width: 285, crop: :fill %>
-                </div>
+
+    <div class="cards-wrapper">
+      <div class="d-flex cards">
+        <% @short_itineraries.each do |itinerary| %>
+          <div class="card">
+            <%= link_to itinerary_path(itinerary) do %>
+              <div class="card-img">
+                <%= cl_image_tag itinerary.photos.first.key, height: 160, width: 285, crop: :fill %>
+              </div>
                 <div class="card-infos">
                   <p class="text-x-small black-700"><%= itinerary.distance %>km | <%= itinerary.duration / 60 %> h <%= itinerary.duration % 60 if itinerary.duration % 60 != 0  %></p>
                   <h4><%= itinerary.name %></h4>
