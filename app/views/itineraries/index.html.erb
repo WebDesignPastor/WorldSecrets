@@ -1,11 +1,23 @@
 <div data-controller="switch">
   <div class="d-flex justify-content-between phone-navbar align-items-center">
-    <%= link_to root_path do %>
-      <%= image_tag('navbar/home.svg') %>
-    <% end %>
-    <%= image_tag('navbar/list.svg', data: { action: "click->switch#displayList", switch_target: "my-anchor svglist" }) %>
-    <%= image_tag('navbar/map.svg', data: { action: "click->switch#displayMap", switch_target: "my-anchor svgmap" }) %>
-    <%= image_tag('navbar/profil.svg') %>
+    <div class="navbar-item">
+      <%= link_to root_path do %>
+        <%= image_tag('navbar/home.svg', class:'navbar-icon') %>
+      <% end %>
+        <p>Accueil</p>
+    </div>
+    <div class="navbar-item">
+      <%= image_tag('navbar/list.svg', data: { action: "click->switch#displayList", switch_target: "my-anchor svglist" }) %>
+      <p>Liste</p>
+    </div>
+    <div class="navbar-item">
+      <%= image_tag('navbar/map.svg', class:'navbar-icon', data: { action: "click->switch#displayMap", switch_target: "my-anchor svgmap" }) %>
+      <p>Carte</p>
+    </div>
+    <div class="navbar-item">
+      <%= image_tag('navbar/profil.svg', class:'navbar-icon') %>
+      <p>Historique</p>
+    </div>
     <div class="dropdown-menu doprdown-menu-end" aria-labelledby="navbarDropdown">
       <%= link_to "Historiques", class: "dropdown-item" %>
       <%= link_to "Favoris", class: "dropdown-item" %>
