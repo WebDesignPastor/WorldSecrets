@@ -2,20 +2,20 @@
   <div class="d-flex justify-content-between phone-navbar align-items-center">
     <div class="navbar-item">
       <%= link_to root_path do %>
-        <%= image_tag('navbar/home.svg', class:'navbar-icon') %>
+        <%= image_tag('navbar/home.svg') %>
       <% end %>
         <p>Accueil</p>
     </div>
-    <div class="navbar-item">
-      <%= image_tag('navbar/list.svg', data: { action: "click->switch#displayList", switch_target: "my-anchor svglist" }) %>
+    <div class="navbar-item navbar-icon" data-action="click->switch#displayList" data-switch-target="my-anchor svglist">
+      <%= image_tag('navbar/list.svg') %>
       <p>Liste</p>
     </div>
-    <div class="navbar-item">
-      <%= image_tag('navbar/map.svg', class:'navbar-icon', data: { action: "click->switch#displayMap", switch_target: "my-anchor svgmap" }) %>
+    <div class="navbar-item"  data-action="click->switch#displayMap" data-switch-target="my-anchor svgmap">
+      <%= image_tag('navbar/map.svg') %>
       <p>Carte</p>
     </div>
     <div class="navbar-item">
-      <%= image_tag('navbar/profil.svg', class:'navbar-icon') %>
+      <%= image_tag('navbar/profil.svg') %>
       <p>Historique</p>
     </div>
     <div class="dropdown-menu doprdown-menu-end" aria-labelledby="navbarDropdown">

@@ -20,13 +20,10 @@
 }
 
 .navbar-icon {
-  filter: grayscale(1);
-  opacity: .25;
+  filter: grayscale(0) !important;
+  opacity: 1 !important;
 }
-.svg-colorized{
-  filter: grayscale(0);
-  opacity: 1;
-}
+
 
 .mapboxgl-canvas-container {
   height: 100vh;
@@ -74,4 +71,7 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: -20px;
+  filter: grayscale(1);
+  opacity: 0.25;
+  color:$primary;
 }
