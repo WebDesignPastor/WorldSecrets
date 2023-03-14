@@ -1,4 +1,6 @@
-<div class="position-relative wrapper-map" data-controller="modal">
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
+<div class="position-relative wrapper-map" data-controller="modal" data-action="click->modal#onClickEvent">
   <div class="position-absolute" style="width: 100vw; height: 100vh;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
@@ -6,23 +8,61 @@
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
   <div class="d-flex justify-content-center">
-    <div class="position-absolute custom-modal-text d-none" data-modal-target="modalCold">
+    <div class="position-absolute custom-modal-text d-none" data-modal-target="firstModalCold">
       <%= image_tag "trumpet.svg" %>
       <p>Le mystère se rapproche</p>
       <p>Regarde vers la lumière</p>
     </div>
-    <div class="position-absolute custom-modal-img d-none" data-modal-target="modalWarm">
+    <div class="position-absolute custom-modal-img d-none" data-modal-target="firstModalWarm">
       <%= image_tag "trumpet.svg" %>
       <p>Petit indice :</p>
       <%= image_tag "cat_dance.gif" %>
     </div>
-    <div class="position-absolute custom-modal-finish d-none" data-modal-target="modalWarmer">
+    <div class="position-absolute custom-modal-finish d-none" data-modal-target="firstModalWarmer">
       <%= image_tag "trumpet.svg" %>
       <p>C'est la fin bravo !</p>
-      <%= link_to "Reveal the secret", poi_path(Poi.last.id), class:'btn btn-primary' %>
+      <button class="btn btn-primary">Découvrir le secret</button>
+    </div>
+    <div class="position-absolute custom-modal-text d-none" data-modal-target="secondModalCold">
+      <%= image_tag "trumpet.svg" %>
+      <p>Le mystère se rapproche</p>
+      <p>Regarde vers la lumière</p>
+    </div>
+    <div class="position-absolute custom-modal-img d-none" data-modal-target="secondModalWarm">
+      <%= image_tag "trumpet.svg" %>
+      <p>C'est pas un putain de chat cette fois ci</p>
+    </div>
+    <div class="position-absolute custom-modal-finish d-none" data-modal-target="secondModalWarmer">
+      <%= image_tag "trumpet.svg" %>
+      <p>Fini ma gueule</p>
+      <button class="btn btn-primary">Découvrir le secret</button>
     </div>
   </div>
   <div class="position-absolute plus-btn">
     <%= image_tag('plus.svg') %>
+  </div>
+  <div class="d-none position-absolute main_show_div" data-modal-target="firstPoi">
+    <div class= "card_show_itinerary">
+      <%= image_tag "rue_du_chat_qui_danse.jpg", class: "show_image", crop: :fill %>
+    </div>
+    <div class="card_show_itinerary_content">
+      <h2><strong><%= @pois[0].mystery_name %></strong></h2>
+      <p><%= @pois[0].mystery_content %></p>
+    </div>
+    <div class="card_show_bottom">
+      <button class="btn btn-primary w-100">Continuez l'aventure</button>
+    </div>
+  </div>
+  <div class="d-none position-absolute main_show_div" data-modal-target="secondPoi">
+    <div class= "card_show_itinerary">
+      <%= image_tag "rue_du_chat_qui_danse.jpg", class: "show_image", crop: :fill %>
+    </div>
+    <div class="card_show_itinerary_content">
+      <h2><strong><%= @pois[1].mystery_name %></strong></h2>
+      <p><%= @pois[1].mystery_content %></p>
+    </div>
+    <div class="card_show_bottom">
+      <%= link_to "Allez au quizz", trip_questions_path(Trip.first.id), class:"btn btn-primary w-100" %>
+    </div>
   </div>
 </div>

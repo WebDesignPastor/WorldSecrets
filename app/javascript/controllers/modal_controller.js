@@ -2,32 +2,115 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="modal"
 export default class extends Controller {
-  static targets = ["modalCold", "modalWarm", "modalWarmer"]
+  static targets = ["firstModalCold", "firstModalWarm", "firstModalWarmer",
+  "secondModalCold", "secondModalWarm", "secondModalWarmer",
+  "firstPoi", "secondPoi"]
 
   connect() {
-    setTimeout(() => {
-      this.modalColdTarget.classList.remove("d-none")
-      this.modalColdTarget.classList.add("modal-seen")
-    }, 3000);
+  }
 
-    setTimeout(() => {
-      this.modalColdTarget.classList.add("d-none")
-      this.modalColdTarget.classList.remove("modal-seen")
-    }, 8000);
+  showFirstColdModal() {
+    this.firstModalColdTarget.classList.remove("d-none")
+    this.firstModalColdTarget.classList.add("modal-seen")
+  }
 
-    setTimeout(() => {
-      this.modalWarmTarget.classList.remove("d-none")
-      this.modalWarmTarget.classList.add("modal-seen")
-    }, 10000);
+  hideFirstColdModal() {
+    this.firstModalColdTarget.classList.add("d-none")
+  }
 
-    setTimeout(() => {
-      this.modalWarmTarget.classList.add("d-none")
-      this.modalWarmTarget.classList.remove("modal-seen")
-    }, 15000);
+  showFirstWarmModal() {
+    this.firstModalWarmTarget.classList.remove("d-none")
+    this.firstModalWarmTarget.classList.add("modal-seen")
+  }
 
-    setTimeout(() => {
-      this.modalWarmerTarget.classList.remove("d-none")
-      this.modalWarmerTarget.classList.add("modal-seen")
-    }, 18000);
+  hideFirstWarmModal() {
+    this.firstModalWarmTarget.classList.add("d-none")
+  }
+
+  showFirstWarmerModal() {
+    this.firstModalWarmerTarget.classList.remove("d-none")
+    this.firstModalWarmerTarget.classList.add("modal-seen")
+  }
+
+  showFirstPoi() {
+    this.firstModalWarmerTarget.classList.add("d-none")
+    this.firstPoiTarget.classList.remove("d-none")
+  }
+
+  continue() {
+    this.firstPoiTarget.classList.add("d-none")
+  }
+
+  showSecondColdModal() {
+    this.secondModalColdTarget.classList.remove("d-none")
+    this.secondModalColdTarget.classList.add("modal-seen")
+  }
+
+  hideSecondColdModal() {
+    this.secondModalColdTarget.classList.add("d-none")
+  }
+
+  showSecondWarmModal() {
+    this.secondModalWarmTarget.classList.remove("d-none")
+    this.secondModalWarmTarget.classList.add("modal-seen")
+  }
+
+  hideSecondWarmModal() {
+    this.secondModalWarmTarget.classList.add("d-none")
+  }
+
+  showSecondWarmerModal() {
+    this.secondModalWarmerTarget.classList.remove("d-none")
+    this.secondModalWarmerTarget.classList.add("modal-seen")
+  }
+
+  showSecondPoi() {
+    this.secondModalWarmerTarget.classList.add("d-none")
+    this.secondPoiTarget.classList.remove("d-none")
+  }
+
+  onClickEvent() {
+    if(this.count == undefined){
+      this.count = 1
+      this.showFirstColdModal()
+    } else if(this.count == 1) {
+      this.count += 1
+      this.hideFirstColdModal()
+    } else if(this.count == 2) {
+      this.count += 1
+      this.showFirstWarmModal()
+    } else if(this.count == 3) {
+      this.count += 1
+      this.hideFirstWarmModal()
+    } else if(this.count == 4) {
+      this.count += 1
+      this.showFirstWarmerModal()
+    } else if(this.count == 5) {
+      this.count +=1
+      this.showFirstPoi()
+    } else if(this.count == 6) {
+      this.count += 1
+      this.continue()
+    } else if(this.count == 7) {
+      this.count += 1
+    } else if(this.count == 8) {
+      this.count += 1
+      this.showSecondColdModal()
+    } else if(this.count == 9) {
+      this.count += 1
+      this.hideSecondColdModal()
+    } else if(this.count == 10) {
+      this.count += 1
+      this.showSecondWarmModal()
+    } else if(this.count == 11) {
+      this.count += 1
+      this.hideSecondWarmModal()
+    } else if(this.count == 12) {
+      this.count += 1
+      this.showSecondWarmerModal()
+    } else if(this.count == 13) {
+      this.count +=1
+      this.showSecondPoi()
+    }
   }
 }
