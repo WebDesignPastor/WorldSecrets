@@ -48,7 +48,7 @@
   height: 54px !important;
   background: image-url('banner.svg') !important;
   border: none !important;
-  opacity: 1 !important;
+  visibility: hidden;
 }
 
 .itinerary-marker-active {

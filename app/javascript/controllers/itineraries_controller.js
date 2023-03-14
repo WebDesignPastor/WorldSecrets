@@ -63,6 +63,7 @@ export default class extends Controller {
       itineraryMarker.className = 'itinerary-marker';
       itineraryMarker.dataset.action ="click->itineraries#activeMarkers"
       itineraryMarker.dataset.itinerariesTarget = "itinerariesMarker"
+      itineraryMarker.dataset.switchTarget = "itinerariesMarker"
       itineraryMarker.dataset.lat = marker.lat
       new mapboxgl.Marker(itineraryMarker)
         .setLngLat([ marker.lng, marker.lat ])
