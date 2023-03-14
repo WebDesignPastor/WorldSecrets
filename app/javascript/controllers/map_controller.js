@@ -9,19 +9,134 @@ export default class extends Controller {
   }
 
   connect() {
-    mapboxgl.accessToken = this.apiKeyValue
-
-    this.map = new mapboxgl.Map({
-      container: this.element,
-      zoom:1,
-      style: "mapbox://styles/fanchpastor/cleztoc72003801o3sccvya6t"
-    })
+      let points = `${this.departureMarkersValue[0].lng},${this.departureMarkersValue[0].lat}`
+      this.markersValue.forEach((marker) => {
+        points += `;${marker.lng},${marker.lat}`
+      })
 
 
-    this.#addMarkersToMap(this.departureMarkersValue)
-    this.#addMarkersToMap(this.markersValue)
-    this.#fitMapToMarkers(this.departureMarkersValue)
-    this.#fitMapToMarkers(this.markersValue)
+      fetch(`https://api.mapbox.com/directions/v5/mapbox/walking/${points}?alternatives=false&geometries=geojson&overview=full&steps=false&access_token=pk.eyJ1IjoiZmFuY2hwYXN0b3IiLCJhIjoiY2xlemx6NHY3MDBpdDQ2cGQ3YzBsb2lqZiJ9.g3kiJShO73ktvZhIa_6lrQ`)
+        .then(response => response.json())
+        .then((data) =>  {
+          mapboxgl.accessToken = this.apiKeyValue
+          this.coordinates = data.routes[0].geometry.coordinates
+
+
+          this.map = new mapboxgl.Map({
+            container: this.element,
+            zoom:1,
+            style: "mapbox://styles/fanchpastor/cleztoc72003801o3sccvya6t"
+          })
+
+          this.point = {
+            'type': 'FeatureCollection',
+            'features': [
+              {
+                'type': 'Feature',
+                'properties': {},
+                'geometry': {
+                  'type': 'Point',
+                  'coordinates': [this.departureMarkersValue[0].lng, this.departureMarkersValue[0].lat]
+                }
+              }
+            ]
+          }
+
+          this.steps = 100000
+
+          const line = turf.lineString(this.coordinates)
+          const lineDistance = turf.length(line)
+          this.totalDistance = lineDistance
+
+          this.arc = []
+          for (let i = 0; i < lineDistance; i += lineDistance / this.steps) {
+            const segment = turf.along(line, i)
+            this.arc.push(segment.geometry.coordinates)
+          }
+
+          this.map.on('load', () => {
+            this.direction = new MapboxDirections({
+              accessToken: mapboxgl.accessToken,
+              profile: 'mapbox/walking',
+              unit: 'metric',
+              flyTo: false,
+              interactive: false
+            })
+
+            this.counter = 0
+            this.direction.setOrigin([this.departureMarkersValue[0].lng, this.departureMarkersValue[0].lat])
+            const lastMarker = this.markersValue.slice(-1)
+            this.direction.setDestination([lastMarker[0].lng, lastMarker[0].lat])
+            this.markersValue.slice(0, -1).forEach((marker, index) => {
+              this.direction.addWaypoint(index, [marker.lng, marker.lat])
+            })
+
+            this.map.loadImage(
+              'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
+              (error, image) => {
+              if (error) throw error;
+              this.map.addImage('custom-marker', image);
+              // Add a GeoJSON source with 2 points
+
+
+              this.map.addSource('point', {
+                'type': 'geojson',
+                'data': this.point
+              });
+
+              this.map.addLayer({
+                'id': 'point',
+                'source': 'point',
+                'type': 'symbol',
+                'layout': {
+                  'icon-image': 'custom-marker',
+                  'icon-size': 1.5,
+                  'icon-rotate': ['get', 'bearing'],
+                  'icon-rotation-alignment': 'map',
+                  'icon-allow-overlap': true,
+                  'icon-ignore-placement': true
+                }
+              });
+
+              this.map.addControl(
+                this.direction,
+                'top-left'
+              )
+
+              animate(this.counter)
+            })
+
+          })
+
+          this.#addMarkersToMap(this.departureMarkersValue)
+          this.#addMarkersToMap(this.markersValue)
+          this.#fitMapToMarkers(this.departureMarkersValue)
+          this.#fitMapToMarkers(this.markersValue)
+
+          const animate = () => {
+            const start = this.coordinates[
+              this.counter >= this.steps ? this.counter - 1 : this.counter
+            ]
+            const end = this.coordinates[
+              this.counter >= this.steps ? this.counter : this.counter + 1
+            ]
+            if (!start || !end) {
+              console.log("Failed")
+              return
+            }
+            this.point.features[0].geometry.coordinates = this.arc[this.counter]
+
+            // Update the source with this new data
+            this.map.getSource('point').setData(this.point)
+
+            // Request the next frame of animation as long as the end has not been reached
+            if (this.counter <= this.steps) {
+              requestAnimationFrame(animate)
+              this.counter = this.counter + 1
+            }
+
+          }
+        })
 
   }
 

@@ -1,4 +1,24 @@
-<div class="position-relative wrapper-map" data-controller="modal">
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
+<%# <div id="map"></div>
+<script>
+  // TO MAKE THE MAP APPEAR YOU MUST
+  // ADD YOUR ACCESS TOKEN FROM
+  // https://account.mapbox.com
+  const map = new mapboxgl.Map({
+    container: 'map',
+    // // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+    style: 'mapbox://styles/mapbox/streets-v12',
+    zoom: 15
+  });
+  map.addControl(
+    new MapboxDirections({
+      accessToken: mapboxgl.accessToken
+    }),
+    'top-left'
+  );
+</script> %>
+<div class="position-relative wrapper-map" data-controller="modal"> <%# remove d-none %>
   <div class="position-absolute" style="width: 100vw; height: 100vh;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
