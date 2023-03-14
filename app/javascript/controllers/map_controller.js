@@ -194,6 +194,8 @@ export default class extends Controller {
 
   #addMarkersToMap(markers) {
     markers.forEach((marker) => {
+      let poiMarker = document.createElement('div')
+      poiMarker.className = 'poi-marker'
       new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(this.map)
