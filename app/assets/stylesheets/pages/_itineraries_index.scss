@@ -11,11 +11,15 @@
   width: 100vw;
   overflow: hidden;
   overflow-x: scroll;
-  gap: 20px;
+  gap: 10px;
 
   .btn-outline-primary:hover {
     color: $primary !important;
     background-color: transparent !important;
+  }
+  &:after {
+    content:'';
+
   }
 }
 
