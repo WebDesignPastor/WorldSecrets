@@ -11,13 +11,22 @@ export default class extends Controller {
     this.cardsForMapTarget.classList.add('d-none')
     this.listTarget.classList.remove("d-none")
     this.mapTarget.classList.add("opacity-0")
-    this.svglistTarget.classList.add("svg-colorized")
+    // this.tomImage.src = ''
+    this.svgmapTarget.classList.add("navbar-icon")
+    this.svglistTarget.classList.remove("navbar-icon")
   }
 
   displayMap() {
     this.cardsForMapTarget.classList.remove('d-none')
     this.mapTarget.classList.remove("opacity-0")
     this.listTarget.classList.add("d-none")
-    this.svgmapTarget.classList.add("svg-colorized")
+    // this.svglistTarget.setAttribute('fill', 'red')
+    this.svgmapTarget.classList.remove("navbar-icon")
+    this.svglistTarget.classList.add("navbar-icon")
+
+  }
+
+  buttonActive() {
+
   }
 }
