@@ -12,8 +12,8 @@ export default class extends Controller {
     this.listTarget.classList.remove("d-none")
     this.mapTarget.classList.add("opacity-0")
     // this.tomImage.src = ''
-    this.svgmapTarget.classList.add("navbar-icon")
-    this.svglistTarget.classList.remove("navbar-icon")
+    this.svgmapTarget.classList.remove("navbar-icon")
+    this.svglistTarget.classList.add("navbar-icon")
   }
 
   displayMap() {
@@ -21,8 +21,8 @@ export default class extends Controller {
     this.mapTarget.classList.remove("opacity-0")
     this.listTarget.classList.add("d-none")
     // this.svglistTarget.setAttribute('fill', 'red')
-    this.svgmapTarget.classList.remove("navbar-icon")
-    this.svglistTarget.classList.add("navbar-icon")
+    this.svgmapTarget.classList.add("navbar-icon")
+    this.svglistTarget.classList.remove("navbar-icon")
 
   }
 
