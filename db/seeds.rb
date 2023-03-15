@@ -61,7 +61,7 @@ puts '####### Creating Itineraries #############'
 
 st_malo_itinerary_pictures = File.open("db/fixtures/saint-malo1.jpg"), File.open("db/fixtures/saint-malo2.jpg"), File.open("db/fixtures/saint-malo3.jpg")
 st_malo_itinerary = Itinerary.new(name: 'Saint-Malo, la cité corsaire', subtitle: "Plonger dans les secrets des remparts d'Intra-Muros", distance: 5, rating: 5, duration: 120, number_of_poi: 3, departure: 'Porte Saint-vincent 35400 Saint-Malo', city: st_malo, category: "Médiéval", description: "Entendez-moi, noble compagnie, car je vais vous raconter l'histoire d'une cité corsaire bâtie sur les flots tumultueux de l'océan, la ville imprenable de Saint-Malo.
-  Enveloppée par les vagues impitoyables de l'Atlantique, cette ville est un joyau resplendissant dans l'histoire de la Bretagne. Avec ses fortifications massives, ses édifices majestueux et ses rues pavées envoûtantes, elle a connu des siècles de guerres, de commerce et d'aventures épiques.
+  Enveloppée par les vagues impitoyables de la Manche, cette ville est un joyau resplendissant dans l'histoire de la Bretagne. Avec ses fortifications massives, ses édifices majestueux et ses rues pavées envoûtantes, elle a connu des siècles de guerres, de commerce et d'aventures épiques.
   Ses remparts s'élèvent fièrement dans le ciel, défiant l'océan et protégeant la ville des ennemis. Les clochers de ses églises imposantes atteignent les nuages, témoins de la foi et de la détermination des habitants de la ville.
   Mais c'est surtout l'histoire des corsaires de Saint-Malo qui a marqué les esprits de toutes les générations. Ces guerriers intrépides naviguaient sur des navires rapides et puissants, bravant les tempêtes les plus violentes et les flots les plus déchaînés pour protéger leur ville et leur liberté.
   Leurs batailles légendaires contre les ennemis, qu'ils soient Anglais, Espagnols ou autres, sont restées gravées dans l'histoire. Les canons tonnent, les sabres s'entrechoquent, les flammes embrasent les navires ennemis, mais les corsaires de Saint-Malo tiennent bon, animés par un courage inébranlable et une ferveur indomptable.
@@ -92,8 +92,7 @@ vannes_itinerary_pictures.each { |file| vannes_itinerary.photos.attach(io: file,
 vannes_itinerary.save!
 
 carnac_itinerary_pictures = File.open("db/fixtures/carnac1.jpg"), File.open("db/fixtures/carnac2.jpg")
-carnac_itinerary = Itinerary.new(name: 'Secrets des pierres de Carnac', subtitle: "une ballade mystique au coeur des mégalithes bretons", distance: 8, category: "Préhistorique", rating: 2,
-                  duration: 150, number_of_poi: 4, departure: 'Le Menec, Carnac', city: carnac)
+carnac_itinerary = Itinerary.new(name: 'Secrets des pierres de Carnac', subtitle: "une ballade mystique au coeur des mégalithes bretons", distance: 8, category: "Préhistorique", rating: 2, duration: 150, number_of_poi: 4, departure: 'Le Menec, Carnac', city: carnac)
 carnac_itinerary_pictures.each { |file| carnac_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 carnac_itinerary.save!
 
@@ -114,12 +113,12 @@ plogoff_itinerary_pictures.each { |file| plogoff_itinerary.photos.attach(io: fil
 plogoff_itinerary.save!
 
 vitre_itinerary_pictures = [File.open("db/fixtures/vitre1.jpg")]
-vitre_itinerary = Itinerary.new(name: 'Entre château et rues anciennes à Vitré', subtitle: "l'histoire et l'architecture médiévale de l'un des plus beaux châteaux de Bretagne", distance: 4, category: "Médiéval", rating: 4.5, duration: 90, number_of_poi: 4, departure: 'Château de Vitré', city: vitre)
+vitre_itinerary = Itinerary.new(name: 'Entre château et rues anciennes à Vitré', subtitle: "l'histoire et l'architecture médiévale de l'un des plus beaux châteaux de Bretagne", distance: 4, category: "Médiéval", rating: 4.5, duration: 80, number_of_poi: 4, departure: 'Château de Vitré', city: vitre)
 vitre_itinerary_pictures.each { |file| vitre_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 vitre_itinerary.save!
 
 dinard_itinerary_pictures = [File.open("db/fixtures/dinard1.jpg")]
-dinard_itinerary = Itinerary.new(name: 'Promenade avec Picasso à Dinard', subtitle: "unparcours sur les plages et les villas Belle Époque de la perle de la Côte d'Émeraude", distance: 4, category: "Urbain", rating: 4.5, duration: 90, number_of_poi: 4, departure: 'Mairie de Dinard', city: dinard)
+dinard_itinerary = Itinerary.new(name: 'Promenade avec Picasso à Dinard', subtitle: "unparcours sur les plages et les villas Belle Époque de la perle de la Côte d'Émeraude", distance: 4, category: "Urbain", rating: 4.5, duration: 100, number_of_poi: 4, departure: 'Mairie de Dinard', city: dinard)
 dinard_itinerary_pictures.each { |file| dinard_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 dinard_itinerary.save!
 
@@ -134,7 +133,7 @@ toursolidor_itinerary_pictures.each { |file| toursolidor_itinerary.photos.attach
 toursolidor_itinerary.save!
 
 memorial_itinerary_pictures = [File.open("db/fixtures/memorial1.jpg")]
-memorial_itinerary = Itinerary.new(name: 'Terrés dans le Bunker', subtitle: "La cité d'Aleth et ses galeries de bunkers", distance: 6, category: "Nature", rating: 4, duration: 90, number_of_poi: 2, departure: 'Memorial 1939-1945, Saint-Malo', city: st_malo)
+memorial_itinerary = Itinerary.new(name: 'Terrés dans le Bunker', subtitle: "La cité d'Aleth et ses galeries de bunkers", distance: 6, category: "Nature", rating: 4, duration: 95, number_of_poi: 2, departure: 'Memorial 1939-1945, Saint-Malo', city: st_malo)
 memorial_itinerary_pictures.each { |file| memorial_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 memorial_itinerary.save!
 
