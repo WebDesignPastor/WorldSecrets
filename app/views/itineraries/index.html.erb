@@ -16,7 +16,7 @@
     </div>
     <div class="navbar-item">
       <%= image_tag('navbar/profil.svg') %>
-      <p>Historique</p>
+      <p>Profil</p>
     </div>
     <div class="dropdown-menu doprdown-menu-end" aria-labelledby="navbarDropdown">
       <%= link_to "Historiques", class: "dropdown-item" %>
@@ -87,7 +87,49 @@
                   <%= cl_image_tag itinerary.photos.first.key, height: 160, width: 285, crop: :fill %>
                 </div>
                 <div class="card-infos">
-                  <p class="text-x-small black-700"><%= itinerary.distance %>km | <%= itinerary.duration / 60 %> h <%= itinerary.duration % 60 if itinerary.duration % 60 != 0  %></p>
+                  <div class="card-details">
+                    <p class="text-x-small black-700 mt-1"><%= itinerary.distance %>km | <%= itinerary.duration / 60 %> h <%= itinerary.duration % 60 if itinerary.duration % 60 != 0  %> </p>
+                    <% if itinerary.rating.truncate(0) == 1 %>
+                      <%= image_tag "star.svg" %>
+                      <%= image_tag "emptystar.svg" %>
+                      <%= image_tag "emptystar.svg" %>
+                      <%= image_tag "emptystar.svg" %>
+                      <%= image_tag "emptystar.svg" %>
+                    <% elsif itinerary.rating.truncate(0) == 2 %>
+                      <div>
+                        <%= image_tag "star.svg" %>
+                        <%= image_tag "star.svg" %>
+                        <%= image_tag "emptystar.svg" %>
+                        <%= image_tag "emptystar.svg" %>
+                        <%= image_tag "emptystar.svg" %>
+
+                      </div>
+                    <% elsif itinerary.rating.truncate(0) == 3 %>
+                      <div>
+                        <%= image_tag "star.svg" %>
+                        <%= image_tag "star.svg" %>
+                        <%= image_tag "star.svg" %>
+                        <%= image_tag "emptystar.svg" %>
+                        <%= image_tag "emptystar.svg" %>
+                      </div>
+                    <% elsif itinerary.rating.truncate(0) == 4 %>
+                      <div>
+                        <%= image_tag "star.svg" %>
+                        <%= image_tag "star.svg" %>
+                        <%= image_tag "star.svg" %>
+                        <%= image_tag "star.svg" %>
+                        <%= image_tag "emptystar.svg" %>
+                      </div>
+                    <% else %>
+                      <div>
+                        <%= image_tag "star.svg" %>
+                        <%= image_tag "star.svg" %>
+                        <%= image_tag "star.svg" %>
+                        <%= image_tag "star.svg" %>
+                        <%= image_tag "star.svg" %>
+                      </div>
+                    <% end %>
+                  </div>
                   <h4><%= itinerary.name %></h4>
                 </div>
               <% end %>
@@ -112,7 +154,49 @@
                 <%= cl_image_tag itinerary.photos.first.key, height: 160, width: 285, crop: :fill %>
               </div>
                 <div class="card-infos">
-                  <p class="text-x-small black-700"><%= itinerary.distance %>km | <%= itinerary.duration / 60 %> h <%= itinerary.duration % 60 if itinerary.duration % 60 != 0  %></p>
+                  <div class="card-details">
+                    <p class="text-x-small black-700 mt-1"><%= itinerary.distance %>km | <%= itinerary.duration / 60 %> h <%= itinerary.duration % 60 if itinerary.duration % 60 != 0  %></p>
+                    <% if itinerary.rating.truncate(0) == 1 %>
+                        <%= image_tag "star.svg" %>
+                        <%= image_tag "emptystar.svg" %>
+                        <%= image_tag "emptystar.svg" %>
+                        <%= image_tag "emptystar.svg" %>
+                        <%= image_tag "emptystar.svg" %>
+                      <% elsif itinerary.rating.truncate(0) == 2 %>
+                        <div>
+                          <%= image_tag "star.svg" %>
+                          <%= image_tag "star.svg" %>
+                          <%= image_tag "emptystar.svg" %>
+                          <%= image_tag "emptystar.svg" %>
+                          <%= image_tag "emptystar.svg" %>
+
+                        </div>
+                      <% elsif itinerary.rating.truncate(0) == 3 %>
+                        <div>
+                          <%= image_tag "star.svg" %>
+                          <%= image_tag "star.svg" %>
+                          <%= image_tag "star.svg" %>
+                          <%= image_tag "emptystar.svg" %>
+                          <%= image_tag "emptystar.svg" %>
+                        </div>
+                      <% elsif itinerary.rating.truncate(0) == 4 %>
+                        <div>
+                          <%= image_tag "star.svg" %>
+                          <%= image_tag "star.svg" %>
+                          <%= image_tag "star.svg" %>
+                          <%= image_tag "star.svg" %>
+                          <%= image_tag "emptystar.svg" %>
+                        </div>
+                      <% else %>
+                        <div>
+                          <%= image_tag "star.svg" %>
+                          <%= image_tag "star.svg" %>
+                          <%= image_tag "star.svg" %>
+                          <%= image_tag "star.svg" %>
+                          <%= image_tag "star.svg" %>
+                        </div>
+                      <% end %>
+                    </div>
                   <h4><%= itinerary.name %></h4>
                 </div>
               <% end %>
@@ -136,7 +220,49 @@
                   <%= cl_image_tag itinerary.photos.first.key, height: 160, width: 285, crop: :fill %>
                 </div>
                 <div class="card-infos">
-                  <p class="text-x-small black-700"><%= itinerary.distance %>km | <%= itinerary.duration / 60 %> h <%= itinerary.duration % 60 if itinerary.duration % 60 != 0  %></p>
+                  <div class="card-details">
+                    <p class="text-x-small black-700 mt-1"><%= itinerary.distance %>km | <%= itinerary.duration / 60 %> h <%= itinerary.duration % 60 if itinerary.duration % 60 != 0  %></p>
+                    <% if itinerary.rating.truncate(0) == 1 %>
+                        <%= image_tag "star.svg" %>
+                        <%= image_tag "emptystar.svg" %>
+                        <%= image_tag "emptystar.svg" %>
+                        <%= image_tag "emptystar.svg" %>
+                        <%= image_tag "emptystar.svg" %>
+                      <% elsif itinerary.rating.truncate(0) == 2 %>
+                        <div>
+                          <%= image_tag "star.svg" %>
+                          <%= image_tag "star.svg" %>
+                          <%= image_tag "emptystar.svg" %>
+                          <%= image_tag "emptystar.svg" %>
+                          <%= image_tag "emptystar.svg" %>
+
+                        </div>
+                      <% elsif itinerary.rating.truncate(0) == 3 %>
+                        <div>
+                          <%= image_tag "star.svg" %>
+                          <%= image_tag "star.svg" %>
+                          <%= image_tag "star.svg" %>
+                          <%= image_tag "emptystar.svg" %>
+                          <%= image_tag "emptystar.svg" %>
+                        </div>
+                      <% elsif itinerary.rating.truncate(0) == 4 %>
+                        <div>
+                          <%= image_tag "star.svg" %>
+                          <%= image_tag "star.svg" %>
+                          <%= image_tag "star.svg" %>
+                          <%= image_tag "star.svg" %>
+                          <%= image_tag "emptystar.svg" %>
+                        </div>
+                      <% else %>
+                        <div>
+                          <%= image_tag "star.svg" %>
+                          <%= image_tag "star.svg" %>
+                          <%= image_tag "star.svg" %>
+                          <%= image_tag "star.svg" %>
+                          <%= image_tag "star.svg" %>
+                        </div>
+                      <% end %>
+                    </div>
                   <h4><%= itinerary.name %></h4>
                 </div>
               <% end %>
