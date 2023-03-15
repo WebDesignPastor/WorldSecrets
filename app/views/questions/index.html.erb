@@ -1,5 +1,5 @@
 
-<div class="d-flex flex-column quizz-wrapper" data-controller="questions">
+<div class="d-flex flex-column quizz-wrapper position-relative" data-controller="questions">
   <div class='background-progress'>
     <div data-questions-target="progress" class="progress-bar">
     </div>
@@ -129,9 +129,13 @@
       <% end %>
     </div>
   </div>
-  <div data-questions-target="six" class="d-none">
-    <h2>Bravo ! A très vite pour une prochaine aventure</h2>
-    <%= link_to 'Retourner aux itinéraires', itineraries_path, class: 'btn btn-primary' %>
+  <div class="d-flex flex-wrap justify-content-center">
+    <div data-questions-target="six" class="d-none d-flex flex-column justify-content-center mt-15">
+      <h2>Sacrebleu ! Félicitations ! Nous nous reverrons bientôt pour d'autres aventures</h2>
+      <div class="quizz-image" >
+        <%= cl_image_tag("x01crxvnvqxfn1hkj65dskj0q3pz", width: 328, height: 300, crop: :fill) %>
+      </div>
+      <%= link_to 'Retourner aux itinéraires', itineraries_path, class: 'btn full-width-div btn-primary' %> </div>
   </div>
 </div>
 <script>
