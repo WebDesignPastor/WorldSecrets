@@ -37,6 +37,10 @@
   align-items: center;
   justify-content: space-between;
 
+  p {
+    font-size: calc(4000vw / 1018);
+  }
+
   .rating-stars {
     display:flex;
     gap:2px;
@@ -64,10 +68,6 @@
   bottom:0;
   padding:80px 20px 20px 20px;
   background: linear-gradient(3.1deg, #E9E6DF 10.18%, rgba(233, 230, 223, 0) 96.08%);
-}
-
-.show_image {
-  width: 100vw;
 }
 
 .card_show_description {

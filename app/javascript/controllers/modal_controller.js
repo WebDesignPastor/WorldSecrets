@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="modal"
 export default class extends Controller {
   static targets = ["firstModalCold", "firstModalWarm", "firstModalWarmer",
-  "secondModalCold", "secondModalWarm", "secondModalWarmer",
+  "secondModalCold", "secondModalWarm", "secondModalWarmer", "progress",
   "firstPoi", "secondPoi", "poiMarker0", "poiMarker1", "poiMarker2"]
 
   connect() {
@@ -38,6 +38,9 @@ export default class extends Controller {
   }
 
   continue() {
+    const currentProgress = parseInt(this.progressTarget.textContent)
+    const newProgress = currentProgress + 1
+    this.progressTarget.outerHTML = `<p data-modal-target="progress">${newProgress}</p>`
     this.poiMarker1Target.classList.remove("poi-marker")
     this.poiMarker1Target.classList.add("completed-poi")
     this.poiMarker2Target.classList.add('visible')
@@ -75,43 +78,45 @@ export default class extends Controller {
   onClickEvent() {
     if(this.count == undefined){
       this.count = 1
-      this.showFirstColdModal()
-    } else if(this.count == 1) {
+    } else if(this.count == 1){
       this.count += 1
-      this.hideFirstColdModal()
+      this.showFirstColdModal()
     } else if(this.count == 2) {
       this.count += 1
-      this.showFirstWarmModal()
+      this.hideFirstColdModal()
     } else if(this.count == 3) {
       this.count += 1
-      this.hideFirstWarmModal()
+      this.showFirstWarmModal()
     } else if(this.count == 4) {
       this.count += 1
-      this.showFirstWarmerModal()
+      this.hideFirstWarmModal()
     } else if(this.count == 5) {
+      this.count += 1
+      this.showFirstWarmerModal()
+    } else if(this.count == 6) {
       this.count +=1
       this.showFirstPoi()
-    } else if(this.count == 6) {
-      this.count += 1
-      this.continue()
     } else if(this.count == 7) {
       this.count += 1
+      this.continue()
     } else if(this.count == 8) {
       this.count += 1
-      this.showSecondColdModal()
     } else if(this.count == 9) {
       this.count += 1
-      this.hideSecondColdModal()
+      this.showSecondColdModal()
     } else if(this.count == 10) {
       this.count += 1
-      this.showSecondWarmModal()
+      this.hideSecondColdModal()
     } else if(this.count == 11) {
       this.count += 1
-      this.hideSecondWarmModal()
+      this.showSecondWarmModal()
     } else if(this.count == 12) {
       this.count += 1
-      this.showSecondWarmerModal()
+      this.hideSecondWarmModal()
     } else if(this.count == 13) {
+      this.count += 1
+      this.showSecondWarmerModal()
+    } else if(this.count == 14) {
       this.count +=1
       this.showSecondPoi()
     }

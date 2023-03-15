@@ -67,7 +67,7 @@ export default class extends Controller {
           }
 
           this.counter = 0
-          this.running = true
+          this.running = false
           this.count = 0
           this.direction.setOrigin([this.departureMarkersValue[0].lng, this.departureMarkersValue[0].lat])
           const lastMarker = this.markersValue.slice(-1)
@@ -151,40 +151,43 @@ export default class extends Controller {
 
       document.addEventListener('click', (e) => {
         if (this.count == 0){
-          this.running = false
-          this.count += 1
-        } else if (this.count == 1) {
           this.running = true
+          this.count += 1
+        } else if(this.count == 1){
+          this.running = false
           this.count += 1
         } else if (this.count == 2) {
-          this.running = false
-          this.count += 1
-        } else if (this.count == 3) {
           this.running = true
           this.count += 1
-        } else if (this.count == 4) {
+        } else if (this.count == 3) {
           this.running = false
           this.count += 1
+        } else if (this.count == 4) {
+          this.running = true
+          this.count += 1
         } else if (this.count == 5) {
+          this.running = false
           this.count += 1
         } else if (this.count == 6) {
           this.count += 1
         } else if (this.count == 7) {
-          this.running = true
           this.count += 1
         } else if (this.count == 8) {
-          this.running = false
+          this.running = true
           this.count += 1
         } else if (this.count == 9) {
-          this.running = true
-          this.count += 1
-        } else if (this.count == 10) {
           this.running = false
           this.count += 1
-        } else if (this.count == 11) {
+        } else if (this.count == 10) {
           this.running = true
           this.count += 1
+        } else if (this.count == 11) {
+          this.running = false
+          this.count += 1
         } else if (this.count == 12) {
+          this.running = true
+          this.count += 1
+        } else if (this.count == 13) {
           this.running = false
           this.count += 1
         }
