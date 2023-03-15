@@ -15,9 +15,9 @@ Itinerary.destroy_all
 puts 'database cleaned'
 puts '####### Creating Users #############'
 
-fanch = User.create!(email: 'test1@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Fanch')
-rico = User.create!(email: 'test2@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Rico')
-kevin = User.create!(email: 'test3@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Kevin')
+User.create!(email: 'test1@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Fanch')
+User.create!(email: 'test2@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Rico')
+User.create!(email: 'test3@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Kevin')
 puts "created #{User.count} users"
 
 puts '####### Creating Cities #############'
@@ -47,26 +47,21 @@ chat_qui_danse = Poi.create!(name: 'La rue du chat qui danse', address: '1 rue d
             mystery_name: 'rue du chat qui danse', mystery_content: "Les Anglois ont tenté de rayer Saint-malo de la
             carte avec un bateau rempli d'explosifs, helas pour eux, le bateau finit par s'échouer loin des enceintes
             et ne fut qu'une victime, un chat ! Pour les moquer, les malouins rebaptisèrent cette rue, la rue du chat qui danse",
-            mystery_image: 'rue_du_chat_qui_danse.jpg', clue_image: 'cat-dance.gif', clue_sentence: 'Je suis un animal domestique,
+            mystery_image: 'rue_du_chat_qui_danse.jpg', clue_image: 'cat_dance.gif', clue_sentence: 'Je suis un animal domestique,
             Qui aime les souris et les balles élastiques, Mon nom est court à prononcer,
             Et quand il y a de la musique, je me mets à bouger, Qui suis-je ?')
 la_grand_porte = Poi.create!(name: 'La Grand Porte', address: "Grand Porte 35400 Saint-Malo", mystery_name: "la grand porte",
                 mystery_content: "La Grand Porte est la plus ancienne de Saint-Malo. Pendant plusieurs siècles,
                 elle fut l’entrée principale qui desservait le port. Au-dessus de l’entrée, vous pouvez admirer Notre-Dame de la Grand’Porte, une statue de la Vierge à l’Enfant. Des marins auraient trouvé cette statue de marbre flottant sur la mer.
-                Également surnommée « Notre-Dame des Miracles », la légende raconte qu’en 1661, elle se serait dressée face aux flammes qui ravageaient la ville et aurait stoppé l’incendie.", clue_image: "clue_grand_porte.jpg",
+                Également surnommée « Notre-Dame des Miracles », la légende raconte qu’en 1661, elle se serait dressée face aux flammes qui ravageaient la ville et aurait stoppé l’incendie.", mystery_image: "la_grand_porte.jpg", clue_image: "clue_grand_porte.jpg",
                 clue_sentence: "Je suis une entrée majestueuse de la ville de Saint-Malo, ornée de sculptures et de motifs baroques. Point de départ de nombreuses aventures maritimes et témoin de l'histoire de la cité corsaire. Qui suis-je ?")
-chiens_du_guet = Poi.create!(name: 'Les chiens du guet', address: 'Bastion de la Hollande', mystery_name: "Les chiens du guet", mystery_content: "Au XVIIe siècle, suite à l'effondrement du mur d'enceinte primitif de la ville de Saint-Malo, un nouveau bastion appelé 'Hollande'
-                  fut construit pour se protéger pendant la guerre contre les Pays-Bas. Il fut armé de canons offerts par le comte de Toulouse en 1696 et abritait une meute de chiens de race anglaise chargée de surveiller les environs la nuit.
-                  Les chiens étaient libérés après le dixième coup de cloche de l'horloge publique et étaient rassemblés le matin suivant. En 1772, un officier de marine fut attaqué par les chiens et la ville décida alors de s'en débarrasser en les empoisonnant.
-                  Depuis, la cloche Noguette sonne tous les soirs à 22 heures en souvenir de cette tradition.", mystery_image: "les_chiens_du_guet.jpg", clue_image: "clue_malo_dog.jpg",
-                  clue_sentence: "Je suis un groupe de gardiens nocturnes à Saint-Malo, fidèles compagnons et protecteurs de la ville. Nous sommes conduits dans les rues par nos gardiens et libérés à l'extérieur de la Grande Porte après le dixième coup de cloche. Qui sommes-nous ?")
 puts "created #{Poi.count} pois !"
 
 puts '####### Creating Itineraries #############'
 
 st_malo_itinerary_pictures = File.open("db/fixtures/saint-malo1.jpg"), File.open("db/fixtures/saint-malo2.jpg"), File.open("db/fixtures/saint-malo3.jpg")
 st_malo_itinerary = Itinerary.new(name: 'Saint-Malo, la cité corsaire', subtitle: "Plonger dans les secrets des remparts d'Intra-Muros", distance: 5, rating: 5, duration: 120, number_of_poi: 3, departure: 'Porte Saint-vincent 35400 Saint-Malo', city: st_malo, category: "Médiéval", description: "Entendez-moi, noble compagnie, car je vais vous raconter l'histoire d'une cité corsaire bâtie sur les flots tumultueux de l'océan, la ville imprenable de Saint-Malo.
-  Enveloppée par les vagues impitoyables de l'Atlantique, cette ville est un joyau resplendissant dans l'histoire de la Bretagne. Avec ses fortifications massives, ses édifices majestueux et ses rues pavées envoûtantes, elle a connu des siècles de guerres, de commerce et d'aventures épiques.
+  Enveloppée par les vagues impitoyables de la Manche, cette ville est un joyau resplendissant dans l'histoire de la Bretagne. Avec ses fortifications massives, ses édifices majestueux et ses rues pavées envoûtantes, elle a connu des siècles de guerres, de commerce et d'aventures épiques.
   Ses remparts s'élèvent fièrement dans le ciel, défiant l'océan et protégeant la ville des ennemis. Les clochers de ses églises imposantes atteignent les nuages, témoins de la foi et de la détermination des habitants de la ville.
   Mais c'est surtout l'histoire des corsaires de Saint-Malo qui a marqué les esprits de toutes les générations. Ces guerriers intrépides naviguaient sur des navires rapides et puissants, bravant les tempêtes les plus violentes et les flots les plus déchaînés pour protéger leur ville et leur liberté.
   Leurs batailles légendaires contre les ennemis, qu'ils soient Anglais, Espagnols ou autres, sont restées gravées dans l'histoire. Les canons tonnent, les sabres s'entrechoquent, les flammes embrasent les navires ennemis, mais les corsaires de Saint-Malo tiennent bon, animés par un courage inébranlable et une ferveur indomptable.
@@ -97,8 +92,7 @@ vannes_itinerary_pictures.each { |file| vannes_itinerary.photos.attach(io: file,
 vannes_itinerary.save!
 
 carnac_itinerary_pictures = File.open("db/fixtures/carnac1.jpg"), File.open("db/fixtures/carnac2.jpg")
-carnac_itinerary = Itinerary.new(name: 'Secrets des pierres de Carnac', subtitle: "une ballade mystique au coeur des mégalithes bretons", distance: 8, category: "Préhistorique", rating: 2,
-                  duration: 150, number_of_poi: 4, departure: 'Le Menec, Carnac', city: carnac)
+carnac_itinerary = Itinerary.new(name: 'Secrets des pierres de Carnac', subtitle: "une ballade mystique au coeur des mégalithes bretons", distance: 8, category: "Préhistorique", rating: 2, duration: 150, number_of_poi: 4, departure: 'Le Menec, Carnac', city: carnac)
 carnac_itinerary_pictures.each { |file| carnac_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 carnac_itinerary.save!
 
@@ -119,12 +113,12 @@ plogoff_itinerary_pictures.each { |file| plogoff_itinerary.photos.attach(io: fil
 plogoff_itinerary.save!
 
 vitre_itinerary_pictures = [File.open("db/fixtures/vitre1.jpg")]
-vitre_itinerary = Itinerary.new(name: 'Entre château et rues anciennes à Vitré', subtitle: "l'histoire et l'architecture médiévale de l'un des plus beaux châteaux de Bretagne", distance: 4, category: "Médiéval", rating: 4.5, duration: 90, number_of_poi: 4, departure: 'Château de Vitré', city: vitre)
+vitre_itinerary = Itinerary.new(name: 'Entre château et rues anciennes à Vitré', subtitle: "l'histoire et l'architecture médiévale de l'un des plus beaux châteaux de Bretagne", distance: 4, category: "Médiéval", rating: 4.5, duration: 80, number_of_poi: 4, departure: 'Château de Vitré', city: vitre)
 vitre_itinerary_pictures.each { |file| vitre_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 vitre_itinerary.save!
 
 dinard_itinerary_pictures = [File.open("db/fixtures/dinard1.jpg")]
-dinard_itinerary = Itinerary.new(name: 'Promenade avec Picasso à Dinard', subtitle: "unparcours sur les plages et les villas Belle Époque de la perle de la Côte d'Émeraude", distance: 4, category: "Urbain", rating: 4.5, duration: 90, number_of_poi: 4, departure: 'Mairie de Dinard', city: dinard)
+dinard_itinerary = Itinerary.new(name: 'Promenade avec Picasso à Dinard', subtitle: "unparcours sur les plages et les villas Belle Époque de la perle de la Côte d'Émeraude", distance: 4, category: "Urbain", rating: 4.5, duration: 100, number_of_poi: 4, departure: 'Mairie de Dinard', city: dinard)
 dinard_itinerary_pictures.each { |file| dinard_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 dinard_itinerary.save!
 
@@ -139,7 +133,7 @@ toursolidor_itinerary_pictures.each { |file| toursolidor_itinerary.photos.attach
 toursolidor_itinerary.save!
 
 memorial_itinerary_pictures = [File.open("db/fixtures/memorial1.jpg")]
-memorial_itinerary = Itinerary.new(name: 'Terrés dans le Bunker', subtitle: "La cité d'Aleth et ses galeries de bunkers", distance: 6, category: "Nature", rating: 4, duration: 90, number_of_poi: 2, departure: 'Memorial 1939-1945, Saint-Malo', city: st_malo)
+memorial_itinerary = Itinerary.new(name: 'Terrés dans le Bunker', subtitle: "La cité d'Aleth et ses galeries de bunkers", distance: 6, category: "Nature", rating: 4, duration: 95, number_of_poi: 2, departure: 'Memorial 1939-1945, Saint-Malo', city: st_malo)
 memorial_itinerary_pictures.each { |file| memorial_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 memorial_itinerary.save!
 
@@ -164,13 +158,8 @@ puts '####### Creating Itinerary_pois #############'
 
 ItineraryPoi.create!(poi_order: 1, itinerary: st_malo_itinerary, poi: chat_qui_danse)
 ItineraryPoi.create!(poi_order: 2, itinerary: st_malo_itinerary, poi: la_grand_porte)
-ItineraryPoi.create!(poi_order: 3, itinerary: st_malo_itinerary, poi: chiens_du_guet)
+# ItineraryPoi.create!(poi_order: 3, itinerary: st_malo_itinerary, poi: chiens_du_guet)
 puts "created #{ItineraryPoi.count} ItineraryPois"
-
-puts '####### Creating Trips #############'
-
-Trip.create!(proximity_level: 0, content: 'Vous approchez !', status: 'running', progress: 1, user: kevin, itinerary: st_malo_itinerary)
-puts "created #{Trip.count} trips"
 
 puts '####### Creating Questions #############'
 
@@ -180,12 +169,3 @@ Question.create!(question_statement: "Saint-Malo fut pendant 4 années une repub
 Question.create!(question_statement: "Lequel de ces marins n'est pas né à Saint-malo ?", itinerary: st_malo_itinerary, answer_statement: ["Jean Bart", "Robert Surcouf", "Duguay-Trouin", "Jacques Cartier"], good_answer: "Jean Bart")
 Question.create!(question_statement: "Quel peuple, autrefois ennemi de la France, a attaqué plusieurs fois le port de Saint-Malo ?", itinerary: st_malo_itinerary, answer_statement: ["Les Portuguais", "Les Espagnols", "Les Anglais", "Les Russes"], good_answer: "Les Anglais")
 puts "created #{Question.count} questions"
-
-puts '####### Creating trip_answers #############'
-
-# TripAnswer.create!(answer: "A/ 22 B/ 44 C/ 35 D/ 56", question_id: Question.last.id, trip_id: Trip.last.id)
-# TripAnswer.create!(answer: "A/ Corsaire  B/ Pirate C/ des vieux loups d'mer  D/ engloutie", question_id: Question.last.id, trip_id: Trip.last.id)
-# TripAnswer.create!(answer: "A/ Xeme siècle B/ XIIeme siècle C/ XIVeme siècle D/ XVIeme siècle", question_id: Question.last.id, trip_id: Trip.last.id)
-# TripAnswer.create!(answer: "A/ Jean Bart B/ Robert Surcouf C/ Duguay-Trouin D/ Cousteau", question_id: Question.last.id, trip_id: Trip.last.id)
-# TripAnswer.create!(answer: "A/ Les Portuguais B/ Les Espagnols C/ Les Anglais D/ Les Russes", question_id: Question.last.id, trip_id: Trip.last.id)
-# puts "created #{TripAnswer.count} trip_answers"

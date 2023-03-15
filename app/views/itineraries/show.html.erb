@@ -1,6 +1,6 @@
 <div class= "main_show_div">
   <div class= "card_show_itinerary">
-    <%= cl_image_tag @itinerary.photos.first.key, class: "show_image", crop: :fill %>
+    <%= cl_image_tag @itinerary.photos.first.key, class: "show-image", crop: :fill %>
     <%= link_to itineraries_path, class: "button-return" do %>
       <i class="fa-solid fa-chevron-left"></i>
       <span>RETOUR</span>

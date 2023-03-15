@@ -1,6 +1,7 @@
 .quizz-wrapper {
   padding: 35px 22px;
   gap: 20px;
+  height: 100vh;
 }
 
 .question-index {
@@ -18,6 +19,24 @@
   width: 40%;
   height: 75px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.full-width-div {
+  width: 88%;;
+  position: absolute;
+  bottom: 45px;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.quizz-image {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 7px;
 }
 
 .background-progress {
@@ -30,6 +49,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  margin-bottom: 15px;
 
   .progress-bar {
     width: 0%;

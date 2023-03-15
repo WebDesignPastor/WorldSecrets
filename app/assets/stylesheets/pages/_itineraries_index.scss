@@ -97,6 +97,10 @@
   animation-fill-mode: forwards;
 }
 
+.show-image {
+  width: 100vw;
+}
+
 @keyframes slideIn {
   0% {
     opacity: 0;
