@@ -15,9 +15,9 @@ Itinerary.destroy_all
 puts 'database cleaned'
 puts '####### Creating Users #############'
 
-fanch = User.create!(email: 'test1@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Fanch')
-rico = User.create!(email: 'test2@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Rico')
-kevin = User.create!(email: 'test3@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Kevin')
+User.create!(email: 'test1@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Fanch')
+User.create!(email: 'test2@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Rico')
+User.create!(email: 'test3@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Kevin')
 puts "created #{User.count} users"
 
 puts '####### Creating Cities #############'
@@ -47,19 +47,14 @@ chat_qui_danse = Poi.create!(name: 'La rue du chat qui danse', address: '1 rue d
             mystery_name: 'rue du chat qui danse', mystery_content: "Les Anglois ont tenté de rayer Saint-malo de la
             carte avec un bateau rempli d'explosifs, helas pour eux, le bateau finit par s'échouer loin des enceintes
             et ne fut qu'une victime, un chat ! Pour les moquer, les malouins rebaptisèrent cette rue, la rue du chat qui danse",
-            mystery_image: 'rue_du_chat_qui_danse.jpg', clue_image: 'cat-dance.gif', clue_sentence: 'Je suis un animal domestique,
+            mystery_image: 'rue_du_chat_qui_danse.jpg', clue_image: 'cat_dance.gif', clue_sentence: 'Je suis un animal domestique,
             Qui aime les souris et les balles élastiques, Mon nom est court à prononcer,
             Et quand il y a de la musique, je me mets à bouger, Qui suis-je ?')
 la_grand_porte = Poi.create!(name: 'La Grand Porte', address: "Grand Porte 35400 Saint-Malo", mystery_name: "la grand porte",
                 mystery_content: "La Grand Porte est la plus ancienne de Saint-Malo. Pendant plusieurs siècles,
                 elle fut l’entrée principale qui desservait le port. Au-dessus de l’entrée, vous pouvez admirer Notre-Dame de la Grand’Porte, une statue de la Vierge à l’Enfant. Des marins auraient trouvé cette statue de marbre flottant sur la mer.
-                Également surnommée « Notre-Dame des Miracles », la légende raconte qu’en 1661, elle se serait dressée face aux flammes qui ravageaient la ville et aurait stoppé l’incendie.", clue_image: "clue_grand_porte.jpg",
+                Également surnommée « Notre-Dame des Miracles », la légende raconte qu’en 1661, elle se serait dressée face aux flammes qui ravageaient la ville et aurait stoppé l’incendie.", mystery_image: "la_grand_porte.jpg", clue_image: "clue_grand_porte.jpg",
                 clue_sentence: "Je suis une entrée majestueuse de la ville de Saint-Malo, ornée de sculptures et de motifs baroques. Point de départ de nombreuses aventures maritimes et témoin de l'histoire de la cité corsaire. Qui suis-je ?")
-chiens_du_guet = Poi.create!(name: 'Les chiens du guet', address: 'Bastion de la Hollande', mystery_name: "Les chiens du guet", mystery_content: "Au XVIIe siècle, suite à l'effondrement du mur d'enceinte primitif de la ville de Saint-Malo, un nouveau bastion appelé 'Hollande'
-                  fut construit pour se protéger pendant la guerre contre les Pays-Bas. Il fut armé de canons offerts par le comte de Toulouse en 1696 et abritait une meute de chiens de race anglaise chargée de surveiller les environs la nuit.
-                  Les chiens étaient libérés après le dixième coup de cloche de l'horloge publique et étaient rassemblés le matin suivant. En 1772, un officier de marine fut attaqué par les chiens et la ville décida alors de s'en débarrasser en les empoisonnant.
-                  Depuis, la cloche Noguette sonne tous les soirs à 22 heures en souvenir de cette tradition.", mystery_image: "les_chiens_du_guet.jpg", clue_image: "clue_malo_dog.jpg",
-                  clue_sentence: "Je suis un groupe de gardiens nocturnes à Saint-Malo, fidèles compagnons et protecteurs de la ville. Nous sommes conduits dans les rues par nos gardiens et libérés à l'extérieur de la Grande Porte après le dixième coup de cloche. Qui sommes-nous ?")
 puts "created #{Poi.count} pois !"
 
 puts '####### Creating Itineraries #############'
@@ -163,13 +158,8 @@ puts '####### Creating Itinerary_pois #############'
 
 ItineraryPoi.create!(poi_order: 1, itinerary: st_malo_itinerary, poi: chat_qui_danse)
 ItineraryPoi.create!(poi_order: 2, itinerary: st_malo_itinerary, poi: la_grand_porte)
-ItineraryPoi.create!(poi_order: 3, itinerary: st_malo_itinerary, poi: chiens_du_guet)
+# ItineraryPoi.create!(poi_order: 3, itinerary: st_malo_itinerary, poi: chiens_du_guet)
 puts "created #{ItineraryPoi.count} ItineraryPois"
-
-puts '####### Creating Trips #############'
-
-Trip.create!(proximity_level: 0, content: 'Vous approchez !', status: 'running', progress: 1, user: kevin, itinerary: st_malo_itinerary)
-puts "created #{Trip.count} trips"
 
 puts '####### Creating Questions #############'
 
@@ -179,12 +169,3 @@ Question.create!(question_statement: "Saint-Malo fut pendant 4 années une repub
 Question.create!(question_statement: "Lequel de ces marins n'est pas né à Saint-malo ?", itinerary: st_malo_itinerary, answer_statement: ["Jean Bart", "Robert Surcouf", "Duguay-Trouin", "Jacques Cartier"], good_answer: "Jean Bart")
 Question.create!(question_statement: "Quel peuple, autrefois ennemi de la France, a attaqué plusieurs fois le port de Saint-Malo ?", itinerary: st_malo_itinerary, answer_statement: ["Les Portuguais", "Les Espagnols", "Les Anglais", "Les Russes"], good_answer: "Les Anglais")
 puts "created #{Question.count} questions"
-
-puts '####### Creating trip_answers #############'
-
-# TripAnswer.create!(answer: "A/ 22 B/ 44 C/ 35 D/ 56", question_id: Question.last.id, trip_id: Trip.last.id)
-# TripAnswer.create!(answer: "A/ Corsaire  B/ Pirate C/ des vieux loups d'mer  D/ engloutie", question_id: Question.last.id, trip_id: Trip.last.id)
-# TripAnswer.create!(answer: "A/ Xeme siècle B/ XIIeme siècle C/ XIVeme siècle D/ XVIeme siècle", question_id: Question.last.id, trip_id: Trip.last.id)
-# TripAnswer.create!(answer: "A/ Jean Bart B/ Robert Surcouf C/ Duguay-Trouin D/ Cousteau", question_id: Question.last.id, trip_id: Trip.last.id)
-# TripAnswer.create!(answer: "A/ Les Portuguais B/ Les Espagnols C/ Les Anglais D/ Les Russes", question_id: Question.last.id, trip_id: Trip.last.id)
-# puts "created #{TripAnswer.count} trip_answers"

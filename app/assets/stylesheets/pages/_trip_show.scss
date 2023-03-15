@@ -2,44 +2,57 @@
   width: 100vw;
   height: 100vh;
 
-  .custom-modal-text {
-    bottom: 0;
-    z-index: 1;
+  .mystery-count {
     background-color: white;
-    border-radius: 16px;
-    overflow: hidden;
-    margin-bottom: 25px;
-    width: 285px;
-    height: 80px;
-    text-align: center;
-    transform: translateY(120%);
+    border-radius: 20px;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    width: 75%;
+    height: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 
-  .custom-modal-img {
+  .custom-modal {
     bottom: 0;
     z-index: 1;
     background-color: white;
     border-radius: 16px;
     overflow: hidden;
     margin-bottom: 25px;
-    width: 285px;
-    height: 300px;
+    width: 75%;
+    height: auto;
     text-align: center;
     transform: translateY(120%);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    max-height: 300px;
+
+    .clueImage {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      height: auto;
+    }
   }
 
-  .custom-modal-finish {
-    bottom: 0;
-    z-index: 1;
-    background-color: white;
-    border-radius: 16px;
-    overflow: hidden;
-    margin-bottom: 25px;
-    width: 340px;
-    height: 135px;
-    text-align: center;
-    transform: translateY(120%);
+  .btn-modal {
+    width: 100% !important;
   }
+
+  .icone-background {
+    width: 55px !important;
+    height: 55px !important;
+    border-radius: 8px;
+    background-color: $beige;
+  }
+}
+
+.poi-name {
+  font-size: 26px !important;
 }
 
 .plus-btn {

@@ -44,6 +44,11 @@
       color: $black-700;
     }
   }
+
+  .card-details {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .card-reduce {
