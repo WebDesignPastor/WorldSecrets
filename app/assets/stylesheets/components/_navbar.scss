@@ -21,3 +21,8 @@
   padding: 0 34px;
   z-index: 1;
 }
+
+.navbar-relative {
+  position: relative;
+  z-index: 9999;
+}

@@ -48,9 +48,9 @@
         <%= image_tag "star.svg" %>
       <% end %>
     </div>
-    <div class="card_show_itinerary_infos text-small">
+    <div class="card-show-itinerary-infos text-small">
       <%= image_tag "steps.svg" %> <%= @itinerary.distance %> km
-      <%= image_tag "hourglass.svg" %> <%= @itinerary.duration / 60 %> h <%=  @itinerary.duration % 60 if @itinerary.duration % 60 != 0 %> ·
+      <%= image_tag "hourglass.svg" %> <%= @itinerary.duration / 60 %> h <%=  @itinerary.duration % 60 if @itinerary.duration % 60 != 0 %>
     </div>
   </div>
 

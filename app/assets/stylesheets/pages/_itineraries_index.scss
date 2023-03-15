@@ -12,6 +12,7 @@
   overflow: hidden;
   overflow-x: scroll;
   gap: 10px;
+  padding-right:48px;
 
   .btn-outline-primary:hover {
     color: $primary !important;
@@ -19,7 +20,12 @@
   }
   &:after {
     content:'';
-
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    right: -1%;
+    top: 80px;
+    background-image: linear-gradient(270deg, $beige, transparent);
   }
 }
 
@@ -45,6 +51,12 @@
   bottom: 0;
   width: 100vw;
   height: 100vh;
+}
+
+
+.map-hidden {
+  height:0vh !important;
+  overflow:hidden;
 }
 
 .scale-0 {
