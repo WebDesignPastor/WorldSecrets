@@ -42,10 +42,4 @@ class ItinerariesController < ApplicationController
       lng: @itinerary.longitude
     }
   end
-
-  # def update
-  #   @question = Question.find(params[:id])
-  #   @itinerary = @question.itinerary
-  #   @itinerary.update
-  # end
 end

@@ -7,11 +7,11 @@ Rails.application.routes.draw do
   end
 
   resources "trips", only: %i[show create update] do
-    resources "questions", only: :index do
-      resources "itineraries", only: :update
-    end
+    resources "questions", only: :index
     resources "trip_answers", only: :create
   end
+
+  patch "questions/:question_id/itineraries/:id", to: "itineraries#update_rating"
 
   resources "pois", only: :show
   # Defines the root path route ("/")
