@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="switch"
 export default class extends Controller {
-  static targets = ["list", "map", "svglist", "svgmap", "cardsForMap", "itinerariesMarker"]
+  static targets = ["list", "map", "svglist", "svgmap", "cardsForMap", "itinerariesMarker", "wrapperMap"]
 
   connect() {
   }
@@ -14,6 +14,7 @@ export default class extends Controller {
     // this.tomImage.src = ''
     this.svgmapTarget.classList.remove("navbar-icon")
     this.svglistTarget.classList.add("navbar-icon")
+    this.wrapperMapTarget.classList.toggle("map-hidden")
   }
 
   displayMap() {
@@ -25,7 +26,7 @@ export default class extends Controller {
       marker.style.animationDelay = `${index * 200}ms`
     })
 
-
+    this.wrapperMapTarget.classList.toggle("map-hidden")
     this.cardsForMapTarget.classList.remove('d-none')
     this.mapTarget.classList.remove("opacity-0")
     this.listTarget.classList.add("d-none")
