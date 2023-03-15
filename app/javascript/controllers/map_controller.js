@@ -32,9 +32,7 @@ export default class extends Controller {
         this.steps = 1000
 
         const line = turf.lineString(this.coordinates)
-        console.log(line)
         const lineDistance = turf.length(line)
-        console.log(lineDistance)
         this.totalDistance = lineDistance
 
         this.arc = []
@@ -82,9 +80,10 @@ export default class extends Controller {
           //   this.direction,
           //   'top-left'
           // )
+          const urlCustomMarker = this.element.dataset.customMarker
 
           this.map.loadImage(
-            'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
+            urlCustomMarker,
             (error, image) => {
               if (error) throw error;
 
