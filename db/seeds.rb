@@ -46,7 +46,7 @@ puts '####### Creating Pois #############'
 chat_qui_danse = Poi.create!(name: 'La rue du chat qui danse', address: '1 rue du chat qui danse, 35400 Saint-Malo',
             mystery_name: 'rue du chat qui danse', mystery_content: "Les Anglois ont tenté de rayer Saint-malo de la
             carte avec un bateau rempli d'explosifs, hélas pour eux, le bateau finit par s'échouer loin des enceintes de la ville.
-            Il ne fut qu'une victime, un chat ! Pour les moquer, les malouins rebaptisèrent cette rue, la rue du chat qui danse".
+            Il ne fut qu'une victime, un chat ! Pour les moquer, les malouins rebaptisèrent cette rue, la rue du chat qui danse",
             mystery_image: 'rue_du_chat_qui_danse.jpg', clue_image: 'cat_dance.gif', clue_sentence: 'Je suis un animal,
             Qui aime les balles élastiques, Mon nom est court à prononcer, quand il y a de la musique, je me mets à bouger')
 la_grand_porte = Poi.create!(name: 'La Grand Porte', address: "Grand Porte 35400 Saint-Malo", mystery_name: "la grand porte",
