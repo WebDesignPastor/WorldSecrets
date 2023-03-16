@@ -40,7 +40,7 @@ export default class extends Controller {
   continue() {
     const currentProgress = parseInt(this.progressTarget.textContent)
     const newProgress = currentProgress + 1
-    this.progressTarget.outerHTML = `<p data-modal-target="progress">${newProgress}</p>`
+    this.progressTarget.outerHTML = `<p class="step-front" data-modal-target="progress">${newProgress}</p>`
     this.poiMarker1Target.classList.remove("poi-marker")
     this.poiMarker1Target.classList.add("completed-poi")
     this.poiMarker2Target.classList.add('visible')

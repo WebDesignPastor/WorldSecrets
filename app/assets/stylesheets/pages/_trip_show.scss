@@ -39,6 +39,10 @@
     }
   }
 
+  .space-text {
+    gap: 4px;
+  }
+
   .btn-modal {
     width: 100% !important;
   }
@@ -63,6 +67,10 @@
       margin-top:12px;
     }
   }
+}
+
+.step-front {
+  color: $black-700;
 }
 
 .poi-name {
