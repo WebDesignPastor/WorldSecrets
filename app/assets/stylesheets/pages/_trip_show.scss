@@ -22,15 +22,15 @@
     z-index: 1;
     background-color: white;
     border-radius: 16px;
-    overflow: hidden;
-    margin-bottom: 25px;
-    width: 75%;
+    overflow: visible;
+    margin-bottom: 16px;
+    width: 95%;
     height: auto;
     text-align: center;
     transform: translateY(120%);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     max-height: 300px;
-
+    padding-top: 28px !important;
     .clueImage {
       display: block;
       margin: 0 auto;
@@ -44,10 +44,24 @@
   }
 
   .icone-background {
-    width: 55px !important;
-    height: 55px !important;
+    width: 40px !important;
+    height: 40px !important;
     border-radius: 8px;
-    background-color: $beige;
+    background-color: $primary;
+    border:1px solid $primary;
+    position:absolute;
+    top:-16px;
+
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    img {
+      width:24px;
+    }
+
+    .m-0 {
+      margin-top:12px;
+    }
   }
 }
 
