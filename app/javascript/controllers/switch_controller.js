@@ -4,7 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["list", "map", "svglist", "svgmap", "cardsForMap", "itinerariesMarker", "wrapperMap",
   "btnAucun", "btnNature", "btnUrbain", "btnMedieval", "btnPrehistorique",
-  "Nature", "Urbain", "Médiéval", "Préhistorique"]
+  "Nature", "Urbain", "Médiéval", "Préhistorique", "short"]
 
   connect() {
   }
@@ -76,6 +76,8 @@ export default class extends Controller {
     this.PréhistoriqueTargets.forEach((target) => {
       target.classList.add("d-none")
     })
+    // console.log(this.NatureTarget)
+    // this.shortTarget.innerHTML = parseInt(this.shortOnesTarget.getAttribute('data-count'))
     this.btnAucunTarget.classList.remove("btn-primary")
     this.btnAucunTarget.classList.add("btn-outline-primary")
     this.btnNatureTarget.classList.remove("btn-outline-primary")
