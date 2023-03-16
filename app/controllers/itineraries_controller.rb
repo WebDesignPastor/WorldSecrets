@@ -1,6 +1,5 @@
 class ItinerariesController < ApplicationController
   def index
-
     if params[:query].present?
       # Recherche de la ville
       city = City.where(name: params[:query])
