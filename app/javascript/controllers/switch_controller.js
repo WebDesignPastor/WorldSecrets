@@ -2,7 +2,9 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="switch"
 export default class extends Controller {
-  static targets = ["list", "map", "svglist", "svgmap", "cardsForMap", "itinerariesMarker", "wrapperMap"]
+  static targets = ["list", "map", "svglist", "svgmap", "cardsForMap", "itinerariesMarker", "wrapperMap",
+  "btnAucun", "btnNature", "btnUrbain", "btnMedieval", "btnPrehistorique",
+  "Nature", "Urbain", "Médiéval", "Préhistorique"]
 
   connect() {
   }
@@ -36,7 +38,128 @@ export default class extends Controller {
 
   }
 
-  buttonActive() {
+  noFilter() {
+    this.NatureTargets.forEach((target) => {
+      target.classList.remove("d-none")
+    })
+    this.UrbainTargets.forEach((target) => {
+      target.classList.remove("d-none")
+    })
+    this.MédiévalTargets.forEach((target) => {
+      target.classList.remove("d-none")
+    })
+    this.PréhistoriqueTargets.forEach((target) => {
+      target.classList.remove("d-none")
+    })
+    this.btnAucunTarget.classList.remove("btn-outline-primary")
+    this.btnAucunTarget.classList.add("btn-primary")
+    this.btnNatureTarget.classList.remove("btn-primary")
+    this.btnNatureTarget.classList.add("btn-outline-primary")
+    this.btnUrbainTarget.classList.remove("btn-primary")
+    this.btnUrbainTarget.classList.add("btn-outline-primary")
+    this.btnMedievalTarget.classList.remove("btn-primary")
+    this.btnMedievalTarget.classList.add("btn-outline-primary")
+    this.btnPrehistoriqueTarget.classList.remove("btn-primary")
+    this.btnPrehistoriqueTarget.classList.add("btn-outline-primary")
+  }
 
+  natureFilter() {
+    this.NatureTargets.forEach((target) => {
+      target.classList.remove("d-none")
+    })
+    this.UrbainTargets.forEach((target) => {
+      target.classList.add("d-none")
+    })
+    this.MédiévalTargets.forEach((target) => {
+      target.classList.add("d-none")
+    })
+    this.PréhistoriqueTargets.forEach((target) => {
+      target.classList.add("d-none")
+    })
+    this.btnAucunTarget.classList.remove("btn-primary")
+    this.btnAucunTarget.classList.add("btn-outline-primary")
+    this.btnNatureTarget.classList.remove("btn-outline-primary")
+    this.btnNatureTarget.classList.add("btn-primary")
+    this.btnUrbainTarget.classList.remove("btn-primary")
+    this.btnUrbainTarget.classList.add("btn-outline-primary")
+    this.btnMedievalTarget.classList.remove("btn-primary")
+    this.btnMedievalTarget.classList.add("btn-outline-primary")
+    this.btnPrehistoriqueTarget.classList.remove("btn-primary")
+    this.btnPrehistoriqueTarget.classList.add("btn-outline-primary")
+  }
+
+  urbainFilter() {
+    this.NatureTargets.forEach((target) => {
+      target.classList.add("d-none")
+    })
+    this.UrbainTargets.forEach((target) => {
+      target.classList.remove("d-none")
+    })
+    this.MédiévalTargets.forEach((target) => {
+      target.classList.add("d-none")
+    })
+    this.PréhistoriqueTargets.forEach((target) => {
+      target.classList.add("d-none")
+    })
+    this.btnAucunTarget.classList.remove("btn-primary")
+    this.btnAucunTarget.classList.add("btn-outline-primary")
+    this.btnNatureTarget.classList.remove("btn-primary")
+    this.btnNatureTarget.classList.add("btn-outline-primary")
+    this.btnUrbainTarget.classList.remove("btn-outline-primary")
+    this.btnUrbainTarget.classList.add("btn-primary")
+    this.btnMedievalTarget.classList.remove("btn-primary")
+    this.btnMedievalTarget.classList.add("btn-outline-primary")
+    this.btnPrehistoriqueTarget.classList.remove("btn-primary")
+    this.btnPrehistoriqueTarget.classList.add("btn-outline-primary")
+  }
+
+  medievalFilter() {
+    this.NatureTargets.forEach((target) => {
+      target.classList.add("d-none")
+    })
+    this.UrbainTargets.forEach((target) => {
+      target.classList.add("d-none")
+    })
+    this.MédiévalTargets.forEach((target) => {
+      target.classList.remove("d-none")
+    })
+    this.PréhistoriqueTargets.forEach((target) => {
+      target.classList.add("d-none")
+    })
+    this.btnAucunTarget.classList.remove("btn-primary")
+    this.btnAucunTarget.classList.add("btn-outline-primary")
+    this.btnNatureTarget.classList.remove("btn-primary")
+    this.btnNatureTarget.classList.add("btn-outline-primary")
+    this.btnUrbainTarget.classList.remove("btn-primary")
+    this.btnUrbainTarget.classList.add("btn-outline-primary")
+    this.btnMedievalTarget.classList.remove("btn-outline-primary")
+    this.btnMedievalTarget.classList.add("btn-primary")
+    this.btnPrehistoriqueTarget.classList.remove("btn-primary")
+    this.btnPrehistoriqueTarget.classList.add("btn-outline-primary")
+  }
+
+  prehistoriqueFilter() {
+    this.NatureTargets.forEach((target) => {
+      target.classList.add("d-none")
+    })
+    this.UrbainTargets.forEach((target) => {
+      target.classList.add("d-none")
+    })
+    this.MédiévalTargets.forEach((target) => {
+      target.classList.add("d-none")
+    })
+    this.PréhistoriqueTargets.forEach((target) => {
+      target.classList.remove("d-none")
+    })
+    this.btnAucunTarget.classList.remove("btn-primary")
+    this.btnAucunTarget.classList.add("btn-outline-primary")
+    this.btnNatureTarget.classList.remove("btn-primary")
+    this.btnNatureTarget.classList.add("btn-outline-primary")
+    this.btnUrbainTarget.classList.remove("btn-primary")
+    this.btnUrbainTarget.classList.add("btn-outline-primary")
+    this.btnMedievalTarget.classList.remove("btn-primary")
+    this.btnMedievalTarget.classList.add("btn-outline-primary")
+    this.btnPrehistoriqueTarget.classList.remove("btn-outline-primary")
+    this.btnPrehistoriqueTarget.classList.add("btn-primary")
   }
 }
