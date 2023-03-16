@@ -1,7 +1,7 @@
 .poi-marker:first-of-type {
-  width: 47px !important;
+  width: 44px !important;
   height: 50px !important;
-  background: image-url('navbar/home.svg') !important;
+  background: image-url('departure-marker.svg') !important;
   border: none !important;
   opacity: 1 !important;
 }
@@ -37,7 +37,7 @@
 .completed-poi {
   width: 47px;
   height: 54px;
-  background: image-url('banner.svg');
+  background: image-url('completed.svg');
   border: none;
   opacity: 1;
   animation: bounce 2s ease;
