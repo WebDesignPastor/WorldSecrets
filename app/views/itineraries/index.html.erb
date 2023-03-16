@@ -31,7 +31,7 @@
   <%# List Results %>
   <div data-switch-target="list" class="d-flex flex-column container-index overflow-hidden">
     <div class="d-flex justify-content-between">
-      <h2>Itinéraires</h2>
+      <h2><%= params[:query].present? ? "Tous les itinéraires à #{params[:query]}" : "Tous les itinéraires" %></h2>
       <%# Insérer le symbol des filtres qui fait apparaître la modal %>
     </div>
     <div class="d-flex justify-content-between checkbox-wrapper">
