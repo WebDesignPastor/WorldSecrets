@@ -14,7 +14,7 @@
       <%= form_with url: itineraries_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query,
           params[:query],
-          class: "form-control",
+          class: "form-control form-radius",
           placeholder: "Chercher par localisation"
         %>
         <%= image_submit_tag("search.svg", alt: "Rechercher", class: "btn form-btn btn-primary") %>

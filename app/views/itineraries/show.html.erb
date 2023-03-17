@@ -50,15 +50,14 @@
         <%= image_tag "star.svg" %>
       <% end %>
     </div>
-    <div class="card-show-itinerary-infos text-small">
-      <%= image_tag "steps.svg" %> <%= @itinerary.distance %> km
-      <%= image_tag "hourglass.svg" %> <%= @itinerary.duration / 60 %> h <%=  @itinerary.duration % 60 if @itinerary.duration % 60 != 0 %>
+    <div class="card-show-itinerary-infos text-small d-flex flex-row justify-content-between gap-infos">
+      <div><%= image_tag "steps.svg" %> <%= @itinerary.distance %> km</div>
+      <div><%= image_tag "hourglass.svg" %> <%= @itinerary.duration / 60 %> h <%=  @itinerary.duration % 60 if @itinerary.duration % 60 != 0 %></div>
     </div>
   </div>
 
   <div class="card_show_description">
-    <p><i> <%= @itinerary.subtitle %></i></p>
-
+    <p class="big-size"><i> <%= @itinerary.subtitle %></i></p>
     <p><%= @itinerary.description %></p>
   </div>
 

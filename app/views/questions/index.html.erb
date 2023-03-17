@@ -1,6 +1,6 @@
 
 <div class="d-flex flex-column quizz-wrapper align-items-center" data-controller="questions">
-  <h2>Le quizz Malouin</h2>
+  <h2><strong>Le quizz Malouin</strong></h2>
   <div class='background-progress'>
     <div data-questions-target="progress" class="progress-bar">
     </div>
@@ -10,8 +10,8 @@
       <%= cl_image_tag @trip.itinerary.photos.first.key, class: 'question-img', crop: :fill %>
     </div>
     <div class="d-flex flex-column">
-      <h2 class="d-flex justify-content-center">Question 1</h2>
-      <p class="text-center"><%= @trip.itinerary.questions[0].question_statement %></p>
+      <h2 class="d-flex justify-content-center mb-0">Question 1</h2>
+      <p class="text-center mb-0"><%= @trip.itinerary.questions[0].question_statement %></p>
     </div>
     <div class="d-flex flex-wrap justify-content-center questions-wrapper">
       <%# propositions %>
@@ -33,8 +33,8 @@
       <%= cl_image_tag @trip.itinerary.photos.first.key, class: 'question-img', crop: :fill %>
     </div>
     <div class="d-flex flex-column">
-      <h2 class="d-flex justify-content-center">Question 2</h2>
-      <p class="text-center"><%= @trip.itinerary.questions[1].question_statement %></p>
+      <h2 class="d-flex justify-content-center mb-0">Question 2</h2>
+      <p class="text-center mb-0"><%= @trip.itinerary.questions[1].question_statement %></p>
     </div>
     <div class="d-flex flex-wrap justify-content-center questions-wrapper">
       <%# propositions %>
@@ -56,8 +56,8 @@
       <%= cl_image_tag @trip.itinerary.photos.first.key, class: 'question-img', crop: :fill %>
     </div>
     <div class="d-flex flex-column">
-      <h2 class="d-flex justify-content-center">Question 3</h2>
-      <p class="text-center"><%= @trip.itinerary.questions[2].question_statement %></p>
+      <h2 class="d-flex justify-content-center mb-0">Question 3</h2>
+      <p class="text-center mb-0"><%= @trip.itinerary.questions[2].question_statement %></p>
     </div>
     <div class="d-flex flex-wrap justify-content-center questions-wrapper">
       <%# propositions %>
@@ -79,8 +79,8 @@
       <%= cl_image_tag @trip.itinerary.photos.first.key, class: 'question-img', crop: :fill %>
     </div>
     <div class="d-flex flex-column">
-      <h2 class="d-flex justify-content-center">Question 4</h2>
-      <p class="text-center"><%= @trip.itinerary.questions[3].question_statement %></p>
+      <h2 class="d-flex justify-content-center mb-0">Question 4</h2>
+      <p class="text-center mb-0"><%= @trip.itinerary.questions[3].question_statement %></p>
     </div>
     <div class="d-flex flex-wrap justify-content-center questions-wrapper">
       <%# propositions %>
@@ -102,8 +102,8 @@
       <%= cl_image_tag @trip.itinerary.photos.first.key, class: 'question-img', crop: :fill %>
     </div>
     <div class="d-flex flex-column">
-      <h2 class="d-flex justify-content-center">Question 5</h2>
-      <p class="text-center"><%= @trip.itinerary.questions[4].question_statement %></p>
+      <h2 class="d-flex justify-content-center mb-0">Question 5</h2>
+      <p class="text-center mb-0"><%= @trip.itinerary.questions[4].question_statement %></p>
     </div>
     <div class="d-flex flex-wrap justify-content-center questions-wrapper">
       <%# propositions %>
