@@ -63,7 +63,7 @@ dinan_itinerary_pictures.each { |file| dinan_itinerary.photos.attach(io: file, f
 dinan_itinerary.save!
 
 st_malo_itinerary_pictures = File.open("db/fixtures/saint-malo1.jpg"), File.open("db/fixtures/saint-malo2.jpg"), File.open("db/fixtures/saint-malo3.jpg")
-st_malo_itinerary = Itinerary.new(name: 'Saint-Malo, la cité corsaire', subtitle: "Plonger dans les secrets des remparts d'Intra-Muros", distance: 5, rating: 5, duration: 120, number_of_poi: 3, departure: 'Porte Saint-vincent 35400 Saint-Malo', city: st_malo, category: "Médiéval", description: "Entendez-moi, noble compagnie, car je vais vous raconter l'histoire d'une cité corsaire bâtie sur les flots tumultueux de la mer, la ville imprenable de Saint-Malo.
+st_malo_itinerary = Itinerary.new(name: 'Saint-Malo, la cité corsaire', subtitle: "Plonger dans les secrets des remparts d'Intra-Muros", distance: 5, rating: 5, duration: 60, number_of_poi: 3, departure: 'Porte Saint-vincent 35400 Saint-Malo', city: st_malo, category: "Médiéval", description: "Entendez-moi, noble compagnie, car je vais vous raconter l'histoire d'une cité corsaire bâtie sur les flots tumultueux de la mer, la ville imprenable de Saint-Malo.
   Enveloppée par les vagues impitoyables de la Manche, cette ville est un joyau resplendissant dans l'histoire de la Bretagne. Avec ses fortifications massives, ses édifices majestueux et ses rues pavées envoûtantes, elle a connu des siècles de guerres, de commerce et d'aventures épiques.
   Ses remparts s'élèvent fièrement dans le ciel, défiant l'océan et protégeant la ville de ses ennemis.
   Mais c'est surtout l'histoire des corsaires de Saint-Malo qui a marqué les esprits de toutes les générations. Ces guerriers intrépides naviguaient sur des navires rapides et puissants, bravant les tempêtes les plus violentes et les flots les plus déchaînés pour protéger leur ville et leur liberté.
@@ -84,7 +84,7 @@ dinard_itinerary_pictures.each { |file| dinard_itinerary.photos.attach(io: file,
 dinard_itinerary.save!
 
 vannes_itinerary_pictures = [File.open("db/fixtures/vannes1.jpg")]
-vannes_itinerary = Itinerary.new(name: 'Les remparts de Vannes', subtitle: "Une ballade entre patrimoine historique et culturel", distance: 6, rating: 3, duration: 90, number_of_poi: 4, departure: 'Remparts de Vannes', city: vannes, category: 'Médiéval')
+vannes_itinerary = Itinerary.new(name: 'Les remparts de Vannes', subtitle: "Une balade entre patrimoine historique et culturel", distance: 6, rating: 3, duration: 90, number_of_poi: 4, departure: 'Remparts de Vannes', city: vannes, category: 'Médiéval')
 vannes_itinerary_pictures.each { |file| vannes_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 vannes_itinerary.save!
 
@@ -94,7 +94,7 @@ kerouzere_itinerary_pictures.each { |file| kerouzere_itinerary.photos.attach(io:
 kerouzere_itinerary.save!
 
 st_michel_itinerary_pictures = File.open("db/fixtures/stmichel1.jpg"), File.open("db/fixtures/stmichel2.jpg"), File.open("db/fixtures/stmichel3.jpg")
-st_michel_itinerary = Itinerary.new(name: 'Recoins du Mont-Saint-Michel', subtitle: "une ballade envoûtante entre terre et mer", distance: 7, rating: 5, duration: 160, number_of_poi: 4, departure: 'Pont Passerelle, Le Mont-Saint-Michel',
+st_michel_itinerary = Itinerary.new(name: 'Recoins du Mont-Saint-Michel', subtitle: "une balade envoûtante entre terre et mer", distance: 7, rating: 5, duration: 160, number_of_poi: 4, departure: 'Pont Passerelle, Le Mont-Saint-Michel',
                       city: mt_st_michel, category: "Urbain")
 st_michel_itinerary_pictures.each { |file| st_michel_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 st_michel_itinerary.save!
@@ -110,7 +110,7 @@ grandbe_itinerary_pictures.each { |file| grandbe_itinerary.photos.attach(io: fil
 grandbe_itinerary.save!
 
 nantes_itinerary_pictures = File.open("db/fixtures/nantes1.jpg"), File.open("db/fixtures/nantes2.jpg")
-nantes_itinerary = Itinerary.new(name: 'La ballade de la Duchesse Anne', subtitle: "une ballade inoubliable à travers les siècles", distance: 4, category: "Médiéval", rating: 4.5,
+nantes_itinerary = Itinerary.new(name: 'La balade de la Duchesse Anne', subtitle: "une balade inoubliable à travers les siècles", distance: 4, category: "Médiéval", rating: 4.5,
                   duration: 90, number_of_poi: 4, departure: 'Château des ducs de Bretagne, Nantes', city: nantes)
 nantes_itinerary_pictures.each { |file| nantes_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 nantes_itinerary.save!
@@ -131,7 +131,7 @@ memorial_itinerary_pictures.each { |file| memorial_itinerary.photos.attach(io: f
 memorial_itinerary.save!
 
 plogoff_itinerary_pictures = [File.open("db/fixtures/plogoff1.jpg")]
-plogoff_itinerary = Itinerary.new(name: 'La baie des trépassés', subtitle: "une ballade sauvage sur les rivages de la Pointe du Raz", distance: 4, category: "Nature", rating: 4, duration: 90, number_of_poi: 4, departure: 'Baie des trépassés, Plogoff', city: plogoff,
+plogoff_itinerary = Itinerary.new(name: 'La baie des trépassés', subtitle: "une balade sauvage sur les rivages de la Pointe du Raz", distance: 4, category: "Nature", rating: 4, duration: 90, number_of_poi: 4, departure: 'Baie des trépassés, Plogoff', city: plogoff,
                     description: "Sur la côte de la Cornouaille, la baie des Trépassés, au magnifique rivage de sable blanc, nous fait admirer au loin l’archipel de Sein, Depuis toujours, les corps des marins dont les bateaux s’étaient fracassés sur les récifs de la pointe du Raz,
                     pris par les forts courants de marée et les vents dominants, venaient s’échouer sur cette plage, ce qui alimenta les histoires et les contes bretons  Boë an Aon se transforma en Boë an Anao, la « baie des âmes en peine », celles des trépassés.")
 plogoff_itinerary_pictures.each { |file| plogoff_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
