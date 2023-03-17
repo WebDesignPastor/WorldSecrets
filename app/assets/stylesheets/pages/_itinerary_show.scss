@@ -85,9 +85,17 @@
   padding-top: 0px;
   padding-bottom:80px;
 
+  .big-size {
+    font-size: 22px;
+  }
+
   .h3 {
     align-content: center;
   }
+}
+
+.gap-infos {
+  gap: 10px;
 }
 
 .button-return {
@@ -132,4 +140,7 @@
 
 .show-image {
   width: 100vw;
+  height: 250px;
+  max-height: 250px;
+  min-height: 250px;
 }

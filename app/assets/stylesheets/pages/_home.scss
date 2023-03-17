@@ -78,8 +78,13 @@
         height: 100%;
       }
 
+      .form-radius {
+        border-radius: 3px 0 0 3px !important;
+      }
+
       .form-btn {
         height: 100%;
+        border-radius: 0 3px 3px 0 !important;
       }
     }
   }
