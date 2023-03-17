@@ -46,11 +46,11 @@ puts '####### Creating Pois #############'
 chat_qui_danse = Poi.create!(name: 'La rue du chat qui danse', address: '1 rue du chat qui danse, 35400 Saint-Malo',
             mystery_name: 'Rue du chat qui danse', mystery_content: "Les Anglois ont tenté de rayer Saint-malo de la
             carte avec un bateau rempli d'explosifs, hélas pour eux, le bateau finit par s'échouer loin des enceintes de la ville.
-            Il ne fut qu'une victime, un chat ! Pour les moquer, les malouins rebaptisèrent cette rue, la rue du chat qui danse",
+            Il ne fit qu'une victime, un chat ! Pour les moquer, les malouins rebaptisèrent cette rue, la rue du chat qui danse",
             mystery_image: 'rue_du_chat_qui_danse.jpg', clue_image: 'cat_dance.gif', clue_sentence: 'Je suis un animal,
-            Qui aime les balles élastiques, Mon nom est court à prononcer, quand il y a de la musique, je me mets à bouger')
-la_grand_porte = Poi.create!(name: 'La Grand Porte', address: "Grand Porte 35400 Saint-Malo", mystery_name: "La grand porte",
-                mystery_content: "La Grand Porte est la plus ancienne de Saint-Malo. Pendant plusieurs siècles,
+            qui aime les balles élastiques, mon nom est court à prononcer, quand il y a de la musique, je me mets à bouger')
+la_grand_porte = Poi.create!(name: "La Grand'Porte", address: "Grand Porte 35400 Saint-Malo", mystery_name: "La Grand'porte",
+                mystery_content: "La Grand Porte est la plus ancienne porte de Saint-Malo. Pendant plusieurs siècles,
                 elle fut l’entrée principale qui desservait le port. Au-dessus de l’entrée, vous pouvez admirer Notre-Dame de la Grand’Porte, une statue de la Vierge à l’Enfant. Des marins auraient trouvé cette statue de marbre flottant sur la mer.
                 Également surnommée « Notre-Dame des Miracles », la légende raconte qu’en 1661, elle se serait dressée face aux flammes qui ravageaient la ville et aurait stoppé l’incendie.", mystery_image: "la_grand_porte.jpg", clue_image: "clue_grand_porte.jpg",
                 clue_sentence: "Je suis une entrée majestueuse de la ville de Saint-Malo, ornée de sculptures et de motifs baroques. Témoin de l'histoire de la cité corsaire. Qui suis-je ?")
@@ -63,7 +63,7 @@ dinan_itinerary_pictures.each { |file| dinan_itinerary.photos.attach(io: file, f
 dinan_itinerary.save!
 
 st_malo_itinerary_pictures = File.open("db/fixtures/saint-malo1.jpg"), File.open("db/fixtures/saint-malo2.jpg"), File.open("db/fixtures/saint-malo3.jpg")
-st_malo_itinerary = Itinerary.new(name: 'Saint-Malo, la cité corsaire', subtitle: "Plonger dans les secrets des remparts d'Intra-Muros", distance: 5, rating: 5, duration: 60, number_of_poi: 3, departure: 'Porte Saint-vincent 35400 Saint-Malo', city: st_malo, category: "Médiéval", description: "Entendez-moi, noble compagnie, car je vais vous raconter l'histoire d'une cité corsaire bâtie sur les flots tumultueux de la mer, la ville imprenable de Saint-Malo.
+st_malo_itinerary = Itinerary.new(name: 'Saint-Malo, la cité corsaire', subtitle: "Plongez dans les secrets des remparts d'Intra-Muros", distance: 5, rating: 5, duration: 60, number_of_poi: 3, departure: 'Porte Saint-vincent 35400 Saint-Malo', city: st_malo, category: "Médiéval", description: "Entendez-moi, noble compagnie, car je vais vous raconter l'histoire d'une cité corsaire bâtie sur les flots tumultueux de la mer, la ville imprenable de Saint-Malo.
   Enveloppée par les vagues impitoyables de la Manche, cette ville est un joyau resplendissant dans l'histoire de la Bretagne. Avec ses fortifications massives, ses édifices majestueux et ses rues pavées envoûtantes, elle a connu des siècles de guerres, de commerce et d'aventures épiques.
   Ses remparts s'élèvent fièrement dans le ciel, défiant l'océan et protégeant la ville de ses ennemis.
   Mais c'est surtout l'histoire des corsaires de Saint-Malo qui a marqué les esprits de toutes les générations. Ces guerriers intrépides naviguaient sur des navires rapides et puissants, bravant les tempêtes les plus violentes et les flots les plus déchaînés pour protéger leur ville et leur liberté.
@@ -74,12 +74,12 @@ st_malo_itinerary_pictures.each { |file| st_malo_itinerary.photos.attach(io: fil
 st_malo_itinerary.save!
 
 pont_croix_itinerary_pictures = [File.open("db/fixtures/pontcroix1.jpg")]
-pont_croix_itinerary = Itinerary.new(name: 'Pont-Croix, joyau bigouden', subtitle: "Le charme authentique d'un joyau médieval Breton", distance: 4, rating: 4, duration: 60, number_of_poi: 3, departure: 'pont-croix Rue Voltaire', city: pont_croix, category: 'Médiéval')
+pont_croix_itinerary = Itinerary.new(name: 'Pont-Croix, joyau bigouden', subtitle: "Le charme authentique d'un joyau médiéval Breton", distance: 4, rating: 4, duration: 60, number_of_poi: 3, departure: 'pont-croix Rue Voltaire', city: pont_croix, category: 'Médiéval')
 pont_croix_itinerary_pictures.each { |file| pont_croix_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 pont_croix_itinerary.save!
 
 dinard_itinerary_pictures = [File.open("db/fixtures/dinard1.jpg")]
-dinard_itinerary = Itinerary.new(name: 'Promenade à Dinard', subtitle: "unparcours sur les plages et les villas Belle Époque de la perle de la Côte d'Émeraude", distance: 4, category: "Urbain", rating: 4.5, duration: 100, number_of_poi: 4, departure: 'Mairie de Dinard', city: dinard)
+dinard_itinerary = Itinerary.new(name: 'Promenade à Dinard', subtitle: "Un parcours sur les plages et les villas Belle Époque de la perle de la Côte d'Émeraude", distance: 4, category: "Urbain", rating: 4.5, duration: 100, number_of_poi: 4, departure: 'Mairie de Dinard', city: dinard)
 dinard_itinerary_pictures.each { |file| dinard_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 dinard_itinerary.save!
 
@@ -89,18 +89,18 @@ vannes_itinerary_pictures.each { |file| vannes_itinerary.photos.attach(io: file,
 vannes_itinerary.save!
 
 kerouzere_itinerary_pictures = [File.open("db/fixtures/kerouzere1.png")]
-kerouzere_itinerary = Itinerary.new(name: "Un château figé", subtitle: "un beau chateau ma foi", distance: 12, category: "Nature", rating: 3, duration: 180, number_of_poi: 4, departure: "Chateau de Kerouzéré, 29250 Sibiril", city: sibiril)
+kerouzere_itinerary = Itinerary.new(name: "Un château figé", subtitle: "Un beau chateau ma foi", distance: 12, category: "Nature", rating: 3, duration: 180, number_of_poi: 4, departure: "Chateau de Kerouzéré, 29250 Sibiril", city: sibiril)
 kerouzere_itinerary_pictures.each { |file| kerouzere_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 kerouzere_itinerary.save!
 
 st_michel_itinerary_pictures = File.open("db/fixtures/stmichel1.jpg"), File.open("db/fixtures/stmichel2.jpg"), File.open("db/fixtures/stmichel3.jpg")
-st_michel_itinerary = Itinerary.new(name: 'Recoins du Mont-Saint-Michel', subtitle: "une balade envoûtante entre terre et mer", distance: 7, rating: 5, duration: 160, number_of_poi: 4, departure: 'Pont Passerelle, Le Mont-Saint-Michel',
+st_michel_itinerary = Itinerary.new(name: 'Recoins du Mont-Saint-Michel', subtitle: "Une balade envoûtante entre terre et mer", distance: 7, rating: 5, duration: 160, number_of_poi: 4, departure: 'Pont Passerelle, Le Mont-Saint-Michel',
                       city: mt_st_michel, category: "Urbain")
 st_michel_itinerary_pictures.each { |file| st_michel_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 st_michel_itinerary.save!
 
 carnac_itinerary_pictures = File.open("db/fixtures/carnac1.jpg"), File.open("db/fixtures/carnac2.jpg")
-carnac_itinerary = Itinerary.new(name: 'Secrets des pierres de Carnac', subtitle: "un parcours mystique au coeur des mégalithes bretons", distance: 8, category: "Préhistorique", rating: 2, duration: 150, number_of_poi: 4, departure: 'Le Menec, Carnac', city: carnac)
+carnac_itinerary = Itinerary.new(name: 'Secrets des pierres de Carnac', subtitle: "Un parcours mystique au coeur des mégalithes bretons", distance: 8, category: "Préhistorique", rating: 2, duration: 150, number_of_poi: 4, departure: 'Le Menec, Carnac', city: carnac)
 carnac_itinerary_pictures.each { |file| carnac_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 carnac_itinerary.save!
 
@@ -110,7 +110,7 @@ grandbe_itinerary_pictures.each { |file| grandbe_itinerary.photos.attach(io: fil
 grandbe_itinerary.save!
 
 nantes_itinerary_pictures = File.open("db/fixtures/nantes1.jpg"), File.open("db/fixtures/nantes2.jpg")
-nantes_itinerary = Itinerary.new(name: 'La balade de la Duchesse Anne', subtitle: "une balade inoubliable à travers les siècles", distance: 4, category: "Médiéval", rating: 4.5,
+nantes_itinerary = Itinerary.new(name: 'La balade de la Duchesse Anne', subtitle: "Une balade inoubliable à travers les siècles", distance: 4, category: "Médiéval", rating: 4.5,
                   duration: 90, number_of_poi: 4, departure: 'Château des ducs de Bretagne, Nantes', city: nantes)
 nantes_itinerary_pictures.each { |file| nantes_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 nantes_itinerary.save!
@@ -121,7 +121,7 @@ toursolidor_itinerary_pictures.each { |file| toursolidor_itinerary.photos.attach
 toursolidor_itinerary.save!
 
 guerledan_itinerary_pictures = [File.open("db/fixtures/guerledan1.jpg")]
-guerledan_itinerary = Itinerary.new(name: 'Sur le lac de Guerlédan', subtitle: "à la découverte des merveilles naturelles de la Bretagne intérieure", distance: 4, category: "Nature", rating: 4.5, duration: 90, number_of_poi: 4, departure: 'Lac de Guerlédan', city: guerledan)
+guerledan_itinerary = Itinerary.new(name: 'Sur le lac de Guerlédan', subtitle: "A la découverte des merveilles naturelles de la Bretagne intérieure", distance: 4, category: "Nature", rating: 4.5, duration: 90, number_of_poi: 4, departure: 'Lac de Guerlédan', city: guerledan)
 guerledan_itinerary_pictures.each { |file| guerledan_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 guerledan_itinerary.save!
 
@@ -131,24 +131,24 @@ memorial_itinerary_pictures.each { |file| memorial_itinerary.photos.attach(io: f
 memorial_itinerary.save!
 
 plogoff_itinerary_pictures = [File.open("db/fixtures/plogoff1.jpg")]
-plogoff_itinerary = Itinerary.new(name: 'La baie des trépassés', subtitle: "une balade sauvage sur les rivages de la Pointe du Raz", distance: 4, category: "Nature", rating: 4, duration: 90, number_of_poi: 4, departure: 'Baie des trépassés, Plogoff', city: plogoff,
+plogoff_itinerary = Itinerary.new(name: 'La baie des trépassés', subtitle: "Une balade sauvage sur les rivages de la Pointe du Raz", distance: 4, category: "Nature", rating: 4, duration: 90, number_of_poi: 4, departure: 'Baie des trépassés, Plogoff', city: plogoff,
                     description: "Sur la côte de la Cornouaille, la baie des Trépassés, au magnifique rivage de sable blanc, nous fait admirer au loin l’archipel de Sein, Depuis toujours, les corps des marins dont les bateaux s’étaient fracassés sur les récifs de la pointe du Raz,
                     pris par les forts courants de marée et les vents dominants, venaient s’échouer sur cette plage, ce qui alimenta les histoires et les contes bretons  Boë an Aon se transforma en Boë an Anao, la « baie des âmes en peine », celles des trépassés.")
 plogoff_itinerary_pictures.each { |file| plogoff_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 plogoff_itinerary.save!
 
 cathedrale_itinerary_pictures = [File.open("db/fixtures/cathedrale1.jpg")]
-cathedrale_itinerary = Itinerary.new(name: 'Autour de St-Vincent', subtitle: "à travers l'histoire et l'architecture de l'un des joyaux religieux de la ville corsaire", distance: 6, category: "Urbain", rating: 4, duration: 90, number_of_poi: 2, departure: 'Cathédrale Saint-Vincent de Saint-Malo', city: st_malo)
+cathedrale_itinerary = Itinerary.new(name: 'Autour de St-Vincent', subtitle: "A travers l'histoire et l'architecture de l'un des joyaux religieux de la ville corsaire", distance: 6, category: "Urbain", rating: 4, duration: 90, number_of_poi: 2, departure: 'Cathédrale Saint-Vincent de Saint-Malo', city: st_malo)
 cathedrale_itinerary_pictures.each { |file| cathedrale_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 cathedrale_itinerary.save!
 
 vitre_itinerary_pictures = [File.open("db/fixtures/vitre1.jpg")]
-vitre_itinerary = Itinerary.new(name: 'Dans les recoins de Vitré', subtitle: "l'histoire et l'architecture médiévale de l'un des plus beaux châteaux de Bretagne", distance: 4, category: "Médiéval", rating: 4.5, duration: 80, number_of_poi: 4, departure: 'Château de Vitré', city: vitre)
+vitre_itinerary = Itinerary.new(name: 'Dans les recoins de Vitré', subtitle: "L'histoire et l'architecture médiévale de l'un des plus beaux châteaux de Bretagne", distance: 4, category: "Médiéval", rating: 4.5, duration: 80, number_of_poi: 4, departure: 'Château de Vitré', city: vitre)
 vitre_itinerary_pictures.each { |file| vitre_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 vitre_itinerary.save!
 
 dolmen_itinerary_pictures = [File.open("db/fixtures/dolmen1.jpg")]
-dolmen_itinerary = Itinerary.new(name: "Mégalithes de Kerivoret", subtitle: "un beau menhir", distance: 3, category: "Préhistorique", rating: 4, duration: 60, number_of_poi: 2, departure: "7 Rte de Prat Joulou, 29840 Porspoder", city: porspoder)
+dolmen_itinerary = Itinerary.new(name: "Mégalithes de Kerivoret", subtitle: "Un beau menhir", distance: 3, category: "Préhistorique", rating: 4, duration: 60, number_of_poi: 2, departure: "7 Rte de Prat Joulou, 29840 Porspoder", city: porspoder)
 dolmen_itinerary_pictures.each { |file| dolmen_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 dolmen_itinerary.save!
 
@@ -164,8 +164,8 @@ puts "created #{ItineraryPoi.count} ItineraryPois"
 puts '####### Creating Questions #############'
 
 Question.create!(question_statement: 'Dans quel département se situe Saint-Malo ?', itinerary: st_malo_itinerary, answer_statement: ["22", "44", "35", "56"], good_answer: "35")
-Question.create!(question_statement: 'Quel était le surnom de la ville de Saint-Malo ? la cité ... :', itinerary: st_malo_itinerary, answer_statement: ["Corsaire", "Pirate", "Des vieux loups d'mer", "Engloutie"], good_answer: "Corsaire")
+Question.create!(question_statement: 'Quel était le surnom de la ville de Saint-Malo ? La cité ... :', itinerary: st_malo_itinerary, answer_statement: ["Corsaire", "Pirate", "Des vieux loups d'mer", "Engloutie"], good_answer: "Corsaire")
 Question.create!(question_statement: "Saint-Malo fut pendant 4 années une république indépendante. C'était au : ", itinerary: st_malo_itinerary, answer_statement: ["Xe siècle", "XIIe siècle", "XIVe siècle", "XVIe siècle"], good_answer: "XVIe siècle")
-Question.create!(question_statement: "Lequel de ces marins n'est pas né à Saint-malo ?", itinerary: st_malo_itinerary, answer_statement: ["Jean Bart", "Robert Surcouf", "Duguay-Trouin", "Jacques Cartier"], good_answer: "Jean Bart")
+Question.create!(question_statement: "Lequel de ces marins n'est pas né à Saint-Malo ?", itinerary: st_malo_itinerary, answer_statement: ["Jean Bart", "Robert Surcouf", "Duguay-Trouin", "Jacques Cartier"], good_answer: "Jean Bart")
 Question.create!(question_statement: "Quel peuple, autrefois ennemi de la France, a attaqué plusieurs fois le port de Saint-Malo ?", itinerary: st_malo_itinerary, answer_statement: ["Les Portuguais", "Les Espagnols", "Les Anglais", "Les Russes"], good_answer: "Les Anglais")
 puts "created #{Question.count} questions"
