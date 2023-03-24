@@ -54,7 +54,12 @@ la_grand_porte = Poi.create!(name: "La Grand'Porte", address: "Grand Porte 35400
                 elle fut l’entrée principale qui desservait le port. Au-dessus de l’entrée, vous pouvez admirer Notre-Dame de la Grand’Porte, une statue de la Vierge à l’Enfant. Des marins auraient trouvé cette statue de marbre flottant sur la mer.
                 Également surnommée « Notre-Dame des Miracles », la légende raconte qu’en 1661, elle se serait dressée face aux flammes qui ravageaient la ville et aurait stoppé l’incendie.", mystery_image: "la_grand_porte.jpg", clue_image: "clue_grand_porte.jpg",
                 clue_sentence: "Je suis une entrée majestueuse de la ville de Saint-Malo, ornée de sculptures et de motifs baroques. Témoin de l'histoire de la cité corsaire. Qui suis-je ?")
+le_tumulus_de_kermours = Poi.create!(name: "Le Tumulus de Kermours", address: "Tumulus de Kermours 56400 Le Bono", mystery_name: "Tumulus", mystery_content: "", mystery_image: "", clue_image: "", clue_sentence: "")
+
 puts "created #{Poi.count} pois !"
+
+
+
 
 puts '####### Creating Itineraries #############'
 dinan_itinerary_pictures = File.open("db/fixtures/dinan1.jpg"), File.open("db/fixtures/dinan2.jpg"), File.open("db/fixtures/dinan3.jpg")
