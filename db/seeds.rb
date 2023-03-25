@@ -56,6 +56,9 @@ la_grand_porte = Poi.create!(name: "La Grand'Porte", address: "Grand Porte 35400
                 clue_sentence: "Je suis une entrée majestueuse de la ville de Saint-Malo, ornée de sculptures et de motifs baroques. Témoin de l'histoire de la cité corsaire. Qui suis-je ?")
 puts "created #{Poi.count} pois !"
 
+
+
+
 puts '####### Creating Itineraries #############'
 dinan_itinerary_pictures = File.open("db/fixtures/dinan1.jpg"), File.open("db/fixtures/dinan2.jpg"), File.open("db/fixtures/dinan3.jpg")
 dinan_itinerary = Itinerary.new(name: 'Dinan et ses remparts', subtitle: "Au coeur des rues pavées et des remparts", distance: 10, rating: 5, duration: 180, number_of_poi: 6, departure: 'Le Vieux Pont Dinan', city: dinan, category: 'Médiéval')
