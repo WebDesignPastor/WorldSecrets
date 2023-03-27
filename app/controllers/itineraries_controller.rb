@@ -47,4 +47,9 @@ class ItinerariesController < ApplicationController
       lng: @itinerary.longitude
     }
   end
+
+  def rating
+    @rates = Itinerary.rates
+    return @rates.sum / @rates.length
+  end
 end
