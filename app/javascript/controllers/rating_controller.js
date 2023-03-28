@@ -2,73 +2,33 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="rating"
 export default class extends Controller {
-  static targets = ['emptyStar1', 'emptyStar2', 'emptyStar3', 'emptyStar4', 'emptyStar5',
-                    'star1', 'star2', 'star3', 'star4', 'star5']
+  static targets = ['emptyStar', 'star']
+  // static targets = ['emptyStar1', 'emptyStar2', 'emptyStar3', 'emptyStar4', 'emptyStar5',
+  //                   'star1', 'star2', 'star3', 'star4', 'star5']
   connect() {
   }
 
-  addRate1() {
-    this.emptyStar1Target.classList.add('d-none')
-    this.star1Target.classList.remove('d-none')
-    this.emptyStar2Target.classList.remove('d-none')
-    this.star2Target.classList.add('d-none')
-    this.emptyStar3Target.classList.remove('d-none')
-    this.star3Target.classList.add('d-none')
-    this.emptyStar4Target.classList.remove('d-none')
-    this.star4Target.classList.add('d-none')
-    this.emptyStar5Target.classList.remove('d-none')
-    this.star5Target.classList.add('d-none')
+  addRate(event) {
+    const rating = event.target.closest("button").dataset.rating;
+    // const questionId = this.element.dataset.questionId;
+    // Rails.ajax({
+    //   url: `/questions/${questionId}/add_rating`,
+    //   type: "POST",
+    //   data: `rating=${rating}`,
+    // })
+    this.updateStars(rating)
   }
 
-  addRate2() {
-    this.emptyStar1Target.classList.add('d-none')
-    this.star1Target.classList.remove('d-none')
-    this.emptyStar2Target.classList.add('d-none')
-    this.star2Target.classList.remove('d-none')
-    this.emptyStar3Target.classList.remove('d-none')
-    this.star3Target.classList.add('d-none')
-    this.emptyStar4Target.classList.remove('d-none')
-    this.star4Target.classList.add('d-none')
-    this.emptyStar5Target.classList.remove('d-none')
-    this.star5Target.classList.add('d-none')
-  }
-
-  addRate3() {
-    this.emptyStar1Target.classList.add('d-none')
-    this.star1Target.classList.remove('d-none')
-    this.emptyStar2Target.classList.add('d-none')
-    this.star2Target.classList.remove('d-none')
-    this.emptyStar3Target.classList.add('d-none')
-    this.star3Target.classList.remove('d-none')
-    this.emptyStar4Target.classList.remove('d-none')
-    this.star4Target.classList.add('d-none')
-    this.emptyStar5Target.classList.remove('d-none')
-    this.star5Target.classList.add('d-none')
-  }
-
-  addRate4() {
-    this.emptyStar1Target.classList.add('d-none')
-    this.star1Target.classList.remove('d-none')
-    this.emptyStar2Target.classList.add('d-none')
-    this.star2Target.classList.remove('d-none')
-    this.emptyStar3Target.classList.add('d-none')
-    this.star3Target.classList.remove('d-none')
-    this.emptyStar4Target.classList.add('d-none')
-    this.star4Target.classList.remove('d-none')
-    this.emptyStar5Target.classList.remove('d-none')
-    this.star5Target.classList.add('d-none')
-  }
-
-  addRate5() {
-    this.emptyStar1Target.classList.add('d-none')
-    this.star1Target.classList.remove('d-none')
-    this.emptyStar2Target.classList.add('d-none')
-    this.star2Target.classList.remove('d-none')
-    this.emptyStar3Target.classList.add('d-none')
-    this.star3Target.classList.remove('d-none')
-    this.emptyStar4Target.classList.add('d-none')
-    this.star4Target.classList.remove('d-none')
-    this.emptyStar5Target.classList.add('d-none')
-    this.star5Target.classList.remove('d-none')
+  updateStars(rating) {
+    const stars = this.element.querySelectorAll("[data-rating]")
+    stars.forEach((star) => {
+      if (star.dataset.rating <= rating) {
+        star.querySelector("[data-rating-target='star']").classList.remove("d-none")
+        star.querySelector("[data-rating-target='emptyStar']").classList.add("d-none")
+      } else {
+        star.querySelector("[data-rating-target='star']").classList.add("d-none")
+        star.querySelector("[data-rating-target='emptyStar']").classList.remove("d-none")
+      }
+    });
   }
 }
