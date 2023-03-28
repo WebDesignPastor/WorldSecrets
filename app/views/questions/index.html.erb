@@ -126,7 +126,7 @@
       <h2 class="question-center">Félicitations ! A bientôt pour de nouvelles aventures !</h2>
       <%= image_tag "quizz_fin_image.jpg", class: 'quizz-image', crop: :fill %>
       <p>Ajouter une note</p>
-      <div data-controller='rating' class='d-flex flex-row'>
+      <div data-controller='rating' class='d-flex flex-row' data-rating-trip-id='<%= @trip.itinerary_id %>'>
         <button class='no-style-btn position-relative mx-2' data-rating='1'>
           <%= image_tag("emptystar.svg", class: 'position-absolute',
                         data: { action: 'click->rating#addRate', rating_target: 'emptyStar'}) %>

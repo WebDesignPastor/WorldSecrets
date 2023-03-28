@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   end
 
   resources "trips", only: %i[show create update] do
-    resources "questions", only: :index
+    resources "questions", only: :index  do
+      member do
+        post 'rate/:rating_value', to: 'questions#rate', as: 'rate'
+      end
+    end
     resources "trip_answers", only: :create
   end
 

@@ -14,6 +14,14 @@ class QuestionsController < ApplicationController
   #   @questions.itinerary.save
   # end
 
+  def rate
+    @trip = Trip.find(params[:trip_id])
+    @questions = Question.where(itinerary_id: @trip.itinerary)
+    @trip.itinerary.questions = @questions
+    @rating_value = params[:rating_value].to_i
+    @questions.itinerary.rates << @rating_value
+  end
+
   # def update_rating
   #   @questions = Question.all
   #   @itinerary = Itinerary.find(params[:itinerary_id])

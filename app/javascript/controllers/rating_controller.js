@@ -3,13 +3,18 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="rating"
 export default class extends Controller {
   static targets = ['emptyStar', 'star']
-  // static targets = ['emptyStar1', 'emptyStar2', 'emptyStar3', 'emptyStar4', 'emptyStar5',
-  //                   'star1', 'star2', 'star3', 'star4', 'star5']
   connect() {
   }
 
   addRate(event) {
-    const rating = event.target.closest("button").dataset.rating;
+    const rating = event.target.closest("button").dataset.rating
+    const rate = this.starTargets.indexOf(event.target) + 1
+    const tripId = this.data.get('tripId')
+    fetch(`/trips/${tripId}/add_rate?rate=${rate}`)
+      .then(response => response.json())
+      .then(data => {
+        // Do something with the response data, like update the UI
+      })
     // const questionId = this.element.dataset.questionId;
     // Rails.ajax({
     //   url: `/questions/${questionId}/add_rating`,
@@ -29,6 +34,6 @@ export default class extends Controller {
         star.querySelector("[data-rating-target='star']").classList.add("d-none")
         star.querySelector("[data-rating-target='emptyStar']").classList.remove("d-none")
       }
-    });
+    })
   }
 }
