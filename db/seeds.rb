@@ -38,6 +38,7 @@ porspoder = City.create!(name: 'Porspoder')
 City.create!(name: 'Fougères')
 City.create!(name: 'Sarzeau')
 City.create!(name: 'Josselin')
+City.create!(name: 'Vezin-le-Coquet')
 
 puts "created #{City.count} cities"
 
