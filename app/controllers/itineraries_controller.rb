@@ -49,7 +49,8 @@ class ItinerariesController < ApplicationController
   end
 
   def update
-
+    @itinerary = Itinerary.find(params[:id])
+    @itinerary.update(itinerary_params)
   end
 
   private
