@@ -47,4 +47,8 @@ class ItinerariesController < ApplicationController
       lng: @itinerary.longitude
     }
   end
+
+  def update
+
+  end
 end
