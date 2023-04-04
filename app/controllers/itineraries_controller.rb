@@ -51,4 +51,10 @@ class ItinerariesController < ApplicationController
   def update
 
   end
+
+  private
+
+  def itinerary_params
+    require.params(:itinerary).permit(:rates)
+  end
 end
