@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_13_131041) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_27_132002) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,7 +56,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_131041) do
   create_table "itineraries", force: :cascade do |t|
     t.string "name"
     t.float "distance"
-    t.float "rating"
     t.integer "duration"
     t.integer "number_of_poi"
     t.string "departure"
@@ -68,6 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_131041) do
     t.string "category"
     t.text "description"
     t.string "subtitle"
+    t.integer "rates", default: [], array: true
     t.index ["city_id"], name: "index_itineraries_on_city_id"
   end
 

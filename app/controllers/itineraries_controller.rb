@@ -47,4 +47,15 @@ class ItinerariesController < ApplicationController
       lng: @itinerary.longitude
     }
   end
+
+  def update
+    @itinerary = Itinerary.find(params[:id])
+    @itinerary.update(itinerary_params)
+  end
+
+  private
+
+  def itinerary_params
+    require.params(:itinerary).permit(:rates)
+  end
 end

@@ -68,13 +68,13 @@
                     <div><%= image_tag "steps.svg" %> <%= itinerary.distance %> km</div>
                     <div><%= image_tag "hourglass.svg" %> <%= itinerary.duration / 60 %> h <%=  itinerary.duration % 60 if itinerary.duration % 60 != 0 %></div>
                     </div>
-                      <% if itinerary.rating.truncate(0) == 1 %>
+                      <% if (itinerary.rates.sum / itinerary.rates.length).truncate(0) == 1 %>
                         <%= image_tag "star.svg" %>
                         <%= image_tag "emptystar.svg" %>
                         <%= image_tag "emptystar.svg" %>
                         <%= image_tag "emptystar.svg" %>
                         <%= image_tag "emptystar.svg" %>
-                      <% elsif itinerary.rating.truncate(0) == 2 %>
+                      <% elsif (itinerary.rates.sum / itinerary.rates.length).truncate(0) == 2 %>
                         <div>
                           <%= image_tag "star.svg" %>
                           <%= image_tag "star.svg" %>
@@ -83,7 +83,7 @@
                           <%= image_tag "emptystar.svg" %>
 
                         </div>
-                      <% elsif itinerary.rating.truncate(0) == 3 %>
+                      <% elsif (itinerary.rates.sum / itinerary.rates.length).truncate(0) == 3 %>
                         <div>
                           <%= image_tag "star.svg" %>
                           <%= image_tag "star.svg" %>
@@ -91,7 +91,7 @@
                           <%= image_tag "emptystar.svg" %>
                           <%= image_tag "emptystar.svg" %>
                         </div>
-                      <% elsif itinerary.rating.truncate(0) == 4 %>
+                      <% elsif (itinerary.rates.sum / itinerary.rates.length).truncate(0) == 4 %>
                         <div>
                           <%= image_tag "star.svg" %>
                           <%= image_tag "star.svg" %>
@@ -136,13 +136,13 @@
                       <div><%= image_tag "steps.svg" %> <%= itinerary.distance %> km</div>
                       <div><%= image_tag "hourglass.svg" %> <%= itinerary.duration / 60 %> h <%=  itinerary.duration % 60 if itinerary.duration % 60 != 0 %></div>
                     </div>
-                      <% if itinerary.rating.truncate(0) == 1 %>
+                      <% if (itinerary.rates.sum / itinerary.rates.length).truncate(0) == 1 %>
                         <%= image_tag "star.svg" %>
                         <%= image_tag "emptystar.svg" %>
                         <%= image_tag "emptystar.svg" %>
                         <%= image_tag "emptystar.svg" %>
                         <%= image_tag "emptystar.svg" %>
-                      <% elsif itinerary.rating.truncate(0) == 2 %>
+                      <% elsif (itinerary.rates.sum / itinerary.rates.length).truncate(0) == 2 %>
                         <div>
                           <%= image_tag "star.svg" %>
                           <%= image_tag "star.svg" %>
@@ -151,7 +151,7 @@
                           <%= image_tag "emptystar.svg" %>
 
                         </div>
-                      <% elsif itinerary.rating.truncate(0) == 3 %>
+                      <% elsif (itinerary.rates.sum / itinerary.rates.length).truncate(0) == 3 %>
                         <div>
                           <%= image_tag "star.svg" %>
                           <%= image_tag "star.svg" %>
@@ -159,7 +159,7 @@
                           <%= image_tag "emptystar.svg" %>
                           <%= image_tag "emptystar.svg" %>
                         </div>
-                      <% elsif itinerary.rating.truncate(0) == 4 %>
+                      <% elsif (itinerary.rates.sum / itinerary.rates.length).truncate(0) == 4 %>
                         <div>
                           <%= image_tag "star.svg" %>
                           <%= image_tag "star.svg" %>
@@ -202,13 +202,13 @@
                       <div><%= image_tag "steps.svg" %> <%= itinerary.distance %> km</div>
                       <div><%= image_tag "hourglass.svg" %> <%= itinerary.duration / 60 %> h <%=  itinerary.duration % 60 if itinerary.duration % 60 != 0 %></div>
                     </div>
-                      <% if itinerary.rating.truncate(0) == 1 %>
+                      <% if (itinerary.rates.sum / itinerary.rates.length).truncate(0) == 1 %>
                         <%= image_tag "star.svg" %>
                         <%= image_tag "emptystar.svg" %>
                         <%= image_tag "emptystar.svg" %>
                         <%= image_tag "emptystar.svg" %>
                         <%= image_tag "emptystar.svg" %>
-                      <% elsif itinerary.rating.truncate(0) == 2 %>
+                      <% elsif (itinerary.rates.sum / itinerary.rates.length).truncate(0) == 2 %>
                         <div>
                           <%= image_tag "star.svg" %>
                           <%= image_tag "star.svg" %>
@@ -217,7 +217,7 @@
                           <%= image_tag "emptystar.svg" %>
 
                         </div>
-                      <% elsif itinerary.rating.truncate(0) == 3 %>
+                      <% elsif (itinerary.rates.sum / itinerary.rates.length).truncate(0) == 3 %>
                         <div>
                           <%= image_tag "star.svg" %>
                           <%= image_tag "star.svg" %>
@@ -225,7 +225,7 @@
                           <%= image_tag "emptystar.svg" %>
                           <%= image_tag "emptystar.svg" %>
                         </div>
-                      <% elsif itinerary.rating.truncate(0) == 4 %>
+                      <% elsif (itinerary.rates.sum / itinerary.rates.length).truncate(0) == 4 %>
                         <div>
                           <%= image_tag "star.svg" %>
                           <%= image_tag "star.svg" %>
@@ -262,13 +262,13 @@
           <%= link_to itinerary_path(itinerary), class:'d-flex align-items-center' do %>
             <%= cl_image_tag itinerary.photos.first.key, height: 110, width: 100, crop: :fill %>
             <div class="card-infos">
-              <% if itinerary.rating.truncate(0) == 1 %>
+              <% if (itinerary.rates.sum / itinerary.rates.length).truncate(0) == 1 %>
                 <%= image_tag "star.svg" %>
                 <%= image_tag "emptystar.svg" %>
                 <%= image_tag "emptystar.svg" %>
                 <%= image_tag "emptystar.svg" %>
                 <%= image_tag "emptystar.svg" %>
-              <% elsif itinerary.rating.truncate(0) == 2 %>
+              <% elsif (itinerary.rates.sum / itinerary.rates.length).truncate(0) == 2 %>
                 <div>
                   <%= image_tag "star.svg" %>
                   <%= image_tag "star.svg" %>
@@ -277,7 +277,7 @@
                   <%= image_tag "emptystar.svg" %>
 
                 </div>
-              <% elsif itinerary.rating.truncate(0) == 3 %>
+              <% elsif (itinerary.rates.sum / itinerary.rates.length).truncate(0) == 3 %>
                 <div>
                   <%= image_tag "star.svg" %>
                   <%= image_tag "star.svg" %>
@@ -285,7 +285,7 @@
                   <%= image_tag "emptystar.svg" %>
                   <%= image_tag "emptystar.svg" %>
                 </div>
-              <% elsif itinerary.rating.truncate(0) == 4 %>
+              <% elsif (itinerary.rates.sum / itinerary.rates.length).truncate(0) == 4 %>
                 <div>
                   <%= image_tag "star.svg" %>
                   <%= image_tag "star.svg" %>
