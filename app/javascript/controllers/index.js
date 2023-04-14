@@ -22,5 +22,8 @@ application.register("modal", ModalController)
 import QuestionsController from "./questions_controller"
 application.register("questions", QuestionsController)
 
+import RatingController from "./rating_controller"
+application.register("rating", RatingController)
+
 import SwitchController from "./switch_controller"
 application.register("switch", SwitchController)

@@ -124,7 +124,40 @@
   <div class="d-flex flex-wrap justify-content-center">
     <div data-questions-target="six" class="d-none d-flex flex-column justify-content-center mt-15">
       <h2 class="question-center">Félicitations ! A bientôt pour de nouvelles aventures !</h2>
-        <%= image_tag "quizz_fin_image.jpg", class: 'quizz-image', crop: :fill %>
+      <%= image_tag "quizz_fin_image.jpg", class: 'quizz-image', crop: :fill %>
+      <p>Ajouter une note</p>
+      <div data-controller='rating' class='d-flex flex-row' data-rating-trip-id='<%= @trip.itinerary_id %>'>
+        <button class='no-style-btn position-relative mx-2' data-rating='1'>
+          <%= image_tag("emptystar.svg", class: 'position-absolute',
+                        data: { action: 'click->rating#addRate', rating_target: 'emptyStar'}) %>
+          <%= image_tag("star.svg", class: 'position-absolute d-none',
+                        data: { action: 'click->rating#addRate', rating_target: 'star'}) %>
+        </button>
+        <button class='no-style-btn position-relative mx-2' data-rating='2'>
+          <%= image_tag("emptystar.svg", class: 'position-absolute',
+                        data: { action: 'click->rating#addRate', rating_target: 'emptyStar'}) %>
+          <%= image_tag("star.svg", class: 'position-absolute d-none',
+                        data: { action: 'click->rating#addRate', rating_target: 'star'}) %>
+        </button>
+        <button class='no-style-btn position-relative mx-2' data-rating='3'>
+          <%= image_tag("emptystar.svg", class: 'position-absolute',
+                        data: { action: 'click->rating#addRate', rating_target: 'emptyStar'}) %>
+          <%= image_tag("star.svg", class: 'position-absolute d-none',
+                        data: { action: 'click->rating#addRate', rating_target: 'star'}) %>
+        </button>
+        <button class='no-style-btn position-relative mx-2' data-rating='4'>
+          <%= image_tag("emptystar.svg", class: 'position-absolute',
+                        data: { action: 'click->rating#addRate', rating_target: 'emptyStar'}) %>
+          <%= image_tag("star.svg", class: 'position-absolute d-none',
+                        data: { action: 'click->rating#addRate', rating_target: 'star'}) %>
+        </button>
+        <button class='no-style-btn position-relative mx-2' data-rating='5'>
+          <%= image_tag("emptystar.svg", class: 'position-absolute',
+                        data: { action: 'click->rating#addRate', rating_target: 'emptyStar'}) %>
+          <%= image_tag("star.svg", class: 'position-absolute d-none',
+                        data: { action: 'click->rating#addRate', rating_target: 'star'}) %>
+        </button>
+      </div>
       <%= link_to 'Retourner aux itinéraires', itineraries_path, class: 'btn full-width-div btn-primary' %>
     </div>
   </div>
