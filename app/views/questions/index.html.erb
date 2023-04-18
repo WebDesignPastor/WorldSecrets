@@ -127,12 +127,12 @@
       <%= image_tag "quizz_fin_image.jpg", class: 'quizz-image', crop: :fill %>
       <p>Ajouter une note</p>
       <div data-controller='rating' class='d-flex flex-row' data-rating-trip-id='<%= @trip.itinerary_id %>'>
-        <button class='no-style-btn position-relative mx-2' data-rating='1'>
+        <%= button_to trip_questions_path(@itinerary), method: :patch, class: 'no-style-btn position relative mx-2' do %>
           <%= image_tag("emptystar.svg", class: 'position-absolute',
-                        data: { action: 'click->rating#addRate', rating_target: 'emptyStar'}) %>
+                        data: { action: 'click->rating#addRate', rating_target: 'emptyStar', value: 1}) %>
           <%= image_tag("star.svg", class: 'position-absolute d-none',
                         data: { action: 'click->rating#addRate', rating_target: 'star'}) %>
-        </button>
+        <% end %>
         <button class='no-style-btn position-relative mx-2' data-rating='2'>
           <%= image_tag("emptystar.svg", class: 'position-absolute',
                         data: { action: 'click->rating#addRate', rating_target: 'emptyStar'}) %>

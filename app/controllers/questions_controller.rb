@@ -3,6 +3,7 @@ class QuestionsController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @questions = Question.where(itinerary_id: @trip.itinerary)
     @trip.itinerary.questions = @questions
+    @itinerary = @trip.itinerary
   end
 
   # def add_rating
@@ -31,10 +32,10 @@ class QuestionsController < ApplicationController
   #   redirect_to itinerary_path(@itinerary)
   # end
 
-  private
+  # private
 
-  def itinerary_params
-    params.require[:itinerary].permit(:name, :distance, :duration, :number_of_poi, :departure, :city_id,
-                                      :category, :description, :subtitle, :rates)
-  end
+  # def itinerary_params
+  #   params.require[:itinerary].permit(:name, :distance, :duration, :number_of_poi, :departure, :city_id,
+  #                                     :category, :description, :subtitle, :rates)
+  # end
 end
