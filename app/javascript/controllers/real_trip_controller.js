@@ -63,7 +63,7 @@ export default class extends Controller {
         this.marker.setLngLat([longitude, latitude]);
         this.map.flyTo({
           center: [longitude, latitude],
-          speed: 0.5,
+          speed: 0.1,
           zoom: 16,
         });
       });
