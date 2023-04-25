@@ -40,10 +40,11 @@ export default class extends Controller {
 
       // Add a departure marker.
       this.departureMarker = new mapboxgl.Marker({
+        color: "#007bff",
       })
       .setLngLat([this.departureMarkersValue[0].lng, this.departureMarkersValue[0].lat])
       .addTo(this.map);
-      this.departureMarker.className = 'poi-marker'
+      // this.departureMarker.className = 'poi-marker'
 
       // Add markers for pois.
       this.markersValue.forEach((marker, index) => {
