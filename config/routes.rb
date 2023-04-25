@@ -10,18 +10,14 @@ Rails.application.routes.draw do
 
   resources "trips", only: %i[show create update] do
     resources "questions", only: :index do
-      # resources "itineraries", only: :update
-      # member do
-      #   post 'rate/:rating_value', to: 'questions#rate', as: 'rate'
-      # end
-      patch 'update_rates_one', to: 'itineraries#update_rates_one'
-      patch 'update_rates_two', to: 'itineraries#update_rates_two'
-      patch 'update_rates_three', to: 'itineraries#update_rates_three'
-      patch 'update_rates_four', to: 'itineraries#update_rates_four'
-      patch 'update_rates_five', to: 'itineraries#update_rates_five'
+      patch 'update_rates', to: 'itineraries#update_rates'
     end
     resources "trip_answers", only: :create
   end
+  # resources "itineraries", only: :update
+  # member do
+  #   post 'rate/:rating_value', to: 'questions#rate', as: 'rate'
+  # end
 
   # patch "questions/:question_id/itineraries/:id", to: "itineraries#update_rating"
 

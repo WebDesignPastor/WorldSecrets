@@ -48,49 +48,10 @@ class ItinerariesController < ApplicationController
     }
   end
 
-  def update
-    @itinerary = Itinerary.find(params[:id])
-    @itinerary.update(itinerary_params)
-  end
-
-  # def rating
-  #   itinerary = Itinerary.find(params[:id])
-  #   (itinerary.rates.sum / itinerary.rates.count).truncate(0)
-  # end
-
-  def update_rates_one
-    @itinerary = Itinerary.find(params[:id])
-    @itinerary.rates << 1
+  def update_rates
+    @itinerary = Itinerary.find(params[:itinerary_id])
+    @itinerary.rates << params[:rating_value].to_i
     @itinerary.save
-    # redirect_to question_path(params[:question_id])
-  end
-
-  def update_rates_two
-    @itinerary = Itinerary.find(params[:id])
-    @itinerary.rates << 2
-    @itinerary.save
-    # redirect_to question_path(params[:question_id])
-  end
-
-  def update_rates_three
-    @itinerary = Itinerary.find(params[:id])
-    @itinerary.rates << 3
-    @itinerary.save
-    # redirect_to question_path(params[:question_id])
-  end
-
-  def update_rates_four
-    @itinerary = Itinerary.find(params[:id])
-    @itinerary.rates << 4
-    @itinerary.save
-    # redirect_to question_path(params[:question_id])
-  end
-
-  def update_rates_five
-    @itinerary = Itinerary.find(params[:id])
-    @itinerary.rates << 5
-    @itinerary.save
-    # redirect_to question_path(params[:question_id])
   end
 
   private

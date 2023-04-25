@@ -126,38 +126,10 @@
       <h2 class="question-center">Félicitations ! A bientôt pour de nouvelles aventures !</h2>
       <%= image_tag "quizz_fin_image.jpg", class: 'quizz-image', crop: :fill %>
       <p>Ajouter une note</p>
-      <div data-controller='rating' class='d-flex flex-row' data-rating-trip-id='<%= @trip.itinerary_id %>'>
-        <%= button_to trip_questions_path(@itinerary), method: :patch, class: 'no-style-btn position relative mx-2' do %>
-          <%= image_tag("emptystar.svg", class: 'position-absolute',
-                        data: { action: 'click->rating#addRate', rating_target: 'emptyStar', value: 1}) %>
-          <%= image_tag("star.svg", class: 'position-absolute d-none',
-                        data: { action: 'click->rating#addRate', rating_target: 'star'}) %>
-        <% end %>
-        <button class='no-style-btn position-relative mx-2' data-rating='2'>
-          <%= image_tag("emptystar.svg", class: 'position-absolute',
-                        data: { action: 'click->rating#addRate', rating_target: 'emptyStar'}) %>
-          <%= image_tag("star.svg", class: 'position-absolute d-none',
-                        data: { action: 'click->rating#addRate', rating_target: 'star'}) %>
-        </button>
-        <button class='no-style-btn position-relative mx-2' data-rating='3'>
-          <%= image_tag("emptystar.svg", class: 'position-absolute',
-                        data: { action: 'click->rating#addRate', rating_target: 'emptyStar'}) %>
-          <%= image_tag("star.svg", class: 'position-absolute d-none',
-                        data: { action: 'click->rating#addRate', rating_target: 'star'}) %>
-        </button>
-        <button class='no-style-btn position-relative mx-2' data-rating='4'>
-          <%= image_tag("emptystar.svg", class: 'position-absolute',
-                        data: { action: 'click->rating#addRate', rating_target: 'emptyStar'}) %>
-          <%= image_tag("star.svg", class: 'position-absolute d-none',
-                        data: { action: 'click->rating#addRate', rating_target: 'star'}) %>
-        </button>
-        <button class='no-style-btn position-relative mx-2' data-rating='5'>
-          <%= image_tag("emptystar.svg", class: 'position-absolute',
-                        data: { action: 'click->rating#addRate', rating_target: 'emptyStar'}) %>
-          <%= image_tag("star.svg", class: 'position-absolute d-none',
-                        data: { action: 'click->rating#addRate', rating_target: 'star'}) %>
-        </button>
-      </div>
+      <%= simple_form_for(@itinerary) do |f| %>
+        <%= f.input :rating_value, as: :select, collection: [1, 2, 3, 4, 5], label: false, input_html: { class: 'form-control' }, selected: params[:rating_value] %>
+        <%= f.submit "Valider" %>
+      <% end %>
       <%= link_to 'Retourner aux itinéraires', itineraries_path, class: 'btn full-width-div btn-primary' %>
     </div>
   </div>
