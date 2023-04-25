@@ -1,10 +1,10 @@
 <div class="position-relative wrapper-map" data-controller="modal" data-action="click->modal#onClickEvent">
   <div class="position-absolute" style="width: 100vw; height: 100vh;"
-    data-controller="map"
+    data-controller="real-trip"
     data-custom-marker="<%= asset_path('ghost.png') %>"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-departure-markers-value="<%= @departure_marker.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    data-real-trip-markers-value="<%= @markers.to_json %>"
+    data-real-trip-departure-markers-value="<%= @departure_marker.to_json %>"
+    data-real-trip-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
   <div class="mystery-count position-absolute">
     <div data-pois-length="<%= @pois.length %>">
