@@ -38,7 +38,7 @@ porspoder = City.create!(name: 'Porspoder')
 City.create!(name: 'Fougères')
 City.create!(name: 'Sarzeau')
 City.create!(name: 'Josselin')
-City.create!(name: 'Vezin-le-Coquet')
+vezin = City.create!(name: 'Vezin-le-Coquet')
 
 puts "created #{City.count} cities"
 
@@ -55,10 +55,20 @@ la_grand_porte = Poi.create!(name: "La Grand'Porte", address: "Grand Porte 35400
                 elle fut l’entrée principale qui desservait le port. Au-dessus de l’entrée, vous pouvez admirer Notre-Dame de la Grand’Porte, une statue de la Vierge à l’Enfant. Des marins auraient trouvé cette statue de marbre flottant sur la mer.
                 Également surnommée « Notre-Dame des Miracles », la légende raconte qu’en 1661, elle se serait dressée face aux flammes qui ravageaient la ville et aurait stoppé l’incendie.", mystery_image: "la_grand_porte.jpg", clue_image: "clue_grand_porte.jpg",
                 clue_sentence: "Je suis une entrée majestueuse de la ville de Saint-Malo, ornée de sculptures et de motifs baroques. Témoin de l'histoire de la cité corsaire. Qui suis-je ?")
+
+
+# Pois pour les autres villes
+
+prison_vezin = Poi.create!(name: 'La prison de Vezin', address: '12, rue de Montfort, 35132 Vezin-le-Coquet', mystery_name: 'La prison oubliée',
+  mystery_content: 'La prison de Vezin-le-Coquet est une ancienne prison située dans la commune de Vezin-le-Coquet, en Ille-et-Vilaine.
+  Construite en 1860, elle est fermée en 1952. Elle est inscrite au titre des monuments historiques depuis le 28 décembre 1992.',
+  mystery_image: 'prison_vezin.jpg', clue_image: 'prison_vezin_clue.jpg', clue_sentence: 'Je suis un lieu de détention, je suis situé à Vezin-le-Coquet, je suis un lieu historique')
+
+mairie_vezin = Poi.create!(name: 'La mairie de Vezin', address: '8 rue de Rennes, 35132 Vezin-le-Coquet', mystery_name: 'La mairie de Vezin',
+  mystery_content: 'La mairie de Vezin-le-Coquet est un bâtiment situé dans la commune de Vezin-le-Coquet, en Ille-et-Vilaine.',
+  mystery_image: 'mairie_vezin.jpg', clue_image: 'mairie_vezin_clue.jpg', clue_sentence: 'Je suis un lieu de pouvoir, je suis situé à Vezin-le-Coquet, je suis un lieu historique')
+
 puts "created #{Poi.count} pois !"
-
-
-
 
 puts '####### Creating Itineraries #############'
 dinan_itinerary_pictures = File.open("db/fixtures/dinan1.jpg"), File.open("db/fixtures/dinan2.jpg"), File.open("db/fixtures/dinan3.jpg")
