@@ -3,7 +3,8 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static values = {
     apiKey: String,
-    markers: Array
+    markers: Array,
+    departureMarkers: Array
   }
 
   connect() {
@@ -36,6 +37,25 @@ export default class extends Controller {
       })
         .setLngLat([longitude, latitude])
         .addTo(this.map);
+
+      // Add a departure marker.
+      this.departureMarker = new mapboxgl.Marker({
+      })
+      .setLngLat([this.departureMarkersValue[0].lng, this.departureMarkersValue[0].lat])
+      .addTo(this.map);
+      this.departureMarker.className = 'poi-marker'
+
+      // Add markers for pois.
+      this.markersValue.forEach((marker, index) => {
+        // let poiMarker = document.createElement('div')
+        // poiMarker.className = 'poi-marker'
+        // poiMarker.dataset.modalTarget = `poiMarker${index + 1}`
+        new mapboxgl.Marker({
+          color: "#007bff",
+        })
+          .setLngLat([marker.lng, marker.lat])
+          .addTo(this.map);
+      });
 
       // Move the map to follow the user's location.
       navigator.geolocation.watchPosition(position => {
