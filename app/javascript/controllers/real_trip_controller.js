@@ -20,14 +20,15 @@ export default class extends Controller {
       });
 
       // Add the geolocate control to the map.
-      this.geolocate = new mapboxgl.GeolocateControl({
-        positionOptions: {
-          enableHighAccuracy: true,
-        },
-        trackUserLocation: true,
-        showUserHeading: true,
-      });
-      this.map.addControl(this.geolocate);
+      this.map.addControl(
+        new mapboxgl.GeolocateControl({
+          positionOptions: {
+            enableHighAccuracy: true,
+          },
+          trackUserLocation: true,
+          showUserHeading: true,
+        })
+      );
 
       // Add a marker for the user's location.
       this.marker = new mapboxgl.Marker({
@@ -37,11 +38,12 @@ export default class extends Controller {
         .addTo(this.map);
 
       // Move the map to follow the user's location.
-      this.geolocate.on("geolocate", e => {
-        const { latitude, longitude } = e.coords;
+      navigator.geolocation.watchPosition(position => {
+        const { latitude, longitude } = position.coords;
         this.marker.setLngLat([longitude, latitude]);
         this.map.flyTo({
           center: [longitude, latitude],
+          speed: 0.5,
           zoom: 16,
         });
       });
