@@ -37,7 +37,7 @@ export default class extends Controller {
       );
 
       // Create a marker at the current location and add it to the map.
-      const marker = new mapboxgl.Marker({
+      new mapboxgl.Marker({
         color: "#007bff", // set the marker color
       })
         .setLngLat([longitude, latitude])
