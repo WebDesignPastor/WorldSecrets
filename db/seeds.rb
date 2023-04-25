@@ -71,6 +71,12 @@ mairie_vezin = Poi.create!(name: 'La mairie de Vezin', address: '8 rue de Rennes
 puts "created #{Poi.count} pois !"
 
 puts '####### Creating Itineraries #############'
+
+vezin_itinerary_pictures = [File.open("db/fixtures/vezin1.jpg")]
+vezin_itinerary = Itinerary.new(name: 'vezin et ses remparts', subtitle: "Au coeur des rues pavées et des remparts", distance: 10, rates: [5], duration: 180, number_of_poi: 6, departure: 'Le Vieux Pont vezin', city: vezin, category: 'Médiéval')
+vezin_itinerary_pictures.each { |file| vezin_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+vezin_itinerary.save!
+
 dinan_itinerary_pictures = File.open("db/fixtures/dinan1.jpg"), File.open("db/fixtures/dinan2.jpg"), File.open("db/fixtures/dinan3.jpg")
 dinan_itinerary = Itinerary.new(name: 'Dinan et ses remparts', subtitle: "Au coeur des rues pavées et des remparts", distance: 10, rates: [5], duration: 180, number_of_poi: 6, departure: 'Le Vieux Pont Dinan', city: dinan, category: 'Médiéval')
 dinan_itinerary_pictures.each { |file| dinan_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
