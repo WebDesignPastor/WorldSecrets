@@ -9,7 +9,7 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log("real trip controller");
+    console.log("banane");
 
     mapboxgl.accessToken = this.apiKeyValue;
 
@@ -24,17 +24,17 @@ export default class extends Controller {
       });
 
       // Add geolocate control to the map.
-      this.map.addControl(
-        new mapboxgl.GeolocateControl({
-          positionOptions: {
-            enableHighAccuracy: true,
-          },
-          // When active the map will receive updates to the device's location as it changes.
-          trackUserLocation: true,
-          // Draw an arrow next to the location dot to indicate which direction the device is heading.
-          showUserHeading: true,
-        })
-      );
+      // this.map.addControl(
+        //   new mapboxgl.GeolocateControl({
+          //     positionOptions: {
+            //       enableHighAccuracy: true,
+            //     },
+            //     // When active the map will receive updates to the device's location as it changes.
+      //     trackUserLocation: true,
+      //     // Draw an arrow next to the location dot to indicate which direction the device is heading.
+      //     showUserHeading: true,
+      //   })
+      // );
 
       // Create a marker at the current location and add it to the map.
       new mapboxgl.Marker({
@@ -44,11 +44,11 @@ export default class extends Controller {
         .addTo(this.map);
 
       // Zoom the map to the current location.
-      this.map.flyTo({
-        center: [longitude, latitude],
-        zoom: 16, // set the zoom level
-        essential: true,
-      });
+      // this.map.flyTo({
+      //   center: [longitude, latitude],
+      //   zoom: 16, // set the zoom level
+      //   essential: true,
+      // });
     });
   }
 
