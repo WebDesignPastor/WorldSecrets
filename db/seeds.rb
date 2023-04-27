@@ -59,12 +59,12 @@ puts '####### Creating Pois #############'
 
 # Pois pour les autres villes
 
-prison_vezin = Poi.create!(name: 'La prison de Vezin', mystery_name: 'La prison oubliée', latitude: 48.1190418, longitude: -1.7540020072370839,
+prison_vezin = Poi.create!(name: 'La prison de Vezin', mystery_name: 'La prison oubliée', latitude: 49.1190418, longitude: -1.9540020072370839,
   mystery_content: 'La prison de Vezin-le-Coquet est une ancienne prison située dans la commune de Vezin-le-Coquet, en Ille-et-Vilaine.
   Construite en 1860, elle est fermée en 1952. Elle est inscrite au titre des monuments historiques depuis le 28 décembre 1992.',
   mystery_image: 'prison_vezin.jpg', clue_image: 'prison_vezin_clue.png', clue_sentence: 'Je suis un lieu de détention, je suis situé à Vezin-le-Coquet, je suis un lieu historique')
 
-mairie_vezin = Poi.create!(name: 'La mairie de Vezin', latitude: 48.1190412, longitude: -1.7540020072370852, mystery_name: 'La mairie de Vezin',
+mairie_vezin = Poi.create!(name: 'La mairie de Vezin', latitude: 48.1190412, longitude: -1.8540020072371235, mystery_name: 'La mairie de Vezin',
   mystery_content: 'La mairie de Vezin-le-Coquet est un bâtiment situé dans la commune de Vezin-le-Coquet, en Ille-et-Vilaine.',
   mystery_image: 'mairie_vezin.jpg', clue_image: 'mairie_vezin_clue.jpg', clue_sentence: 'Je suis un lieu de pouvoir, je suis situé à Vezin-le-Coquet, je suis un lieu historique')
 
@@ -73,7 +73,7 @@ puts "created #{Poi.count} pois !"
 puts '####### Creating Itineraries #############'
 
 vezin_itinerary_pictures = [File.open("db/fixtures/vezin1.jpg")]
-vezin_itinerary = Itinerary.new(name: 'vezin et son stade', subtitle: "Le joyau de la Flume", distance: 10, rates: [5], duration: 180, number_of_poi: 2,  latitude: 48.1190414, longitude: -1.7540020072370832, city: vezin, category: 'Urbain',
+vezin_itinerary = Itinerary.new(name: 'vezin et son stade', subtitle: "Le joyau de la Flume", distance: 10, rates: [5], duration: 180, number_of_poi: 2,  latitude: 46.1190414, longitude: -2.7540020072370832, city: vezin, category: 'Urbain',
 description: "Vezin est le sang de la veine de l'Ille-et-Vilaine. Venez vous installer dans cette bourgade de l'extrême où les générations s'entendent si bien entre elles.")
 vezin_itinerary_pictures.each { |file| vezin_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 vezin_itinerary.save!
