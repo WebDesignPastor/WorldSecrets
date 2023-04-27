@@ -180,7 +180,7 @@ puts '####### Creating Itinerary_pois #############'
 # ItineraryPoi.create!(poi_order: 1, itinerary: st_malo_itinerary, poi: chat_qui_danse)
 # ItineraryPoi.create!(poi_order: 2, itinerary: st_malo_itinerary, poi: la_grand_porte)
 
-# ItineraryPoi.create!(poi_order: 1, itinerary: vezin_itinerary, poi: mairie_vezin)
+ItineraryPoi.create!(poi_order: 1, itinerary: vezin_itinerary, poi: mairie_vezin)
 ItineraryPoi.create!(poi_order: 2, itinerary: vezin_itinerary, poi: prison_vezin)
 # ItineraryPoi.create!(poi_order: 3, itinerary: st_malo_itinerary, poi: chiens_du_guet)
 puts "created #{ItineraryPoi.count} ItineraryPois"
