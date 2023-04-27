@@ -83,7 +83,7 @@ vezin_itinerary.save!
 # dinan_itinerary_pictures.each { |file| dinan_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 # dinan_itinerary.save!
 
-st_malo_itinerary_pictures = File.open("db/fixtures/saint-malo1.jpg"), File.open("db/fixtures/saint-malo2.jpg"), File.open("db/fixtures/saint-malo3.jpg")
+st_malo_itinerary_pictures = [File.open("db/fixtures/saint-malo1.jpg")]
 st_malo_itinerary = Itinerary.new(name: 'Saint-Malo, la cité corsaire', subtitle: "Plongez dans les secrets des remparts d'Intra-Muros", distance: 5,
   rates: [5], duration: 60, number_of_poi: 3, latitude: 48.650504, longitude: -2.023214, city: st_malo, category: "Médiéval",
   description: "Entendez-moi, noble compagnie, car je vais vous raconter l'histoire d'une cité corsaire bâtie sur les flots tumultueux de la mer, la ville imprenable de Saint-Malo.
