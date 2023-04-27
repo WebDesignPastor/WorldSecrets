@@ -104,10 +104,10 @@ pont_croix_itinerary = Itinerary.new(name: 'Pont-Croix, joyau bigouden', subtitl
 pont_croix_itinerary_pictures.each { |file| pont_croix_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 pont_croix_itinerary.save!
 
-# dinard_itinerary_pictures = [File.open("db/fixtures/dinard1.jpg")]
-# dinard_itinerary = Itinerary.new(name: 'Promenade à Dinard', subtitle: "Un parcours sur les plages et les villas Belle Époque de la perle de la Côte d'Émeraude", distance: 4, category: "Urbain", rates: [4], duration: 100, number_of_poi: 4, departure: 'Mairie de Dinard', city: dinard)
-# dinard_itinerary_pictures.each { |file| dinard_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
-# dinard_itinerary.save!
+dinard_itinerary_pictures = [File.open("db/fixtures/dinard1.jpg")]
+dinard_itinerary = Itinerary.new(name: 'Promenade à Dinard', subtitle: "Un parcours sur les plages et les villas Belle Époque de la perle de la Côte d'Émeraude", distance: 4, category: "Urbain", rates: [4], duration: 100, number_of_poi: 4, latitude: 48.634279915731106, longitude:  -2.0548554816140125, city: dinard)
+dinard_itinerary_pictures.each { |file| dinard_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+dinard_itinerary.save!
 
 # vannes_itinerary_pictures = [File.open("db/fixtures/vannes1.jpg")]
 # vannes_itinerary = Itinerary.new(name: 'Les remparts de Vannes', subtitle: "Une balade entre patrimoine historique et culturel", distance: 6, rates: [3], duration: 90, number_of_poi: 4, departure: 'Remparts de Vannes', city: vannes, category: 'Médiéval')
