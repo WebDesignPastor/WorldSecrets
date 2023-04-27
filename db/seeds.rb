@@ -99,10 +99,10 @@ st_malo_itinerary = Itinerary.new(name: 'Saint-Malo, la cité corsaire', subtitl
 st_malo_itinerary_pictures.each { |file| st_malo_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 st_malo_itinerary.save!
 
-# pont_croix_itinerary_pictures = [File.open("db/fixtures/pontcroix1.jpg")]
-# pont_croix_itinerary = Itinerary.new(name: 'Pont-Croix, joyau bigouden', subtitle: "Le charme authentique d'un joyau médiéval Breton", distance: 4, rates: [4], duration: 60, number_of_poi: 3, departure: 'pont-croix Rue Voltaire', city: pont_croix, category: 'Médiéval')
-# pont_croix_itinerary_pictures.each { |file| pont_croix_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
-# pont_croix_itinerary.save!
+pont_croix_itinerary_pictures = [File.open("db/fixtures/pontcroix1.jpg")]
+pont_croix_itinerary = Itinerary.new(name: 'Pont-Croix, joyau bigouden', subtitle: "Le charme authentique d'un joyau médiéval Breton", distance: 4, rates: [4], duration: 60, number_of_poi: 3, latitude: 48.041038049838775, longitude: -4.487834673212698, city: pont_croix, category: 'Médiéval')
+pont_croix_itinerary_pictures.each { |file| pont_croix_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+pont_croix_itinerary.save!
 
 # dinard_itinerary_pictures = [File.open("db/fixtures/dinard1.jpg")]
 # dinard_itinerary = Itinerary.new(name: 'Promenade à Dinard', subtitle: "Un parcours sur les plages et les villas Belle Époque de la perle de la Côte d'Émeraude", distance: 4, category: "Urbain", rates: [4], duration: 100, number_of_poi: 4, departure: 'Mairie de Dinard', city: dinard)
