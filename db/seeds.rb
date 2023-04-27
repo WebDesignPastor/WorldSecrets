@@ -78,10 +78,10 @@ description: "Vezin est le sang de la veine de l'Ille-et-Vilaine. Venez vous ins
 vezin_itinerary_pictures.each { |file| vezin_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 vezin_itinerary.save!
 
-# dinan_itinerary_pictures = File.open("db/fixtures/dinan1.jpg"), File.open("db/fixtures/dinan2.jpg"), File.open("db/fixtures/dinan3.jpg")
-# dinan_itinerary = Itinerary.new(name: 'Dinan et ses remparts', subtitle: "Au coeur des rues pavées et des remparts", distance: 10, rates: [5], duration: 180, number_of_poi: 6, departure: 'Le Vieux Pont Dinan', city: dinan, category: 'Médiéval')
-# dinan_itinerary_pictures.each { |file| dinan_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
-# dinan_itinerary.save!
+dinan_itinerary_pictures = [File.open("db/fixtures/dinan1.jpg")]
+dinan_itinerary = Itinerary.new(name: 'Dinan et ses remparts', subtitle: "Au coeur des rues pavées et des remparts", distance: 10, rates: [5], duration: 180, number_of_poi: 6, latitude: 48.450866, longitude: -2.044311, city: dinan, category: 'Médiéval')
+dinan_itinerary_pictures.each { |file| dinan_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+dinan_itinerary.save!
 
 st_malo_itinerary_pictures = [File.open("db/fixtures/saint-malo1.jpg")]
 st_malo_itinerary = Itinerary.new(name: 'Saint-Malo, la cité corsaire', subtitle: "Plongez dans les secrets des remparts d'Intra-Muros", distance: 5,
