@@ -109,15 +109,15 @@ dinard_itinerary = Itinerary.new(name: 'Promenade à Dinard', subtitle: "Un parc
 dinard_itinerary_pictures.each { |file| dinard_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 dinard_itinerary.save!
 
-# vannes_itinerary_pictures = [File.open("db/fixtures/vannes1.jpg")]
-# vannes_itinerary = Itinerary.new(name: 'Les remparts de Vannes', subtitle: "Une balade entre patrimoine historique et culturel", distance: 6, rates: [3], duration: 90, number_of_poi: 4, departure: 'Remparts de Vannes', city: vannes, category: 'Médiéval')
-# vannes_itinerary_pictures.each { |file| vannes_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
-# vannes_itinerary.save!
+vannes_itinerary_pictures = [File.open("db/fixtures/vannes1.jpg")]
+vannes_itinerary = Itinerary.new(name: 'Les remparts de Vannes', subtitle: "Une balade entre patrimoine historique et culturel", distance: 6, rates: [3], duration: 90, number_of_poi: 4, latitude: 47.651478734914, longitude: -2.7588130285536847, city: vannes, category: 'Médiéval')
+vannes_itinerary_pictures.each { |file| vannes_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+vannes_itinerary.save!
 
-# kerouzere_itinerary_pictures = [File.open("db/fixtures/kerouzere1.png")]
-# kerouzere_itinerary = Itinerary.new(name: "Un château figé", subtitle: "Un beau chateau ma foi", distance: 12, category: "Nature", rates: [3], duration: 180, number_of_poi: 4, departure: "Chateau de Kerouzéré, 29250 Sibiril", city: sibiril)
-# kerouzere_itinerary_pictures.each { |file| kerouzere_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
-# kerouzere_itinerary.save!
+kerouzere_itinerary_pictures = [File.open("db/fixtures/kerouzere1.png")]
+kerouzere_itinerary = Itinerary.new(name: "Un château figé", subtitle: "Un beau chateau ma foi", distance: 12, category: "Nature", rates: [3], duration: 180, number_of_poi: 4, departure: "Chateau de Kerouzéré, 29250 Sibiril", city: sibiril)
+kerouzere_itinerary_pictures.each { |file| kerouzere_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+kerouzere_itinerary.save!
 
 # st_michel_itinerary_pictures = File.open("db/fixtures/stmichel1.jpg"), File.open("db/fixtures/stmichel2.jpg"), File.open("db/fixtures/stmichel3.jpg")
 # st_michel_itinerary = Itinerary.new(name: 'Recoins du Mont-Saint-Michel', subtitle: "Une balade envoûtante entre terre et mer", distance: 7, rates: [5], duration: 160, number_of_poi: 4, departure: 'Pont Passerelle, Le Mont-Saint-Michel',
