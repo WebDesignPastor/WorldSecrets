@@ -135,11 +135,11 @@ grandbe_itinerary = Itinerary.new(name: 'La tombe de Chateaubriand', subtitle: "
 grandbe_itinerary_pictures.each { |file| grandbe_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 grandbe_itinerary.save!
 
-# nantes_itinerary_pictures = File.open("db/fixtures/nantes1.jpg"), File.open("db/fixtures/nantes2.jpg")
-# nantes_itinerary = Itinerary.new(name: 'La balade de la Duchesse Anne', subtitle: "Une balade inoubliable à travers les siècles", distance: 4, category: "Médiéval", rates: [4],
-#                   duration: 90, number_of_poi: 4, departure: 'Château des ducs de Bretagne, Nantes', city: nantes)
-# nantes_itinerary_pictures.each { |file| nantes_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
-# nantes_itinerary.save!
+nantes_itinerary_pictures = File.open("db/fixtures/nantes1.jpg"), File.open("db/fixtures/nantes2.jpg")
+nantes_itinerary = Itinerary.new(name: 'La balade de la Duchesse Anne', subtitle: "Une balade inoubliable à travers les siècles", distance: 4, category: "Médiéval", rates: [4],
+                  duration: 90, number_of_poi: 4, latitude: 47.21571680387717, longitude: -1.5505805118652978, city: nantes)
+nantes_itinerary_pictures.each { |file| nantes_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+nantes_itinerary.save!
 
 toursolidor_itinerary_pictures = [File.open("db/fixtures/toursolidor1.jpg")]
 toursolidor_itinerary = Itinerary.new(name: 'La vigie sur la Rance', subtitle: "L'histoire maritime et une vue imprenable sur la Rance", distance: 6, category: "Médiéval", rates: [4], duration: 70, number_of_poi: 2, latitude: 48.650861651302534, longitude: -2.0218998515555895, city: st_malo)
@@ -163,10 +163,10 @@ memorial_itinerary.save!
 # plogoff_itinerary_pictures.each { |file| plogoff_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 # plogoff_itinerary.save!
 
-# cathedrale_itinerary_pictures = [File.open("db/fixtures/cathedrale1.jpg")]
-# cathedrale_itinerary = Itinerary.new(name: 'Autour de St-Vincent', subtitle: "A travers l'histoire et l'architecture de l'un des joyaux religieux de la ville corsaire", distance: 6, category: "Urbain", rates: [4], duration: 90, number_of_poi: 2, departure: 'Cathédrale Saint-Vincent de Saint-Malo', city: st_malo)
-# cathedrale_itinerary_pictures.each { |file| cathedrale_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
-# cathedrale_itinerary.save!
+cathedrale_itinerary_pictures = [File.open("db/fixtures/cathedrale1.jpg")]
+cathedrale_itinerary = Itinerary.new(name: 'Autour de St-Vincent', subtitle: "A travers l'histoire et l'architecture de l'un des joyaux religieux de la ville corsaire", distance: 6, category: "Urbain", rates: [4], duration: 90, number_of_poi: 2, departure: 'Cathédrale Saint-Vincent de Saint-Malo', city: st_malo)
+cathedrale_itinerary_pictures.each { |file| cathedrale_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+cathedrale_itinerary.save!
 
 # vitre_itinerary_pictures = [File.open("db/fixtures/vitre1.jpg")]
 # vitre_itinerary = Itinerary.new(name: 'Dans les recoins de Vitré', subtitle: "L'histoire et l'architecture médiévale de l'un des plus beaux châteaux de Bretagne", distance: 4, category: "Médiéval", rates: [4], duration: 80, number_of_poi: 4, departure: 'Château de Vitré', city: vitre)
