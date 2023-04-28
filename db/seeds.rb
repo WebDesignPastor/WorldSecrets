@@ -85,7 +85,7 @@ dinan_itinerary.save!
 
 st_malo_itinerary_pictures = [File.open("db/fixtures/saint-malo1.jpg")]
 st_malo_itinerary = Itinerary.new(name: 'Saint-Malo, la cité corsaire', subtitle: "Plongez dans les secrets des remparts d'Intra-Muros", distance: 5,
-  rates: [5], duration: 60, number_of_poi: 3, latitude: 48.650504, longitude: -2.023214, city: st_malo, category: "Médiéval",
+  rates: [5], duration: 60, number_of_poi: 3, latitude: 48.650861651302534, longitude: -2.0218998515555895,  city: st_malo, category: "Médiéval",
   description: "Entendez-moi, noble compagnie, car je vais vous raconter l'histoire d'une cité corsaire bâtie sur les flots tumultueux de la mer, la ville imprenable de Saint-Malo.
   Enveloppée par les vagues impitoyables de la Manche, cette ville est un joyau resplendissant dans l'histoire de la Bretagne.
   Avec ses fortifications massives, ses édifices majestueux et ses rues pavées envoûtantes, elle a connu des siècles de guerres, de commerce et d'aventures épiques.
@@ -130,10 +130,10 @@ carnac_itinerary = Itinerary.new(name: 'Secrets des pierres de Carnac', subtitle
 carnac_itinerary_pictures.each { |file| carnac_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 carnac_itinerary.save!
 
-# grandbe_itinerary_pictures = [File.open("db/fixtures/GrandBe1.jpg")]
-# grandbe_itinerary = Itinerary.new(name: 'La tombe de Chateaubriand', subtitle: "Une promenade entre mer et histoire", distance: 4, category: "Nature", rates: [3], duration: 70, number_of_poi: 2, departure: 'Grand-Bé, Saint-Malo', city: st_malo)
-# grandbe_itinerary_pictures.each { |file| grandbe_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
-# grandbe_itinerary.save!
+grandbe_itinerary_pictures = [File.open("db/fixtures/GrandBe1.jpg")]
+grandbe_itinerary = Itinerary.new(name: 'La tombe de Chateaubriand', subtitle: "Une promenade entre mer et histoire", distance: 4, category: "Nature", rates: [3], duration: 70, number_of_poi: 2, latitude: 48.650861651302534, longitude: -2.0218998515555895, city: st_malo)
+grandbe_itinerary_pictures.each { |file| grandbe_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+grandbe_itinerary.save!
 
 # nantes_itinerary_pictures = File.open("db/fixtures/nantes1.jpg"), File.open("db/fixtures/nantes2.jpg")
 # nantes_itinerary = Itinerary.new(name: 'La balade de la Duchesse Anne', subtitle: "Une balade inoubliable à travers les siècles", distance: 4, category: "Médiéval", rates: [4],
