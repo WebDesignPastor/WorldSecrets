@@ -119,11 +119,11 @@ kerouzere_itinerary = Itinerary.new(name: "Un château figé", subtitle: "Un bea
 kerouzere_itinerary_pictures.each { |file| kerouzere_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 kerouzere_itinerary.save!
 
-# st_michel_itinerary_pictures = File.open("db/fixtures/stmichel1.jpg"), File.open("db/fixtures/stmichel2.jpg"), File.open("db/fixtures/stmichel3.jpg")
-# st_michel_itinerary = Itinerary.new(name: 'Recoins du Mont-Saint-Michel', subtitle: "Une balade envoûtante entre terre et mer", distance: 7, rates: [5], duration: 160, number_of_poi: 4, departure: 'Pont Passerelle, Le Mont-Saint-Michel',
-#                       city: mt_st_michel, category: "Urbain")
-# st_michel_itinerary_pictures.each { |file| st_michel_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
-# st_michel_itinerary.save!
+st_michel_itinerary_pictures = [File.open("db/fixtures/stmichel1.jpg")]
+st_michel_itinerary = Itinerary.new(name: 'Recoins du Mont-Saint-Michel', subtitle: "Une balade envoûtante entre terre et mer", distance: 7, rates: [5], duration: 160, number_of_poi: 4, latitude: 48.635125685084546, longitude: -1.5105422764522873,
+                      city: mt_st_michel, category: "Urbain")
+st_michel_itinerary_pictures.each { |file| st_michel_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+st_michel_itinerary.save!
 
 # carnac_itinerary_pictures = File.open("db/fixtures/carnac1.jpg"), File.open("db/fixtures/carnac2.jpg")
 # carnac_itinerary = Itinerary.new(name: 'Secrets des pierres de Carnac', subtitle: "Un parcours mystique au coeur des mégalithes bretons", distance: 8, category: "Préhistorique", rates: [2], duration: 150, number_of_poi: 4, departure: 'Le Menec, Carnac', city: carnac)
