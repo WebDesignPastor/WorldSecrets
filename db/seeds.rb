@@ -141,10 +141,10 @@ grandbe_itinerary.save!
 # nantes_itinerary_pictures.each { |file| nantes_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 # nantes_itinerary.save!
 
-# toursolidor_itinerary_pictures = [File.open("db/fixtures/toursolidor1.jpg")]
-# toursolidor_itinerary = Itinerary.new(name: 'La vigie sur la Rance', subtitle: "L'histoire maritime et une vue imprenable sur la Rance", distance: 6, category: "Médiéval", rates: [4], duration: 70, number_of_poi: 2, departure: 'Tour Solidor', city: st_malo)
-# toursolidor_itinerary_pictures.each { |file| toursolidor_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
-# toursolidor_itinerary.save!
+toursolidor_itinerary_pictures = [File.open("db/fixtures/toursolidor1.jpg")]
+toursolidor_itinerary = Itinerary.new(name: 'La vigie sur la Rance', subtitle: "L'histoire maritime et une vue imprenable sur la Rance", distance: 6, category: "Médiéval", rates: [4], duration: 70, number_of_poi: 2, latitude: 48.650861651302534, longitude: -2.0218998515555895, city: st_malo)
+toursolidor_itinerary_pictures.each { |file| toursolidor_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+toursolidor_itinerary.save!
 
 # guerledan_itinerary_pictures = [File.open("db/fixtures/guerledan1.jpg")]
 # guerledan_itinerary = Itinerary.new(name: 'Sur le lac de Guerlédan', subtitle: "A la découverte des merveilles naturelles de la Bretagne intérieure", distance: 4, category: "Nature", rates: [4], duration: 90, number_of_poi: 4, departure: 'Lac de Guerlédan', city: guerledan)
