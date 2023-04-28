@@ -125,10 +125,10 @@ st_michel_itinerary = Itinerary.new(name: 'Recoins du Mont-Saint-Michel', subtit
 st_michel_itinerary_pictures.each { |file| st_michel_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 st_michel_itinerary.save!
 
-# carnac_itinerary_pictures = File.open("db/fixtures/carnac1.jpg"), File.open("db/fixtures/carnac2.jpg")
-# carnac_itinerary = Itinerary.new(name: 'Secrets des pierres de Carnac', subtitle: "Un parcours mystique au coeur des mégalithes bretons", distance: 8, category: "Préhistorique", rates: [2], duration: 150, number_of_poi: 4, departure: 'Le Menec, Carnac', city: carnac)
-# carnac_itinerary_pictures.each { |file| carnac_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
-# carnac_itinerary.save!
+carnac_itinerary_pictures = [File.open("db/fixtures/carnac1.jpg")]
+carnac_itinerary = Itinerary.new(name: 'Secrets des pierres de Carnac', subtitle: "Un parcours mystique au coeur des mégalithes bretons", distance: 8, category: "Préhistorique", rates: [2], duration: 150, number_of_poi: 4, latitude: 47.59161943288755, longitude: -3.08241748073342, city: carnac)
+carnac_itinerary_pictures.each { |file| carnac_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+carnac_itinerary.save!
 
 # grandbe_itinerary_pictures = [File.open("db/fixtures/GrandBe1.jpg")]
 # grandbe_itinerary = Itinerary.new(name: 'La tombe de Chateaubriand', subtitle: "Une promenade entre mer et histoire", distance: 4, category: "Nature", rates: [3], duration: 70, number_of_poi: 2, departure: 'Grand-Bé, Saint-Malo', city: st_malo)
