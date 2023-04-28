@@ -151,10 +151,10 @@ toursolidor_itinerary.save!
 # guerledan_itinerary_pictures.each { |file| guerledan_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 # guerledan_itinerary.save!
 
-# memorial_itinerary_pictures = [File.open("db/fixtures/memorial1.jpg")]
-# memorial_itinerary = Itinerary.new(name: 'Terrés dans le Bunker', subtitle: "La cité d'Aleth et ses galeries de bunkers", distance: 6, category: "Nature", rates: [4], duration: 95, number_of_poi: 2, departure: 'Memorial 1939-1945, Saint-Malo', city: st_malo)
-# memorial_itinerary_pictures.each { |file| memorial_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
-# memorial_itinerary.save!
+memorial_itinerary_pictures = [File.open("db/fixtures/memorial1.jpg")]
+memorial_itinerary = Itinerary.new(name: 'Terrés dans le Bunker', subtitle: "La cité d'Aleth et ses galeries de bunkers", distance: 6, category: "Nature", rates: [4], duration: 95, number_of_poi: 2, latitude: 48.650861651302534, longitude: -2.0218998515555895, city: st_malo)
+memorial_itinerary_pictures.each { |file| memorial_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+memorial_itinerary.save!
 
 # plogoff_itinerary_pictures = [File.open("db/fixtures/plogoff1.jpg")]
 # plogoff_itinerary = Itinerary.new(name: 'La baie des trépassés', subtitle: "Une balade sauvage sur les rivages de la Pointe du Raz", distance: 4, category: "Nature", rates: [4], duration: 90, number_of_poi: 4, departure: 'Baie des trépassés, Plogoff', city: plogoff,
