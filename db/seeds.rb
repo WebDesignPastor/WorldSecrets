@@ -175,10 +175,10 @@ vitre_itinerary = Itinerary.new(name: 'Dans les recoins de Vitré', subtitle: "L
 vitre_itinerary_pictures.each { |file| vitre_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 vitre_itinerary.save!
 
-# dolmen_itinerary_pictures = [File.open("db/fixtures/dolmen1.jpg")]
-# dolmen_itinerary = Itinerary.new(name: "Mégalithes de Kerivoret", subtitle: "Un beau menhir", distance: 3, category: "Préhistorique", rates: [4], duration: 60, number_of_poi: 2, departure: "7 Rte de Prat Joulou, 29840 Porspoder", city: porspoder)
-# dolmen_itinerary_pictures.each { |file| dolmen_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
-# dolmen_itinerary.save!
+dolmen_itinerary_pictures = [File.open("db/fixtures/dolmen1.jpg")]
+dolmen_itinerary = Itinerary.new(name: "Mégalithes de Kerivoret", subtitle: "Un beau menhir", distance: 3, category: "Préhistorique", rates: [4], duration: 60, number_of_poi: 2, latitude: 48.434368115252376, longitude: -4.731447953200586, city: porspoder)
+dolmen_itinerary_pictures.each { |file| dolmen_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+dolmen_itinerary.save!
 
 puts "created #{Itinerary.count} itineraries"
 
