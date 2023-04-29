@@ -164,14 +164,16 @@ plogoff_itinerary_pictures.each { |file| plogoff_itinerary.photos.attach(io: fil
 plogoff_itinerary.save!
 
 cathedrale_itinerary_pictures = [File.open("db/fixtures/cathedrale1.jpg")]
-cathedrale_itinerary = Itinerary.new(name: 'Autour de St-Vincent', subtitle: "A travers l'histoire et l'architecture de l'un des joyaux religieux de la ville corsaire", distance: 6, category: "Urbain", rates: [4], duration: 90, number_of_poi: 2, latitude: 48.650861651302534, longitude: -2.0218998515555895, city: st_malo)
+cathedrale_itinerary = Itinerary.new(name: 'Autour de St-Vincent', subtitle: "A travers l'histoire et l'architecture de l'un des joyaux religieux de la ville corsaire",
+                                  distance: 6, category: "Urbain", rates: [4], duration: 90, number_of_poi: 2, latitude: 48.650861651302534, longitude: -2.0218998515555895, city: st_malo)
 cathedrale_itinerary_pictures.each { |file| cathedrale_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 cathedrale_itinerary.save!
 
-# vitre_itinerary_pictures = [File.open("db/fixtures/vitre1.jpg")]
-# vitre_itinerary = Itinerary.new(name: 'Dans les recoins de Vitré', subtitle: "L'histoire et l'architecture médiévale de l'un des plus beaux châteaux de Bretagne", distance: 4, category: "Médiéval", rates: [4], duration: 80, number_of_poi: 4, departure: 'Château de Vitré', city: vitre)
-# vitre_itinerary_pictures.each { |file| vitre_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
-# vitre_itinerary.save!
+vitre_itinerary_pictures = [File.open("db/fixtures/vitre1.jpg")]
+vitre_itinerary = Itinerary.new(name: 'Dans les recoins de Vitré', subtitle: "L'histoire et l'architecture médiévale de l'un des plus beaux châteaux de Bretagne",
+                                distance: 4, category: "Médiéval", rates: [4], duration: 80, number_of_poi: 4, latitude: 48.122936838268764, longitude: -1.2123730430010646, city: vitre)
+vitre_itinerary_pictures.each { |file| vitre_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+vitre_itinerary.save!
 
 # dolmen_itinerary_pictures = [File.open("db/fixtures/dolmen1.jpg")]
 # dolmen_itinerary = Itinerary.new(name: "Mégalithes de Kerivoret", subtitle: "Un beau menhir", distance: 3, category: "Préhistorique", rates: [4], duration: 60, number_of_poi: 2, departure: "7 Rte de Prat Joulou, 29840 Porspoder", city: porspoder)
