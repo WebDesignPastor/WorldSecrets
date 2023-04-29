@@ -146,10 +146,10 @@ toursolidor_itinerary = Itinerary.new(name: 'La vigie sur la Rance', subtitle: "
 toursolidor_itinerary_pictures.each { |file| toursolidor_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 toursolidor_itinerary.save!
 
-# guerledan_itinerary_pictures = [File.open("db/fixtures/guerledan1.jpg")]
-# guerledan_itinerary = Itinerary.new(name: 'Sur le lac de Guerlédan', subtitle: "A la découverte des merveilles naturelles de la Bretagne intérieure", distance: 4, category: "Nature", rates: [4], duration: 90, number_of_poi: 4, departure: 'Lac de Guerlédan', city: guerledan)
-# guerledan_itinerary_pictures.each { |file| guerledan_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
-# guerledan_itinerary.save!
+guerledan_itinerary_pictures = [File.open("db/fixtures/guerledan1.jpg")]
+guerledan_itinerary = Itinerary.new(name: 'Sur le lac de Guerlédan', subtitle: "A la découverte des merveilles naturelles de la Bretagne intérieure", distance: 4, category: "Nature", rates: [4], duration: 90, number_of_poi: 4, latitude: 48.20150342522527, longitude: -2.9853168406531725, city: guerledan)
+guerledan_itinerary_pictures.each { |file| guerledan_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
+guerledan_itinerary.save!
 
 memorial_itinerary_pictures = [File.open("db/fixtures/memorial1.jpg")]
 memorial_itinerary = Itinerary.new(name: 'Terrés dans le Bunker', subtitle: "La cité d'Aleth et ses galeries de bunkers", distance: 6, category: "Nature", rates: [4], duration: 95, number_of_poi: 2, latitude: 48.650861651302534, longitude: -2.0218998515555895, city: st_malo)
