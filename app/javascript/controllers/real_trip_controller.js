@@ -1,6 +1,10 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
+  static target = ["firstModalCold", "firstModalWarm", "firstModalWarmer",
+  "secondModalCold", "secondModalWarm", "secondModalWarmer", "progress",
+  "firstPoi", "secondPoi", "poiMarker0", "poiMarker1", "poiMarker2"]
+
   static values = {
     apiKey: String,
     markers: Array,
@@ -31,6 +35,13 @@ export default class extends Controller {
         })
       );
 
+      // Add a departure marker.
+      this.departureMarker = new mapboxgl.Marker({
+        color: "#007bff",
+      })
+      .setLngLat([this.departureMarkersValue[0].lng, this.departureMarkersValue[0].lat])
+      .addTo(this.map);
+
       // Add a marker for the user's location.
       this.marker = new mapboxgl.Marker({
         color: "#007bff",
@@ -38,15 +49,7 @@ export default class extends Controller {
         .setLngLat([longitude, latitude])
         .addTo(this.map);
 
-      // Add a departure marker.
-      this.departureMarker = new mapboxgl.Marker({
-        color: "#007bff",
-      })
-      .setLngLat([this.departureMarkersValue[0].lng, this.departureMarkersValue[0].lat])
-      .addTo(this.map);
-      // this.departureMarker.className = 'poi-marker'
-
-      // Add markers for pois.
+      // Add markers for pois
       this.markersValue.forEach((marker, index) => {
         // let poiMarker = document.createElement('div')
         // poiMarker.className = 'poi-marker'
@@ -67,7 +70,46 @@ export default class extends Controller {
           speed: 0.1,
           zoom: 16,
         });
+
+        // Check if the user is within 20 meters of any marker in this.markersValue
+        this.markersValue.forEach(marker => {
+          const distance = this.distance(latitude, longitude, marker.lat, marker.lng);
+          if (distance <= 50) {
+            // Perform desired action when the user is within 20 meters of the marker
+            this.firstModalColdTarget.classList.remove("d-none");
+          } else if (distance <= 20) {
+            this.firstModalColdTarget.classList.add("d-none");
+            this.firstModalWarmTarget.classList.remove("d-none");
+          } else if (distance <= 5) {
+            this.firstModalWarmTarget.classList.add("d-none");
+            this.firstModalWarmerTarget.classList.remove("d-none");
+          }
+        });
       });
     });
   }
+
+  distance(lat1, lon1, lat2, lon2) {
+    const R = 6371e3; // Earth's radius in meters
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+
+    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2)
+            + Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180)
+            * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+    return R * c; // Returns distance in meters
+  }
+
+  showFirstPoi() {
+    this.firstModalWarmerTarget.classList.add("d-none");
+    this.firstPoiTarget.classList.remove("d-none");
+  }
+
+  hidePoi() {
+    this.firstPoiTarget.classList.add("d-none");
+    this.secondPoiTarget.classList.add("d-none");
+  }
+
 }
