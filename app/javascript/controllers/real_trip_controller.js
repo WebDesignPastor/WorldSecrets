@@ -74,18 +74,24 @@ export default class extends Controller {
         const firstModalWarm = document.querySelector("#first-modal-warm");
         const firstModalWarmer = document.querySelector("#first-modal-warmer");
 
-        if (distance <= 5) {
+        if (distance <= 10) {
+          firstModalCold.classList.add("d-none");
+          firstModalWarm.classList.add("d-none");
           firstModalWarmer.classList.remove("d-none");
+          firstModalWarmer.classList.add("modal-seen");
+        } else if (distance <= 30) {
           firstModalCold.classList.add("d-none");
-          firstModalWarm.classList.add("d-none");
-        } else if (distance <= 20) {
+          firstModalWarmer.classList.add("d-none");
           firstModalWarm.classList.remove("d-none");
-          firstModalCold.classList.add("d-none");
-          firstModalWarmer.classList.add("d-none");
+          firstModalWarm.classList.add("modal-seen");
         } else if (distance <= 50) {
-          firstModalCold.classList.remove("d-none");
+          console.log('fraise')
           firstModalWarm.classList.add("d-none");
           firstModalWarmer.classList.add("d-none");
+          firstModalCold.classList.remove("d-none");
+          firstModalCold.classList.add("modal-seen");
+        } else {
+          console.log('banane');
         }
       });
     });
