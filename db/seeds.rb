@@ -59,12 +59,12 @@ la_grand_porte = Poi.create!(name: "La Grand'Porte", latitude: 48.648962, longit
 
 # Pois pour les autres villes
 
-prison_vezin = Poi.create!(name: 'La prison de Vezin', mystery_name: 'La prison oubliée', latitude: 48.118962,  longitude: -1.756445,
+prison_vezin = Poi.create!(name: 'La prison de Vezin', mystery_name: 'La prison oubliée', latitude: 48.11500824791232,  longitude: -1.7552426179593215,
   mystery_content: 'La prison de Vezin-le-Coquet est une ancienne prison située dans la commune de Vezin-le-Coquet, en Ille-et-Vilaine.
   Construite en 1860, elle est fermée en 1952. Elle est inscrite au titre des monuments historiques depuis le 28 décembre 1992.',
   mystery_image: 'prison_vezin.jpg', clue_image: 'prison_vezin_clue.png', clue_sentence: 'Je suis un lieu de détention, je suis situé à Vezin-le-Coquet, je suis un lieu historique')
 
-mairie_vezin = Poi.create!(name: 'La mairie de Vezin', latitude: 48.119165, longitude: -1.755182, mystery_name: 'La mairie de Vezin',
+mairie_vezin = Poi.create!(name: 'La mairie de Vezin', latitude: 48.11695603596252, longitude: -1.7539228302209222, mystery_name: 'La mairie de Vezin',
   mystery_content: 'La mairie de Vezin-le-Coquet est un bâtiment situé dans la commune de Vezin-le-Coquet, en Ille-et-Vilaine.',
   mystery_image: 'mairie_vezin.jpg', clue_image: 'mairie_vezin_clue.jpg', clue_sentence: 'Je suis un lieu de pouvoir, je suis situé à Vezin-le-Coquet, je suis un lieu historique')
 
