@@ -2,8 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static target = ["firstModalCold", "firstModalWarm", "firstModalWarmer",
-  "secondModalCold", "secondModalWarm", "secondModalWarmer", "progress",
-  "firstPoi", "secondPoi", "poiMarker0", "poiMarker1", "poiMarker2"]
+  "firstPoi", "secondPoi"]
 
   static values = {
     apiKey: String,
@@ -76,19 +75,15 @@ export default class extends Controller {
         const distance = this.distance(latitude, longitude, firstMarker.lat, firstMarker.lng);
 
         if (distance <= 5) {
+          this.firstModalWarmerTarget.classList.remove("d-none");
           this.firstModalColdTarget.classList.add("d-none");
           this.firstModalWarmTarget.classList.add("d-none");
-          this.firstModalWarmerTarget.classList.remove("d-none");
         } else if (distance <= 20) {
-          this.firstModalColdTarget.classList.add("d-none");
           this.firstModalWarmTarget.classList.remove("d-none");
+          this.firstModalColdTarget.classList.add("d-none");
           this.firstModalWarmerTarget.classList.add("d-none");
         } else if (distance <= 50) {
           this.firstModalColdTarget.classList.remove("d-none");
-          this.firstModalWarmTarget.classList.add("d-none");
-          this.firstModalWarmerTarget.classList.add("d-none");
-        } else {
-          this.firstModalColdTarget.classList.add("d-none");
           this.firstModalWarmTarget.classList.add("d-none");
           this.firstModalWarmerTarget.classList.add("d-none");
         }
