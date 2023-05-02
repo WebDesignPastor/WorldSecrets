@@ -72,19 +72,26 @@ export default class extends Controller {
         });
 
         // Check if the user is within 20 meters of any marker in this.markersValue
-        this.markersValue.forEach(marker => {
-          const distance = this.distance(latitude, longitude, marker.lat, marker.lng);
-          if (distance <= 50) {
-            // Perform desired action when the user is within 20 meters of the marker
-            this.firstModalColdTarget.classList.remove("d-none");
-          } else if (distance <= 20) {
-            this.firstModalColdTarget.classList.add("d-none");
-            this.firstModalWarmTarget.classList.remove("d-none");
-          } else if (distance <= 5) {
-            this.firstModalWarmTarget.classList.add("d-none");
-            this.firstModalWarmerTarget.classList.remove("d-none");
-          }
-        });
+        const firstMarker = this.markersValue[0];
+        const distance = this.distance(latitude, longitude, firstMarker.lat, firstMarker.lng);
+
+        if (distance <= 5) {
+          this.firstModalColdTarget.classList.add("d-none");
+          this.firstModalWarmTarget.classList.add("d-none");
+          this.firstModalWarmerTarget.classList.remove("d-none");
+        } else if (distance <= 20) {
+          this.firstModalColdTarget.classList.add("d-none");
+          this.firstModalWarmTarget.classList.remove("d-none");
+          this.firstModalWarmerTarget.classList.add("d-none");
+        } else if (distance <= 50) {
+          this.firstModalColdTarget.classList.remove("d-none");
+          this.firstModalWarmTarget.classList.add("d-none");
+          this.firstModalWarmerTarget.classList.add("d-none");
+        } else {
+          this.firstModalColdTarget.classList.add("d-none");
+          this.firstModalWarmTarget.classList.add("d-none");
+          this.firstModalWarmerTarget.classList.add("d-none");
+        }
       });
     });
   }
