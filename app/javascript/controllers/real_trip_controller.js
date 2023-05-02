@@ -1,9 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static target = ["firstModalCold", "firstModalWarm", "firstModalWarmer",
-  "firstPoi", "secondPoi"]
-
   static values = {
     apiKey: String,
     markers: Array,
@@ -73,19 +70,28 @@ export default class extends Controller {
         // Check if the user is within 20 meters of any marker in this.markersValue
         const firstMarker = this.markersValue[0];
         const distance = this.distance(latitude, longitude, firstMarker.lat, firstMarker.lng);
+        const firstModalCold = document.querySelector("#first-modal-cold");
+        const firstModalWarm = document.querySelector("#first-modal-warm");
+        const firstModalWarmer = document.querySelector("#first-modal-warmer");
 
-        if (distance <= 5) {
-          this.firstModalWarmerTarget.classList.remove("d-none");
-          this.firstModalColdTarget.classList.add("d-none");
-          this.firstModalWarmTarget.classList.add("d-none");
-        } else if (distance <= 20) {
-          this.firstModalWarmTarget.classList.remove("d-none");
-          this.firstModalColdTarget.classList.add("d-none");
-          this.firstModalWarmerTarget.classList.add("d-none");
+        if (distance <= 10) {
+          firstModalCold.classList.add("d-none");
+          firstModalWarm.classList.add("d-none");
+          firstModalWarmer.classList.remove("d-none");
+          firstModalWarmer.classList.add("modal-seen");
+        } else if (distance <= 30) {
+          firstModalCold.classList.add("d-none");
+          firstModalWarmer.classList.add("d-none");
+          firstModalWarm.classList.remove("d-none");
+          firstModalWarm.classList.add("modal-seen");
         } else if (distance <= 50) {
-          this.firstModalColdTarget.classList.remove("d-none");
-          this.firstModalWarmTarget.classList.add("d-none");
-          this.firstModalWarmerTarget.classList.add("d-none");
+          console.log('fraise')
+          firstModalWarm.classList.add("d-none");
+          firstModalWarmer.classList.add("d-none");
+          firstModalCold.classList.remove("d-none");
+          firstModalCold.classList.add("modal-seen");
+        } else {
+          console.log('banane');
         }
       });
     });
@@ -105,13 +111,16 @@ export default class extends Controller {
   }
 
   showFirstPoi() {
-    this.firstModalWarmerTarget.classList.add("d-none");
-    this.firstPoiTarget.classList.remove("d-none");
+    const firstModalWarmer = document.querySelector("#first-modal-warmer");
+    const pois = document.querySelector.all("poi");
+    firstModalWarmer.classList.add("d-none");
+    pois[0].classList.remove("d-none");
   }
 
   hidePoi() {
-    this.firstPoiTarget.classList.add("d-none");
-    this.secondPoiTarget.classList.add("d-none");
+    const pois = document.querySelector.all("#poi");
+    pois.forEach(poi => {
+      poi.classList.add("d-none");
+    });
   }
-
 }
