@@ -2,8 +2,7 @@ class ItinerariesController < ApplicationController
   def index
     if params[:query].present?
       # Recherche de la ville
-      city = City.where(name: params[:query])
-
+      city = City.where("to_tsvector('english', name) @@ plainto_tsquery('english', ?)", params[:query].to_s)
       # Recherche des itinéraires liés à la ville
       itineraries = Itinerary.where(city_id: city.ids[0].to_i)
 
@@ -16,7 +15,7 @@ class ItinerariesController < ApplicationController
     end
 
     if params[:query].present?
-      city = City.where(name: params[:query])
+      city = City.where("to_tsvector('english', name) @@ plainto_tsquery('english', ?)", params[:query].to_s)
       @short_itineraries = Itinerary.where(city_id: city.ids[0].to_i).where("duration < 90")
       @filtered_short_itineraries = Itinerary.where(category: params[:query])
     else
@@ -24,7 +23,7 @@ class ItinerariesController < ApplicationController
     end
 
     if params[:query].present?
-      city = City.where(name: params[:query])
+      city = City.where("to_tsvector('english', name) @@ plainto_tsquery('english', ?)", params[:query].to_s)
       @long_itineraries = Itinerary.where(city_id: city.ids[0].to_i).where("duration >= 90")
     else
       @long_itineraries = Itinerary.where("duration >= 90")

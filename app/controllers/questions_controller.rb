@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   def index
     # raise
     @trip = Trip.find(params[:trip_id])
-    @questions = Question.where(trip: @trip)
+    @questions = Question.where(itinerary: @trip.itinerary)
   end
 
   def rate
