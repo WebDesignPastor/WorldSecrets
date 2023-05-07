@@ -52,6 +52,13 @@ class ItinerariesController < ApplicationController
     @itinerary.update(itinerary_params)
   end
 
+  def rating
+    @itinerary = Itinerary.find(params[:id])
+    (@itinerary.rates.sum / @itinerary.rates.length).truncate(0)
+  end
+
+  helper_method :rating
+
   private
 
   def itinerary_params
