@@ -110,7 +110,7 @@
       <p><%= @pois[1].mystery_content %></p>
     </div>
     <div class="card_show_bottom">
-      <%= link_to "Allez au quizz", trip_questions_path(Trip.first.id), class:"btn btn-primary w-100" %>
+      <%= link_to "Allez au quizz", trip_questions_path(@trip), class:"btn btn-primary w-100" %>
     </div>
   </div>
 </div>
