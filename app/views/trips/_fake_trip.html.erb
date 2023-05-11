@@ -1,0 +1,116 @@
+<div class="position-relative wrapper-map" data-controller="modal" data-action="click->modal#onClickEvent">
+  <div class="position-absolute" style="width: 100vw; height: 100vh;"
+    data-controller="map"
+    data-custom-marker="<%= asset_path('ghost.png') %>"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-departure-markers-value="<%= @departure_marker.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+  <div class="mystery-count position-absolute">
+    <div data-pois-length="<%= @pois.length %>">
+      <div class='d-flex flex-row'>
+        <div class="d-flex flex-row space-text">
+          <p class="step-front">Étape</p>
+          <p class="step-front" data-modal-target="progress"><%= (@trip.progress + 1) %></p>
+        </div>
+        <p class="step-front">/<%= @pois.length %></p>
+      </div>
+    </div>
+    <div>
+      <p>En route vers le mystère !</p>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <div class="p-3 position-absolute custom-modal d-flex align-items-center justify-content-between d-none" data-modal-target="firstModalCold">
+      <div class="d-flex justify-content-center align-items-center icone-background">
+        <%= image_tag "trumpet.svg" %>
+      </div>
+      <div class="d-flex flex-column my-0">
+        <p class="m-0"><%= @pois[0].clue_sentence %></p>
+      </div>
+    </div>
+    <div class="p-3 position-absolute custom-modal d-flex flex-column d-none" data-modal-target="firstModalWarm">
+      <div class="mb-1">
+        <%= image_tag @pois[0].clue_image, class: "clueImage" %>
+      </div>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-center align-items-center icone-background">
+          <%= image_tag "trumpet.svg" %>
+        </div>
+        <div class="d-flex flex-column">
+          <p class="m-0">Indice supplémentaire... Tu approches !</p>
+        </div>
+      </div>
+    </div>
+    <div class="p-3 position-absolute custom-modal d-flex flex-column d-none" data-modal-target="firstModalWarmer">
+      <div class="d-flex mb-2 flex-row align-items-center">
+        <div class="d-flex mx-2 my-0 justify-content-center align-items-center icone-background">
+          <%= image_tag "trumpet.svg" %>
+        </div>
+        <p class="my-0">Secret trouvé, bravo !</p>
+      </div>
+      <button class="btn btn-modal btn-primary">Découvrir le secret</button>
+    </div>
+    <div class="p-3 position-absolute custom-modal d-flex align-items-center justify-content-between d-none" data-modal-target="secondModalCold">
+      <div class="d-flex justify-content-center align-items-center icone-background">
+        <%= image_tag "trumpet.svg" %>
+      </div>
+      <div class="d-flex flex-column my-0">
+        <p class="m-0"><%= @pois[1].clue_sentence %></p>
+      </div>
+    </div>
+    <div class="p-3 position-absolute custom-modal d-flex flex-column d-none" data-modal-target="secondModalWarm">
+      <div class="mb-1">
+        <%= image_tag @pois[1].clue_image, class: "clueImage" %>
+      </div>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-center align-items-center icone-background">
+          <%= image_tag "trumpet.svg" %>
+        </div>
+        <div class="d-flex flex-column">
+          <p class="m-0">Indice supplémentaire... Tu approches !</p>
+        </div>
+      </div>
+    </div>
+    <div class="p-3 position-absolute custom-modal d-flex flex-column d-none" data-modal-target="secondModalWarmer">
+      <div class="d-flex mb-2 flex-row align-items-center">
+        <div class="d-flex mx-2 my-0 justify-content-center align-items-center icone-background">
+          <%= image_tag "trumpet.svg" %>
+        </div>
+        <p class="my-0">Secret trouvé, bravo !</p>
+      </div>
+      <button class="btn btn-modal btn-primary">Découvrir le secret</button>
+    </div>
+  </div>
+  <div class="position-absolute plus-btn">
+    <%= image_tag('plus.svg') %>
+  </div>
+  <div class="d-none position-absolute main_show_div" data-modal-target="firstPoi">
+    <div class= "card_show_itinerary">
+      <%= image_tag @pois[0].mystery_image, class: "show-image", crop: :fill %>
+    </div>
+    <div class="banner-show">
+      <h2 class="poi-name"><strong><%= @pois[0].mystery_name %></strong></h2>
+    </div>
+    <div class="card_show_itinerary_content">
+      <p><%= @pois[0].mystery_content %></p>
+    </div>
+    <div class="card_show_bottom">
+      <button class="btn btn-primary w-100">Continuez l'aventure</button>
+    </div>
+  </div>
+  <div class="d-none position-absolute main_show_div" data-modal-target="secondPoi">
+    <div class= "card_show_itinerary">
+      <%= image_tag @pois[1].mystery_image, class: "show-image", crop: :fill %>
+    </div>
+      <div class="banner-show">
+        <h2 class="poi-name"><strong><%= @pois[1].mystery_name %></strong></h2>
+      </div>
+    <div class="card_show_itinerary_content">
+      <p><%= @pois[1].mystery_content %></p>
+    </div>
+    <div class="card_show_bottom">
+      <%= link_to "Allez au quizz", trip_questions_path(@trip), class:"btn btn-primary w-100" %>
+    </div>
+  </div>
+</div>

@@ -25,5 +25,8 @@ application.register("questions", QuestionsController)
 import RatingController from "./rating_controller"
 application.register("rating", RatingController)
 
+import RealTripController from "./real_trip_controller"
+application.register("real-trip", RealTripController)
+
 import SwitchController from "./switch_controller"
 application.register("switch", SwitchController)

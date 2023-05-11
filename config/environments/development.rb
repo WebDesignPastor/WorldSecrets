@@ -19,7 +19,7 @@ Rails.application.configure do
   config.server_timing = true
 
   # PWA
-  config.hosts << "curly-toes-repeat-31-32-49-228.loca.lt"
+  config.hosts << "hungry-zoos-press-91-169-219-174.loca.lt"
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
