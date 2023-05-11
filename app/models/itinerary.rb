@@ -7,5 +7,7 @@ class Itinerary < ApplicationRecord
   has_many_attached :photos
   geocoded_by :departure
 
+  attribute :rates, :integer, default: [], array: true
+
   after_validation :geocode, if: :will_save_change_to_departure?
 end

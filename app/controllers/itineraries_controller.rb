@@ -48,12 +48,6 @@ class ItinerariesController < ApplicationController
     }
   end
 
-  def update_rates
-    @itinerary = Itinerary.find(params[:itinerary_id])
-    @itinerary.rates << params[:rating_value].to_i
-    @itinerary.save
-  end
-
   private
 
   def itinerary_params

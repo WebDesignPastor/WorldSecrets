@@ -128,6 +128,7 @@
       <p>Ajouter une note</p>
       <%= simple_form_for(@itinerary) do |f| %>
         <%= f.input :rating_value, as: :select, collection: [1, 2, 3, 4, 5], label: false, input_html: { class: 'form-control' }, selected: params[:rating_value] %>
+        <% update_rates %>
         <%= f.submit "Valider" %>
       <% end %>
       <%= link_to 'Retourner aux itinéraires', itineraries_path, class: 'btn full-width-div btn-primary' %>

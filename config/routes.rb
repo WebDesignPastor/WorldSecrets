@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   # get 'itineraries', to: 'itineraries#rating', as: 'rating'
 
   resources "trips", only: %i[show create update] do
-    resources "questions", only: :index do
-      patch 'update_rates', to: 'itineraries#update_rates'
-    end
+    resources "questions", only: :index
+    patch 'update_rates', to: 'questions#update_rates'
+    # end
     resources "trip_answers", only: :create
   end
   # resources "itineraries", only: :update
