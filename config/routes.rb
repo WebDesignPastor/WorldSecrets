@@ -2,17 +2,16 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources "itineraries", only: %i[index show create] do
+  resources "itineraries", only: %i[index show create update] do
     resources "trips", only: :create
   end
 
   # get 'itineraries', to: 'itineraries#rating', as: 'rating'
 
   resources "trips", only: %i[show create update] do
-    resources "questions", only: :index
-    patch 'update_rates', to: 'questions#update_rates'
-    # end
-    resources "trip_answers", only: :create
+    resources "questions", only: :index do
+      resources "itineraries", only: %i[update]
+    end
   end
   # resources "itineraries", only: :update
   # member do

@@ -49,7 +49,9 @@ class ItinerariesController < ApplicationController
 
   def update
     @itinerary = Itinerary.find(params[:id])
-    @itinerary.update(itinerary_params)
+    new_rate = params[:itinerary][:rates].to_i
+    @itinerary.rates << new_rate
+    @itinerary.save
   end
 
   def rating
@@ -62,6 +64,6 @@ class ItinerariesController < ApplicationController
   private
 
   def itinerary_params
-    require.params(:itinerary).permit(:rates)
+    params.require(:itinerary).permit(:rates)
   end
 end
