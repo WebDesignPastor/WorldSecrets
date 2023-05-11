@@ -22,6 +22,7 @@ export default class extends Controller {
     //   data: `rating=${rating}`,
     // })
     this.updateStars(rating)
+    event.preventDefault
   }
 
   updateStars(rating) {

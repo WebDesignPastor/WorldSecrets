@@ -6,17 +6,20 @@ Rails.application.routes.draw do
     resources "trips", only: :create
   end
 
+  # get 'itineraries', to: 'itineraries#rating', as: 'rating'
+
   resources "trips", only: %i[show create update] do
-    resources "questions", only: :index do
-      resources "itineraries", only: :update
-      member do
-        post 'rate/:rating_value', to: 'questions#rate', as: 'rate'
-      end
-    end
+    resources "questions", only: :index
+    patch 'update_rates', to: 'questions#update_rates'
+    # end
     resources "trip_answers", only: :create
   end
+  # resources "itineraries", only: :update
+  # member do
+  #   post 'rate/:rating_value', to: 'questions#rate', as: 'rate'
+  # end
 
-  patch "questions/:question_id/itineraries/:id", to: "itineraries#update_rating"
+  # patch "questions/:question_id/itineraries/:id", to: "itineraries#update_rating"
 
   resources "pois", only: :show
 end
