@@ -5,6 +5,6 @@ class PagesController < ApplicationController
   end
 
   def profile
-    @itineraries = current_user.itineraries
+    @itineraries = Itinerary.all
   end
 end
