@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def profile
-    @itineraries = Itinerary.all
+    @completed_itineraries = Itinerary.where(user: current_user, completed: true)
+    @favorite_itineraries = Itinerary.where(user: current_user, favorite: true)
   end
 end
