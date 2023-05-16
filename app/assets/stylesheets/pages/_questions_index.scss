@@ -112,6 +112,31 @@
   }
 }
 
+.star-rating {
+  display: inline-block;
+}
+
+.star {
+  cursor: pointer;
+}
+
+.star-input {
+  position: absolute;
+  left: -9999px;
+}
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+
 .no-style-btn {
   border: none;
   background-color: transparent;
