@@ -131,13 +131,13 @@ st_michel_itinerary.save!
 
 carnac_itinerary_pictures = [File.open("db/fixtures/carnac1.jpg")]
 carnac_itinerary = Itinerary.new(name: 'Secrets des pierres de Carnac', subtitle: "Un parcours mystique au coeur des mégalithes bretons",
-  distance: 8, category: "Préhistorique", completed: true ,rates: [2], duration: 150, number_of_poi: 4, latitude: 47.59161943288755, longitude: -3.08241748073342, city: carnac)
+  distance: 8, category: "Préhistorique", rates: [2], duration: 150, number_of_poi: 4, latitude: 47.59161943288755, longitude: -3.08241748073342, city: carnac)
 carnac_itinerary_pictures.each { |file| carnac_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 carnac_itinerary.save!
 
 grandbe_itinerary_pictures = [File.open("db/fixtures/GrandBe1.jpg")]
 grandbe_itinerary = Itinerary.new(name: 'La tombe de Chateaubriand', subtitle: "Une promenade entre mer et histoire",
-  distance: 4, category: "Nature", favorite: true, rates: [3], duration: 70, number_of_poi: 2, latitude: 48.650861651302534, longitude: -2.0218998515555895, city: st_malo)
+  distance: 4, category: "Nature", rates: [3], duration: 70, number_of_poi: 2, latitude: 48.650861651302534, longitude: -2.0218998515555895, city: st_malo)
 grandbe_itinerary_pictures.each { |file| grandbe_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 grandbe_itinerary.save!
 
@@ -182,13 +182,13 @@ cathedrale_itinerary.save!
 
 vitre_itinerary_pictures = [File.open("db/fixtures/vitre1.jpg")]
 vitre_itinerary = Itinerary.new(name: 'Dans les recoins de Vitré', subtitle: "L'histoire et l'architecture médiévale de l'un des plus beaux châteaux de Bretagne",
-                                distance: 4, favorite: true, category: "Médiéval", rates: [4], duration: 80, number_of_poi: 4, latitude: 48.122936838268764, longitude: -1.2123730430010646, city: vitre)
+                                distance: 4, category: "Médiéval", rates: [4], duration: 80, number_of_poi: 4, latitude: 48.122936838268764, longitude: -1.2123730430010646, city: vitre)
 vitre_itinerary_pictures.each { |file| vitre_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 vitre_itinerary.save!
 
 dolmen_itinerary_pictures = [File.open("db/fixtures/dolmen1.jpg")]
 dolmen_itinerary = Itinerary.new(name: "Mégalithes de Kerivoret", subtitle: "Un beau menhir",
-  distance: 3, category: "Préhistorique", completed: true, rates: [4], duration: 60, number_of_poi: 2, latitude: 48.434368115252376, longitude: -4.731447953200586, city: porspoder)
+  distance: 3, category: "Préhistorique", rates: [4], duration: 60, number_of_poi: 2, latitude: 48.434368115252376, longitude: -4.731447953200586, city: porspoder)
 dolmen_itinerary_pictures.each { |file| dolmen_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 dolmen_itinerary.save!
 
@@ -225,3 +225,5 @@ Bookmark.create!(user: first_user, itinerary: st_malo_itinerary, favorite: true)
 Bookmark.create!(user: second_user, itinerary: vezin_itinerary, favorite: true)
 Bookmark.create!(user: third_user, itinerary: cathedrale_itinerary, favorite: true)
 Bookmark.create!(user: first_user, itinerary: vitre_itinerary, favorite: true)
+
+puts "created #{Bookmark.count} bookmarks"
