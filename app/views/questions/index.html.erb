@@ -130,9 +130,9 @@
         <div class="star-rating" data-controller='rating'>
           <% (1..5).each do |value| %>
             <%= label_tag "rating_#{value}", class: 'star',
-                data: { action: "click->rating#updateStars#{value}" } do %>
-              <%= image_tag 'emptystar.svg', class: 'emptystar-svg' %>
-              <%= image_tag 'star.svg', class: 'star-svg d-none' %>
+                data: { action: "click->rating#updateStars" } do %>
+              <%= image_tag 'emptystar.svg', data: { rate: value, rating_target: "emptyStar" } %>
+              <%= image_tag 'star.svg', class: 'd-none', data: { rate: value, rating_target: "star" } %>
             <% end %>
             <%= f.radio_button :rates, value, id: "rating_#{value}", class: 'star-input visually-hidden' %>
           <% end %>
