@@ -52,6 +52,7 @@ class ItinerariesController < ApplicationController
     new_rate = params[:itinerary][:rates].to_i
     @itinerary.rates << new_rate
     @itinerary.save
+    flash[:notice] = "Merci pour votre note !"
     redirect_to itineraries_path
   end
 
