@@ -6,6 +6,7 @@ class PagesController < ApplicationController
 
   def profile
     @completed_itineraries = Itinerary.all
-    @favorite_itineraries = Itinerary.all
+    bookmarks = Bookmark.where(user_id: current_user.id, favorite: true)
+    @favorite_itineraries = bookmarks.map(&:itinerary)
   end
 end
