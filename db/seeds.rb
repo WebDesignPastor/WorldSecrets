@@ -15,9 +15,9 @@ Itinerary.destroy_all
 puts 'database cleaned'
 puts '####### Creating Users #############'
 
-User.create!(email: 'test1@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Fanch')
-User.create!(email: 'test2@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Rico')
-User.create!(email: 'test3@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Kevin')
+first_user = User.create!(email: 'test1@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Fanch')
+second_user = User.create!(email: 'test2@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Rico')
+third_user = User.create!(email: 'test3@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Kevin')
 puts "created #{User.count} users"
 
 puts '####### Creating Cities #############'
@@ -105,59 +105,70 @@ pont_croix_itinerary_pictures.each { |file| pont_croix_itinerary.photos.attach(i
 pont_croix_itinerary.save!
 
 dinard_itinerary_pictures = [File.open("db/fixtures/dinard1.jpg")]
-dinard_itinerary = Itinerary.new(name: 'Promenade à Dinard', subtitle: "Un parcours sur les plages et les villas Belle Époque de la perle de la Côte d'Émeraude", distance: 4, category: "Urbain", rates: [4], duration: 100, number_of_poi: 4, latitude: 48.634279915731106, longitude:  -2.0548554816140125, city: dinard)
+dinard_itinerary = Itinerary.new(name: 'Promenade à Dinard', subtitle: "Un parcours sur les plages et les villas Belle Époque de la perle de la Côte d'Émeraude",
+  distance: 4, category: "Urbain", rates: [4], duration: 100, number_of_poi: 4, latitude: 48.634279915731106, longitude:  -2.0548554816140125, city: dinard)
 dinard_itinerary_pictures.each { |file| dinard_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 dinard_itinerary.save!
 
 vannes_itinerary_pictures = [File.open("db/fixtures/vannes1.jpg")]
-vannes_itinerary = Itinerary.new(name: 'Les remparts de Vannes', subtitle: "Une balade entre patrimoine historique et culturel", distance: 6, rates: [3], duration: 90, number_of_poi: 4, latitude: 47.651478734914, longitude: -2.7588130285536847, city: vannes, category: 'Médiéval')
+vannes_itinerary = Itinerary.new(name: 'Les remparts de Vannes', subtitle: "Une balade entre patrimoine historique et culturel",
+  distance: 6, rates: [3], duration: 90, number_of_poi: 4, latitude: 47.651478734914, longitude: -2.7588130285536847, city: vannes, category: 'Médiéval')
 vannes_itinerary_pictures.each { |file| vannes_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 vannes_itinerary.save!
 
 kerouzere_itinerary_pictures = [File.open("db/fixtures/kerouzere1.png")]
-kerouzere_itinerary = Itinerary.new(name: "Un château figé", subtitle: "Un beau chateau ma foi", distance: 12, category: "Nature", rates: [3], duration: 180, number_of_poi: 4, latitude: 48.672698259366555, longitude: -4.069653969144087, city: sibiril)
+kerouzere_itinerary = Itinerary.new(name: "Un château figé", subtitle: "Un beau chateau ma foi", distance: 12,
+  category: "Nature", rates: [3], duration: 180, number_of_poi: 4, latitude: 48.672698259366555, longitude: -4.069653969144087, city: sibiril)
 kerouzere_itinerary_pictures.each { |file| kerouzere_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 kerouzere_itinerary.save!
 
 st_michel_itinerary_pictures = [File.open("db/fixtures/stmichel1.jpg")]
-st_michel_itinerary = Itinerary.new(name: 'Recoins du Mont-Saint-Michel', subtitle: "Une balade envoûtante entre terre et mer", distance: 7, rates: [5], duration: 160, number_of_poi: 4, latitude: 48.635125685084546, longitude: -1.5105422764522873,
+st_michel_itinerary = Itinerary.new(name: 'Recoins du Mont-Saint-Michel', subtitle: "Une balade envoûtante entre terre et mer",
+  distance: 7, rates: [5], duration: 160, number_of_poi: 4, latitude: 48.635125685084546, longitude: -1.5105422764522873,
                       city: mt_st_michel, category: "Urbain")
 st_michel_itinerary_pictures.each { |file| st_michel_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 st_michel_itinerary.save!
 
 carnac_itinerary_pictures = [File.open("db/fixtures/carnac1.jpg")]
-carnac_itinerary = Itinerary.new(name: 'Secrets des pierres de Carnac', subtitle: "Un parcours mystique au coeur des mégalithes bretons", distance: 8, category: "Préhistorique", rates: [2], duration: 150, number_of_poi: 4, latitude: 47.59161943288755, longitude: -3.08241748073342, city: carnac)
+carnac_itinerary = Itinerary.new(name: 'Secrets des pierres de Carnac', subtitle: "Un parcours mystique au coeur des mégalithes bretons",
+  distance: 8, category: "Préhistorique", rates: [2], duration: 150, number_of_poi: 4, latitude: 47.59161943288755, longitude: -3.08241748073342, city: carnac)
 carnac_itinerary_pictures.each { |file| carnac_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 carnac_itinerary.save!
 
 grandbe_itinerary_pictures = [File.open("db/fixtures/GrandBe1.jpg")]
-grandbe_itinerary = Itinerary.new(name: 'La tombe de Chateaubriand', subtitle: "Une promenade entre mer et histoire", distance: 4, category: "Nature", rates: [3], duration: 70, number_of_poi: 2, latitude: 48.650861651302534, longitude: -2.0218998515555895, city: st_malo)
+grandbe_itinerary = Itinerary.new(name: 'La tombe de Chateaubriand', subtitle: "Une promenade entre mer et histoire",
+  distance: 4, category: "Nature", rates: [3], duration: 70, number_of_poi: 2, latitude: 48.650861651302534, longitude: -2.0218998515555895, city: st_malo)
 grandbe_itinerary_pictures.each { |file| grandbe_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 grandbe_itinerary.save!
 
 nantes_itinerary_pictures = File.open("db/fixtures/nantes1.jpg"), File.open("db/fixtures/nantes2.jpg")
-nantes_itinerary = Itinerary.new(name: 'La balade de la Duchesse Anne', subtitle: "Une balade inoubliable à travers les siècles", distance: 4, category: "Médiéval", rates: [4],
+nantes_itinerary = Itinerary.new(name: 'La balade de la Duchesse Anne', subtitle: "Une balade inoubliable à travers les siècles",
+  distance: 4, category: "Médiéval", rates: [4],
                   duration: 90, number_of_poi: 4, latitude: 47.21571680387717, longitude: -1.5505805118652978, city: nantes)
 nantes_itinerary_pictures.each { |file| nantes_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 nantes_itinerary.save!
 
 toursolidor_itinerary_pictures = [File.open("db/fixtures/toursolidor1.jpg")]
-toursolidor_itinerary = Itinerary.new(name: 'La vigie sur la Rance', subtitle: "L'histoire maritime et une vue imprenable sur la Rance", distance: 6, category: "Médiéval", rates: [4], duration: 70, number_of_poi: 2, latitude: 48.650861651302534, longitude: -2.0218998515555895, city: st_malo)
+toursolidor_itinerary = Itinerary.new(name: 'La vigie sur la Rance', subtitle: "L'histoire maritime et une vue imprenable sur la Rance",
+  distance: 6, category: "Médiéval", rates: [4], duration: 70, number_of_poi: 2, latitude: 48.650861651302534, longitude: -2.0218998515555895, city: st_malo)
 toursolidor_itinerary_pictures.each { |file| toursolidor_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 toursolidor_itinerary.save!
 
 guerledan_itinerary_pictures = [File.open("db/fixtures/guerledan1.jpg")]
-guerledan_itinerary = Itinerary.new(name: 'Sur le lac de Guerlédan', subtitle: "A la découverte des merveilles naturelles de la Bretagne intérieure", distance: 4, category: "Nature", rates: [4], duration: 90, number_of_poi: 4, latitude: 48.20150342522527, longitude: -2.9853168406531725, city: guerledan)
+guerledan_itinerary = Itinerary.new(name: 'Sur le lac de Guerlédan', subtitle: "A la découverte des merveilles naturelles de la Bretagne intérieure",
+  distance: 4, category: "Nature", rates: [4], duration: 90, number_of_poi: 4, latitude: 48.20150342522527, longitude: -2.9853168406531725, city: guerledan)
 guerledan_itinerary_pictures.each { |file| guerledan_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 guerledan_itinerary.save!
 
 memorial_itinerary_pictures = [File.open("db/fixtures/memorial1.jpg")]
-memorial_itinerary = Itinerary.new(name: 'Terrés dans le Bunker', subtitle: "La cité d'Aleth et ses galeries de bunkers", distance: 6, category: "Nature", rates: [4], duration: 95, number_of_poi: 2, latitude: 48.650861651302534, longitude: -2.0218998515555895, city: st_malo)
+memorial_itinerary = Itinerary.new(name: 'Terrés dans le Bunker', subtitle: "La cité d'Aleth et ses galeries de bunkers",
+  distance: 6, category: "Nature", rates: [4], duration: 95, number_of_poi: 2, latitude: 48.650861651302534, longitude: -2.0218998515555895, city: st_malo)
 memorial_itinerary_pictures.each { |file| memorial_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 memorial_itinerary.save!
 
 plogoff_itinerary_pictures = [File.open("db/fixtures/plogoff1.jpg")]
-plogoff_itinerary = Itinerary.new(name: 'La baie des trépassés', subtitle: "Une balade sauvage sur les rivages de la Pointe du Raz", distance: 4, category: "Nature", rates: [4], duration: 90, number_of_poi: 4, latitude: 48.03784726601963, longitude: -4.718813432173193, city: plogoff,
+plogoff_itinerary = Itinerary.new(name: 'La baie des trépassés', subtitle: "Une balade sauvage sur les rivages de la Pointe du Raz",
+  distance: 4, category: "Nature", rates: [4], duration: 90, number_of_poi: 4, latitude: 48.03784726601963, longitude: -4.718813432173193, city: plogoff,
                     description: "Sur la côte de la Cornouaille, la baie des Trépassés, au magnifique rivage de sable blanc, nous fait admirer au loin l’archipel de Sein, Depuis toujours, les corps des marins dont les bateaux s’étaient fracassés sur les récifs de la pointe du Raz,
                     pris par les forts courants de marée et les vents dominants, venaient s’échouer sur cette plage, ce qui alimenta les histoires et les contes bretons  Boë an Aon se transforma en Boë an Anao, la « baie des âmes en peine », celles des trépassés.")
 plogoff_itinerary_pictures.each { |file| plogoff_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
@@ -176,7 +187,8 @@ vitre_itinerary_pictures.each { |file| vitre_itinerary.photos.attach(io: file, f
 vitre_itinerary.save!
 
 dolmen_itinerary_pictures = [File.open("db/fixtures/dolmen1.jpg")]
-dolmen_itinerary = Itinerary.new(name: "Mégalithes de Kerivoret", subtitle: "Un beau menhir", distance: 3, category: "Préhistorique", rates: [4], duration: 60, number_of_poi: 2, latitude: 48.434368115252376, longitude: -4.731447953200586, city: porspoder)
+dolmen_itinerary = Itinerary.new(name: "Mégalithes de Kerivoret", subtitle: "Un beau menhir",
+  distance: 3, category: "Préhistorique", rates: [4], duration: 60, number_of_poi: 2, latitude: 48.434368115252376, longitude: -4.731447953200586, city: porspoder)
 dolmen_itinerary_pictures.each { |file| dolmen_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 dolmen_itinerary.save!
 
@@ -206,3 +218,12 @@ Question.create!(question_statement: "Quel est le nom de la mairie de Vezin ?", 
 Question.create!(question_statement: "Quel est du supermarché de Vezin ?", itinerary: vezin_itinerary, answer_statement: ["Supermarché de Vezin", "Supermarché de Pacé", "Supermarché de Rennes", "Supermarché de Vitré"], good_answer: "Supermarché de Vezin")
 Question.create!(question_statement: "Quel est du stade de Vezin ?", itinerary: vezin_itinerary, answer_statement: ["Stade de Vezin", "Stade de Pacé", "Stade de Rennes", "Stade de Vitré"], good_answer: "Stade de Vezin")
 puts "created #{Question.count} questions"
+
+puts '####### Creating Bookmarks #############'
+
+Bookmark.create!(user: first_user, itinerary: st_malo_itinerary, favorite: true)
+Bookmark.create!(user: second_user, itinerary: vezin_itinerary, favorite: true)
+Bookmark.create!(user: third_user, itinerary: cathedrale_itinerary, favorite: true)
+Bookmark.create!(user: first_user, itinerary: vitre_itinerary, favorite: true)
+
+puts "created #{Bookmark.count} bookmarks"

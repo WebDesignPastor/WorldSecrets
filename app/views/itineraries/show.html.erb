@@ -5,11 +5,28 @@
       <i class="fa-solid fa-chevron-left"></i>
       <span>RETOUR</span>
     <% end %>
-      <div data-controller="favorite">
-        <button class="button-favorite" data-action="click->favorite#active" data-favorite-target="button">
-          <i class="fa-regular fa-heart" ></i>
-        </button>
-      </div>
+      <% if @itinerary.bookmarks.empty? %>
+        <div data-controller="bookmark">
+          <%= form_with(url: itinerary_bookmarks_path(@itinerary), method: :post, local: true, data: { bookmark_target: "form" }) do |f| %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :itinerary_id, value: @itinerary.id %>
+            <%= f.hidden_field :completed, value: true %>
+            <button class="button-favorite" data-action="click->bookmark#submit" data-bookmark-target="button">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          <% end %>
+        </div>
+      <% else %>
+        <div data-controller="bookmark">
+          <%= form_with(url: itinerary_bookmark_path(@itinerary), method: :delete, local: true, data: { bookmark_target: "form" }) do |f| %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :itinerary_id, value: @itinerary.id %>
+            <button class="button-favorite button-favorite-active" data-action="click->bookmark#submit" data-bookmark-target="button">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          <% end %>
+        </div>
+      <% end %>
   </div>
   <div class="banner-show">
     <h2><%= @itinerary.name %></h2>

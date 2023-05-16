@@ -3,4 +3,11 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def profile
+    user_trips = Trip.where(user_id: current_user.id, completed: true)
+    @completed_itineraries = user_trips.map(&:itinerary)
+    bookmarks = Bookmark.where(user_id: current_user.id, favorite: true)
+    @favorite_itineraries = bookmarks.map(&:itinerary)
+  end
 end
