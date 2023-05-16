@@ -129,10 +129,15 @@
       <%= simple_form_for(@itinerary) do |f| %>
         <div class="star-rating" data-controller='rating'>
           <% (1..5).each do |value| %>
-            <%= label_tag "rating_#{value}", image_tag('emptystar.svg'), class: 'star',
-              data: { rating: value, rating_target: 'emptyStar', action: 'click->rating#updateStars' } %>
-            <%= label_tag "rating_#{value}", image_tag('star.svg'), class: 'star d-none',
-              data: { rating: value, rating_target: 'star' } %>
+            <%= label_tag "rating_#{value}", class: 'star',
+                data: { action: "click->rating#updateStars#{value}" } do %>
+              <svg class='emptystar-svg' width="16" height="15" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.396 6.47525L16.3959 6.47537M16.396 6.47525L16.3961 6.47522L16.3959 6.47537M16.396 6.47525C16.396 6.47529 16.396 6.47533 16.3959 6.47537M16.396 6.47525L16.3959 6.47537M12.68 10.1176L12.4932 10.3007L12.5371 10.5587L13.3537 15.3516L9.07986 13.0896L8.8461 12.9659L8.61229 13.0895L4.33414 15.3512L5.15162 10.5582L5.19563 10.3002L5.00867 10.117L1.54366 6.72192L6.32598 6.02312L6.58635 5.98507L6.70242 5.74892L8.84374 1.39227L10.9831 5.75144L11.0992 5.98798L11.36 6.02594L16.144 6.72231L12.68 10.1176ZM4.01588 15.5195C4.01601 15.5194 4.01614 15.5193 4.01627 15.5192L4.01589 15.5194L4.01588 15.5195ZM1.19314 6.77314C1.1931 6.77315 1.19307 6.77315 1.19304 6.77315L1.19314 6.77314ZM9.00307 1.06809C9.00299 1.06826 9.00291 1.06843 9.00282 1.0686L9.003 1.06823L9.00307 1.06809Z" fill="white" stroke="#F8A325"/>
+              </svg>
+              <svg class='star-svg d-none' width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M13.4382 15.962C13.675 16.0871 13.9519 15.8849 13.9066 15.6197L13.03 10.4746L16.746 6.83227C16.9376 6.64448 16.8318 6.31713 16.5669 6.27856L11.4319 5.53109L9.13337 0.847618C9.01486 0.606295 8.67273 0.606295 8.55421 0.847618L6.25363 5.52831L1.12069 6.27835C0.855833 6.31694 0.75002 6.64429 0.941638 6.83206L4.65868 10.4741L3.78115 15.6191C3.73588 15.8844 4.01277 16.0866 4.24951 15.9614L8.84591 13.5315L13.4382 15.962Z" fill="#F8A325"/>
+              </svg>
+            <% end %>
             <%= f.radio_button :rates, value, id: "rating_#{value}", class: 'star-input visually-hidden' %>
           <% end %>
         </div>
