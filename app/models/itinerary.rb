@@ -4,6 +4,8 @@ class Itinerary < ApplicationRecord
   has_many :questions, dependent: :destroy
   has_many :pois, through: :itinerary_pois
   has_many :trips
+  has_many :bookmarks
+  has_many :users, through: :bookmarks
   has_many_attached :photos
   geocoded_by :departure
 
