@@ -52,6 +52,7 @@ class ItinerariesController < ApplicationController
     new_rate = params[:itinerary][:rates].to_i
     @itinerary.rates << new_rate
     @itinerary.save
+    redirect_to itineraries_path
   end
 
   def rating
