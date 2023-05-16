@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "profile", to: "pages#profile"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources "itineraries", only: %i[index show create update] do
+    resources "bookmarks", only: %i[create update]
     resources "trips", only: :create
   end
 

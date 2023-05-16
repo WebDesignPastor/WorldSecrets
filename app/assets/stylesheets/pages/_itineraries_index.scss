@@ -9,7 +9,7 @@
 
 .container-profile {
   gap: 10px;
-  padding: 20px 20px 105px;
+  padding: 20px 20px;
 }
 
 .checkbox-wrapper {
@@ -72,9 +72,6 @@
 
 .mapboxgl-canvas-container {
   height: 100px;
-}
-.mapboxgl-canvas{
-  // mix-blend-mode: multiply;
 }
 
 .map-overlay {
