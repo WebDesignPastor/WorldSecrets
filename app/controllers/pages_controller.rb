@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def profile
+    @itineraries = current_user.itineraries
+  end
 end
