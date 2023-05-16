@@ -15,9 +15,9 @@ Itinerary.destroy_all
 puts 'database cleaned'
 puts '####### Creating Users #############'
 
-User.create!(email: 'test1@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Fanch')
-User.create!(email: 'test2@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Rico')
-User.create!(email: 'test3@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Kevin')
+first_user = User.create!(email: 'test1@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Fanch')
+second_user = User.create!(email: 'test2@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Rico')
+third_user = User.create!(email: 'test3@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Kevin')
 puts "created #{User.count} users"
 
 puts '####### Creating Cities #############'
@@ -218,3 +218,10 @@ Question.create!(question_statement: "Quel est le nom de la mairie de Vezin ?", 
 Question.create!(question_statement: "Quel est du supermarché de Vezin ?", itinerary: vezin_itinerary, answer_statement: ["Supermarché de Vezin", "Supermarché de Pacé", "Supermarché de Rennes", "Supermarché de Vitré"], good_answer: "Supermarché de Vezin")
 Question.create!(question_statement: "Quel est du stade de Vezin ?", itinerary: vezin_itinerary, answer_statement: ["Stade de Vezin", "Stade de Pacé", "Stade de Rennes", "Stade de Vitré"], good_answer: "Stade de Vezin")
 puts "created #{Question.count} questions"
+
+puts '####### Creating Bookmarks #############'
+
+Bookmark.create!(user: first_user, itinerary: st_malo_itinerary, favorite: true)
+Bookmark.create!(user: second_user, itinerary: vezin_itinerary, favorite: true)
+Bookmark.create!(user: third_user, itinerary: cathedrale_itinerary, favorite: true)
+Bookmark.create!(user: first_user, itinerary: vitre_itinerary, favorite: true)
