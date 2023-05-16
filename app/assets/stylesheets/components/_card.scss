@@ -134,6 +134,35 @@
   }
 }
 
+.card-profile {
+  margin-top: 10px;
+  height: 110px !important;
+  width: 100% !important;
+  background-color: white;
+  img {
+    height:100%;
+    object-fit: cover;
+  }
+  .card-infos {
+    flex-direction: column;
+    align-items: flex-start;
+    gap:8px;
+    height:auto;
+  }
+  .card-details {
+    padding:0;
+    position: relative;
+
+    .card-show-itinerary-infos {
+      padding:0;
+      position: relative;
+    }
+  }
+  h4 {
+    font-size: 17px;
+  }
+}
+
 .order-first {
   order:-1;
 }
