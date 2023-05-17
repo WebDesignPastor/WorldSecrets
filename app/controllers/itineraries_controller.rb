@@ -52,12 +52,8 @@ class ItinerariesController < ApplicationController
     @itinerary = Itinerary.find(params[:id])
     new_rate = params[:itinerary][:rates].to_i
     @itinerary.rates << new_rate
-    @itinerary.save
-    respond_to do |format|
-      format.turbo_stream { redirect_to itineraries_path, notice: 'Merci pour votre note !' }
-      format.js
-    end
-    # redirect_to itineraries_path, notice: "Merci pour votre note !"
+    flash[:notice] = "Merci pour votre note !" if @itinerary.save
+    redirect_to itineraries_path
   end
 
   def rating(itinerary)
