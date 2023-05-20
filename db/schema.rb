@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_16_105833) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_20_223611) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -115,16 +115,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_16_105833) do
     t.index ["itinerary_id"], name: "index_questions_on_itinerary_id"
   end
 
-  create_table "trip_answers", force: :cascade do |t|
-    t.string "answer"
-    t.bigint "question_id", null: false
-    t.bigint "trip_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["question_id"], name: "index_trip_answers_on_question_id"
-    t.index ["trip_id"], name: "index_trip_answers_on_trip_id"
-  end
-
   create_table "trips", force: :cascade do |t|
     t.integer "proximity_level"
     t.string "image"
@@ -161,8 +151,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_16_105833) do
   add_foreign_key "itinerary_pois", "itineraries"
   add_foreign_key "itinerary_pois", "pois"
   add_foreign_key "questions", "itineraries"
-  add_foreign_key "trip_answers", "questions"
-  add_foreign_key "trip_answers", "trips"
   add_foreign_key "trips", "itineraries"
   add_foreign_key "trips", "users"
 end
