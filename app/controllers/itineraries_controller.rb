@@ -52,7 +52,7 @@ class ItinerariesController < ApplicationController
     @itinerary = Itinerary.find(params[:id])
     new_rate = params[:itinerary][:rates].to_i
     @itinerary.rates << new_rate
-    flash[:notice] = "Merci pour votre note !" if @itinerary.save
+    flash[:notice] = "Merci pour votre note !" if @itinerary.save # TODO: flash message because it's not working
     redirect_to itineraries_path
   end
 
