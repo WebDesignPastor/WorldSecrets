@@ -1,0 +1,33 @@
+<% @pois.each_with_index do |poi, index| %>
+  <% if index == @pois.length - 1 %>
+    <div class="d-none position-absolute main_show_div" data-trip-target="poi">
+      <div class= "card_show_itinerary">
+        <%= image_tag poi.mystery_image, class: "show-image", crop: :fill %>
+      </div>
+        <div class="banner-show">
+          <h2 class="poi-name"><strong><%= poi.mystery_name %></strong></h2>
+        </div>
+      <div class="card_show_itinerary_content">
+        <p><%= poi.mystery_content %></p>
+      </div>
+      <div class="card_show_bottom">
+        <%= link_to "Allez au quizz", trip_questions_path(@trip), class:"btn btn-primary w-100" %>
+      </div>
+    </div>
+  <% else %>
+    <div class="d-none position-absolute main_show_div" data-trip-target="poi">
+      <div class= "card_show_itinerary">
+        <%= image_tag poi.mystery_image, class: "show-image", crop: :fill %>
+      </div>
+      <div class="banner-show">
+        <h2 class="poi-name"><strong><%= poi.mystery_name %></strong></h2>
+      </div>
+      <div class="card_show_itinerary_content">
+        <p><%= poi.mystery_content %></p>
+      </div>
+      <div class="card_show_bottom">
+        <button id='trip-poi' data-action="click->trip#continueTrip" class="btn btn-primary w-100">Continuez l'aventure</button>
+      </div>
+    </div>
+  <% end %>
+<% end %>

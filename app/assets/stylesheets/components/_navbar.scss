@@ -1,28 +1,9 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-}
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
-
 .phone-navbar {
   background-color: white;
   border-top: solid 2px $black-500;
-  width: 100vw;
   height: 85px;
   position: fixed;
   bottom: 0;
   padding: 0 34px;
-  z-index: 1;
-}
-
-.navbar-relative {
-  position: relative;
   z-index: 9999;
 }

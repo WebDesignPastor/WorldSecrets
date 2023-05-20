@@ -1,7 +1,17 @@
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
 <% if current_user.email == "test1@test.com" %>
-  <%= render partial: "trips/fake_trip", locals: { trip: @trip } %>
+  <div class="position-relative wrapper-map" data-controller="trip" data-action="click->trip#onClickEvent">
+    <%= render 'fake_trip' %>
+    <%= render 'trip_infos' %>
+    <%= render 'modal' %>
+    <%= render 'poi' %>
+  </div>
 <% else %>
-  <%= render partial: "trips/real_trip", locals: { trip: @trip } %>
+  <div class="position-relative wrapper-map">
+    <%= render 'real_trip' %>
+    <%= render 'trip_infos' %>
+    <%= render 'modal' %>
+    <%= render 'poi' %>
+  </div>
 <% end %>

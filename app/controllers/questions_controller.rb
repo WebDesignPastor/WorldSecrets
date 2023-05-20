@@ -4,6 +4,4 @@ class QuestionsController < ApplicationController
     @questions = Question.where(itinerary_id: @trip.itinerary)
     @itinerary = @trip.itinerary
   end
-
-  helper_method :update_rates
 end

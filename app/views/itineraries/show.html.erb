@@ -35,36 +35,11 @@
   <div class="card_show_itinerary_content">
 
     <div class="rating-stars">
-      <% if rating(@itinerary) == 1 %>
+      <% rating(@itinerary).times do |i| %>
         <%= image_tag "star.svg" %>
+      <% end %>
+      <% (5 - rating(@itinerary)).times do |i| %>
         <%= image_tag "emptystar.svg" %>
-        <%= image_tag "emptystar.svg" %>
-        <%= image_tag "emptystar.svg" %>
-        <%= image_tag "emptystar.svg" %>
-      <% elsif rating(@itinerary) == 2 %>
-        <%= image_tag "star.svg" %>
-        <%= image_tag "star.svg" %>
-        <%= image_tag "emptystar.svg" %>
-        <%= image_tag "emptystar.svg" %>
-        <%= image_tag "emptystar.svg" %>
-      <% elsif rating(@itinerary) == 3 %>
-        <%= image_tag "star.svg" %>
-        <%= image_tag "star.svg" %>
-        <%= image_tag "star.svg" %>
-        <%= image_tag "emptystar.svg" %>
-        <%= image_tag "emptystar.svg" %>
-      <% elsif rating(@itinerary) == 4 %>
-        <%= image_tag "star.svg" %>
-        <%= image_tag "star.svg" %>
-        <%= image_tag "star.svg" %>
-        <%= image_tag "star.svg" %>
-        <%= image_tag "emptystar.svg" %>
-      <% else %>
-        <%= image_tag "star.svg" %>
-        <%= image_tag "star.svg" %>
-        <%= image_tag "star.svg" %>
-        <%= image_tag "star.svg" %>
-        <%= image_tag "star.svg" %>
       <% end %>
     </div>
     <div class="card-show-itinerary-infos text-small d-flex flex-row justify-content-between gap-infos">

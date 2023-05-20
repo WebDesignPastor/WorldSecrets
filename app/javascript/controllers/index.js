@@ -7,20 +7,11 @@ import { application } from "./application"
 import BookmarkController from "./bookmark_controller"
 application.register("bookmark", BookmarkController)
 
-import FavoriteController from "./favorite_controller"
-application.register("favorite", FavoriteController)
-
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
-
 import ItinerariesController from "./itineraries_controller"
 application.register("itineraries", ItinerariesController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
-
-import ModalController from "./modal_controller"
-application.register("modal", ModalController)
 
 import QuestionsController from "./questions_controller"
 application.register("questions", QuestionsController)
@@ -33,3 +24,6 @@ application.register("real-trip", RealTripController)
 
 import SwitchController from "./switch_controller"
 application.register("switch", SwitchController)
+
+import TripController from "./trip_controller"
+application.register("trip", TripController)
