@@ -7,8 +7,10 @@ export default class extends Controller {
     markers: Array,
     departureMarkers: Array
   }
+  count = 0
 
   connect() {
+    console.log('on y croit')
     let points = `${this.departureMarkersValue[0].lng},${this.departureMarkersValue[0].lat}`
     this.markersValue.forEach((marker) => {
       points += `;${marker.lng},${marker.lat}`
@@ -68,7 +70,6 @@ export default class extends Controller {
 
           this.counter = 0
           this.running = false
-          this.count = 0
           this.direction.setOrigin([this.departureMarkersValue[0].lng, this.departureMarkersValue[0].lat])
           const lastMarker = this.markersValue.slice(-1)
           this.direction.setDestination([lastMarker[0].lng, lastMarker[0].lat])
@@ -150,55 +151,28 @@ export default class extends Controller {
       })
 
       document.addEventListener('click', (e) => {
-        if (this.count == 0){
+        if (this.count % 2 === 0 && this.count < 6) {
           this.running = true
           this.count += 1
-        } else if(this.count == 1){
-          this.running = false
-          this.count += 1
-        } else if (this.count == 2) {
-          this.running = true
-          this.count += 1
-        } else if (this.count == 3) {
-          this.running = false
-          this.count += 1
-        } else if (this.count == 4) {
-          this.running = true
-          this.count += 1
-        } else if (this.count == 5) {
-          this.running = false
-          this.count += 1
-        } else if (this.count == 6) {
-          this.count += 1
-        } else if (this.count == 7) {
-          this.count += 1
-        } else if (this.count == 8) {
-          this.running = true
-          this.count += 1
-        } else if (this.count == 9) {
-          this.running = false
-          this.count += 1
-        } else if (this.count == 10) {
-          this.running = true
-          this.count += 1
-        } else if (this.count == 11) {
-          this.running = false
-          this.count += 1
-        } else if (this.count == 12) {
-          this.running = true
-          this.count += 1
-        } else if (this.count == 13) {
+        } else {
           this.running = false
           this.count += 1
         }
       })
+
+      const pois = document.querySelectorAll('#trip-poi')
+      pois.forEach((poi) => {
+        poi.addEventListener('click', (e) => {
+          this.count = -1
+        })
+      })
   }
 
-  #addMarkersToMap(markers, i = null) {
-    markers.forEach((marker, index) => {
+  #addMarkersToMap(markers) {
+    markers.forEach((marker) => {
       let poiMarker = document.createElement('div')
       poiMarker.className = 'poi-marker'
-      poiMarker.dataset.modalTarget = `poiMarker${i === null ? index + 1 : i}`
+      poiMarker.dataset.tripTarget = `poiMarker`
       new mapboxgl.Marker(poiMarker)
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(this.map)

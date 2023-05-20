@@ -33,3 +33,6 @@ application.register("real-trip", RealTripController)
 
 import SwitchController from "./switch_controller"
 application.register("switch", SwitchController)
+
+import TripController from "./trip_controller"
+application.register("trip", TripController)
