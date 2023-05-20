@@ -1,6 +1,5 @@
 <% @trip.itinerary.questions.each_with_index do |question, index| %>
-  <div class="d-flex flex-column question-index d-none" data-index="<%= index %>"
-       data-progress="<%= (index + 1) * 20 %>" data-questions-target="question">
+  <div class="d-flex flex-column question-index d-none" data-questions-target="question">
     <div>
       <%= cl_image_tag @trip.itinerary.photos.first.key, class: 'question-img', crop: :fill %>
     </div>
