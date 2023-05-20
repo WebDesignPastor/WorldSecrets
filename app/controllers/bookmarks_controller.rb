@@ -1,5 +1,4 @@
 class BookmarksController < ApplicationController
-  # before_action :set_user
   before_action :set_itinerary
 
   def create
@@ -25,10 +24,6 @@ class BookmarksController < ApplicationController
   end
 
   private
-
-  # def set_user
-  #   @user = current_user
-  # end
 
   def set_itinerary
     @itinerary = Itinerary.find(params[:itinerary_id])

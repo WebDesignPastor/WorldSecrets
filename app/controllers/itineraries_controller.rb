@@ -52,14 +52,12 @@ class ItinerariesController < ApplicationController
     @itinerary = Itinerary.find(params[:id])
     new_rate = params[:itinerary][:rates].to_i
     @itinerary.rates << new_rate
-    @itinerary.save
-    flash[:notice] = "Merci pour votre note !"
+    flash[:notice] = "Merci pour votre note !" if @itinerary.save # TODO: flash message because it's not working
     redirect_to itineraries_path
   end
 
-  def rating
-    @itinerary = Itinerary.find(params[:id])
-    (@itinerary.rates.sum / @itinerary.rates.length).truncate(0)
+  def rating(itinerary)
+    (itinerary.rates.sum / itinerary.rates.length).truncate(0)
   end
 
   helper_method :rating
