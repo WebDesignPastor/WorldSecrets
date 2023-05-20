@@ -1,6 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="trip"
 export default class extends Controller {
   static targets = ["modalCold", "modalWarm", "modalWarmer", "poi", "poiMarker", "progress"]
   currentIndex = 0

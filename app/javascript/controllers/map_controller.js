@@ -10,20 +10,16 @@ export default class extends Controller {
   count = 0
 
   connect() {
-    console.log('on y croit')
     let points = `${this.departureMarkersValue[0].lng},${this.departureMarkersValue[0].lat}`
     this.markersValue.forEach((marker) => {
       points += `;${marker.lng},${marker.lat}`
     })
-
 
     fetch(`https://api.mapbox.com/directions/v5/mapbox/walking/${points}?alternatives=false&geometries=geojson&overview=full&steps=false&access_token=pk.eyJ1IjoiZmFuY2hwYXN0b3IiLCJhIjoiY2xlemx6NHY3MDBpdDQ2cGQ3YzBsb2lqZiJ9.g3kiJShO73ktvZhIa_6lrQ`)
       .then(response => response.json())
       .then((data) =>  {
         mapboxgl.accessToken = this.apiKeyValue
         this.coordinates = data.routes[0].geometry.coordinates
-
-
         this.map = new mapboxgl.Map({
           container: this.element,
           zoom:1,
@@ -32,7 +28,6 @@ export default class extends Controller {
         })
 
         this.steps = 1000
-
         const line = turf.lineString(this.coordinates)
         const lineDistance = turf.length(line)
         this.totalDistance = lineDistance
@@ -43,16 +38,12 @@ export default class extends Controller {
           this.arc.push(segment.geometry.coordinates)
         }
 
-
         this.map.on('load', () => {
           this.direction = new MapboxDirections({
             accessToken: mapboxgl.accessToken,
             profile: 'mapbox/walking',
             unit: 'metric',
-            // flyTo: false,x
-            // interactive: false
           })
-
 
           this.point = {
             'type': 'FeatureCollection',
@@ -77,10 +68,6 @@ export default class extends Controller {
             this.direction.addWaypoint(index, [marker.lng, marker.lat])
           })
 
-          // this.map.addControl(
-          //   this.direction,
-          //   'top-left'
-          // )
           const urlCustomMarker = this.element.dataset.customMarker
 
           this.map.loadImage(
