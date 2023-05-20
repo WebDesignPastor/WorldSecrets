@@ -309,7 +309,7 @@ caniuse-lite@^1.0.30001449:
 
 canvas-confetti@^1.6.0:
   version "1.6.0"
-  resolved "https://registry.npmjs.org/canvas-confetti/-/canvas-confetti-1.6.0.tgz"
+  resolved "https://registry.yarnpkg.com/canvas-confetti/-/canvas-confetti-1.6.0.tgz#193f71aa8f38fc850a5ba94f59091a7afdb43ead"
   integrity sha512-ej+w/m8Jzpv9Z7W7uJZer14Ke8P2ogsjg4ZMGIuq4iqUOqY2Jq8BNW42iGmNfRwREaaEfFIczLuZZiEVSYNHAA==
 
 chrome-trace-event@^1.0.2:

@@ -6,43 +6,5 @@
     </div>
   </div>
   <%= render 'quizz' %>
-
-  <div class="d-flex flex-wrap justify-content-center">
-    <div data-questions-target="six" class="d-none d-flex flex-column justify-content-center mt-15">
-      <h2 class="question-center">Félicitations ! A bientôt pour de nouvelles aventures !</h2>
-      <%= image_tag "quizz_fin_image.jpg", class: 'quizz-image', crop: :fill %>
-      <div class="wrapper-rating">
-        <h4>Ajouter une note</h4>
-        <%= simple_form_for(@itinerary) do |f| %>
-          <div class="star-rating" data-controller='rating'>
-            <% (1..5).each do |value| %>
-              <%= label_tag "rating_#{value}", class: 'star',
-                  data: { action: "click->rating#updateStars" } do %>
-                <%= image_tag 'emptystar.svg', data: { rate: value, rating_target: "emptyStar" } %>
-                <%= image_tag 'star.svg', class: 'd-none', data: { rate: value, rating_target: "star" } %>
-              <% end %>
-              <%= f.radio_button :rates, value, id: "rating_#{value}", class: 'star-input visually-hidden' %>
-            <% end %>
-          </div>
-          <%= f.submit "Valider", class: 'btn btn-primary' %>
-        <% end %>
-      </div>
-      <%= link_to 'Retourner aux itinéraires', itineraries_path, class: 'btn btn-primary btn-center' %>
-    </div>
-  </div>
+  <%= render 'congratulations' %>
 </div>
-<script>
-  document.querySelector("#confetti").addEventListener("click", () => {
-    setTimeout(() => {
-      for (let index = 0; index < 8; index++) {
-        confetti({
-          origin: {
-            x: Math.random(),
-            y: Math.random()
-          }
-        });
-      }
-    },2000)
-  });
-</script>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>

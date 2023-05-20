@@ -11,7 +11,8 @@
     <div class="d-flex flex-wrap justify-content-center questions-wrapper">
       <% question.answer_statement.each do |answer|  %>
         <% if answer == question.good_answer && index == @trip.itinerary.questions.length - 1 %>
-          <div id='confetti' class='btn btn-outline-primary btn-question m-1' data-action='click->questions#goodAnswer'>
+          <div id='confetti' class='btn btn-outline-primary btn-question m-1'
+               data-action='click->questions#goodAnswer click->questions#confettis'>
             <%= answer %>
           </div>
         <% elsif answer == question.good_answer %>
@@ -19,7 +20,8 @@
             <%= answer %>
           </div>
         <% else %>
-          <div class='btn btn-outline-primary btn-question m-1' data-action='click->questions#badanswer'>
+          <div class='btn btn-outline-primary btn-question m-1' data-questions-target='badAnswer'
+               data-action='click->questions#badAnswer'>
             <%= answer %>
           </div>
         <% end %>
