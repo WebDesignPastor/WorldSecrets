@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import confetti from "canvas-confetti"
 
 // Connects to data-controller="questions"
 export default class extends Controller {
@@ -56,6 +57,15 @@ export default class extends Controller {
   }
 
   confettis() {
-
+    setTimeout(() => {
+      for (let index = 0; index < 8; index++) {
+        confetti({
+          origin: {
+            x: Math.random(),
+            y: Math.random()
+          }
+        });
+      }
+    }, 2000)
   }
 }
