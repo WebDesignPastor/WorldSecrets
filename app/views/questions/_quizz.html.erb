@@ -19,7 +19,8 @@
             <%= answer %>
           </div>
         <% else %>
-          <div class='btn btn-outline-primary btn-question m-1' data-action='click->questions#badanswer'>
+          <div class='btn btn-outline-primary btn-question m-1' data-questions-target='badAnswer'
+               data-action='click->questions#badAnswer'>
             <%= answer %>
           </div>
         <% end %>
