@@ -1,14 +1,9 @@
 class ItinerariesController < ApplicationController
   def index
     if params[:query].present?
-      # Recherche de la ville
       city = City.where("to_tsvector('english', name) @@ plainto_tsquery('english', ?)", params[:query].to_s)
-      # Recherche des itinéraires liés à la ville
       itineraries = Itinerary.where(city_id: city.ids[0].to_i)
-
-      # Filtrage par catégorie (en ajoutant le filtre seulement si la catégorie est présente)
       itineraries = itineraries.merge(Itinerary.where(category: params[:category])) if params[:category].present?
-
       @itineraries = itineraries
     else
       @itineraries = Itinerary.all
@@ -41,7 +36,6 @@ class ItinerariesController < ApplicationController
     @itinerary = Itinerary.find(params[:id])
     @trip = Trip.new
     @bookmarks = Bookmark.where(user: current_user, itinerary: @itinerary)
-
     @markers = {
       lat: @itinerary.latitude,
       lng: @itinerary.longitude
