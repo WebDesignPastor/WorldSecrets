@@ -6,7 +6,6 @@ export default class extends Controller {
   "btnAucun", "btnNature", "btnUrbain", "btnMedieval", "btnPrehistorique",
   "Nature", "Urbain", "Médiéval", "Préhistorique", "short"]
 
-
   connect() {
   }
 
