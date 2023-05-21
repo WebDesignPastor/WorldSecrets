@@ -33,9 +33,15 @@ class TripsController < ApplicationController
     end
   end
 
+  def update
+    @trip = Trip.find(params[:id])
+    @trip.update(trip_params)
+    redirect_to trip_questions_path(@trip)
+  end
+
   private
 
   def trip_params
-    params.require(:trip).permit(:proximity_level, :image, :content, :status, :progress, :departure)
+    params.require(:trip).permit(:proximity_level, :image, :content, :status, :progress, :departure, :completed)
   end
 end
