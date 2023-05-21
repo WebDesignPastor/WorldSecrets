@@ -10,4 +10,10 @@ class PagesController < ApplicationController
     bookmarks = Bookmark.where(user_id: current_user.id, favorite: true)
     @favorite_itineraries = bookmarks.map(&:itinerary)
   end
+
+  def rating(itinerary)
+    (itinerary.rates.sum / itinerary.rates.length).truncate(0)
+  end
+
+  helper_method :rating
 end
