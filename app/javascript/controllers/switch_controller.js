@@ -13,155 +13,51 @@ export default class extends Controller {
     this.cardsForMapTarget.classList.add('d-none')
     this.listTarget.classList.remove("d-none")
     this.mapTarget.classList.add("opacity-0")
-    // this.tomImage.src = ''
     this.svgmapTarget.classList.remove("navbar-icon")
     this.svglistTarget.classList.add("navbar-icon")
     this.wrapperMapTarget.classList.toggle("map-hidden")
   }
 
   displayMap() {
-    // recuperer tous les markers en targets
-    // itérer dessus for each
     this.itinerariesMarkerTargets.forEach((marker, index) => {
-      // leur ajouter une classe animate-marker -> opacity 1
       marker.classList.add("animate-marker")
       marker.style.animationDelay = `${index * 200}ms`
     })
-
     this.wrapperMapTarget.classList.toggle("map-hidden")
     this.cardsForMapTarget.classList.remove('d-none')
     this.mapTarget.classList.remove("opacity-0")
     this.listTarget.classList.add("d-none")
-    // this.svglistTarget.setAttribute('fill', 'red')
     this.svgmapTarget.classList.add("navbar-icon")
     this.svglistTarget.classList.remove("navbar-icon")
-
   }
 
-  noFilter() {
-    this.NatureTargets.forEach((target) => {
-      target.classList.remove("d-none")
+  filter(event) {
+    const buttons = [this.btnAucunTarget, this.btnNatureTarget, this.btnUrbainTarget,
+                     this.btnMedievalTarget, this.btnPrehistoriqueTarget]
+    const categories = [this.NatureTargets, this.UrbainTargets, this.MédiévalTargets, this.PréhistoriqueTargets]
+    const filterName = event.currentTarget.getAttribute("data-filter")
+    if (filterName === "Aucun") {
+      categories.forEach((categorie) => {
+        categorie.forEach((card) => {
+          card.classList.remove("d-none")
+        })
+      })
+    } else {
+      categories.forEach((categorie) => {
+        categorie.forEach((card) => {
+          if (card.getAttribute("data-filter") === filterName) {
+            card.classList.remove("d-none")
+          } else {
+            card.classList.add("d-none")
+          }
+        })
+      })
+    }
+    buttons.forEach((button) => {
+      button.classList.remove("btn-primary")
+      button.classList.add("btn-outline-primary")
     })
-    this.UrbainTargets.forEach((target) => {
-      target.classList.remove("d-none")
-    })
-    this.MédiévalTargets.forEach((target) => {
-      target.classList.remove("d-none")
-    })
-    this.PréhistoriqueTargets.forEach((target) => {
-      target.classList.remove("d-none")
-    })
-    this.btnAucunTarget.classList.remove("btn-outline-primary")
-    this.btnAucunTarget.classList.add("btn-primary")
-    this.btnNatureTarget.classList.remove("btn-primary")
-    this.btnNatureTarget.classList.add("btn-outline-primary")
-    this.btnUrbainTarget.classList.remove("btn-primary")
-    this.btnUrbainTarget.classList.add("btn-outline-primary")
-    this.btnMedievalTarget.classList.remove("btn-primary")
-    this.btnMedievalTarget.classList.add("btn-outline-primary")
-    this.btnPrehistoriqueTarget.classList.remove("btn-primary")
-    this.btnPrehistoriqueTarget.classList.add("btn-outline-primary")
-  }
-
-  natureFilter() {
-    this.NatureTargets.forEach((target) => {
-      target.classList.remove("d-none")
-    })
-    this.UrbainTargets.forEach((target) => {
-      target.classList.add("d-none")
-    })
-    this.MédiévalTargets.forEach((target) => {
-      target.classList.add("d-none")
-    })
-    this.PréhistoriqueTargets.forEach((target) => {
-      target.classList.add("d-none")
-    })
-    // console.log(this.NatureTarget)
-    // this.shortTarget.innerHTML = parseInt(this.shortOnesTarget.getAttribute('data-count'))
-    this.btnAucunTarget.classList.remove("btn-primary")
-    this.btnAucunTarget.classList.add("btn-outline-primary")
-    this.btnNatureTarget.classList.remove("btn-outline-primary")
-    this.btnNatureTarget.classList.add("btn-primary")
-    this.btnUrbainTarget.classList.remove("btn-primary")
-    this.btnUrbainTarget.classList.add("btn-outline-primary")
-    this.btnMedievalTarget.classList.remove("btn-primary")
-    this.btnMedievalTarget.classList.add("btn-outline-primary")
-    this.btnPrehistoriqueTarget.classList.remove("btn-primary")
-    this.btnPrehistoriqueTarget.classList.add("btn-outline-primary")
-  }
-
-  urbainFilter() {
-    this.NatureTargets.forEach((target) => {
-      target.classList.add("d-none")
-    })
-    this.UrbainTargets.forEach((target) => {
-      target.classList.remove("d-none")
-    })
-    this.MédiévalTargets.forEach((target) => {
-      target.classList.add("d-none")
-    })
-    this.PréhistoriqueTargets.forEach((target) => {
-      target.classList.add("d-none")
-    })
-    this.btnAucunTarget.classList.remove("btn-primary")
-    this.btnAucunTarget.classList.add("btn-outline-primary")
-    this.btnNatureTarget.classList.remove("btn-primary")
-    this.btnNatureTarget.classList.add("btn-outline-primary")
-    this.btnUrbainTarget.classList.remove("btn-outline-primary")
-    this.btnUrbainTarget.classList.add("btn-primary")
-    this.btnMedievalTarget.classList.remove("btn-primary")
-    this.btnMedievalTarget.classList.add("btn-outline-primary")
-    this.btnPrehistoriqueTarget.classList.remove("btn-primary")
-    this.btnPrehistoriqueTarget.classList.add("btn-outline-primary")
-  }
-
-  medievalFilter() {
-    this.NatureTargets.forEach((target) => {
-      target.classList.add("d-none")
-    })
-    this.UrbainTargets.forEach((target) => {
-      target.classList.add("d-none")
-    })
-    this.MédiévalTargets.forEach((target) => {
-      target.classList.remove("d-none")
-    })
-    this.PréhistoriqueTargets.forEach((target) => {
-      target.classList.add("d-none")
-    })
-    this.btnAucunTarget.classList.remove("btn-primary")
-    this.btnAucunTarget.classList.add("btn-outline-primary")
-    this.btnNatureTarget.classList.remove("btn-primary")
-    this.btnNatureTarget.classList.add("btn-outline-primary")
-    this.btnUrbainTarget.classList.remove("btn-primary")
-    this.btnUrbainTarget.classList.add("btn-outline-primary")
-    this.btnMedievalTarget.classList.remove("btn-outline-primary")
-    this.btnMedievalTarget.classList.add("btn-primary")
-    this.btnPrehistoriqueTarget.classList.remove("btn-primary")
-    this.btnPrehistoriqueTarget.classList.add("btn-outline-primary")
-  }
-
-  prehistoriqueFilter() {
-    this.NatureTargets.forEach((target) => {
-      target.classList.add("d-none")
-    })
-    this.UrbainTargets.forEach((target) => {
-      target.classList.add("d-none")
-    })
-    this.MédiévalTargets.forEach((target) => {
-      target.classList.add("d-none")
-    })
-    this.PréhistoriqueTargets.forEach((target) => {
-      target.classList.remove("d-none")
-    })
-    this.btnAucunTarget.classList.remove("btn-primary")
-    this.btnAucunTarget.classList.add("btn-outline-primary")
-    this.btnNatureTarget.classList.remove("btn-primary")
-    this.btnNatureTarget.classList.add("btn-outline-primary")
-    this.btnUrbainTarget.classList.remove("btn-primary")
-    this.btnUrbainTarget.classList.add("btn-outline-primary")
-    this.btnMedievalTarget.classList.remove("btn-primary")
-    this.btnMedievalTarget.classList.add("btn-outline-primary")
-    this.btnPrehistoriqueTarget.classList.remove("btn-outline-primary")
-    this.btnPrehistoriqueTarget.classList.add("btn-primary")
+    event.currentTarget.classList.remove("btn-outline-primary")
+    event.currentTarget.classList.add("btn-primary")
   }
 }

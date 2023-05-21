@@ -11,7 +11,10 @@
         <p><%= poi.mystery_content %></p>
       </div>
       <div class="card_show_bottom">
-        <%= link_to "Allez au quizz", trip_questions_path(@trip), class:"btn btn-primary w-100" %>
+        <%= form_with(model: @trip, method: :patch) do |f| %>
+          <%= f.hidden_field :completed, value: true %>
+          <%= f.submit "Allez au quizz", class:"btn btn-primary w-100" %>
+        <% end %>
       </div>
     </div>
   <% else %>
