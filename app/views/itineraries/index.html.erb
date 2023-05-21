@@ -27,29 +27,15 @@
     <%# Cards %>
     <div>
       <h3>Proches de vous</h3>
-      <div class="cards-wrapper">
-        <div class="d-flex cards">
-          <%= render 'itineraries_list', itineraries: @itineraries %>
-        </div>
-      </div>
+      <%= render 'itineraries_list', itineraries: @itineraries %>
     </div>
-
     <div>
       <h3>Balade rapide</h3>
-      <div class="cards-wrapper">
-        <div class="d-flex cards">
-          <%= render 'itineraries_list', itineraries: @short_itineraries %>
-        </div>
-      </div>
+      <%= render 'itineraries_list', itineraries: short(@itineraries) %>
     </div>
-
     <div>
       <h3>Grands marcheurs</h3>
-      <div class="cards-wrapper">
-        <div class="d-flex cards">
-          <%= render 'itineraries_list', itineraries: @long_itineraries %>
-        </div>
-      </div>
+      <%= render 'itineraries_list', itineraries: long(@itineraries) %>
     </div>
   </div>
 
