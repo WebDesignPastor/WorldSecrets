@@ -16,11 +16,16 @@
         <%# Insérer le symbol des filtres qui fait apparaître la modal %>
       </div>
       <div class="d-flex justify-content-between checkbox-wrapper">
-        <div data-action="click->switch#noFilter" data-switch-target="btnAucun" class="btn btn-filter btn-primary">Aucun</div>
-        <div data-action="click->switch#natureFilter" data-switch-target="btnNature" class="btn btn-filter btn-outline-primary">Nature</div>
-        <div data-action="click->switch#urbainFilter" data-switch-target="btnUrbain" class="btn btn-filter btn-outline-primary">Urbain</div>
-        <div data-action="click->switch#medievalFilter" data-switch-target="btnMedieval" class="btn btn-filter btn-outline-primary">Médiéval</div>
-        <div data-action="click->switch#prehistoriqueFilter" data-switch-target="btnPrehistorique" class="btn btn-filter btn-outline-primary">Préhistorique</div>
+        <div data-action="click->switch#filter" data-switch-target="btnAucun"
+             data-filter="Aucun" class="btn btn-filter btn-primary">Aucun</div>
+        <div data-action="click->switch#filter" data-switch-target="btnNature"
+             data-filter="Nature" class="btn btn-filter btn-outline-primary">Nature</div>
+        <div data-action="click->switch#filter" data-switch-target="btnUrbain"
+             data-filter="Urbain" class="btn btn-filter btn-outline-primary">Urbain</div>
+        <div data-action="click->switch#filter" data-switch-target="btnMedieval"
+             data-filter="Médiéval" class="btn btn-filter btn-outline-primary">Médiéval</div>
+        <div data-action="click->switch#filter" data-switch-target="btnPrehistorique"
+             data-filter="Préhistorique" class="btn btn-filter btn-outline-primary">Préhistorique</div>
       </div>
     </div>
 

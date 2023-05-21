@@ -1,7 +1,7 @@
 <div class="cards-wrapper">
   <div class="d-flex cards">
     <% itineraries.each do |itinerary| %>
-      <div class="card" data-switch-target="<%= itinerary.category %>">
+      <div class="card" data-switch-target="<%= itinerary.category %>" data-filter="<%= itinerary.category %>">
         <%= link_to itinerary_path(itinerary) do %>
           <div class="card-img position-relative">
             <%= cl_image_tag itinerary.photos.first.key, height: 160, width: 285, crop: :fill %>
