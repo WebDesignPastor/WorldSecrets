@@ -130,8 +130,7 @@ export default class extends Controller {
           }
         }
 
-
-        this.#addMarkersToMap(this.departureMarkersValue, 0)
+        this.#addMarkersToMap(this.departureMarkersValue)
         this.#addMarkersToMap(this.markersValue)
         this.#fitMapToMarkers(this.departureMarkersValue)
         this.#fitMapToMarkers(this.markersValue)
@@ -159,7 +158,7 @@ export default class extends Controller {
     markers.forEach((marker) => {
       let poiMarker = document.createElement('div')
       poiMarker.className = 'poi-marker'
-      poiMarker.dataset.tripTarget = `poiMarker`
+      poiMarker.dataset.fakeTripTarget = 'poiMarker'
       new mapboxgl.Marker(poiMarker)
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(this.map)

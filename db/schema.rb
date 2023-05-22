@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_20_223611) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_22_085053) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -116,11 +116,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_20_223611) do
   end
 
   create_table "trips", force: :cascade do |t|
-    t.integer "proximity_level"
     t.string "image"
     t.text "content"
-    t.string "status"
-    t.integer "progress"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

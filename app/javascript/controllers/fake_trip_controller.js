@@ -52,6 +52,6 @@ export default class extends Controller {
     this.progressTarget.outerHTML = `<p class="step-front" data-modal-target="progress">${newProgress}</p>`
     this.poiMarkerTargets[this.currentIndex].classList.remove("poi-marker")
     this.poiMarkerTargets[this.currentIndex].classList.add("completed-poi")
-    this.poiMarkerTargets[this.currentIndex + 1].classList.add('visible')
+    this.poiMarkerTargets[this.currentIndex + 1].style.visibility = 'visible'
   }
 }
