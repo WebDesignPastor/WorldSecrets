@@ -5,17 +5,9 @@ class TripsController < ApplicationController
     @pois = @itinerary.pois
     @departure = @itinerary.departure
     @markers = @pois.geocoded.map do |poi|
-      {
-        lat: poi.latitude,
-        lng: poi.longitude
-      }
+      { lat: poi.latitude, lng: poi.longitude }
     end
-    @departure_marker = [
-      {
-        lat: @itinerary.latitude,
-        lng: @itinerary.longitude
-      }
-    ]
+    @departure_marker = [{ lat: @itinerary.latitude, lng: @itinerary.longitude }]
   end
 
   def create
@@ -23,9 +15,9 @@ class TripsController < ApplicationController
     @trip = Trip.new
     @trip.user = current_user
     @trip.itinerary = @itinerary
-    @trip.proximity_level = 0
-    @trip.status = "running"
-    @trip.progress = 0
+    # @trip.proximity_level = 0
+    # @trip.status = "running"
+    # @trip.progress = 0
     if @trip.save!
       redirect_to trip_path(@trip)
     else
