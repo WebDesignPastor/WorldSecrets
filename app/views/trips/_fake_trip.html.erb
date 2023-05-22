@@ -1,7 +1,7 @@
 <div class="position-absolute" style="width: 100vw; height: 100vh;"
-  data-controller="map"
+  data-controller="fake-trip-map"
   data-custom-marker="<%= asset_path('ghost.png') %>"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-departure-markers-value="<%= @departure_marker.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  data-fake-trip-map-markers-value="<%= @markers.to_json %>"
+  data-fake-trip-map-departure-markers-value="<%= @departure_marker.to_json %>"
+  data-fake-trip-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>

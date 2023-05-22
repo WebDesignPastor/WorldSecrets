@@ -1,7 +1,7 @@
 <% @pois.each do |poi| %>
   <div class="d-flex justify-content-center">
     <div class="p-3 position-absolute custom-modal d-flex align-items-center justify-content-between d-none"
-        data-trip-target="modalCold">
+        data-fake-trip-target="modalCold">
       <div class="d-flex justify-content-center align-items-center icone-background">
         <%= image_tag "trumpet.svg" %>
       </div>
@@ -9,7 +9,7 @@
         <p class="m-0"><%= poi.clue_sentence %></p>
       </div>
     </div>
-    <div class="p-3 position-absolute custom-modal d-flex flex-column d-none" data-trip-target="modalWarm">
+    <div class="p-3 position-absolute custom-modal d-flex flex-column d-none" data-fake-trip-target="modalWarm">
       <div class="mb-1">
         <%= image_tag poi.clue_image, class: "clueImage" %>
       </div>
@@ -22,14 +22,14 @@
         </div>
       </div>
     </div>
-    <div class="p-3 position-absolute custom-modal d-flex flex-column d-none" data-trip-target="modalWarmer">
+    <div class="p-3 position-absolute custom-modal d-flex flex-column d-none" data-fake-trip-target="modalWarmer">
       <div class="d-flex mb-2 flex-row align-items-center">
         <div class="d-flex mx-2 my-0 justify-content-center align-items-center icone-background">
           <%= image_tag "trumpet.svg" %>
         </div>
         <p class="my-0">Secret trouvé, bravo !</p>
       </div>
-      <button data-action="click->trip#showPoi" class="btn btn-modal btn-primary">Découvrir le secret</button>
+      <button data-action="click->fake-trip#showPoi" class="btn btn-modal btn-primary">Découvrir le secret</button>
     </div>
   </div>
 <% end %>

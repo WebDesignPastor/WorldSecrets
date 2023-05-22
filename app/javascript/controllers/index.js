@@ -10,8 +10,8 @@ application.register("bookmark", BookmarkController)
 import ItinerariesController from "./itineraries_controller"
 application.register("itineraries", ItinerariesController)
 
-import MapController from "./map_controller"
-application.register("map", MapController)
+import FakeTripMapController from "./fake_trip_map_controller"
+application.register("fake-trip-map", FakeTripMapController)
 
 import QuestionsController from "./questions_controller"
 application.register("questions", QuestionsController)
@@ -19,11 +19,11 @@ application.register("questions", QuestionsController)
 import RatingController from "./rating_controller"
 application.register("rating", RatingController)
 
-import RealTripController from "./real_trip_controller"
-application.register("real-trip", RealTripController)
+import RealTripMapController from "./real_trip_map_controller"
+application.register("real-trip-map", RealTripMapController)
 
 import SwitchController from "./switch_controller"
 application.register("switch", SwitchController)
 
-import TripController from "./trip_controller"
-application.register("trip", TripController)
+import FakeTripController from "./fake_trip_controller"
+application.register("fake-trip", FakeTripController)
