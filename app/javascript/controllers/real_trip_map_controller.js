@@ -7,6 +7,8 @@ export default class extends Controller {
     departureMarkers: Array
   }
 
+  currentIndex = 0
+
   connect() {
     mapboxgl.accessToken = this.apiKeyValue;
 
@@ -32,30 +34,23 @@ export default class extends Controller {
       );
 
       // Add a departure marker.
-      this.departureMarker = new mapboxgl.Marker({
-        color: "#007bff",
-      })
-      .setLngLat([this.departureMarkersValue[0].lng, this.departureMarkersValue[0].lat])
-      .addTo(this.map);
+      this.#addMarkersToMap(this.departureMarkersValue)
+      this.#fitMapToMarkers(this.departureMarkersValue)
 
       // Add a marker for the user's location.
+      const customMarkerUrl = this.element.dataset.customMarker;
+      const customMarker = document.createElement('img');
+      customMarker.src = customMarkerUrl;
       this.marker = new mapboxgl.Marker({
-        color: "#007bff",
-      })
-        .setLngLat([longitude, latitude])
-        .addTo(this.map);
+          element: customMarker,
+          anchor: 'bottom',
+        })
+          .setLngLat([longitude, latitude])
+          .addTo(this.map);
 
       // Add markers for pois
-      this.markersValue.forEach((marker, index) => {
-        // let poiMarker = document.createElement('div')
-        // poiMarker.className = 'poi-marker'
-        // poiMarker.dataset.modalTarget = `poiMarker${index + 1}`
-        new mapboxgl.Marker({
-          color: "#007bff",
-        })
-          .setLngLat([marker.lng, marker.lat])
-          .addTo(this.map);
-      });
+      this.#addMarkersToMap(this.markersValue)
+      this.#fitMapToMarkers(this.markersValue)
 
       // Move the map to follow the user's location.
       navigator.geolocation.watchPosition(position => {
@@ -68,33 +63,22 @@ export default class extends Controller {
         });
 
         // Check if the user is within 20 meters of any marker in this.markersValue
-        const firstMarker = this.markersValue[0];
-        const distance = this.distance(latitude, longitude, firstMarker.lat, firstMarker.lng);
-        const firstModalCold = document.querySelector("#first-modal-cold");
-        const firstModalWarm = document.querySelector("#first-modal-warm");
-        const firstModalWarmer = document.querySelector("#first-modal-warmer");
+        const firstMarker = this.markersValue[0]
+        const distance = this.distance(latitude, longitude, firstMarker.lat, firstMarker.lng)
 
-        if (distance <= 10) {
-          firstModalCold.classList.add("d-none");
-          firstModalWarm.classList.add("d-none");
-          firstModalWarmer.classList.remove("d-none");
-          firstModalWarmer.classList.add("modal-seen");
-        } else if (distance <= 30) {
-          firstModalCold.classList.add("d-none");
-          firstModalWarmer.classList.add("d-none");
-          firstModalWarm.classList.remove("d-none");
-          firstModalWarm.classList.add("modal-seen");
+        if (distance <= 20) {
+          this.hideModal();
+          this.showWarmerModal();
         } else if (distance <= 50) {
-          console.log('fraise')
-          firstModalWarm.classList.add("d-none");
-          firstModalWarmer.classList.add("d-none");
-          firstModalCold.classList.remove("d-none");
-          firstModalCold.classList.add("modal-seen");
-        } else {
-          console.log('banane');
+          this.hideModal();
+          this.showWarmModal();
+        } else if (distance <= 100) {
+          this.showColdModal();
         }
       });
     });
+    this.showPoi()
+    this.continue()
   }
 
   distance(lat1, lon1, lat2, lon2) {
@@ -110,17 +94,78 @@ export default class extends Controller {
     return R * c; // Returns distance in meters
   }
 
-  showFirstPoi() {
-    const firstModalWarmer = document.querySelector("#first-modal-warmer");
-    const pois = document.querySelector.all("poi");
-    firstModalWarmer.classList.add("d-none");
-    pois[0].classList.remove("d-none");
+  showColdModal() {
+    const coldModals = document.querySelectorAll("#modalCold");
+    coldModals[this.currentIndex].classList.remove("d-none");
+    coldModals[this.currentIndex].classList.add("modal-seen");
   }
 
-  hidePoi() {
-    const pois = document.querySelector.all("#poi");
-    pois.forEach(poi => {
-      poi.classList.add("d-none");
+  showWarmModal() {
+    const warmModals = document.querySelectorAll("#modalWarm");
+    warmModals[this.currentIndex].classList.remove("d-none");
+    warmModals[this.currentIndex].classList.add("modal-seen");
+  }
+
+  showWarmerModal() {
+    const warmerModals = document.querySelectorAll("#modalWarmer");
+    warmerModals[this.currentIndex].classList.remove("d-none");
+    warmerModals[this.currentIndex].classList.add("modal-seen");
+  }
+
+  hideModal() {
+    const modals = document.querySelectorAll(".modal-seen");
+    modals.forEach((modal) => {
+      modal.classList.remove("modal-seen");
+      modal.classList.add("d-none");
     });
+  }
+
+  showPoi() {
+    const pois = document.querySelectorAll("#poi-modal");
+    const poiButtons = document.querySelectorAll("#poi-button");
+    poiButtons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        pois[this.currentIndex].classList.remove("d-none")
+        this.hideModal()
+      })
+    })
+  }
+
+  continue() {
+    const progress = document.getElementById("poi-progress")
+    const currentProgress = parseInt(progress.textContent)
+    const newProgress = currentProgress + 1
+    const pois = document.querySelectorAll("#poi-modal");
+    const closePoiButtons = document.querySelectorAll('#trip-poi')
+    const markers = document.querySelectorAll('#poi-marker')
+    closePoiButtons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        progress.outerHTML = `<p class="step-front" id='poi-progress' data-modal-target="progress">${newProgress}</p>`
+        this.currentIndex += 1
+        pois.forEach((poi) => {
+          poi.classList.add("d-none")
+        })
+        markers[this.currentIndex].classList.remove('poi-marker')
+        markers[this.currentIndex].classList.add('completed-poi')
+        markers[this.currentIndex + 1].style.visibility = 'visible'
+      })
+    })
+  }
+
+  #addMarkersToMap(markers) {
+    markers.forEach((marker) => {
+      let poiMarker = document.createElement('div')
+      poiMarker.className = 'poi-marker'
+      poiMarker.idName = 'poi-marker'
+      new mapboxgl.Marker(poiMarker)
+        .setLngLat([ marker.lng, marker.lat ])
+        .addTo(this.map)
+    })
+  }
+
+  #fitMapToMarkers() {
+    const bounds = new mapboxgl.LngLatBounds()
+    this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
+    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
 }

@@ -1,6 +1,6 @@
 <% @pois.each_with_index do |poi, index| %>
   <% if index == @pois.length - 1 %>
-    <div class="d-none position-absolute main_show_div" data-fake-trip-target="poi">
+    <div class="d-none position-absolute main_show_div" data-fake-trip-target="poi" id='poi-modal'>
       <div class= "card_show_itinerary">
         <%= image_tag poi.mystery_image, class: "show-image", crop: :fill %>
       </div>
@@ -18,7 +18,7 @@
       </div>
     </div>
   <% else %>
-    <div class="d-none position-absolute main_show_div" data-fake-trip-target="poi">
+    <div class="d-none position-absolute main_show_div" data-fake-trip-target="poi" id='poi-modal'>
       <div class= "card_show_itinerary">
         <%= image_tag poi.mystery_image, class: "show-image", crop: :fill %>
       </div>

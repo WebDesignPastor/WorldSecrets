@@ -1,35 +1,24 @@
-.poi-marker:first-of-type {
-  width: 44px !important;
-  height: 50px !important;
-  background: image-url('departure-marker.svg') !important;
-  border: none !important;
-  opacity: 1 !important;
-}
-
-.visible {
-  visibility: visible !important;
-}
-
 .poi-marker {
   position:relative;
 
-  &:nth-of-type(2) {
+  &:first-of-type {
+    width: 44px !important;
+    height: 50px !important;
+    background: image-url('departure-marker.svg') !important;
+    border: none !important;
+    opacity: 1 !important;
+  }
+
+  &:nth-of-type(n+2) {
     background-color: $primary;
     width: 100px;
     height: 100px;
     border-radius: 50%;
     opacity: 0.2;
     animation: pulse 5s infinite;
-    visibility: visible;
   }
 
   &:last-of-type {
-    background-color: $primary;
-    width: 100px;
-    height: 100px;
-    border-radius:50%;
-    opacity: 0.2;
-    animation: pulse 5s infinite;
     visibility: hidden;
   }
 }
