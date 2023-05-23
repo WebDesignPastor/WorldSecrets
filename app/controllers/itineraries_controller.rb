@@ -8,7 +8,11 @@ class ItinerariesController < ApplicationController
       @itineraries = Itinerary.all
     end
     @itineraries_markers = @itineraries.geocoded.map do |itinerary|
-      { lat: itinerary.latitude, lng: itinerary.longitude }
+      { lat: itinerary.latitude,
+        lng: itinerary.longitude,
+        completed: itinerary.trips.where(user: current_user).any?(&:completed?),
+        name: itinerary.name
+      }
     end
   end
 

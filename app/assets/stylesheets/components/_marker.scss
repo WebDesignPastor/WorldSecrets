@@ -40,9 +40,18 @@
   visibility: hidden;
 }
 
+.itinerary-marker-completed {
+  width: 47px !important;
+  height: 54px !important;
+  background: image-url('completed.svg') !important;
+  border: none !important;
+  visibility: hidden;
+}
+
 .itinerary-marker-active {
   background: image-url('activebanner.svg') !important;
 }
+
 
 .itinerary-marker:after {
   display:none !important;
