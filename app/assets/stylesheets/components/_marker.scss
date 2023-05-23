@@ -18,7 +18,7 @@
     animation: pulse 5s infinite;
   }
 
-  &:last-of-type {
+  &:nth-of-type(n+3) {
     visibility: hidden;
   }
 }

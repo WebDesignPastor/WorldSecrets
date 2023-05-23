@@ -7,11 +7,14 @@ import { application } from "./application"
 import BookmarkController from "./bookmark_controller"
 application.register("bookmark", BookmarkController)
 
-import ItinerariesController from "./itineraries_controller"
-application.register("itineraries", ItinerariesController)
+import FakeTripController from "./fake_trip_controller"
+application.register("fake-trip", FakeTripController)
 
 import FakeTripMapController from "./fake_trip_map_controller"
 application.register("fake-trip-map", FakeTripMapController)
+
+import ItinerariesController from "./itineraries_controller"
+application.register("itineraries", ItinerariesController)
 
 import QuestionsController from "./questions_controller"
 application.register("questions", QuestionsController)
@@ -24,6 +27,3 @@ application.register("real-trip-map", RealTripMapController)
 
 import SwitchController from "./switch_controller"
 application.register("switch", SwitchController)
-
-import FakeTripController from "./fake_trip_controller"
-application.register("fake-trip", FakeTripController)
