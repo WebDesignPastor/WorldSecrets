@@ -7,8 +7,9 @@ export default class extends Controller {
     departureMarkers: Array
   }
 
+  static targets = ["poiMarker"]
+
   currentIndex = 0
-  markers = []
 
   connect() {
     mapboxgl.accessToken = this.apiKeyValue;
@@ -73,8 +74,8 @@ export default class extends Controller {
         let averageLatitude = 0;
         let averageLongitude = 0;
         this.positions.forEach(pos => {
-          averageLatitude += pos[1];
           averageLongitude += pos[0];
+          averageLatitude += pos[1];
         });
         averageLatitude /= this.positions.length;
         averageLongitude /= this.positions.length;
@@ -106,9 +107,7 @@ export default class extends Controller {
     })
 
     this.showPoi()
-    this.continue()
-
-    console.log(this.markers)
+    this.continueTrip()
   }
 
   distance(lat1, lon1, lat2, lon2) {
@@ -161,23 +160,22 @@ export default class extends Controller {
     })
   }
 
-  continue() {
+  continueTrip() {
     const progress = document.getElementById("poi-progress")
     const currentProgress = parseInt(progress.textContent)
     const newProgress = currentProgress + 1
-    const pois = document.querySelectorAll("#poi-modal");
+    const pois = document.querySelectorAll("#poi-modal")
     const closePoiButtons = document.querySelectorAll('#trip-poi')
     closePoiButtons.forEach((button) => {
       button.addEventListener("click", (event) => {
-        console.log('vezin')
         progress.outerHTML = `<p class="step-front" id='poi-progress' data-modal-target="progress">${newProgress}</p>`
         this.currentIndex += 1
         pois.forEach((poi) => {
           poi.classList.add("d-none")
         })
-        // this.markers[this.currentIndex].classList.remove('poi-marker')
-        // this.markers[this.currentIndex].classList.add('completed-poi')
-        // this.markers[this.currentIndex + 1].style.visibility = 'visible'
+        this.poiMarkerTargets[this.currentIndex].classList.remove("poi-marker")
+        this.poiMarkerTargets[this.currentIndex].classList.add("completed-poi")
+        this.poiMarkerTargets[this.currentIndex + 1].style.visibility = "visible"
       })
     })
   }
@@ -186,11 +184,10 @@ export default class extends Controller {
     markers.forEach((marker) => {
       let poiMarker = document.createElement('div')
       poiMarker.className = 'poi-marker'
-      let mapboxMarker = new mapboxgl.Marker(poiMarker)
+      poiMarker.dataset.realTripMapTarget = 'poiMarker'
+      new mapboxgl.Marker(poiMarker)
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(this.map)
-
-      this.markers.push(mapboxMarker)
     })
   }
 
