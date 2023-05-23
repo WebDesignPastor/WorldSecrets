@@ -74,6 +74,8 @@ export default class extends Controller {
         this.positions.forEach(pos => {
           averageLatitude += pos[1];
           averageLongitude += pos[0];
+          console.log(pos[1])
+          console.log(pos[0])
         });
         averageLatitude /= this.positions.length;
         averageLongitude /= this.positions.length;
