@@ -72,16 +72,16 @@ export default class extends Controller {
         let averageLatitude = 0;
         let averageLongitude = 0;
         this.positions.forEach(pos => {
-          averageLatitude += pos.latitude;
-          averageLongitude += pos.longitude;
+          averageLatitude += pos[1];
+          averageLongitude += pos[0];
         });
         averageLatitude /= this.positions.length;
         averageLongitude /= this.positions.length;
 
 
-        this.marker.setLngLat([longitude, latitude])
+        this.marker.setLngLat([averageLongitude, averageLatitude])
         this.map.flyTo({
-          center: [longitude, latitude],
+          center: [averageLongitude, averageLatitude],
           speed: 0.1,
           zoom: 16,
         })
@@ -90,7 +90,7 @@ export default class extends Controller {
 
         // Check if the user is within 20 meters of any marker in this.markersValue
         const currentMarker = this.markersValue[this.currentIndex]
-        const distance = this.distance(latitude, longitude, currentMarker.lat, currentMarker.lng)
+        const distance = this.distance(averageLatitude, averageLongitude, currentMarker.lat, currentMarker.lng)
 
         if (distance <= 20) {
           this.hideModal()
