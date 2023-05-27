@@ -94,13 +94,13 @@ export default class extends Controller {
         const currentMarker = this.markersValue[this.currentIndex]
         const distance = this.distance(averageLatitude, averageLongitude, currentMarker.lat, currentMarker.lng)
 
-        if (distance <= 1000) {
+        if (distance <= 10) {
           this.hideModal()
           this.showWarmerModal()
-        } else if (distance <= 50) {
+        } else if (distance <= 20) {
           this.hideModal()
           this.showWarmModal()
-        } else if (distance <= 100) {
+        } else if (distance <= 50) {
           this.showColdModal()
         }
       })
