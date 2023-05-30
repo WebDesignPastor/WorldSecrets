@@ -1,9 +1,9 @@
 <div class="d-flex flex-wrap justify-content-center">
-    <div data-questions-target="congratulation" class="d-none d-flex flex-column justify-content-center mt-15">
+    <div data-questions-target="congratulation" class="wrapper-congratulation d-none d-flex flex-column justify-content-center mt-15">
       <h2 class="question-center">Félicitations ! A bientôt pour de nouvelles aventures !</h2>
       <%= image_tag "quizz_fin_image.jpg", class: 'quizz-image', crop: :fill %>
       <div class="wrapper-rating">
-        <h4>Ajouter une note</h4>
+        <h4 class="question-center">Ajouter une note</h4>
         <%= simple_form_for(@itinerary) do |f| %>
           <div class="star-rating" data-controller='rating'>
             <% (1..5).each do |value| %>
