@@ -12,8 +12,8 @@ export default class extends Controller {
   }
 
   connect() {
-    // this.questionTargets[0].classList.remove('d-none') // to comment if you want to see congratulation first
-    this.congratulationTarget.classList.remove('d-none') // remove comment if you want to see congratulation first
+    this.questionTargets[0].classList.remove('d-none') // to comment if you want to see congratulation first
+    // this.congratulationTarget.classList.remove('d-none') // remove comment if you want to see congratulation first
   }
 
   goodAnswer(event) {
