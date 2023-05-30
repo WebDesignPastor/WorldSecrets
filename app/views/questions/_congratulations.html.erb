@@ -4,18 +4,18 @@
       <%= image_tag "quizz_fin_image.jpg", class: 'quizz-image', crop: :fill %>
       <div class="wrapper-rating">
         <h4 class="question-center">Ajouter une note</h4>
-        <%= form_with(model: @itinerary) do |form| %>
-          <div class="star-rating" data-controller="rating">
+        <%= simple_form_for(@itinerary) do |f| %>
+          <div class="star-rating" data-controller='rating'>
             <% (1..5).each do |value| %>
-              <%= form.label "rating_#{value}", class: 'star',
+              <%= label_tag "rating_#{value}", class: 'star',
                   data: { action: "click->rating#updateStars" } do %>
                 <%= image_tag 'emptystar.svg', data: { rate: value, rating_target: "emptyStar" } %>
                 <%= image_tag 'star.svg', class: 'd-none', data: { rate: value, rating_target: "star" } %>
               <% end %>
-              <%= form.radio_button :rates, value, id: "rating_#{value}", class: 'star-input visually-hidden' %>
+              <%= f.radio_button :rates, value, id: "rating_#{value}", class: 'star-input visually-hidden' %>
             <% end %>
           </div>
-          <%= form.submit "Valider", class: 'btn btn-primary' %>
+          <%= f.submit "Valider", class: 'btn btn-primary' %>
         <% end %>
       </div>
       <%= link_to 'Retourner aux itinéraires', itineraries_path, class: 'btn btn-primary btn-center' %>

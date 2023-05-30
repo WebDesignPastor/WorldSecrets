@@ -8,7 +8,8 @@ class ItinerariesController < ApplicationController
       @itineraries = Itinerary.all
     end
     @itineraries_markers = @itineraries.geocoded.map do |itinerary|
-      { lat: itinerary.latitude,
+      {
+        lat: itinerary.latitude,
         lng: itinerary.longitude,
         completed: itinerary.trips.where(user: current_user).any?(&:completed?),
         name: itinerary.name
@@ -35,7 +36,7 @@ class ItinerariesController < ApplicationController
     @itinerary = Itinerary.find(params[:id])
     new_rate = params[:itinerary][:rates].to_i
     @itinerary.rates << new_rate
-    flash[:notice] = "Merci pour votre note !" if @itinerary.save # TODO: flash message because it's not working
+    flash[:notice] = "Merci pour votre note !" if @itinerary.save
     redirect_to itineraries_path
   end
 
