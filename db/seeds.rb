@@ -21,12 +21,12 @@ require_relative './seeds/mt_st_michel/recoins_st_michel'
 require_relative './seeds/dinan/dinan_remparts'
 require_relative './seeds/pont_croix/joyau_bigouden'
 require_relative './seeds/vannes/remparts_vannes'
+require_relative './seeds/dinard/dinard_promenade'
 
 nantes = City.create!(name: 'Nantes')
 guerledan = City.create!(name: 'Guerlédan')
 plogoff = City.create!(name: 'Plogoff')
 vitre = City.create!(name: 'Vitré')
-dinard = City.create!(name: 'Dinard')
 sibiril = City.create!(name: 'Sibiril')
 porspoder = City.create!(name: 'Porspoder')
 
@@ -46,19 +46,11 @@ puts "created #{Itinerary.count} itineraries"
 
 puts "created #{Question.count} questions"
 
-# dinard_itinerary_pictures = [File.open("db/fixtures/dinard1.jpg")]
-# dinard_itinerary = Itinerary.new(name: 'Promenade à Dinard', subtitle: "Un parcours sur les plages et les villas Belle Époque de la perle de la Côte d'Émeraude",
-#   distance: 4, category: "Urbain", rates: [4], duration: 100, number_of_poi: 4, latitude: 48.634279915731106, longitude:  -2.0548554816140125, city: dinard)
-# dinard_itinerary_pictures.each { |file| dinard_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
-# dinard_itinerary.save!
-
 # kerouzere_itinerary_pictures = [File.open("db/fixtures/kerouzere1.png")]
 # kerouzere_itinerary = Itinerary.new(name: "Un château figé", subtitle: "Un beau chateau ma foi", distance: 12,
 #   category: "Nature", rates: [3], duration: 180, number_of_poi: 4, latitude: 48.672698259366555, longitude: -4.069653969144087, city: sibiril)
 # kerouzere_itinerary_pictures.each { |file| kerouzere_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 # kerouzere_itinerary.save!
-
-
 
 # nantes_itinerary_pictures = File.open("db/fixtures/nantes1.jpg"), File.open("db/fixtures/nantes2.jpg")
 # nantes_itinerary = Itinerary.new(name: 'La balade de la Duchesse Anne', subtitle: "Une balade inoubliable à travers les siècles",
