@@ -1,1 +1,1 @@
-carnac = City.create!(name: 'Carnac')
+City.create!(name: 'Carnac')
