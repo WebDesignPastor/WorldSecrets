@@ -10,7 +10,7 @@ mairie_vezin = Poi.create!(name: 'La mairie de Vezin', latitude: 48.116956035962
   mystery_image: 'mairie_vezin.jpg', clue_image: 'mairie_vezin_clue.jpg', clue_sentence: 'Je suis un lieu de pouvoir, je suis situé à Vezin-le-Coquet, je suis un lieu historique')
 
 
-# vezin_itinerary_pictures = [File.open("db/fixtures/vezin1.jpg")]
+# vezin_itinerary_pictures = [File.open("./images/vezin1.jpg")]
 vezin_itinerary = Itinerary.new(name: 'Vezin et son stade', subtitle: "Le joyau de la Flume", distance: 10, rates: [5], duration: 180, number_of_poi: 2,  latitude: 48.119235, longitude: -1.753901, city: vezin, category: 'Urbain',
 description: "Vezin est le sang de la veine de l'Ille-et-Vilaine. Venez vous installer dans cette bourgade de l'extrême où les générations s'entendent si bien entre elles.")
 # vezin_itinerary_pictures.each { |file| vezin_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }

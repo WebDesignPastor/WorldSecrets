@@ -12,7 +12,7 @@ la_grand_porte = Poi.create!(name: "La Grand'Porte", latitude: 48.648962, longit
       Également surnommée « Notre-Dame des Miracles », la légende raconte qu’en 1661, elle se serait dressée face aux flammes qui ravageaient la ville et aurait stoppé l’incendie.", mystery_image: "la_grand_porte.jpg", clue_image: "clue_grand_porte.jpg",
       clue_sentence: "Je suis une entrée majestueuse de la ville de Saint-Malo, ornée de sculptures et de motifs baroques. Témoin de l'histoire de la cité corsaire. Qui suis-je ?")
 
-# st_malo_itinerary_pictures = [File.open("db/fixtures/saint-malo1.jpg")]
+# st_malo_itinerary_pictures = [File.open("./images/saint-malo1.jpg")]
 st_malo_itinerary = Itinerary.new(name: 'Saint-Malo, la cité corsaire', subtitle: "Plongez dans les secrets des remparts d'Intra-Muros", distance: 5,
   rates: [5], duration: 60, number_of_poi: 3, latitude: 48.650861651302534, longitude: -2.0218998515555895,  city: st_malo, category: "Médiéval",
   description: "Entendez-moi, noble compagnie, car je vais vous raconter l'histoire d'une cité corsaire bâtie sur les flots tumultueux de la mer, la ville imprenable de Saint-Malo.
