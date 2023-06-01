@@ -1,0 +1,1 @@
+City.create!(name: 'Carnac')
