@@ -14,7 +14,7 @@ vezin_itinerary_pictures = [File.open("db/seeds/vezin/images/vezin1.jpg")]
 vezin_itinerary = Itinerary.new(name: 'Vezin et son stade', subtitle: "Le joyau de la Flume", distance: 10, rates: [5],
   duration: 180, number_of_poi: 2,  latitude: 48.119235, longitude: -1.753901, city: vezin, category: 'Urbain',
 description: "Vezin est le sang de la veine de l'Ille-et-Vilaine. Venez vous installer dans cette bourgade de l'extrême
-où les générations s'entendent si bien entre elles.")
+où les générations s'entendent si bien entre elles.", quiz_name: "Vezin pour la vie")
 vezin_itinerary_pictures.each { |file| vezin_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 vezin_itinerary.save!
 
