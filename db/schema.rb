@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_22_085053) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_06_132816) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -78,6 +78,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_22_085053) do
     t.text "description"
     t.string "subtitle"
     t.integer "rates", default: [], array: true
+    t.string "quiz_name"
     t.index ["city_id"], name: "index_itineraries_on_city_id"
   end
 
