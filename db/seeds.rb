@@ -3,6 +3,7 @@
 require "open-uri"
 
 puts '####### Cleaning database #######'
+Bookmark.destroy_all
 User.destroy_all
 Poi.destroy_all
 Itinerary.destroy_all

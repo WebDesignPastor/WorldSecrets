@@ -15,16 +15,23 @@ la_grand_porte = Poi.create!(name: "La Grand'Porte", latitude: 48.648962, longit
 st_malo_itinerary_pictures = [File.open("db/seeds/st_malo/images/saint-malo1.jpg")]
 st_malo_itinerary = Itinerary.new(name: 'Saint-Malo, la cité corsaire', subtitle: "Plongez dans les secrets des remparts d'Intra-Muros", distance: 5,
   rates: [5], duration: 60, number_of_poi: 3, latitude: 48.650861651302534, longitude: -2.0218998515555895,  city: st_malo, category: "Médiéval",
-  description: "Entendez-moi, noble compagnie, car je vais vous raconter l'histoire d'une cité corsaire bâtie sur les flots tumultueux de la mer, la ville imprenable de Saint-Malo.
-  Enveloppée par les vagues impitoyables de la Manche, cette ville est un joyau resplendissant dans l'histoire de la Bretagne.
-  Avec ses fortifications massives, ses édifices majestueux et ses rues pavées envoûtantes, elle a connu des siècles de guerres, de commerce et d'aventures épiques.
+  description: "Entendez-moi, noble compagnie, car je vais vous raconter l'histoire d'une cité corsaire bâtie sur les
+  flots tumultueux de la mer, la ville imprenable de Saint-Malo.
+  Enveloppée par les vagues impitoyables de la Manche, cette ville est un joyau resplendissant dans l'histoire de la
+  Bretagne.Avec ses fortifications massives, ses édifices majestueux et ses rues pavées envoûtantes,
+  elle a connu des siècles de guerres, de commerce et d'aventures épiques.
   Ses remparts s'élèvent fièrement dans le ciel, défiant l'océan et protégeant la ville de ses ennemis.
   Mais c'est surtout l'histoire des corsaires de Saint-Malo qui a marqué les esprits de toutes les générations.
-  Ces guerriers intrépides naviguaient sur des navires rapides et puissants, bravant les tempêtes les plus violentes et les flots les plus déchaînés pour protéger leur ville et leur liberté.
-  Leurs batailles légendaires contre les ennemis, qu'ils soient Anglais, Espagnols ou autres, sont restées gravées dans l'histoire.
-  Les canons tonnent, les sabres s'entrechoquent, les flammes embrasent les navires ennemis, mais les corsaires de Saint-Malo tiennent bon, animés par un courage inébranlable et une ferveur indomptable.
-  Aujourd'hui encore, la ville de Saint-Malo continue de fasciner et d'inspirer tous ceux qui la visitent. Les rues pavées résonnent de l'histoire de ses ancêtres valeureux, les remparts gardent jalousement leurs secrets et l'océan murmure à l'oreille de ceux qui sont prêts à écouter.
-  Que la légende de Saint-Malo perdure dans les siècles à venir, comme un symbole de la bravoure et de la liberté de ceux qui ont osé affronter les flots les plus impitoyables et les ennemis les plus redoutables.")
+  Ces guerriers intrépides naviguaient sur des navires rapides et puissants, bravant les tempêtes les plus violentes
+  et les flots les plus déchaînés pour protéger leur ville et leur liberté.
+  Leurs batailles légendaires contre les ennemis, qu'ils soient Anglais, Espagnols ou autres, sont restées gravées
+  dans l'histoire.
+  Les canons tonnent, les sabres s'entrechoquent, les flammes embrasent les navires ennemis, mais les corsaires de
+  Saint-Malo tiennent bon, animés par un courage inébranlable et une ferveur indomptable.
+  Aujourd'hui encore, la ville de Saint-Malo continue de fasciner et d'inspirer tous ceux qui la visitent. Les rues pavées
+  résonnent de l'histoire de ses ancêtres valeureux, les remparts gardent jalousement leurs secrets et l'océan murmure à l'oreille de ceux qui sont prêts à écouter.
+  Que la légende de Saint-Malo perdure dans les siècles à venir, comme un symbole de la bravoure et de la liberté de ceux
+  qui ont osé affronter les flots les plus impitoyables et les ennemis les plus redoutables.", quiz_name:"Quiz de la cité corsaire")
 st_malo_itinerary_pictures.each { |file| st_malo_itinerary.photos.attach(io: file, filename: "nes.png", content_type: "image/png") }
 st_malo_itinerary.save!
 
