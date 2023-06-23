@@ -1,0 +1,8 @@
+eu/breizhsecrets/www/twa/Application.java
+ eu.breizhsecrets.www.twa.Application
+eu/breizhsecrets/www/twa/DelegationService.java
+ eu.breizhsecrets.www.twa.DelegationService
+eu/breizhsecrets/www/twa/BuildConfig.java
+ eu.breizhsecrets.www.twa.BuildConfig
+eu/breizhsecrets/www/twa/LauncherActivity.java
+ eu.breizhsecrets.www.twa.LauncherActivity
