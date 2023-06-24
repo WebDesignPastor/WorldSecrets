@@ -1,0 +1,45 @@
+{
+  "packageId": "eu.breizhsecrets.www.twa",
+  "host": "www.breizhsecrets.eu",
+  "name": "Breizh Secrets",
+  "launcherName": "BzhSecrets",
+  "display": "fullscreen",
+  "themeColor": "#681417",
+  "navigationColor": "#000000",
+  "navigationColorDark": "#000000",
+  "navigationDividerColor": "#000000",
+  "navigationDividerColorDark": "#000000",
+  "backgroundColor": "#E9E6DF",
+  "enableNotifications": true,
+  "startUrl": "/",
+  "iconUrl": "https://www.breizhsecrets.eu/assets/icons/icon-512x512-a9c0bbb93ffa66aac69f468d54528dcf67ead2c730c7a7c21e78375db069e1e0.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "/home/tchiadeu/code/tchiadeu/portfolio/BreizhSecrets/android.keystore",
+    "alias": "android"
+  },
+  "appVersionName": "1",
+  "appVersionCode": 1,
+  "shortcuts": [],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://www.breizhsecrets.eu/assets/manifest-732c99a3dbcf0e50e3450b4879e14bd2d6e195dc3549f83af1adfbc811bd6383.json",
+  "fallbackType": "customtabs",
+  "features": {
+    "locationDelegation": {
+      "enabled": true
+    }
+  },
+  "alphaDependencies": {
+    "enabled": false
+  },
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "fullScopeUrl": "https://www.breizhsecrets.eu/assets/",
+  "minSdkVersion": 19,
+  "orientation": "portrait",
+  "fingerprints": [],
+  "additionalTrustedOrigins": [],
+  "retainedBundles": [],
+  "appVersion": "1"
+}
