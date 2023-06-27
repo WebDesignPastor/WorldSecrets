@@ -3,11 +3,11 @@ vezin = City.create!(name: 'Vezin-le-Coquet')
 prison_vezin = Poi.create!(name: 'La prison de Vezin', mystery_name: 'La prison oubliée', latitude: 48.115967991535825,  longitude: -1.7548595057641405,
   mystery_content: 'La prison de Vezin-le-Coquet est une ancienne prison située dans la commune de Vezin-le-Coquet, en Ille-et-Vilaine.
   Construite en 1860, elle est fermée en 1952. Elle est inscrite au titre des monuments historiques depuis le 28 décembre 1992.',
-  mystery_image: 'prison_vezin.jpg', clue_image: 'prison_vezin_clue.png', clue_sentence: 'Je suis un lieu de détention, je suis situé à Vezin-le-Coquet, je suis un lieu historique')
+  mystery_image: 'pois/vezin/prison_vezin.jpg', clue_image: 'pois/vezin/prison_vezin_clue.png', clue_sentence: 'Je suis un lieu de détention, je suis situé à Vezin-le-Coquet, je suis un lieu historique')
 
-mairie_vezin = Poi.create!(name: 'La mairie de Vezin', latitude: 48.11695603596252, longitude: -1.7539228302209222, mystery_name: 'La mairie de Vezin',
+mairie_vezin = Poi.create!(name: 'La mairie de Vezin', latitude: 48.122421269936765, longitude: -1.7503536628073069, mystery_name: 'Manoir de la Derouetière',
   mystery_content: 'La mairie de Vezin-le-Coquet est un bâtiment situé dans la commune de Vezin-le-Coquet, en Ille-et-Vilaine.',
-  mystery_image: 'mairie_vezin.jpg', clue_image: 'mairie_vezin_clue.jpg', clue_sentence: 'Je suis un lieu de pouvoir, je suis situé à Vezin-le-Coquet, je suis un lieu historique')
+  mystery_image: 'pois/vezin/mairie_vezin.jpg', clue_image: 'pois/vezin/mairie_vezin_clue.jpg', clue_sentence: 'Je suis un lieu de pouvoir, je suis situé à Vezin-le-Coquet, je suis un lieu historique')
 
 
 vezin_itinerary_pictures = [File.open("db/seeds/vezin/images/vezin1.jpg")]
