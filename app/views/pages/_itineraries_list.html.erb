@@ -1,5 +1,5 @@
 <% itineraries.each do |itinerary| %>
-  <div class="card card-profile">
+  <div data-account-target="itinerariesList" class="card card-profile">
     <%= link_to itinerary_path(itinerary), class:'d-flex align-items-center' do %>
       <%= cl_image_tag itinerary.photos.first.key, height: 110, width: 100, crop: :fill %>
       <div class="card-infos">
