@@ -3,7 +3,7 @@ vezin = City.create!(name: 'Vezin-le-Coquet')
 ferme_vezin = Poi.create!(name: 'Le Bas-vezin', mystery_name: 'Ferme du Bas-Vezin', latitude: 48.115383000768574, longitude: -1.7568778017389504,
   mystery_content: "Autrefois isolée au sud du village, cette ancienne ferme est maintenant englobée dans l'agglomération de Vezin.
   Implantée sur le site d'un manoir disparu, elle est datée de la fin du 18e siècle et présente un ensemble de bâtiments remarquables. L'aile ouest a été transformée en logements.",
-  mystery_image: 'pois/vezin/prison_vezin.jpg', clue_image: 'pois/vezin/prison_vezin_clue.png', clue_sentence: 'Je suis un lieu de détention, je suis situé à Vezin-le-Coquet, je suis un lieu historique')
+  mystery_image: 'pois/vezin/ferme_bas_vezin.png', clue_image: 'pois/vezin/ferme_bas_vezin_clue.png', clue_sentence: 'Je suis un lieu de détention, je suis situé à Vezin-le-Coquet, je suis un lieu historique')
 
 chateau_vezin = Poi.create!(name: 'Château de la Derouetière', latitude: 48.12240978803061, longitude: -1.7502067154248528, mystery_name: 'Château de la Derouetière',
   mystery_content: "Le château de la Derouetière, rebaptisé depuis une trentaine d'années le Haut-Jussé en souvenir de l'un de ses occupants, l'historien Pocquet du Haut-Jussé, est une demeure érigée
@@ -41,5 +41,7 @@ Question.create!(question_statement: "Quel est le nouveau nom du Château de la 
   answer_statement: ["Château des Champs Bleus", "Château du Haut Jussé", "Château du Moulin à vent", "Château du Lion d'or"], good_answer: "Château du Haut Jussé")
 Question.create!(question_statement: "Dans quel style est-il construit ?", itinerary: vezin_itinerary,
   answer_statement: ["Gréco-romain", "Gothique", "Baroque", "Néo-Toscan"], good_answer: "Néo-Toscan")
+Question.create!(question_statement: "Quel était le métier de Poquet du Haut-Jussé, qui vécut dans le château et lui donna son nouveau nom ?", itinerary: vezin_itinerary,
+  answer_statement: ["Écrivain", "Journaliste", "Député", "Historien"], good_answer: "Historien")
 
 puts "vezin_itinerary created"
