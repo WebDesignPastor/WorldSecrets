@@ -1,10 +1,16 @@
 <div class="d-flex flex-column container-profile">
-  <h1>Votre profil</h1>
+  <div class='d-flex flex-row justify-content-between'>
+    <h1>Votre profil</h1>
+    <i class="fa-solid fa-gear"></i>
+  </div>
   <h2 style="margin-top: 10px; margin-bottom: 0px">Vos itinéraires favoris</h2>
   <%= render 'itineraries_list', itineraries: @favorite_itineraries %>
   <h2 style="margin-top: 10px; margin-bottom: 0px">Itinéraires faits</h2>
   <%= render 'itineraries_list', itineraries: @completed_itineraries %>
-  <div>
-    <%= link_to 'Retour aux itinéraires', itineraries_path, class: 'btn btn-primary btn-center' %>
-  </div>
+  <%= link_to 'Retour aux itinéraires', itineraries_path, class: 'btn btn-primary btn-center' %>
+  <%=
+    link_to 'Supprimer mon compte', user_registration_path,
+    data: {turbo_method: :delete, turbo_confirm: "Êtes vous sûr(e) ?"},
+    class: "btn btn-primary"
+  %>
 </div>
