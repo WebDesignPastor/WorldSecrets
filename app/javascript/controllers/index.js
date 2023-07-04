@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AccountController from "./account_controller"
+application.register("account", AccountController)
+
 import BookmarkController from "./bookmark_controller"
 application.register("bookmark", BookmarkController)
 
