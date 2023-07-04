@@ -15,7 +15,13 @@
   <%=
     link_to 'Retour aux itinéraires', itineraries_path,
     data: {account_target: "backButton"},
-    class: 'btn btn-primary btn-center' %>
+    class: 'btn btn-primary btn-center'
+  %>
+  <%=
+    link_to "Déconnexion", destroy_user_session_path,
+    data: {account_target: "logoutButton", turbo_method: :delete},
+    class: 'btn btn-primary d-none'
+  %>
   <%=
     link_to 'Supprimer mon compte', user_registration_path,
     data: {account_target: "deleteButton", turbo_method: :delete, turbo_confirm: "Êtes vous sûr(e) ?"},
