@@ -35,9 +35,9 @@ puts "created #{City.count} cities"
 
 puts '####### Creating Users #############'
 
-User.create!(email: 'test1@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Fanch')
-User.create!(email: 'test2@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Rico')
-User.create!(email: 'test3@test.com', password: 'password', password_confirmation: 'password', nickname: 'Jean-Kevin')
+User.create!(email: 'test1@test.com', password: 'password', password_confirmation: 'password')
+User.create!(email: 'test2@test.com', password: 'password', password_confirmation: 'password')
+User.create!(email: 'test3@test.com', password: 'password', password_confirmation: 'password')
 
 puts "created #{User.count} users"
 
