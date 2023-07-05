@@ -28,5 +28,8 @@ application.register("rating", RatingController)
 import RealTripMapController from "./real_trip_map_controller"
 application.register("real-trip-map", RealTripMapController)
 
+import RegistrationController from "./registration_controller"
+application.register("registration", RegistrationController)
+
 import SwitchController from "./switch_controller"
 application.register("switch", SwitchController)

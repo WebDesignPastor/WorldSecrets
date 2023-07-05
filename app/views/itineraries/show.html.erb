@@ -5,7 +5,9 @@
       <i class="fa-solid fa-chevron-left"></i>
       <span>RETOUR</span>
     <% end %>
-    <%= render 'bookmark' %>
+    <% if user_signed_in? %>
+      <%= render 'bookmark' %>
+    <% end %>
   </div>
   <div class="banner-show">
     <h2><%= @itinerary.name %></h2>
@@ -29,8 +31,12 @@
     <p><%= @itinerary.description %></p>
   </div>
   <div class="card_show_bottom">
-    <%= simple_form_for [@itinerary, @trip] do |f| %>
-      <%= f.submit "Allons-y", class: "btn btn-primary w-100" %>
+    <% if user_signed_in? %>
+      <%= simple_form_for [@itinerary, @trip] do |f| %>
+        <%= f.submit "Allons-y", class: "btn btn-primary w-100" %>
+      <% end %>
+    <% else %>
+      <%= link_to "Se connecter pour aller plus loin", new_user_session_path, class: "btn btn-primary w-100" %>
     <% end %>
   </div>
 </div>

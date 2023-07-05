@@ -1,4 +1,6 @@
 class ItinerariesController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
+
   def index
     if params[:query].present?
       city = City.where("to_tsvector('english', name) @@ plainto_tsquery('english', ?)", params[:query].to_s)
