@@ -6,4 +6,6 @@ class User < ApplicationRecord
   has_many :trips, dependent: :destroy
   has_many :bookmarks
   has_many :itineraries, through: :bookmarks
+
+  validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/ }
 end
