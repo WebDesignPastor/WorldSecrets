@@ -1,25 +1,139 @@
-<h2>Sign up</h2>
+<div class="container my-2" data-controller="registration">
+  <h2 data-registration-target="pageTitle">Inscription</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
-  <%= f.error_notification %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-  </div>
+    <div data-registration-target="registrationForm" class="form-inputs">
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" }%>
+      <%= f.input :password,
+                  required: true,
+                  hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password" },
+                  label: "Mot de passe" %>
+      <%= f.input :password_confirmation,
+                  required: true,
+                  input_html: { autocomplete: "new-password" },
+                  label: "Confirmation mot de passe" %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
+    <div data-registration-target="goingFurther"
+      data-action="click->registration#confidentialPolicyAppear"
+      class="btn btn-primary">
+      Pour aller plus loin, lire les politiques de confidentialité et d'utilisation et les accepter.
+    </div>
 
-<%= render "devise/shared/links" %>
+    <div class="d-none" data-registration-target="confidentialPolicy">
+      <h2><strong>POLITIQUE DE CONFIDENTIALITE DU SITE<br>Breizh Secrets</strong></h2>
+      <h2><strong>ARTICLE 1 : PREAMBULE</strong></h2>
+      <p>Cette politique de confidentialité s'applique au site : Breizh Secrets.</p>
+      <p>La présente politique de confidentialité a pour but d'exposer aux utilisateurs du site :</p>
+      <ul>
+        <li><p>La manière dont sont collectées et traitées leurs données à caractère personnel. Doivent être considérées comme données personnelles toutes les données étant susceptibles d'identifier un utilisateur. Il s'agit notamment du prénom, du nom, de l'âge, de l'adresse postale, l'adresse mail, la localisation de l'utilisateur ou encore son adresse IP;</p></li>
+        <li><p>Quels sont les droits des utilisateurs concernant ces données;</p></li>
+        <li><p>Qui est responsable du traitement des données à caractère personnel collectées et traitées;</p></li>
+        <li><p>A qui ces données sont transmises;</p></li>
+        <p><li>Eventuellement, la politique du site en matière de fichiers "cookies".</p></li>
+      </ul>
+      <p>Cette politique de confidentialité complète les mentions légales et les Conditions Générales d'Utilisation que les utilisateurs peuvent consulter à l'adresse ci-après : https://www.breizhsecrets.eu/privacy</p>
+      <h2><strong>ARTICLE 2 : PRINCIPES GENERAUX EN MATIERE DE COLLECTE ET DE TRAITEMENT DE DONNEES</strong></h2>
+      <p>Conformément aux dispositions de l'article 5 du Règlement européen 2016/679, la collecte et le traitement des données des utilisateurs du site respectent les principes suivants :</p>
+      <ul>
+        <li><p>Licéité, loyauté et transparence : les données ne peuvent être collectées et traitées qu'avec le consentement de l'utilisateur propriétaire des données. A chaque fois que des données à caractère personnel seront collectées, il sera indiqué à l'utilisateur que ses données sont collectées, et pour quelles raisons ses données sont collectées;</p></li>
+        <li><p>Finalité limitées : la collecte et le traitement des données sont éxécutés pour répondre à un ou plusieurs objectifs déterminés dans les présentes conditions générales d'utilisation;</p></li>
+        <li><p>Minimisation de la collecte et du traitement des données : seules les données nécessaires à la bonne exécution des objectifs poursuivis par le site sont collectées;</p></li>
+        <li><p>Conservation des données réduites dans le temps : les données sont conservées pour une durée limitée, dont l'utilisateur est informé des critères utilisés pour déterminer la durée de conservation;</p></li>
+        <li><p>Intégrité et confidentialité des données collectées et traitées : le responsable du traitement des données s'engage à garantir l'intégrité et la confidentialité des données collectées.</p></li>
+      </ul>
+      <p>Afin d'être licites, et ce conformément aux exigences de l'article 6 du règlement européen 2016/679, la collecte et le traitement des données à caractère personnel ne pourront intervenir que s'ils respectent au moins l'une des conditions ci-après énumérées :</p>
+      <ul>
+        <li><p>L'utilisateur a expressément consenti au traitement;</p></li>
+        <li><p>Le traitement est nécessaire à la bonne exécution d'un contrat;</p></li>
+        <li><p>Le traitement répond à une obligation légale;</p></li>
+        <li><p>Le traitement s'explique par une nécessité liée à la sauvegarde des intérêts vitaux de la personne concernée ou d'autre personne physique;</p></li>
+        <li><p>Le traitement peut s'expliquer par une nécessité liée à l'exécution d'une mission d'intérêt public ou qui relève de l'exercice de l'autorité publique;</p></li>
+        <li><p>Le traitement et la collecte des données à caractère personnel sont nécessaires aux fins des intérêts légitimes et prviés poursuivis par le responsable du traitement ou par un tiers.</p></li>
+      </ul>
+      <h2><strong>ARTICLE 3 : DONNEES A CARACTERE PERSONNEL COLLECTEES ET TRAITEES DANS LE CADRE DE LA NAVIGATION SUR LE SITE</strong></h2>
+      <p><strong>A.</strong> DONNEES COLLECTEES ET TRAITEES ET MODE DE COLLECTE</p>
+      <p>Les données à caractère personnel collectées sur le site Breizh Secrets sont les suivantes :</p>
+      <ul>
+        <li>Adresse email</li>
+        <li>Géolocalisation</li>
+      </ul>
+      <p>Ces données sont collectées lorsque l'utilisateur effectue l'une des opérations suivantes sur le site :</p>
+      <ul>
+        <li>Lorsque l'utilisateur s'inscrit pour l'email</li>
+        <li>Lorsque l'utilisateur lance un itinéraire pour la géolocalisation</li>
+      </ul>
+      <p>Le responsable du traitement conservera dans ses systèmes informatiques du site et dans des conditions raisonnables de sécurité l'ensemble des données collectées pour une durée de :</p>
+      <ul>
+        <li>email :  10 ans</li>
+        <li>géolocalisation : la durée de l'itinéraire</li>
+      </ul>
+      <p>La collecte et le traitement des données répondent aux finalités suivantes : fonctionnement de l'application.</p>
+      <p>Les traitements de données effectués sont fondés sur les bases légales suivantes : consentement de l'utilisateur.</p>
+      <p><strong>B.</strong> TRANSMISSION DES DONNEES A DES TIERS</p>
+      <p>Les données à caractère personnel collectées par le site ne sont transmises à aucun tiers, et ne sont traitées que par l'éditeur du site.</p>
+      <p><strong>C.</strong> HEBERGEMENT DES DONNEES</p>
+      <p>Le site Breizh Secrets est hébergé par : Heroku, dont le siège est situé à l'adresse ci-après : The Landmark at One Market, Suite 300, San Francisco, CA 94105, United States</p>
+      <p>L'hébergeur peut être contacté au numéro de téléphone suivant : 0035314403500</p>
+      <p>Les données collectées et traitées par le site sont transférées vers le parys suivant : Irelande.</p>
+      <h2><strong>ARTICLE 4 : RESPONSABLE DU TRAITEMENT DES DONNEES</strong></h2>
+      <p><strong>A.</strong> LE RESPONSABLE DU TRAITEMENT DES DONNEES</p>
+      <p>Le responsable du traitement des données à caractère personnel est : Breizh Secrets. Il peut être contacté de la manière suivante : par mail à l'adresse webcreationtp@gmail.com</p>
+      <p>Le responsable du traitement des données est chargé de déterminer les finalités et les moyens mis au service du traitement des données à caractère personnel.</p>
+      <p><strong>B.</strong> OBLIGATIONS DU RESPONSABLE DU TRAITEMENT DES DONNEES</p>
+      <p>Le responsable du traitement s'engage à protéger les données à caractère personnel collectées, à ne pas les transmettre à des tiers sans que l'utilisateur n'en ait été informé et à respecter les finalités pour lesquelles ces données sont collectées.</p>
+      <p>Le site dispose d'un certificat SSL afin de garantir que les informations et le transfert des données transitant par le site sont sécurisés.</p>
+      <p>Un certificat SSL ("Secure Socket Layer" Certificate) a pour but de sécuriser les données échangées entre l'utilisateur et le site.</p>
+      <p>De plus, le responsable du traitement des données s'engage à notifier l'utilisateur en cas de rectification ou de suppression des données, à moins que cela n'entraîne pour lui des formalités, coûts et démarches disproportionnés.</p>
+      <p>Dans le cas où l'intégrité, la confidentialité ou la sécurité des données à caractère personnel de l'utilisateur est compromise, le responsable du traitement s'engage à informer l'utilisateur par tout moyen.</p>
+      <h2><strong>ARTICLE 5 : DROITS DE L'UTILISATEUR</strong></h2>
+      <p>Conformément à la réglementation concernant le traitement des données à caractère personnel, l'utilisateur possède les droits ci-après énumérés.</p>
+      <p>Afin que le responsable du traitement des données fasse droit à sa demande, l'utilisateur est tenu de lui communiquer : ses prénom et nom ainsi que son adresse e-mail, et si cela est pertinent, son numéro de compte ou d'espace personnel ou d'abonné.</p>
+      <p>Le responsable du traitement des données est tenu de répondre à l'utilisateur dans un délai de 30 (trente) jours maximum.</p>
+      <p><strong>A.</strong> PRESENTATION DES DROITS DE L'UTILISATEUR EN MATIERE DE COLLECTE ET DE TRAITEMENT DE DONNEES</p>
+      <p><i>a. Droit d'accès, de rectification et droit à l'effacement</i></p>
+      <p>L'utilisateur peut prendre connaissance, mettre à jour, modifier ou demander la suppression des données le concernant, en respectant la procédure ci-après énoncée :</p>
+      <p>L'utilisateur doit supprimer son compte pour supprimer les données personnelles collectées par le site.</p>
+      <p>Si l'utilisateur en possède un, il a le droit de demander la suppression de son espace personnel en suivant la procédure suivante :</p>
+      <p>L'utilisateur doit se rendre sur sa page profile et accéder aux paramètres puis supprimer son compte.</p>
+      <p><i>b. Droit à la portabilité des données</i></p>
+      <p>L'utilisateur a le droit de demander la portabilité de ses données personnelles, détenues par le site, vers un autre site, en se conformant à la procédure ci-après :</p>
+      <p>L'utilisateur doit faire une demande de portabilité de ses données personnelles auprès du responsable de traitement des données, en envoyant un email à l'adresse prévue ci-dessus.</p>
+      <p><i>c. Droit à la limitation et à l'opposition du traitement des données</i></p>
+      <p>L'utilisateur a le droit de demander la limitation ou de s'opposer au traitement de ses données par le site, sans que le site ne puisse refuser, sauf à démontrer l'existence de motifs légitimes et impérieux, pouvant prévaloir sur les intérêts et les droits et libertés de l'utilisateur.</p>
+      <p>Afin de demander la limitation du traitement de ses données ou de formuler une opposition au traitement de ses données, l'utilisateur doit suivre la procédure suivante :</p>
+      <p>L'utilisateur doit faire une demande de limitation du traitement de ses données personnelles auprès du responsable de traitement des données, en envoyant un email à l'adresse prévue ci-dessus.</p>
+      <p><i>d. Droit de ne pas faire l'objet d'une décision fondée exclusivement sur un procédé automatisé</i></p>
+      <p>Conformément aux dispositions du rgèlement 2016/679, l'utilisateur à le droit de ne pas faire l'objet d'une décision fondée exclusivement sur un procédé automatisé si la décision produit des effets juridiques le concernant, ou l'affecte de manière significative de façon similaire.</p>
+      <p><i>e. Droit de déterminer le sort des données après la mort</i></p>
+      <p>Il est rappelé à l'utilisateur qu'il peut organiser quel doit être le devenir de ses données collectées et traitées s'il décède, conformément à la loi n°2016-1321 du 7 octobre 2016.</p>
+      <p><i>f. Droit de saisir l'autorité de contrôle compétente</i></p>
+      <p>Dans le cas où le responsable de traitement des données décide de ne pas répondre à la demande de l'utilisateur, et que l'utilisateur souhaite contester cette décision, ou, s'il pense qu'il est porté atteinte à l'un des droits énumérés ci-dessus, il est en droit de saisir la CNIL (Commission Nationale de l'Informatique et des Libertés, https://www.cnil.fr) ou tout juge compétent.</p>
+      <p><strong>B.</strong> DONNEES PERSONNELLES DES PERSONNES MINEURES</p>
+      <p>Conformément aux dispositions de l'article 8 du règlement européen 2016/679 et à la loi Informatique et Libertés, seuls les mineurs âgés de 15 ans ou plus peuvent consentir au traitement de leurs données personnelles.</p>
+      <p>Si l'utilisateur est un mineur de moins de 15 ans, l'accord d'un représentant légal sera requis afin que des données à caractère personnel puissent être collectées et traitées.</p>
+      <p>Le site se réserve le droit de vérifier par tout moyen que l'utilisateur est âgé de plus de 15 ans, ou qu'il aura obtenu l'accord d'un représentant légal avant de naviguer sur le site.</p>
+      <h2><strong>ARTICLE 6 : UTILISATION DES FICHIERS "COOKIES"</strong></h2>
+      <p>La présente politique de confidentialité peut être consultée à tout moment à l'adresse ci-après indiquée :</p>
+      <p>https://www.breizhsecrets.eu/privacy</p>
+      <p>L'éditeur du site se réserve le droit de la modifier afin de garantir sa conformité avec le droit en vigueur.</p>
+      <p>Par conséquent, l'utilisateur est invité à venir consulter régulièrement cette politique de confidentialité afin de se tenir informé des derniers changements qui lui seront apportés.</p>
+      <p>Il est porté à la connaissance de l'utilisateur que la dernière mise à jour de la présente politique de confidentialité est intervenue le : 04/07/2023.</p>
+      <h2><strong>ARTICLE 7 : CONDITIONS APPLICABLES AU CONSENTEMENT</strong></h2>
+      <p>Lorsqu'il clique sur le bouton d'acceptation présent sur le site, l'utilisateur manifeste son consentement libre, spécifique, éclairé et univoque au traitement de ses données à caractère personnel par l'éditeur du site.</p>
+      <button data-action="click->registration#acceptConfidentialPolicy">Accepter la politique de confidentialité et finaliser l'inscription</button>
+    </div>
+
+    <div data-registration-target="registrationButton" class="form-actions d-none">
+      <%= f.button :submit, "Inscription" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links", data: {registration_target: "sharedLinks"} %>
+</div>
