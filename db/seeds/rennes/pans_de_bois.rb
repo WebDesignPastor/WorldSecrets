@@ -45,8 +45,8 @@ rue_chapitre = Poi.create!(
 )
 
 pans_de_bois_itinerary_pictures = [File.open("db/seeds/rennes/images/pans_de_bois.png")]
-pans_de_bois_itinerary = Itinerary.new(name: 'Sur les traces des Maisons à Pans de Bois de Rennes', subtitle: "Une promenade architecturale dans le cœur historique de Rennes", distance: 4, rates: [5],
-  duration: 180, number_of_poi: 2,  latitude: 48.115245900734365, longitude: -1.6809570012529582, city: rennes, category: 'Médiéval',
+pans_de_bois_itinerary = Itinerary.new(name: 'Maisons à Pans de Bois de Rennes', subtitle: "Une promenade architecturale dans le cœur historique de Rennes", distance: 4, rates: [5],
+  duration: 180, number_of_poi: 4,  latitude: 48.115245900734365, longitude: -1.6809570012529582, city: rennes, category: 'Médiéval',
 description: "Plongez dans l'histoire captivante de Rennes avec cet itinéraire qui vous guidera à travers les plus remarquables maisons à pans de bois de la ville.
 Ces joyaux architecturaux reflètent le savoir-faire d'artisans d'antan et l'histoire riche et colorée de Rennes. Votre promenade vous emmènera à travers des rues étroites et pittoresques,
 des places animées et des coins tranquilles, chaque arrêt révélant une nouvelle maison à pans de bois à admirer. Préparez-vous pour une aventure inoubliable qui vous transportera à travers le temps,

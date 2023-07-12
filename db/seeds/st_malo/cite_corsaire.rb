@@ -1,16 +1,28 @@
 st_malo = City.create!(name: 'Saint-Malo')
 
-chat_qui_danse = Poi.create!(name: 'La rue du chat qui danse', latitude: 48.650662, longitude:  -2.027407,
-  mystery_name: 'Rue du chat qui danse', mystery_content: "Les Anglois ont tenté de rayer Saint-malo de la
+chat_qui_danse = Poi.create!(
+  name: 'La rue du chat qui danse',
+  latitude: 48.650662,
+  longitude:  -2.027407,
+  mystery_name: 'Rue du chat qui danse',
+  mystery_content: "Les Anglois ont tenté de rayer Saint-malo de la
   carte avec un bateau rempli d'explosifs, hélas pour eux, le bateau finit par s'échouer loin des enceintes de la ville.
   Il ne fit qu'une victime, un chat ! Pour les moquer, les malouins rebaptisèrent cette rue, la rue du chat qui danse",
-  mystery_image: 'rue_du_chat_qui_danse.jpg', clue_image: 'cat_dance.gif', clue_sentence: 'Je suis un animal,
+  mystery_image: 'pois/st-malo/rue_du_chat_qui_danse.jpg',
+  clue_image: 'pois/st-malo/cat_dance.gif',
+  clue_sentence: 'Je suis un animal,
   qui aime les balles élastiques, mon nom est court à prononcer, quand il y a de la musique, je me mets à bouger')
-la_grand_porte = Poi.create!(name: "La Grand'Porte", latitude: 48.648962, longitude: -2.023744, mystery_name: "La Grand'porte",
-      mystery_content: "La Grand Porte est la plus ancienne porte de Saint-Malo. Pendant plusieurs siècles,
-      elle fut l’entrée principale qui desservait le port. Au-dessus de l’entrée, vous pouvez admirer Notre-Dame de la Grand’Porte, une statue de la Vierge à l’Enfant. Des marins auraient trouvé cette statue de marbre flottant sur la mer.
-      Également surnommée « Notre-Dame des Miracles », la légende raconte qu’en 1661, elle se serait dressée face aux flammes qui ravageaient la ville et aurait stoppé l’incendie.", mystery_image: "la_grand_porte.jpg", clue_image: "clue_grand_porte.jpg",
-      clue_sentence: "Je suis une entrée majestueuse de la ville de Saint-Malo, ornée de sculptures et de motifs baroques. Témoin de l'histoire de la cité corsaire. Qui suis-je ?")
+la_grand_porte = Poi.create!(
+  name: "La Grand'Porte",
+  latitude: 48.648962,
+  longitude: -2.023744,
+  mystery_name: "La Grand'porte",
+  mystery_content: "La Grand Porte est la plus ancienne porte de Saint-Malo. Pendant plusieurs siècles, elle fut l’entrée principale qui desservait le port.
+  Au-dessus de l’entrée, vous pouvez admirer Notre-Dame de la Grand’Porte, une statue de la Vierge à l’Enfant. Des marins auraient trouvé cette statue de marbre flottant sur la mer.
+  Également surnommée « Notre-Dame des Miracles », la légende raconte qu’en 1661, elle se serait dressée face aux flammes qui ravageaient la ville et aurait stoppé l’incendie.",
+  mystery_image: "pois/st-malo/la_grand_porte.jpg",
+  clue_image: "pois/st-malo/clue_grand_porte.jpg",
+  clue_sentence: "Je suis une entrée majestueuse de la ville de Saint-Malo, ornée de sculptures et de motifs baroques. Témoin de l'histoire de la cité corsaire. Qui suis-je ?")
 
 st_malo_itinerary_pictures = [File.open("db/seeds/st_malo/images/saint-malo1.jpg")]
 st_malo_itinerary = Itinerary.new(name: 'Saint-Malo, la cité corsaire', subtitle: "Plongez dans les secrets des remparts d'Intra-Muros", distance: 5,
