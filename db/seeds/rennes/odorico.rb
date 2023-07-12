@@ -7,8 +7,8 @@ poirier = Poi.create!(
   longitude: -1.6736565807233568,
   mystery_content: "Appréciez les magnifiques tesselles dorées. Si l’immeuble à l’architecture typiquement Art déco porte le nom de l’entrepreneur Jean Poirier,
   les mosaïques elles sont bien signées Odorico. Elles datent de 1928 et ont été restaurées en 2016-2017 par la famille Patrizio, originaire du même village que les Odorico",
-  mystery_image: 'pois/rennes/poirier.jpg',
-  clue_image: 'pois/rennes/poirier_clue.png',
+  mystery_image: 'pois/rennes/odorico/poirier.jpg',
+  clue_image: 'pois/rennes/odorico/poirier_clue.png',
   clue_sentence: "Elevez votre regard... ou vous manquerez ce secret",
 )
 
@@ -19,8 +19,8 @@ dupont = Poi.create!(
   longitude: -1.6707543920324979,
   mystery_content: "C’est dans ce quartier que l’activité de la famille Odorico a commencé, comme en témoigne plusieurs décors dans les commerces.
   Vous pouvez admirer la façade de ce numéro 31, mais n'hésitez pas à flâner dans cette rue pour découvrir d'autres mosaïques.",
-  mystery_image: 'pois/rennes/dupont.jpg',
-  clue_image: 'pois/rennes/dupont_clue.png',
+  mystery_image: 'pois/rennes/odorico/dupont.jpg',
+  clue_image: 'pois/rennes/odorico/dupont_clue.png',
   clue_sentence: "Cette façade sera du côté impair de la rue",
 )
 
