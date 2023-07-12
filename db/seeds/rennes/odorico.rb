@@ -12,8 +12,6 @@ poirier = Poi.create!(
   clue_sentence: "Elevez votre regard... ou vous manquerez ce secret",
 )
 
-
-
 odorico_itinerary_pictures = [File.open("db/seeds/rennes/images/odorico.png")]
 odorico_itinerary = Itinerary.new(
   name: 'Splendeur des Odorico',
@@ -38,6 +36,5 @@ ItineraryPoi.create!(poi_order: 1, itinerary: odorico_itinerary, poi: poirier)
 ItineraryPoi.create!(poi_order: 2, itinerary: odorico_itinerary, poi: maison_ti_coz)
 ItineraryPoi.create!(poi_order: 3, itinerary: odorico_itinerary, poi: hotel_noue)
 ItineraryPoi.create!(poi_order: 4, itinerary: odorico_itinerary, poi: rue_chapitre)
-# ItineraryPoi.create!(poi_order: 3, itinerary: st_malo_itinerary, poi: chiens_du_guet)
 
 puts "created #{ItineraryPoi.count} ItineraryPois"
