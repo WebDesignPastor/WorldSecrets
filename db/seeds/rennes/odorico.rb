@@ -24,7 +24,7 @@ dupont = Poi.create!(
   clue_sentence: "Cette façade sera du côté impair de la rue",
 )
 
-odorico_itinerary_pictures = [File.open("db/seeds/rennes/images/odorico.png")]
+odorico_itinerary_pictures = [File.open("db/seeds/rennes/images/odorico.jpg")]
 odorico_itinerary = Itinerary.new(
   name: 'Splendeur des Odorico',
   subtitle: "Découvrez les magnifiques mosaïques cachées dans les rues rennaises",
