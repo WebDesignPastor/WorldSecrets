@@ -1,6 +1,6 @@
 vezin = City.create!(name: 'Vezin-le-Coquet')
 
-ferme_vezin = Poi.create!(name: 'Le Bas-vezin', mystery_name: 'Ferme du Bas-Vezin', latitude: 48.115383000768574, longitude: -1.7568778017389504,
+ferme_vezin = Poi.create!(name: 'Le Bas-vezin', mystery_name: 'Ferme du Bas-Vezin', latitude: 48.11499531094043, longitude: -1.7552324935050911,
   mystery_content: "Autrefois isolée au sud du village, cette ancienne ferme est maintenant englobée dans l'agglomération de Vezin.
   Implantée sur le site d'un manoir disparu, elle est datée de la fin du 18e siècle et présente un ensemble de bâtiments remarquables. L'aile ouest a été transformée en logements.",
   mystery_image: 'pois/vezin/ferme_bas_vezin.png', clue_image: 'pois/vezin/ferme_bas_vezin_clue.png', clue_sentence: 'Je suis un lieu de détention, je suis situé à Vezin-le-Coquet, je suis un lieu historique')

@@ -65,7 +65,7 @@ export default class extends Controller {
         this.positions.unshift([longitude, latitude])
 
         // Remove the last position from the end of the array.
-        const N = 5; // Keep the last 10 locations.
+        const N = 2; // Keep the last 2 locations.
         if (this.positions.length > N) {
           this.positions.pop();
         }
