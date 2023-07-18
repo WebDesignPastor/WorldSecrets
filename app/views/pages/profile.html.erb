@@ -18,6 +18,11 @@
     class: 'btn btn-primary btn-center'
   %>
   <%=
+    link_to "Politiques de confidentialité", privacy_path,
+    data: {account_target: "privacyButton"},
+    class: 'btn btn-primary d-none'
+  %>
+  <%=
     link_to "Déconnexion", destroy_user_session_path,
     data: {account_target: "logoutButton", turbo_method: :delete},
     class: 'btn btn-primary d-none'

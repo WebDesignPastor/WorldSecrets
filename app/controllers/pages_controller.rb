@@ -11,6 +11,9 @@ class PagesController < ApplicationController
     @favorite_itineraries = bookmarks.map(&:itinerary)
   end
 
+  def privacy
+  end
+
   def rating(itinerary)
     (itinerary.rates.sum / itinerary.rates.length).truncate(0)
   end
