@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   get "profile", to: "pages#profile"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  get "privacy", to: "pages#privacy"
   resources "itineraries", only: %i[index show create update] do
     resources "bookmarks", only: %i[create destroy]
     resources "trips", only: :create

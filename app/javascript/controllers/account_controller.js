@@ -4,12 +4,13 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = [
     "deleteButton", "itinerariesList", "backButton", "itinerariesCategory", "gear", "cross",
-    "logoutButton"
+    "logoutButton", "privacyButton"
   ]
 
   appearOptions() {
     this.logoutButtonTarget.classList.remove("d-none")
     this.deleteButtonTarget.classList.remove("d-none")
+    this.privacyButtonTarget.classList.remove("d-none")
     this.backButtonTarget.classList.add("d-none")
     this.itinerariesListTargets.forEach((list) => {
       list.classList.add("d-none")
@@ -24,6 +25,7 @@ export default class extends Controller {
   disappearOptions() {
     this.logoutButtonTarget.classList.add("d-none")
     this.deleteButtonTarget.classList.add("d-none")
+    this.privacyButtonTarget.classList.add("d-none")
     this.backButtonTarget.classList.remove("d-none")
     this.itinerariesListTargets.forEach((list) => {
       list.classList.remove("d-none")
