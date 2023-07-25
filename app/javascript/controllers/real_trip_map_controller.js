@@ -49,6 +49,7 @@ export default class extends Controller {
         })
           .setLngLat([longitude, latitude])
           .addTo(this.map)
+          customMarker.classList.add("d-none")
 
       // Add markers for pois
       this.#addMarkersToMap(this.markersValue)
