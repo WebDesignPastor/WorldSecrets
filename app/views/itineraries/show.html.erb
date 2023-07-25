@@ -32,8 +32,12 @@
   </div>
   <div class="card_show_bottom">
     <% if user_signed_in? %>
-      <%= simple_form_for [@itinerary, @trip] do |f| %>
-        <%= f.submit "Allons-y", class: "btn btn-primary w-100" %>
+      <% if Trip.exists?(user: current_user, itinerary: @itinerary, completed: false) %>
+        <%= link_to "Reprendre l'itinéraire", trip_path(@trip), class: "btn btn-primary w-100" %>
+      <% else %>
+        <%= simple_form_for [@itinerary, @trip] do |f| %>
+          <%= f.submit "Allons-y", class: "btn btn-primary w-100" %>
+        <% end %>
       <% end %>
     <% else %>
       <%= link_to "Se connecter pour aller plus loin", new_user_session_path, class: "btn btn-primary w-100" %>

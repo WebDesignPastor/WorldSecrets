@@ -29,7 +29,11 @@ class ItinerariesController < ApplicationController
 
   def show
     @itinerary = Itinerary.find(params[:id])
-    @trip = Trip.new
+    if Trip.exists?(user: current_user, itinerary: @itinerary, completed: false)
+      @trip = Trip.find_by(user: current_user, itinerary: @itinerary, completed: false)
+    else
+      @trip = Trip.new
+    end
     @bookmarks = Bookmark.where(user: current_user, itinerary: @itinerary)
     @markers = { lat: @itinerary.latitude, lng: @itinerary.longitude }
   end
