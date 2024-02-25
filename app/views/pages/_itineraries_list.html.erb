@@ -1,0 +1,24 @@
+<% itineraries.each do |itinerary| %>
+  <div data-account-target="itinerariesList" class="card card-profile">
+    <%= link_to itinerary_path(itinerary), class:'d-flex align-items-center' do %>
+      <%= cl_image_tag itinerary.photos.first.key, height: 110, width: 100, crop: :fill %>
+      <div class="card-infos">
+        <div>
+          <% rating(itinerary).times do |i| %>
+            <%= image_tag "star.svg" %>
+          <% end %>
+          <% (5 - rating(itinerary)).times do |i| %>
+            <%= image_tag "emptystar.svg" %>
+          <% end %>
+        </div>
+        <h4><%= itinerary.name %></h4>
+        <div class="card-details">
+          <div class="card-show-itinerary-infos align-items-center text-small card-index-details">
+            <%= image_tag "steps.svg" %> <%= itinerary.distance %> km
+            <%= image_tag "hourglass.svg" %> <%= itinerary.duration / 60 %> h <%=  itinerary.duration % 60 if itinerary.duration % 60 != 0 %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

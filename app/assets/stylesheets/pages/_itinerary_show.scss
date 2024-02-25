@@ -1,0 +1,147 @@
+.main_show_div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height:100vh;
+  z-index: 10;
+  background-color: $beige;
+}
+
+.banner-show {
+  position: relative;
+  background: image-url("bandeaushow.svg") no-repeat;
+  padding: 8px 24px;
+  text-align: center;
+  width: 350px;
+  margin: 0 auto;
+  margin-top: -35px;
+  min-height: 70px;
+  height: 70px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  h2 {
+    color:white;
+    line-height: 1.2;
+    margin:0;
+  }
+}
+
+
+.card_show_itinerary_poi {
+  position: relative;
+  width: 100vw;
+}
+
+.card_show_itinerary {
+  position: relative;
+  width: 100vw;
+  mask: linear-gradient(to top, transparent, black 20%);
+}
+
+.card_show_itinerary_content {
+  padding:20px 20px 8px 20px;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+
+  p {
+    font-size: calc(4000vw / 1018);
+  }
+
+  .rating-stars {
+    display:flex;
+    gap:2px;
+    align-items: center;
+    .text-small {
+      margin:0;
+    }
+
+  .img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .card-show-itinerary-infos {
+    background:white;
+    padding:8px 12px;
+    border-radius:50px;
+  }
+}
+
+.card_show_bottom {
+  width:100%;
+  position: fixed;
+  bottom:0;
+  padding:80px 20px 20px 20px;
+  background: linear-gradient(3.1deg, #E9E6DF 10.18%, rgba(233, 230, 223, 0) 96.08%);
+}
+
+.card_show_description {
+
+  padding:20px;
+  padding-top: 0px;
+  padding-bottom:80px;
+
+  .big-size {
+    font-size: 22px;
+  }
+
+  .h3 {
+    align-content: center;
+  }
+}
+
+.gap-infos {
+  gap: 10px;
+}
+
+.button-return {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  text-decoration: none;
+  font-family: inter;
+  font-size: small;
+  color: #dddddd;
+  letter-spacing: .1rem;
+}
+
+.button-favorite {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border-radius: 50%;
+  // background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba($beige, 0.7);
+  padding: 12px 10px 10px 10px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  color: $primary;
+  border: none;
+  transition: all 300ms;
+}
+
+.button-favorite-active {
+  color: $beige !important;
+  background-color: rgba($primary, 1) !important;
+}
+
+.show-image-poi {
+  width: 100vw;
+  mask: linear-gradient(to top, transparent, black 20%);
+}
+
+.show-image {
+  width: 100vw;
+  height: 250px;
+  max-height: 250px;
+  min-height: 250px;
+}

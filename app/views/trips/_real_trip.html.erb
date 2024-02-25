@@ -1,0 +1,6 @@
+<div class="position-absolute" style="width: 100vw; height: 100vh;"
+  data-controller="real-trip-map"
+  data-real-trip-map-markers-value="<%= @markers.to_json %>"
+  data-real-trip-map-departure-markers-value="<%= @departure_marker.to_json %>"
+  data-real-trip-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>

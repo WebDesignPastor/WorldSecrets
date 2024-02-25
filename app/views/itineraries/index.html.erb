@@ -1,0 +1,89 @@
+<div data-controller="switch">
+  <%# Navbar %>
+  <%= render 'shared/navbar' %>
+  <%# List Results %>
+  <div data-switch-target="list" class="d-flex flex-column container-index overflow-hidden">
+    <div>
+      <div class="d-flex justify-content-between">
+        <h2>
+          <% if params[:query].present? %>
+            Tous les itinéraires
+            <br><%= "à #{params[:query]}" %>
+          <% else %>
+            Tous les itinéraires
+          <% end %>
+        </h2>
+        <%# Insérer le symbol des filtres qui fait apparaître la modal %>
+      </div>
+      <div class="d-flex justify-content-between checkbox-wrapper">
+        <div data-action="click->switch#filter" data-switch-target="btnAucun"
+             data-filter="Aucun" class="btn btn-filter btn-primary">Aucun</div>
+        <div data-action="click->switch#filter" data-switch-target="btnNature"
+             data-filter="Nature" class="btn btn-filter btn-outline-primary">Nature</div>
+        <div data-action="click->switch#filter" data-switch-target="btnUrbain"
+             data-filter="Urbain" class="btn btn-filter btn-outline-primary">Urbain</div>
+        <div data-action="click->switch#filter" data-switch-target="btnMedieval"
+             data-filter="Médiéval" class="btn btn-filter btn-outline-primary">Médiéval</div>
+        <div data-action="click->switch#filter" data-switch-target="btnPrehistorique"
+             data-filter="Préhistorique" class="btn btn-filter btn-outline-primary">Préhistorique</div>
+      </div>
+    </div>
+
+    <%# Cards %>
+    <div>
+      <h3>Proches de vous</h3>
+      <%= render 'itineraries_list', itineraries: @itineraries %>
+    </div>
+    <div>
+      <h3>Balade rapide</h3>
+      <%= render 'itineraries_list', itineraries: short(@itineraries) %>
+    </div>
+    <div>
+      <h3>Grands marcheurs</h3>
+      <%= render 'itineraries_list', itineraries: long(@itineraries) %>
+    </div>
+  </div>
+
+  <%# Cards on Map %>
+  <div class="cards-wrapper cards-fixed d-none" data-switch-target="cardsForMap">
+    <div class="d-flex cards">
+      <% @itineraries.each do |itinerary| %>
+        <div class="card card-reduce">
+          <%= link_to itinerary_path(itinerary), class:'d-flex align-items-center' do %>
+            <%= cl_image_tag itinerary.photos.first.key, height: 110, width: 100, crop: :fill %>
+            <div class="card-infos">
+              <div>
+                <% rating(itinerary).times do |i| %>
+                  <%= image_tag "star.svg" %>
+                <% end %>
+                <% (5 - rating(itinerary)).times do |i| %>
+                  <%= image_tag "emptystar.svg" %>
+                <% end %>
+              </div>
+              <h4 id="card-name-map"><%= itinerary.name %></h4>
+              <div class="card-details">
+                <div class="card-show-itinerary-infos align-items-center text-small card-index-details">
+                  <%= image_tag "steps.svg" %> <%= itinerary.distance %> km
+                  <%= image_tag "hourglass.svg" %> <%= itinerary.duration / 60 %> h <%=  itinerary.duration % 60 if itinerary.duration % 60 != 0 %>
+                </div>
+              </div>
+              <span class="itinerary-infos d-none"><%= itinerary.latitude %></span>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <%# Map %>
+  <div class="position-relative wrapper-map map-hidden" data-switch-target="wrapperMap">
+    <div class="map-overlay"></div>
+    <div  id="itinerary-map"
+          class="opacity-0"
+          data-switch-target="map"
+          data-controller="itineraries"
+          data-itineraries-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+          data-itineraries-markers-value="<%= @itineraries_markers.to_json %>">
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
+<% if current_user.email == "test1@test.com" %>
+  <div class="position-relative wrapper-map" data-controller="fake-trip" data-action="click->fake-trip#onClickEvent">
+    <%= render 'fake_trip' %>
+    <%= render 'trip_infos' %>
+    <%= render 'modal' %>
+    <%= render 'poi' %>
+    <div class="help-icon">
+      <i class="fas fa-question"></i>
+    </div>
+  </div>
+<% else %>
+  <div class="position-relative wrapper-map">
+    <%= render 'real_trip' %>
+    <%= render 'trip_infos' %>
+    <%= render 'modal' %>
+    <%= render 'poi' %>
+    <div class="help-icon">
+      <i class="fas fa-question"></i>
+    </div>
+  </div>
+<% end %>

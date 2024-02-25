@@ -1,0 +1,35 @@
+<div data-controller='account' class="d-flex flex-column container-profile">
+  <div class='d-flex flex-row justify-content-between align-items-center'>
+    <h1>Votre profil</h1>
+    <i class="fa-solid fa-gear" data-account-target="gear" data-action="click->account#appearOptions"></i>
+    <i class="fa-solid fa-xmark d-none" data-account-target="cross" data-action="click->account#disappearOptions"></i>
+  </div>
+  <h2 data-account-target="itinerariesCategory" style="margin-top: 10px; margin-bottom: 0px">
+    Vos itinéraires favoris
+  </h2>
+  <%= render 'itineraries_list', itineraries: @favorite_itineraries %>
+  <h2 data-account-target="itinerariesCategory" style="margin-top: 10px; margin-bottom: 0px">
+    Itinéraires faits
+  </h2>
+  <%= render 'itineraries_list', itineraries: @completed_itineraries %>
+  <%=
+    link_to 'Retour aux itinéraires', itineraries_path,
+    data: {account_target: "backButton"},
+    class: 'btn btn-primary btn-center'
+  %>
+  <%=
+    link_to "Politiques de confidentialité", privacy_path,
+    data: {account_target: "privacyButton"},
+    class: 'btn btn-primary d-none'
+  %>
+  <%=
+    link_to "Déconnexion", destroy_user_session_path,
+    data: {account_target: "logoutButton", turbo_method: :delete},
+    class: 'btn btn-primary d-none'
+  %>
+  <%=
+    link_to 'Supprimer mon compte', user_registration_path,
+    data: {account_target: "deleteButton", turbo_method: :delete, turbo_confirm: "Êtes vous sûr(e) ?"},
+    class: "btn btn-primary btn-center d-none"
+  %>
+</div>

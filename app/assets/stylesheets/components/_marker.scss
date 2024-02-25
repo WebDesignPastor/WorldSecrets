@@ -1,0 +1,76 @@
+.poi-marker {
+  position:relative;
+
+  &:first-of-type {
+    width: 44px !important;
+    height: 50px !important;
+    background: image-url('departure-marker.svg') !important;
+    border: none !important;
+    opacity: 1 !important;
+  }
+
+  &:nth-of-type(n+2) {
+    background-color: $primary;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: pulse 5s infinite;
+  }
+
+  &:nth-of-type(n+3) {
+    visibility: hidden;
+  }
+}
+
+.completed-poi {
+  width: 47px;
+  height: 54px;
+  background: image-url('completed.svg');
+  border: none;
+  opacity: 1;
+  animation: bounce 2s ease;
+}
+
+.itinerary-marker, .itinerary-marker:first-of-type {
+  width: 47px !important;
+  height: 54px !important;
+  background: image-url('banner.svg') !important;
+  border: none !important;
+  visibility: hidden;
+}
+
+.itinerary-marker-completed {
+  width: 47px !important;
+  height: 54px !important;
+  background: image-url('completed.svg') !important;
+  border: none !important;
+  visibility: hidden;
+}
+
+.itinerary-marker-active {
+  background: image-url('activebanner.svg') !important;
+}
+
+
+.itinerary-marker:after {
+  display:none !important;
+}
+
+@keyframes pulse {
+  0% {
+    width:0px;
+    height:0px;
+  }
+
+  100% {
+    width:100px;
+    height:100px;
+  }
+}
+
+@keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {top : 0px;}
+	40% {top :-30px;}
+	60% {top: -15px;}
+}

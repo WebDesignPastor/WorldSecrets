@@ -1,0 +1,14 @@
+<div class="mystery-count position-absolute">
+  <div data-pois-length="<%= @pois.length %>">
+    <div class='d-flex flex-row'>
+      <div class="d-flex flex-row space-text">
+        <p class="step-front">Étape</p>
+        <p class="step-front" id='poi-progress' data-fake-trip-target="progress">1</p>
+      </div>
+      <p class="step-front">/<%= @pois.length %></p>
+    </div>
+  </div>
+  <div>
+    <p>En route vers le mystère !</p>
+  </div>
+</div>

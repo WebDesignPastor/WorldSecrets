@@ -1,0 +1,26 @@
+<% @pois.each_with_index do |poi, index| %>
+  <div class="d-none position-absolute main_show_div" data-fake-trip-target="poi" id='poi-modal'>
+    <div class= "card_show_itinerary">
+      <%= image_tag poi.mystery_image, class: "show-image", crop: :fill %>
+    </div>
+    <div class="banner-show">
+      <h2 class="poi-name"><strong><%= poi.mystery_name %></strong></h2>
+    </div>
+    <div class="card_show_itinerary_content">
+      <p><%= poi.mystery_content %></p>
+    </div>
+    <div class="card_show_bottom">
+      <% if index == @pois.length - 1 %>
+        <%= form_with(model: @trip, method: :patch) do |f| %>
+          <%= f.hidden_field :completed, value: true %>
+          <%= f.submit "Allez au quizz", class:"btn btn-primary w-100" %>
+        <% end %>
+      <% else %>
+        <button id='trip-poi' data-action="click->fake-trip#continueTrip click->real-trip#continueTrip"
+                class="btn btn-primary w-100">
+          Continuez l'aventure
+        </button>
+      <% end %>
+    </div>
+  </div>
+<% end %>

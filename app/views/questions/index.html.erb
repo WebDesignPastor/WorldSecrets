@@ -1,0 +1,10 @@
+
+<div class="d-flex flex-column quizz-wrapper align-items-center" data-controller="questions">
+  <h2><strong><%= @itinerary.quiz_name %></strong></h2>
+  <div class='background-progress'>
+    <div data-questions-target="progress" class="progress-bar">
+    </div>
+  </div>
+  <%= render 'quizz' %>
+  <%= render 'congratulations' %>
+</div>

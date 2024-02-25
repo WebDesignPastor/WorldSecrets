@@ -1,0 +1,46 @@
+<div class= "main_show_div">
+  <div class= "card_show_itinerary" >
+    <%= cl_image_tag @itinerary.photos.first.key, class: "show-image", crop: :fill %>
+    <%= link_to "javascript:history.back()", class: "button-return" do %>
+      <i class="fa-solid fa-chevron-left"></i>
+      <span>RETOUR</span>
+    <% end %>
+    <% if user_signed_in? %>
+      <%= render 'bookmark' %>
+    <% end %>
+  </div>
+  <div class="banner-show">
+    <h2><%= @itinerary.name %></h2>
+  </div>
+  <div class="card_show_itinerary_content">
+    <div class="rating-stars">
+      <% rating(@itinerary).times do |i| %>
+        <%= image_tag "star.svg" %>
+      <% end %>
+      <% (5 - rating(@itinerary)).times do |i| %>
+        <%= image_tag "emptystar.svg" %>
+      <% end %>
+    </div>
+    <div class="card-show-itinerary-infos text-small d-flex flex-row justify-content-between gap-infos">
+      <div><%= image_tag "steps.svg" %> <%= @itinerary.distance %> km</div>
+      <div><%= image_tag "hourglass.svg" %> <%= @itinerary.duration / 60 %> h <%=  @itinerary.duration % 60 if @itinerary.duration % 60 != 0 %></div>
+    </div>
+  </div>
+  <div class="card_show_description">
+    <p class="big-size"><i> <%= @itinerary.subtitle %></i></p>
+    <p><%= @itinerary.description %></p>
+  </div>
+  <div class="card_show_bottom">
+    <% if user_signed_in? %>
+      <% if Trip.exists?(user: current_user, itinerary: @itinerary, completed: false) %>
+        <%= link_to "Reprendre l'itinéraire", trip_path(@trip), class: "btn btn-primary w-100" %>
+      <% else %>
+        <%= simple_form_for [@itinerary, @trip] do |f| %>
+          <%= f.submit "Allons-y", class: "btn btn-primary w-100" %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <%= link_to "Se connecter pour aller plus loin", new_user_session_path, class: "btn btn-primary w-100" %>
+    <% end %>
+  </div>
+</div>
